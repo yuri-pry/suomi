@@ -8,7 +8,7 @@ let voikko;
 const fi = () => (voikko ??= BaseVoikko().init('fi'));
 
 const TYPES = ['choice', 'fill', 'listen'];
-const RULE_TYPES = ['rektio', 'case', 'verbtype', 'gradation', 'phonology', 'object', 'tense', 'mood', 'construction', 'clitic'];
+const RULE_TYPES = ['rektio', 'case', 'verbtype', 'wordtype', 'gradation', 'phonology', 'object', 'tense', 'mood', 'sentence', 'construction', 'clitic'];
 const MIN_EXERCISES_PER_RULE = 4;
 
 const words = (text) => text.match(/\p{L}+(?:[-'’]\p{L}+)*/gu) ?? [];
@@ -53,11 +53,20 @@ export function validate(units, rules, allow = new Set()) {
     for (const ex of r.examples ?? []) {
       finnish(r.id, 'example', ex.fi);
       if (r.type !== 'rektio') continue;
-      if (!r.requires || !ex.word) errors.push(`${r.id}: rektio rule needs "requires" and a "word" in each example`);
+      if (!(r.requires || r.requiresMood) || !ex.word)
+        errors.push(`${r.id}: rektio rule needs "requires" or "requiresMood", and a "word" in each example`);
       // Any analysis may match: "kuusta" is both kuu (elative) and kuusi (partitive).
-      else if (!fi().analyze(ex.word).some((a) => a.SIJAMUOTO === r.requires))
-        errors.push(`${r.id}: "${ex.word}" is not in case ${r.requires}`);
+      else if (
+        !fi()
+          .analyze(ex.word)
+          .some(
+            (a) =>
+              (!r.requires || a.SIJAMUOTO === r.requires) && (!r.requiresMood || a.MOOD === r.requiresMood),
+          )
+      )
+        errors.push(`${r.id}: "${ex.word}" is not in case ${[r.requiresMood, r.requires].filter(Boolean).join(' ')}`);
     }
+    if (r.ref && !r.ref.startsWith('https://')) errors.push(`${r.id}: ref must be an https link`);
   }
 
   for (const unit of units) {

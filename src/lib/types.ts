@@ -51,12 +51,32 @@ export type Unit = {
 
 export type Rule = {
   id: string;
-  type: 'rektio' | 'case' | 'verbtype' | 'gradation' | 'phonology' | 'object' | 'tense' | 'mood' | 'construction' | 'clitic';
+  type:
+    | 'rektio'
+    | 'case'
+    | 'verbtype'
+    | 'wordtype'
+    | 'gradation'
+    | 'phonology'
+    | 'object'
+    | 'tense'
+    | 'mood'
+    | 'sentence'
+    | 'construction'
+    | 'clitic';
   unit: string;
   title: string;
-  /** rektio only: the governing word and the Voikko case name it demands. */
+  /**
+   * rektio only: the governing word (verb, adjective or noun) and what it demands.
+   * `requires` is a Voikko case name (sisaeronto, osanto, ...). `requiresMood` is a
+   * Voikko infinitive (A-infinitive, MA-infinitive). "mennä uimaan" needs both:
+   * MA-infinitive in sisatulento.
+   */
   verb?: string;
   requires?: string;
+  requiresMood?: string;
+  /** Further reading for the Rules screen. */
+  ref?: string;
   /** `word` marks the governed word, checked against `requires`. */
   examples: { fi: string; en: string; word?: string }[];
 };

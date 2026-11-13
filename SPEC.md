@@ -351,9 +351,16 @@ is not in the file.
   "examples": [ { "fi": "Pidän kahvista.", "en": "I like coffee.", "word": "kahvista" } ] }
 ```
 
-- Types: `rektio` (which case a verb or adjective demands), `case` (when a case is
-  used), `verbtype`, `gradation` (consonant gradation), `phonology` (vowel harmony),
-  `object`, `tense`, `mood`,
+- The plan of which rules each unit adds, about 230 in all, is in
+  `tasks/rulebook-map.md`. It was built from the books' contents and the grammar
+  index of uusikielemme.fi.
+- A `rektio` rule can demand a case (`requires`), an infinitive (`requiresMood`) or
+  both, for example mennä + MA-infinitive in the illative (mennä uimaan).
+- A rule may carry `ref`, a link to further reading.
+- Types: `rektio` (which case or infinitive a verb, adjective or noun demands), `case`
+  (when a case is used), `verbtype`, `wordtype` (how a noun type builds its stem),
+  `gradation` (consonant gradation), `phonology` (vowel harmony), `sentence`
+  (sentence types), `object`, `tense`, `mood`,
   `construction` (participles, clause equivalents), `clitic`.
 - Every exercise that practises a rule lists the rule id in its `tags`. Vocabulary
   exercises have no rule tag.

@@ -290,7 +290,8 @@ and the first-launch screen with "start from the beginning" as the other choice.
 
 Each content task has the same criteria: the files pass the validator with no
 unexplained warnings, each unit has a tip, 5 lessons and declared forms on grammar
-`fill` items, each unit's rules are added to `content/rules.json` and tagged, 3 placement items per unit are added to `content/placement.json`, and a
+`fill` items, each unit's rules from `tasks/rulebook-map.md` are added to
+`content/rules.json` and tagged, 3 placement items per unit are added to `content/placement.json`, and a
 person who knows Finnish has read the section.
 
 - [ ] Task 16: Section 1 remaining units (2 to 6)

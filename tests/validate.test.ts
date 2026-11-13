@@ -97,3 +97,22 @@ test('a rektio rule example must use the required case', () => {
     validate([unit(exercises)], [{ ...rektio('kuusta', 'Katson kuusta.'), requires: 'osanto' }]).errors,
   ).toEqual([]);
 });
+
+test('a rektio rule can demand an infinitive form', () => {
+  const rule = (word: string, extra: object) => ({
+    id: 'rektio-menna-maan',
+    type: 'rektio',
+    unit: 'u99',
+    title: 'mennä + -maan',
+    verb: 'mennä',
+    examples: [{ fi: `Menen ${word}.`, en: 'I go swimming.', word }],
+    ...extra,
+  });
+  const exercises = ['e1', 'e2', 'e3', 'e4'].map((id) => fill(id, { tags: ['rektio-menna-maan'] }));
+  const maan = { requires: 'sisatulento', requiresMood: 'MA-infinitive' };
+  expect(validate([unit(exercises)], [rule('uimaan', maan)]).errors).toEqual([]);
+  // right infinitive, wrong case (-massa instead of -maan)
+  expect(validate([unit(exercises)], [rule('uimassa', maan)]).errors[0]).toContain('not in case');
+  expect(validate([unit(exercises)], [rule('uida', { requiresMood: 'A-infinitive' })]).errors).toEqual([]);
+  expect(validate([unit(exercises)], [rule('uimaan', {})]).errors[0]).toContain('needs "requires"');
+});

@@ -18,6 +18,7 @@
     "type": "phonology",
     "unit": "u01",
     "title": "Vowel harmony: a, o, u do not mix with ä, ö, y in one word",
+    "ref": "https://uusikielemme.fi/finnish-grammar/vowel-harmony-vokaaliharmonia-finnish-grammar/",
     "examples": [
       { "fi": "talossa", "en": "in the house (back vowels: ending -ssa)" },
       { "fi": "metsässä", "en": "in the forest (front vowels: ending -ssä)" },
