@@ -1,3 +1,13 @@
+---
+ontology: true
+type: guide
+domain: suomi-app
+status: active
+summary: Commands and Android APK build steps for the Suomi app
+tags: [readme, build]
+related: [SPEC, todo]
+---
+
 # Suomi
 
 A Finnish study app with short lessons. What it is and why: `SPEC.md`. What is built

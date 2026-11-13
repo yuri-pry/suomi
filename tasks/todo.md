@@ -1,3 +1,13 @@
+---
+ontology: true
+type: task-list
+domain: suomi-app
+status: active
+summary: Tasks in 5 phases with acceptance criteria and done state
+tags: [tasks]
+related: [plan, SPEC]
+---
+
 # Tasks: Finnish study app
 
 Commands used below: `npm test` (Vitest plus the content validator), `npm run build`,
@@ -6,7 +16,7 @@ Commands used below: `npm test` (Vitest plus the content validator), `npm run bu
 ## Phase 1: One playable lesson
 
 ### Task 1: Scaffold the project
-- [ ] Done (first commit blocked: git has no user name and email set)
+- [x] Done
 
 **Description:** Create the Vite, React and TypeScript project with Vitest and ESLint,
 and a git repository with the PDFs and `node_modules` ignored.

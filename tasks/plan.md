@@ -1,6 +1,16 @@
+---
+ontology: true
+type: plan
+domain: suomi-app
+status: active
+summary: Implementation plan, dependency graph and risks for the Finnish study app
+tags: [plan]
+related: [SPEC, todo]
+---
+
 # Implementation Plan: Finnish study app
 
-Status: waiting for approval. Source of truth for what is built: `../SPEC.md`.
+Status: approved. Source of truth for what is built: `../SPEC.md`.
 Task details and checkboxes: `todo.md`.
 
 ## Overview

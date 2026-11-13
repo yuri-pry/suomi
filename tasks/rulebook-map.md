@@ -1,3 +1,13 @@
+---
+ontology: true
+type: reference
+domain: suomi-app
+status: active
+summary: Grammar rules each unit adds to content/rules.json
+tags: [grammar, rules, content]
+related: [SPEC, AUTHORING]
+---
+
 # Rulebook map
 
 Which grammar rules each unit adds to `content/rules.json`. Written on 2026-11-13 from

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { Unit } from './lib/types';
-import { loadUnit } from './lib/content';
+import { loadAllUnits } from './lib/content';
 import { completeLesson, currentStreak, load, localDay, save } from './lib/progress';
 import { loadFinnishVoice } from './lib/speech';
 import { t } from './lib/strings';
@@ -15,24 +15,24 @@ type Screen =
 
 export function App() {
   const [progress, setProgress] = useState(load);
-  const [unit, setUnit] = useState<Unit | null>(null);
+  const [units, setUnits] = useState<Unit[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [screen, setScreen] = useState<Screen>({ name: 'home' });
 
   const [voice, setVoice] = useState<SpeechSynthesisVoice | null>(null);
 
   useEffect(() => {
-    loadUnit('u01').then(setUnit, (e) => setError(String(e)));
+    loadAllUnits().then(setUnits, (e) => setError(String(e)));
     loadFinnishVoice().then(setVoice);
   }, []);
 
   if (error) return <p role="alert">{error}</p>;
-  if (!unit) return <p className="loading">{t('loading', progress.lang)}</p>;
+  if (!units) return <p className="loading">{t('loading', progress.lang)}</p>;
 
   const today = localDay(new Date());
 
   if (screen.name === 'lesson') {
-    const lesson = unit.lessons.find((l) => l.id === screen.lessonId)!;
+    const lesson = units.flatMap((u) => u.lessons).find((l) => l.id === screen.lessonId)!;
     return (
       <Lesson
         key={lesson.id}
@@ -62,6 +62,6 @@ export function App() {
     );
 
   return (
-    <Home unit={unit} progress={progress} today={today} onStart={(lessonId) => setScreen({ name: 'lesson', lessonId })} />
+    <Home units={units} progress={progress} today={today} onStart={(lessonId) => setScreen({ name: 'lesson', lessonId })} />
   );
 }

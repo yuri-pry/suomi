@@ -1,3 +1,13 @@
+---
+ontology: true
+type: pattern
+domain: suomi-app
+status: active
+summary: How the manager session hands self-contained tasks to helper agents, with brief templates and results
+tags: [delegation, agents]
+related: [AUTHORING, todo]
+---
+
 # Delegation: how work is handed to helper agents
 
 The main session acts as manager. It hands self-contained tasks to helper agents that

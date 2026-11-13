@@ -1,6 +1,16 @@
+---
+ontology: true
+type: spec
+domain: suomi-app
+status: active
+summary: Approved spec for the Finnish study app: scope, curriculum, exercise types, scoring, architecture
+tags: [spec, finnish, curriculum]
+related: [plan, todo]
+---
+
 # Spec: Finnish study app ("Duolingo-style", based on the No niin! syllabus)
 
-Status: draft, waiting for approval. Nothing is built yet.
+Status: approved. Phases 1 and 2 are built; see `tasks/todo.md`.
 
 ## 1. Rewritten prompt
 

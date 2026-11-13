@@ -8,3 +8,8 @@ export function loadUnit(id: string): Promise<Unit> {
   if (!file) return Promise.reject(new Error(`Unknown unit ${id}`));
   return file();
 }
+
+// Every unit, in file-name order (u01, u02, ...).
+export function loadAllUnits(): Promise<Unit[]> {
+  return Promise.all(Object.keys(files).sort().map((k) => files[k]()));
+}

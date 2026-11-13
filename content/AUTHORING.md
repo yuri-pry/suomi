@@ -1,3 +1,13 @@
+---
+ontology: true
+type: guide
+domain: suomi-app
+status: active
+summary: Self-contained guide for writing one content unit
+tags: [content, authoring]
+related: [rulebook-map, delegation]
+---
+
 # Writing a content unit
 
 Everything a writer needs to produce one unit. You do not need any other project
