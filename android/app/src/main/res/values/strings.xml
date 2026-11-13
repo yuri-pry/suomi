@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Suomi</string>
+    <string name="title_activity_main">Suomi</string>
+    <string name="package_name">com.suomiapp.study</string>
+    <string name="custom_url_scheme">com.suomiapp.study</string>
+</resources>
