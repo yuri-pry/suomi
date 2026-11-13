@@ -1,0 +1,1 @@
+# Names and loanwords that are correct but unknown to Voikko. One per line.

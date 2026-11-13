@@ -1,0 +1,27 @@
+[
+  {
+    "id": "olla-present",
+    "type": "verbtype",
+    "unit": "u01",
+    "title": "olla (to be), present tense",
+    "examples": [
+      { "fi": "Minä olen opiskelija.", "en": "I am a student." },
+      { "fi": "Sinä olet kotona.", "en": "You are at home." },
+      { "fi": "Hän on opettaja.", "en": "He/She is a teacher." },
+      { "fi": "Me olemme Suomessa.", "en": "We are in Finland." },
+      { "fi": "Te olette koulussa.", "en": "You (plural) are at school." },
+      { "fi": "He ovat kotona.", "en": "They are at home." }
+    ]
+  },
+  {
+    "id": "vowel-harmony",
+    "type": "phonology",
+    "unit": "u01",
+    "title": "Vowel harmony: a, o, u do not mix with ä, ö, y in one word",
+    "examples": [
+      { "fi": "talossa", "en": "in the house (back vowels: ending -ssa)" },
+      { "fi": "metsässä", "en": "in the forest (front vowels: ending -ssä)" },
+      { "fi": "Helsingissä", "en": "in Helsinki (only e and i: ending -ssä)" }
+    ]
+  }
+]
