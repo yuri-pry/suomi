@@ -61,8 +61,8 @@ tekemässä, tekemästä; combined with `requires` for the case).
 | Unit | Rules to add |
 |---|---|
 | 1 Hello | `olla-present` (verbtype), `vowel-harmony` (phonology) — built |
-| 2 About me | `verbtype-1` (puhua, asua), `question-ko` (clitic), `question-words` (sentence: mikä, missä, mistä, kuka), `negative-verb` (verbtype: en, et, ei) |
-| 3 Food | `verbtype-2` (syödä, juoda), `partitive-form` (case: -a, -ta, -tta by word type), `partitive-amount` (case: after numbers and measures), `partitive-mass` (object: food and drink), `rektio-pitaa-sta`, `rektio-tykata-sta` |
+| 2 About me | `verbtype-1` (puhua, asua), `question-ko` (clitic), `question-words` (sentence: mikä, missä, mistä, kuka) |
+| 3 Food | `negative-verb` (verbtype: en, et, ei), `verbtype-2` (syödä, juoda), `partitive-form` (case: -a, -ta, -tta by word type), `partitive-amount` (case: after numbers and measures), `partitive-mass` (object: food and drink), `rektio-pitaa-sta`, `rektio-tykata-sta` |
 | 4 Home | `inessive-ssa` (case), `existential` (sentence: Keittiössä on pöytä), `possession-lla-on` (sentence: minulla on), `adjective-agreement` (case), `partitive-negative` (object: ei ole + partitive) |
 | 5 Family | `genitive-form` (case), `possessive-suffix` (case), `demonstratives` (case: tämä, tuo, se), `wordtype-nen` (nainen: naise-), `wordtype-e` (huone: huonee-), `wordtype-i-new` (bussi: bussi-), `wordtype-i-old` (ovi: ove-), `wordtype-si` (uusi: uude-), `lla-vs-n` (sentence: minulla on vs minun) |
 | 6 My day | `verbtype-3` (tulla, mennä), `verbtype-4` (haluta, herätä), `verbtype-5` (tarvita), `gradation-verbtype-1` (nukkua: nukun), `gradation-verbtype-3-4` (tavata: tapaan), `illative-form` (case), `rektio-kayda-ssa`, `rektio-menna-hin`, `rektio-tulla-sta`, `pronoun-partitive` (case: minua, sinua) |
