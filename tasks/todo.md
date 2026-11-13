@@ -96,14 +96,14 @@ calendar day, lesson unlock order) and the Result screen.
 ## Phase 2: Delivery risks first
 
 ### Task 6: Finnish speech and the `listen` exercise
-- [ ] Done
+- [x] Done (on this PC; phone test pending)
 
 **Description:** Add `speech.ts` (find a fi-FI voice, speak a sentence) and the
 `listen` exercise. Leave `listen` exercises out of a lesson when no voice exists.
 
 **Acceptance criteria:**
-- [ ] With a Finnish voice, the sentence is spoken and can be replayed
-- [ ] Without one, the lesson plays with no `listen` exercises and no error
+- [x] With a Finnish voice, the sentence is spoken and can be replayed
+- [x] Without one, the lesson plays with no `listen` exercises and no error
 - [ ] Result of the test on the user's Android phone and on this PC is written into SPEC section 5
 
 **Verification:** `npm test` (filter logic), manual test on both devices
@@ -134,9 +134,9 @@ deploy the build to the static host.
 that Java and the Android SDK are installed; installing them needs the user's go-ahead.
 
 **Acceptance criteria:**
-- [ ] `app-debug.apk` installs on the phone
+- [ ] `app-debug.apk` installs on the phone (APK built 2026-11-13, not yet tried on a device)
 - [ ] A lesson plays in flight mode
-- [ ] The build steps are written in `README.md`
+- [x] The build steps are written in `README.md`
 
 **Verification:** manual install and play
 **Dependencies:** Task 7

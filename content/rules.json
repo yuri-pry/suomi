@@ -24,5 +24,45 @@
       { "fi": "metsässä", "en": "in the forest (front vowels: ending -ssä)" },
       { "fi": "Helsingissä", "en": "in Helsinki (only e and i: ending -ssä)" }
     ]
+  },
+  {
+    "id": "verbtype-1",
+    "type": "verbtype",
+    "unit": "u02",
+    "title": "Verb type 1, present tense: puhun, puhut, puhuu, puhumme, puhutte, puhuvat",
+    "examples": [
+      { "fi": "Minä puhun suomea.", "en": "I speak Finnish." },
+      { "fi": "Sinä asut Helsingissä.", "en": "You live in Helsinki." },
+      { "fi": "Hän sanoo hei.", "en": "He/She says hello." },
+      { "fi": "Me puhumme englantia.", "en": "We speak English." },
+      { "fi": "Te asutte Suomessa.", "en": "You (plural) live in Finland." },
+      { "fi": "He kysyvät nimen.", "en": "They ask the name." }
+    ]
+  },
+  {
+    "id": "question-ko",
+    "type": "clitic",
+    "unit": "u02",
+    "title": "Yes/no question: verb first + -ko/-kö (by vowel harmony)",
+    "examples": [
+      { "fi": "Puhutko suomea?", "en": "Do you speak Finnish?" },
+      { "fi": "Asutteko Helsingissä?", "en": "Do you (plural) live in Helsinki?" },
+      { "fi": "Onko hän opettaja?", "en": "Is he/she a teacher?" },
+      { "fi": "Oletko sinä suomalainen?", "en": "Are you Finnish?" }
+    ]
+  },
+  {
+    "id": "question-words",
+    "type": "sentence",
+    "unit": "u02",
+    "title": "Question words come first: mikä, kuka, missä, mistä, mitä, millainen",
+    "examples": [
+      { "fi": "Mikä sinun nimesi on?", "en": "What is your name?" },
+      { "fi": "Kuka hän on?", "en": "Who is he/she?" },
+      { "fi": "Missä sinä asut?", "en": "Where do you live?" },
+      { "fi": "Mistä sinä olet kotoisin?", "en": "Where are you from?" },
+      { "fi": "Mitä kieltä sinä puhut?", "en": "What language do you speak?" },
+      { "fi": "Millainen kieli suomi on?", "en": "What kind of language is Finnish?" }
+    ]
   }
 ]

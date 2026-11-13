@@ -79,3 +79,4 @@ of the three commands, and anything you could not do.
 
 | Date | Task | Model | Helper tokens | Outcome |
 |---|---|---|---|---|
+| 2026-11-13 | Unit 2 content (69 exercises, 3 rules) | Sonnet | 93,000 | Passed the validator first time, 101 seconds. Manager read all 69 items: no wrong Finnish found, nothing sent back. One sentence repeated between lessons 2 and 5. |
