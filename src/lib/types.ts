@@ -28,7 +28,16 @@ export type Fill = Base & {
   form?: Form;
 };
 
-export type Exercise = Choice | Fill;
+/** The Finnish `prompt` is spoken, not shown, until the answer is checked. */
+export type Listen = Base & {
+  type: 'listen';
+  promptLang: 'fi';
+  options: string[];
+  answer: number;
+  invalid?: number[];
+};
+
+export type Exercise = Choice | Fill | Listen;
 
 export type Lesson = { id: string; title: string; exercises: Exercise[] };
 

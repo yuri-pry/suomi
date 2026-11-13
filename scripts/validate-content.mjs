@@ -7,7 +7,7 @@ import BaseVoikko from 'voikko';
 let voikko;
 const fi = () => (voikko ??= BaseVoikko().init('fi'));
 
-const TYPES = ['choice', 'fill'];
+const TYPES = ['choice', 'fill', 'listen'];
 const RULE_TYPES = ['rektio', 'case', 'verbtype', 'gradation', 'phonology', 'object', 'tense', 'mood', 'construction', 'clitic'];
 const MIN_EXERCISES_PER_RULE = 4;
 
@@ -80,7 +80,9 @@ export function validate(units, rules, allow = new Set()) {
         }
         if (e.promptLang === 'fi') finnish(e.id, 'prompt', e.prompt.replaceAll('___', ' '));
 
-        if (e.type === 'choice') {
+        if (e.type === 'listen' && e.promptLang !== 'fi') errors.push(`${e.id}: listen prompt must be Finnish`);
+
+        if (e.type === 'choice' || e.type === 'listen') {
           const invalid = e.invalid ?? [];
           if (!(e.options?.length >= 2)) errors.push(`${e.id}: needs at least 2 options`);
           else if (!Number.isInteger(e.answer) || e.answer < 0 || e.answer >= e.options.length)

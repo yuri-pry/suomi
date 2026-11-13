@@ -1,20 +1,23 @@
 import { useState, type FormEvent } from 'react';
 import type { Lang, Lesson as LessonData } from '../lib/types';
-import { answer, fractionDone, isDone, startLesson } from '../lib/lesson';
+import { answer, fractionDone, isDone, playable, startLesson } from '../lib/lesson';
 import { checkTyped, type Verdict } from '../lib/check';
 import { t } from '../lib/strings';
 import { Choice } from '../exercises/Choice';
 import { Fill } from '../exercises/Fill';
+import { Listen } from '../exercises/Listen';
 
 type Props = {
   lesson: LessonData;
   lang: Lang;
+  /** null when the device has no Finnish voice: listening exercises are left out. */
+  voice: SpeechSynthesisVoice | null;
   onDone: (total: number, wrongIds: string[]) => void;
   onQuit: () => void;
 };
 
-export function Lesson({ lesson, lang, onDone, onQuit }: Props) {
-  const [state, setState] = useState(() => startLesson(lesson.exercises));
+export function Lesson({ lesson, lang, voice, onDone, onQuit }: Props) {
+  const [state, setState] = useState(() => startLesson(playable(lesson.exercises, voice !== null)));
   const [attempt, setAttempt] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [typed, setTyped] = useState('');
@@ -23,17 +26,18 @@ export function Lesson({ lesson, lang, onDone, onQuit }: Props) {
   const exercise = state.queue[0];
   if (!exercise) return null;
 
-  const hasAnswer = exercise.type === 'choice' ? selected !== null : typed.trim() !== '';
-  const correctText = exercise.type === 'choice' ? exercise.options[exercise.answer] : exercise.answers[0];
+  const hasAnswer = exercise.type === 'fill' ? typed.trim() !== '' : selected !== null;
+  const correctText = exercise.type === 'fill' ? exercise.answers[0] : exercise.options[exercise.answer];
+  const instruction = { choice: 'chooseAnswer', fill: 'typeAnswer', listen: 'listenAnswer' } as const;
 
   function submit(e: FormEvent) {
     e.preventDefault();
     if (verdict === null) {
       if (!hasAnswer) return;
       setVerdict(
-        exercise.type === 'choice'
-          ? selected === exercise.answer ? 'right' : 'wrong'
-          : checkTyped(typed, exercise.answers, exercise.answerLang),
+        exercise.type === 'fill'
+          ? checkTyped(typed, exercise.answers, exercise.answerLang)
+          : selected === exercise.answer ? 'right' : 'wrong',
       );
       return;
     }
@@ -64,21 +68,32 @@ export function Lesson({ lesson, lang, onDone, onQuit }: Props) {
       </header>
 
       <main className="exercise" key={`${exercise.id}-${attempt}`}>
-        <p className="instruction">{t(exercise.type === 'choice' ? 'chooseAnswer' : 'typeAnswer', lang)}</p>
-        {exercise.type === 'choice' ? (
+        <p className="instruction">{t(instruction[exercise.type], lang)}</p>
+        {exercise.type === 'choice' && (
           <>
             <h1 className="prompt" lang={exercise.promptLang}>
               {exercise.prompt}
             </h1>
             <Choice exercise={exercise} selected={selected} onSelect={setSelected} locked={verdict !== null} />
           </>
-        ) : (
+        )}
+        {exercise.type === 'fill' && (
           <Fill
             exercise={exercise}
             value={typed}
             onChange={setTyped}
             locked={verdict !== null}
             label={t('typeAnswer', lang)}
+          />
+        )}
+        {exercise.type === 'listen' && voice && (
+          <Listen
+            exercise={exercise}
+            voice={voice}
+            selected={selected}
+            onSelect={setSelected}
+            locked={verdict !== null}
+            playLabel={t('play', lang)}
           />
         )}
       </main>

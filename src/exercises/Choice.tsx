@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
-import type { Choice as ChoiceExercise } from '../lib/types';
+import type { Choice as ChoiceExercise, Listen } from '../lib/types';
 import { shuffle } from '../lib/lesson';
 
 type Props = {
-  exercise: ChoiceExercise;
+  exercise: ChoiceExercise | Listen;
   selected: number | null;
   onSelect: (index: number) => void;
   locked: boolean;

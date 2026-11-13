@@ -7,6 +7,10 @@ export type LessonState = {
   wrong: string[];
 };
 
+/** Without a Finnish voice the lesson simply has no listening exercises. */
+export const playable = (exercises: Exercise[], canSpeak: boolean) =>
+  canSpeak ? exercises : exercises.filter((e) => e.type !== 'listen');
+
 export const startLesson = (exercises: Exercise[]): LessonState => ({
   queue: [...exercises],
   total: exercises.length,

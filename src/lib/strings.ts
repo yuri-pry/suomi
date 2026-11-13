@@ -17,6 +17,8 @@ const S = {
   answerIs: { en: 'Correct answer:', fi: 'Oikea vastaus:' },
   typeAnswer: { en: 'Type the missing word', fi: 'Kirjoita puuttuva sana' },
   chooseAnswer: { en: 'Choose the right answer', fi: 'Valitse oikea vastaus' },
+  listenAnswer: { en: 'Listen and choose what you hear', fi: 'Kuuntele ja valitse, mitä kuulet' },
+  play: { en: 'Play again', fi: 'Toista uudelleen' },
   lessonDone: { en: 'Lesson complete', fi: 'Oppitunti valmis' },
   perfect: { en: 'No mistakes', fi: 'Ei virheitä' },
   mistakes: { en: 'Mistakes', fi: 'Virheitä' },

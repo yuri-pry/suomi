@@ -36,10 +36,16 @@
   box-sizing: border-box;
 }
 
+html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  /* an app, not a document: no pull-to-refresh in the middle of a lesson */
+  overscroll-behavior: none;
+}
+
 body {
   margin: 0;
   min-height: 100dvh;
-  -webkit-tap-highlight-color: transparent;
 }
 
 #root {
@@ -57,6 +63,9 @@ input {
 button {
   cursor: pointer;
   touch-action: manipulation;
+  /* a long press on a control should not select its label */
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 button:disabled {
@@ -257,6 +266,33 @@ button:disabled {
   box-shadow: inset 0 0 0 1px var(--accent);
 }
 
+.play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 4rem;
+  margin-bottom: 1rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  border-radius: 0.75rem;
+  transition: transform 150ms var(--ease-out);
+}
+
+.play:active {
+  transform: scale(0.97);
+}
+
+.heard {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
 .fill-sentence {
   margin: 0.5rem 0;
   font-size: 1.5rem;
@@ -427,6 +463,7 @@ button:disabled {
   }
 
   .primary,
+  .play,
   .lesson-node,
   .bar-fill {
     transition: none;

@@ -21,7 +21,9 @@
         { "id": "u01-l1-e09", "type": "fill", "promptLang": "fi", "answerLang": "fi", "prompt": "Hyvää ___!", "hint": "Good day!", "answers": ["päivää"] },
         { "id": "u01-l1-e10", "type": "fill", "promptLang": "fi", "answerLang": "fi", "prompt": "___ huomenta!", "hint": "Good morning!", "answers": ["hyvää"] },
         { "id": "u01-l1-e11", "type": "choice", "promptLang": "fi", "answerLang": "en", "prompt": "Mitä kuuluu?", "options": ["How are you?", "What is your name?", "Where are you from?"], "answer": 0 },
-        { "id": "u01-l1-e12", "type": "choice", "promptLang": "en", "answerLang": "fi", "prompt": "Fine, thanks.", "options": ["Kiitos, hyvää.", "Hei hei.", "Anteeksi."], "answer": 0 }
+        { "id": "u01-l1-e12", "type": "choice", "promptLang": "en", "answerLang": "fi", "prompt": "Fine, thanks.", "options": ["Kiitos, hyvää.", "Hei hei.", "Anteeksi."], "answer": 0 },
+        { "id": "u01-l1-e13", "type": "listen", "promptLang": "fi", "answerLang": "en", "prompt": "Hyvää huomenta!", "options": ["Good morning!", "Good evening!", "Good night!"], "answer": 0 },
+        { "id": "u01-l1-e14", "type": "listen", "promptLang": "fi", "answerLang": "fi", "prompt": "Kiitos, hyvää.", "options": ["Kiitos, hyvää.", "Hyvää iltaa.", "Hei hei."], "answer": 0 }
       ]
     },
     {
@@ -39,7 +41,8 @@
         { "id": "u01-l2-e09", "type": "fill", "tags": ["olla-present"], "promptLang": "fi", "answerLang": "fi", "prompt": "Me ___ Suomessa.", "hint": "olla", "answers": ["olemme"], "form": { "base": "olla", "person": "1", "number": "plural" } },
         { "id": "u01-l2-e10", "type": "fill", "tags": ["olla-present"], "promptLang": "fi", "answerLang": "fi", "prompt": "Te ___ kotona.", "hint": "olla", "answers": ["olette"], "form": { "base": "olla", "person": "2", "number": "plural" } },
         { "id": "u01-l2-e11", "type": "fill", "tags": ["olla-present"], "promptLang": "fi", "answerLang": "fi", "prompt": "He ___ koulussa.", "hint": "olla", "answers": ["ovat"], "form": { "base": "olla", "person": "3", "number": "plural" } },
-        { "id": "u01-l2-e12", "type": "choice", "tags": ["olla-present"], "promptLang": "fi", "answerLang": "en", "prompt": "Hän on opettaja.", "options": ["He/She is a teacher.", "I am a teacher.", "They are teachers."], "answer": 0 }
+        { "id": "u01-l2-e12", "type": "choice", "tags": ["olla-present"], "promptLang": "fi", "answerLang": "en", "prompt": "Hän on opettaja.", "options": ["He/She is a teacher.", "I am a teacher.", "They are teachers."], "answer": 0 },
+        { "id": "u01-l2-e13", "type": "listen", "tags": ["olla-present"], "promptLang": "fi", "answerLang": "fi", "prompt": "He ovat koulussa.", "options": ["He ovat koulussa.", "Hän on koulussa.", "Me olemme koulussa."], "answer": 0 }
       ]
     },
     {
