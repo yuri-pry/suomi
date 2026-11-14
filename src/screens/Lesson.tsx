@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react';
 import type { Lang, Lesson as LessonData } from '../lib/types';
 import { answer, fractionDone, isDone, playable, startLesson } from '../lib/lesson';
 import { checkTyped, type Verdict } from '../lib/check';
+import type { Speaker } from '../lib/speech';
 import { t } from '../lib/strings';
 import { Choice } from '../exercises/Choice';
 import { Fill } from '../exercises/Fill';
@@ -11,13 +12,13 @@ type Props = {
   lesson: LessonData;
   lang: Lang;
   /** null when the device has no Finnish voice: listening exercises are left out. */
-  voice: SpeechSynthesisVoice | null;
+  speaker: Speaker | null;
   onDone: (total: number, wrongIds: string[]) => void;
   onQuit: () => void;
 };
 
-export function Lesson({ lesson, lang, voice, onDone, onQuit }: Props) {
-  const [state, setState] = useState(() => startLesson(playable(lesson.exercises, voice !== null)));
+export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
+  const [state, setState] = useState(() => startLesson(playable(lesson.exercises, speaker !== null)));
   const [attempt, setAttempt] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [typed, setTyped] = useState('');
@@ -86,10 +87,10 @@ export function Lesson({ lesson, lang, voice, onDone, onQuit }: Props) {
             label={t('typeAnswer', lang)}
           />
         )}
-        {exercise.type === 'listen' && voice && (
+        {exercise.type === 'listen' && speaker && (
           <Listen
             exercise={exercise}
-            voice={voice}
+            speaker={speaker}
             selected={selected}
             onSelect={setSelected}
             locked={verdict !== null}

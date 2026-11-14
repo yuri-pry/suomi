@@ -1,27 +1,27 @@
 import { useEffect } from 'react';
 import type { Listen as ListenExercise } from '../lib/types';
-import { speak } from '../lib/speech';
+import type { Speaker } from '../lib/speech';
 import { Choice } from './Choice';
 
 type Props = {
   exercise: ListenExercise;
-  voice: SpeechSynthesisVoice;
+  speaker: Speaker;
   selected: number | null;
   onSelect: (index: number) => void;
   locked: boolean;
   playLabel: string;
 };
 
-export function Listen({ exercise, voice, selected, onSelect, locked, playLabel }: Props) {
+export function Listen({ exercise, speaker, selected, onSelect, locked, playLabel }: Props) {
   // Speak once when the exercise appears; stop if the learner moves on mid-sentence.
   useEffect(() => {
-    speak(exercise.prompt, voice);
-    return () => speechSynthesis.cancel();
-  }, [exercise, voice]);
+    speaker.speak(exercise.prompt);
+    return () => speaker.stop();
+  }, [exercise, speaker]);
 
   return (
     <>
-      <button type="button" className="play" onClick={() => speak(exercise.prompt, voice)}>
+      <button type="button" className="play" onClick={() => speaker.speak(exercise.prompt)}>
         <span aria-hidden="true">🔊</span> {playLabel}
       </button>
       {/* The sentence is revealed only after checking, so it cannot be read instead of heard. */}

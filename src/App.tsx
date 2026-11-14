@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import type { Unit } from './lib/types';
 import { loadAllUnits } from './lib/content';
 import { completeLesson, currentStreak, load, localDay, save } from './lib/progress';
-import { loadFinnishVoice } from './lib/speech';
+import { loadSpeaker, type Speaker } from './lib/speech';
 import { t } from './lib/strings';
 import { Home } from './screens/Home';
 import { Lesson } from './screens/Lesson';
@@ -19,11 +19,11 @@ export function App() {
   const [error, setError] = useState<string | null>(null);
   const [screen, setScreen] = useState<Screen>({ name: 'home' });
 
-  const [voice, setVoice] = useState<SpeechSynthesisVoice | null>(null);
+  const [speaker, setSpeaker] = useState<Speaker | null>(null);
 
   useEffect(() => {
     loadAllUnits().then(setUnits, (e) => setError(String(e)));
-    loadFinnishVoice().then(setVoice);
+    loadSpeaker().then(setSpeaker);
   }, []);
 
   if (error) return <p role="alert">{error}</p>;
@@ -38,7 +38,7 @@ export function App() {
         key={lesson.id}
         lesson={lesson}
         lang={progress.lang}
-        voice={voice}
+        speaker={speaker}
         onQuit={() => setScreen({ name: 'home' })}
         onDone={(total, wrongIds) => {
           const result = completeLesson(progress, lesson.id, total, wrongIds, localDay(new Date()));
