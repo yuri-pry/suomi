@@ -1,0 +1,1348 @@
+{
+  "id": "u06",
+  "section": 1,
+  "title": "My day",
+  "tip": {
+    "en": "Verb type 3 ends in -lla, -llä, -nnä or -sta: tulla (to come), mennä (to go), opiskella (to study). The stem takes -e-: tulen, tulet, tulee, tulemme, tulette, tulevat. Verb type 4 ends in -ta/-tä after a vowel: haluta (to want), herätä (to wake up): haluan, haluat, haluaa, haluamme, haluatte, haluavat. Verb type 5 is tarvita (to need): tarvitsen, tarvitset, tarvitsee, tarvitsemme, tarvitsette, tarvitsevat.\n\nConsonant gradation: in some verbs a consonant gets weaker in some forms. Nukkua (to sleep): nukun, nukut, but nukkuu, nukkuvat. Keittää: keitän, keität, keittää. Tavata (to meet): tapaan, tapaat, tapaa. Learn the forms with each verb.\n\nThree verbs need a place in a certain case. Menen + illative (where to): Menen kouluun. Menen kotiin. Menen kauppaan. The illative adds a long vowel or -hVn: koulu - kouluun, kauppa - kauppaan, koti - kotiin, Suomi - Suomeen. Tulen + elative (where from): Tulen koulusta. Tulen kaupasta. Käyn + inessive (visit): Käyn kaupassa. Käyn kirjastossa.\n\nSome verbs, such as odottaa (to wait for), need the partitive of the person: Odotan sinua. Odotan häntä. The forms are minua, sinua, häntä, meitä, teitä, heitä."
+  },
+  "lessons": [
+    {
+      "id": "u06-l1",
+      "title": "Daily life, body and health",
+      "exercises": [
+        {
+          "id": "u06-l1-e01",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "to sleep",
+          "options": [
+            "nukkua",
+            "herätä",
+            "tulla"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u06-l1-e02",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "in the morning",
+          "options": [
+            "aamulla",
+            "illalla",
+            "yöllä"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u06-l1-e03",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "herätä",
+              "en": "wake up"
+            },
+            {
+              "fi": "nukkua",
+              "en": "sleep"
+            },
+            {
+              "fi": "mennä",
+              "en": "go"
+            },
+            {
+              "fi": "tulla",
+              "en": "come"
+            },
+            {
+              "fi": "tarvita",
+              "en": "need"
+            }
+          ]
+        },
+        {
+          "id": "u06-l1-e04",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "haluta",
+              "en": "want"
+            },
+            {
+              "fi": "tavata",
+              "en": "meet"
+            },
+            {
+              "fi": "keittää",
+              "en": "cook"
+            },
+            {
+              "fi": "opiskella",
+              "en": "study"
+            },
+            {
+              "fi": "käydä",
+              "en": "visit"
+            }
+          ]
+        },
+        {
+          "id": "u06-l1-e05",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "aamu",
+              "en": "morning"
+            },
+            {
+              "fi": "ilta",
+              "en": "evening"
+            },
+            {
+              "fi": "yö",
+              "en": "night"
+            },
+            {
+              "fi": "päivä",
+              "en": "day"
+            },
+            {
+              "fi": "kello",
+              "en": "o’clock"
+            }
+          ]
+        },
+        {
+          "id": "u06-l1-e06",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "kauppa",
+              "en": "shop"
+            },
+            {
+              "fi": "kirjasto",
+              "en": "library"
+            },
+            {
+              "fi": "työ",
+              "en": "work"
+            },
+            {
+              "fi": "koulu",
+              "en": "school"
+            },
+            {
+              "fi": "kahvila",
+              "en": "café"
+            }
+          ]
+        },
+        {
+          "id": "u06-l1-e07",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "pää",
+          "options": [
+            "head",
+            "hand",
+            "back"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u06-l1-e08",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "pää",
+              "en": "head"
+            },
+            {
+              "fi": "käsi",
+              "en": "hand"
+            },
+            {
+              "fi": "jalka",
+              "en": "leg"
+            },
+            {
+              "fi": "vatsa",
+              "en": "stomach"
+            },
+            {
+              "fi": "selkä",
+              "en": "back"
+            }
+          ]
+        },
+        {
+          "id": "u06-l1-e09",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "kuume",
+              "en": "fever"
+            },
+            {
+              "fi": "flunssa",
+              "en": "flu"
+            },
+            {
+              "fi": "kipeä",
+              "en": "sore"
+            },
+            {
+              "fi": "sairas",
+              "en": "ill"
+            },
+            {
+              "fi": "lääkäri",
+              "en": "doctor"
+            }
+          ]
+        },
+        {
+          "id": "u06-l1-e10",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "to come",
+          "options": [
+            "tulla",
+            "mennä",
+            "tavata"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u06-l1-e11",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Kauppa ja kirjasto.",
+          "options": [
+            "Kauppa ja kirjasto.",
+            "Kauppa ja koulu.",
+            "Kahvila ja kirjasto."
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u06-l1-e12",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "kuume",
+          "options": [
+            "fever",
+            "flu",
+            "doctor"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u06-l1-e13",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä olen ___. Minulla on kuume.",
+          "hint": "ill",
+          "answers": [
+            "sairas"
+          ]
+        },
+        {
+          "id": "u06-l1-e14",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minun selkäni on ___.",
+          "hint": "sore",
+          "answers": [
+            "kipeä"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u06-l2",
+      "title": "Verb types 3, 4 and 5",
+      "exercises": [
+        {
+          "id": "u06-l2-e01",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I come",
+          "options": [
+            "minä tulen",
+            "sinä tulet",
+            "hän tulee"
+          ],
+          "answer": 0,
+          "tags": [
+            "verbtype-3"
+          ]
+        },
+        {
+          "id": "u06-l2-e02",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "you go (one person)",
+          "options": [
+            "sinä menet",
+            "minä menen",
+            "hän menee"
+          ],
+          "answer": 0,
+          "tags": [
+            "verbtype-3"
+          ]
+        },
+        {
+          "id": "u06-l2-e03",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä ___ suomea.",
+          "hint": "opiskella",
+          "answers": [
+            "opiskelen"
+          ],
+          "form": {
+            "base": "opiskella",
+            "person": "1",
+            "number": "singular"
+          },
+          "tags": [
+            "verbtype-3"
+          ]
+        },
+        {
+          "id": "u06-l2-e04",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hän ___ englantia ja saksaa.",
+          "hint": "opiskella",
+          "answers": [
+            "opiskelee"
+          ],
+          "form": {
+            "base": "opiskella",
+            "person": "3",
+            "number": "singular"
+          },
+          "tags": [
+            "verbtype-3"
+          ]
+        },
+        {
+          "id": "u06-l2-e05",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "He ___ ruotsia.",
+          "hint": "opiskella",
+          "answers": [
+            "opiskelevat"
+          ],
+          "form": {
+            "base": "opiskella",
+            "person": "3",
+            "number": "plural"
+          },
+          "tags": [
+            "verbtype-3"
+          ]
+        },
+        {
+          "id": "u06-l2-e06",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I want",
+          "options": [
+            "minä haluan",
+            "sinä haluat",
+            "hän haluaa"
+          ],
+          "answer": 0,
+          "tags": [
+            "verbtype-4"
+          ]
+        },
+        {
+          "id": "u06-l2-e07",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä ___ kahvia ja leipää.",
+          "hint": "haluta",
+          "answers": [
+            "haluan"
+          ],
+          "form": {
+            "base": "haluta",
+            "person": "1",
+            "number": "singular"
+          },
+          "tags": [
+            "verbtype-4"
+          ]
+        },
+        {
+          "id": "u06-l2-e08",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hän ___ aamulla kello seitsemän.",
+          "hint": "herätä",
+          "answers": [
+            "herää"
+          ],
+          "form": {
+            "base": "herätä",
+            "person": "3",
+            "number": "singular"
+          },
+          "tags": [
+            "verbtype-4"
+          ]
+        },
+        {
+          "id": "u06-l2-e09",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Me ___ kello kuusi.",
+          "hint": "herätä",
+          "answers": [
+            "heräämme"
+          ],
+          "form": {
+            "base": "herätä",
+            "person": "1",
+            "number": "plural"
+          },
+          "tags": [
+            "verbtype-4"
+          ]
+        },
+        {
+          "id": "u06-l2-e10",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I need",
+          "options": [
+            "minä tarvitsen",
+            "sinä tarvitset",
+            "hän tarvitsee"
+          ],
+          "answer": 0,
+          "tags": [
+            "verbtype-5"
+          ]
+        },
+        {
+          "id": "u06-l2-e11",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä ___ vettä.",
+          "hint": "tarvita",
+          "answers": [
+            "tarvitsen"
+          ],
+          "form": {
+            "base": "tarvita",
+            "person": "1",
+            "number": "singular"
+          },
+          "tags": [
+            "verbtype-5"
+          ]
+        },
+        {
+          "id": "u06-l2-e12",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Te ___ lääkäriä.",
+          "hint": "tarvita",
+          "answers": [
+            "tarvitsette"
+          ],
+          "form": {
+            "base": "tarvita",
+            "person": "2",
+            "number": "plural"
+          },
+          "tags": [
+            "verbtype-5"
+          ]
+        },
+        {
+          "id": "u06-l2-e13",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä haluan kahvia.",
+          "options": [
+            "Minä haluan kahvia.",
+            "Sinä haluat kahvia.",
+            "Hän haluaa kahvia."
+          ],
+          "answer": 0,
+          "tags": [
+            "verbtype-4"
+          ]
+        },
+        {
+          "id": "u06-l2-e14",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "We need water and coffee.",
+          "answers": [
+            "Me tarvitsemme vettä ja kahvia.",
+            "Tarvitsemme vettä ja kahvia."
+          ],
+          "tiles": [
+            "haluamme"
+          ],
+          "tags": [
+            "verbtype-5"
+          ]
+        },
+        {
+          "id": "u06-l2-e15",
+          "type": "translate",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "He wakes up at seven.",
+          "answers": [
+            "Hän herää kello seitsemän."
+          ],
+          "tags": [
+            "verbtype-4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u06-l3",
+      "title": "Gradation and \"waiting for you\"",
+      "exercises": [
+        {
+          "id": "u06-l3-e01",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I sleep",
+          "options": [
+            "minä nukun",
+            "minä nukkun",
+            "minä nukkuu"
+          ],
+          "answer": 0,
+          "invalid": [
+            1
+          ],
+          "tags": [
+            "gradation-verbtype-1"
+          ]
+        },
+        {
+          "id": "u06-l3-e02",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä ___ yöllä.",
+          "hint": "nukkua",
+          "answers": [
+            "nukun"
+          ],
+          "form": {
+            "base": "nukkua",
+            "person": "1",
+            "number": "singular"
+          },
+          "tags": [
+            "gradation-verbtype-1"
+          ]
+        },
+        {
+          "id": "u06-l3-e03",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Sinä ___ yöllä.",
+          "hint": "nukkua",
+          "answers": [
+            "nukut"
+          ],
+          "form": {
+            "base": "nukkua",
+            "person": "2",
+            "number": "singular"
+          },
+          "tags": [
+            "gradation-verbtype-1"
+          ]
+        },
+        {
+          "id": "u06-l3-e04",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Lapsi ___ yöllä.",
+          "hint": "nukkua",
+          "answers": [
+            "nukkuu"
+          ],
+          "form": {
+            "base": "nukkua",
+            "person": "3",
+            "number": "singular"
+          },
+          "tags": [
+            "gradation-verbtype-1"
+          ]
+        },
+        {
+          "id": "u06-l3-e05",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä ___ kahvia aamulla.",
+          "hint": "keittää (cook, make)",
+          "answers": [
+            "keitän"
+          ],
+          "form": {
+            "base": "keittää",
+            "person": "1",
+            "number": "singular"
+          },
+          "tags": [
+            "gradation-verbtype-1"
+          ]
+        },
+        {
+          "id": "u06-l3-e06",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I meet a friend",
+          "options": [
+            "minä tapaan ystävän",
+            "minä tapaat ystävän",
+            "minä tapaa ystävän"
+          ],
+          "answer": 0,
+          "tags": [
+            "gradation-verbtype-3-4"
+          ]
+        },
+        {
+          "id": "u06-l3-e07",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä ___ ystävän kahvilassa.",
+          "hint": "tavata (meet)",
+          "answers": [
+            "tapaan"
+          ],
+          "form": {
+            "base": "tavata",
+            "person": "1",
+            "number": "singular"
+          },
+          "tags": [
+            "gradation-verbtype-3-4"
+          ]
+        },
+        {
+          "id": "u06-l3-e08",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Sinä ___ veljen kaupassa.",
+          "hint": "tavata (meet)",
+          "answers": [
+            "tapaat"
+          ],
+          "form": {
+            "base": "tavata",
+            "person": "2",
+            "number": "singular"
+          },
+          "tags": [
+            "gradation-verbtype-3-4"
+          ]
+        },
+        {
+          "id": "u06-l3-e09",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hän ___ siskon koulussa.",
+          "hint": "tavata (meet)",
+          "answers": [
+            "tapaa"
+          ],
+          "form": {
+            "base": "tavata",
+            "person": "3",
+            "number": "singular"
+          },
+          "tags": [
+            "gradation-verbtype-3-4"
+          ]
+        },
+        {
+          "id": "u06-l3-e10",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Me ___ isoäidin kotona.",
+          "hint": "tavata (meet)",
+          "answers": [
+            "tapaamme"
+          ],
+          "form": {
+            "base": "tavata",
+            "person": "1",
+            "number": "plural"
+          },
+          "tags": [
+            "gradation-verbtype-3-4"
+          ]
+        },
+        {
+          "id": "u06-l3-e11",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "minua",
+              "en": "me"
+            },
+            {
+              "fi": "sinua",
+              "en": "you"
+            },
+            {
+              "fi": "häntä",
+              "en": "him/her"
+            },
+            {
+              "fi": "meitä",
+              "en": "us"
+            },
+            {
+              "fi": "teitä",
+              "en": "you (plural)"
+            }
+          ]
+        },
+        {
+          "id": "u06-l3-e12",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I am waiting for you.",
+          "options": [
+            "Odotan sinua.",
+            "Odotan sinä.",
+            "Odotan sinun."
+          ],
+          "answer": 0,
+          "tags": [
+            "pronoun-partitive"
+          ]
+        },
+        {
+          "id": "u06-l3-e13",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Odotan ___ kotona.",
+          "hint": "sinä (you)",
+          "answers": [
+            "sinua"
+          ],
+          "form": {
+            "base": "sinä",
+            "case": "osanto"
+          },
+          "tags": [
+            "pronoun-partitive"
+          ]
+        },
+        {
+          "id": "u06-l3-e14",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Odotan sinua kotona.",
+          "options": [
+            "Odotan sinua kotona.",
+            "Odotan häntä kotona.",
+            "Odotamme sinua kotona."
+          ],
+          "answer": 0,
+          "tags": [
+            "pronoun-partitive"
+          ]
+        },
+        {
+          "id": "u06-l3-e15",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I am waiting for him at home.",
+          "answers": [
+            "Minä odotan häntä kotona.",
+            "Odotan häntä kotona."
+          ],
+          "tiles": [
+            "hän"
+          ],
+          "tags": [
+            "pronoun-partitive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u06-l4",
+      "title": "Where do you go?",
+      "exercises": [
+        {
+          "id": "u06-l4-e01",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I go to school.",
+          "options": [
+            "Menen kouluun.",
+            "Menen koulussa.",
+            "Menen koulusta."
+          ],
+          "answer": 0,
+          "tags": [
+            "illative-form",
+            "rektio-menna-hin"
+          ]
+        },
+        {
+          "id": "u06-l4-e02",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I come from school.",
+          "options": [
+            "Tulen koulusta.",
+            "Tulen kouluun.",
+            "Tulen koulussa."
+          ],
+          "answer": 0,
+          "tags": [
+            "rektio-tulla-sta"
+          ]
+        },
+        {
+          "id": "u06-l4-e03",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I go to the shop.",
+          "options": [
+            "Käyn kaupassa.",
+            "Käyn kauppaan.",
+            "Käyn kaupasta."
+          ],
+          "answer": 0,
+          "tags": [
+            "rektio-kayda-ssa"
+          ]
+        },
+        {
+          "id": "u06-l4-e04",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä menen ___.",
+          "hint": "kauppa (to the shop)",
+          "answers": [
+            "kauppaan"
+          ],
+          "form": {
+            "base": "kauppa",
+            "case": "sisatulento"
+          },
+          "tags": [
+            "illative-form",
+            "rektio-menna-hin"
+          ]
+        },
+        {
+          "id": "u06-l4-e05",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Me menemme ___.",
+          "hint": "koti (home)",
+          "answers": [
+            "kotiin"
+          ],
+          "form": {
+            "base": "koti",
+            "case": "sisatulento"
+          },
+          "tags": [
+            "illative-form",
+            "rektio-menna-hin"
+          ]
+        },
+        {
+          "id": "u06-l4-e06",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Te menette ___.",
+          "hint": "kahvila (to the café)",
+          "answers": [
+            "kahvilaan"
+          ],
+          "form": {
+            "base": "kahvila",
+            "case": "sisatulento"
+          },
+          "tags": [
+            "illative-form",
+            "rektio-menna-hin"
+          ]
+        },
+        {
+          "id": "u06-l4-e07",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä tulen ___.",
+          "hint": "kauppa (from the shop)",
+          "answers": [
+            "kaupasta"
+          ],
+          "form": {
+            "base": "kauppa",
+            "case": "sisaeronto"
+          },
+          "tags": [
+            "rektio-tulla-sta"
+          ]
+        },
+        {
+          "id": "u06-l4-e08",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "He tulevat ___.",
+          "hint": "kahvila (from the café)",
+          "answers": [
+            "kahvilasta"
+          ],
+          "form": {
+            "base": "kahvila",
+            "case": "sisaeronto"
+          },
+          "tags": [
+            "rektio-tulla-sta"
+          ]
+        },
+        {
+          "id": "u06-l4-e09",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä käyn ___.",
+          "hint": "kirjasto (at the library)",
+          "answers": [
+            "kirjastossa"
+          ],
+          "form": {
+            "base": "kirjasto",
+            "case": "sisaolento"
+          },
+          "tags": [
+            "rektio-kayda-ssa"
+          ]
+        },
+        {
+          "id": "u06-l4-e10",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Me käymme ___ ja juomme kahvia.",
+          "hint": "kahvila",
+          "answers": [
+            "kahvilassa"
+          ],
+          "form": {
+            "base": "kahvila",
+            "case": "sisaolento"
+          },
+          "tags": [
+            "rektio-kayda-ssa"
+          ]
+        },
+        {
+          "id": "u06-l4-e11",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Te käytte ___.",
+          "hint": "koulu (at school)",
+          "answers": [
+            "koulussa"
+          ],
+          "form": {
+            "base": "koulu",
+            "case": "sisaolento"
+          },
+          "tags": [
+            "rektio-kayda-ssa"
+          ]
+        },
+        {
+          "id": "u06-l4-e12",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Anna herää kello seitsemän. Hän menee kouluun kello kahdeksan. Kello kolme hän käy kaupassa. Kello neljä hän tulee kotiin.",
+          "prompt": "Anna menee kouluun kello kahdeksan.",
+          "answer": true,
+          "tags": [
+            "rektio-menna-hin"
+          ]
+        },
+        {
+          "id": "u06-l4-e13",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Anna herää kello seitsemän. Hän menee kouluun kello kahdeksan. Kello kolme hän käy kaupassa. Kello neljä hän tulee kotiin.",
+          "prompt": "Anna tulee kotiin kello kolme.",
+          "answer": false,
+          "tags": [
+            "rektio-tulla-sta",
+            "rektio-kayda-ssa"
+          ]
+        },
+        {
+          "id": "u06-l4-e14",
+          "type": "translate",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "In the morning I go to school and I come home at three.",
+          "answers": [
+            "Aamulla menen kouluun ja tulen kotiin kello kolme.",
+            "Menen aamulla kouluun ja tulen kotiin kello kolme."
+          ],
+          "tags": [
+            "illative-form",
+            "rektio-menna-hin"
+          ]
+        },
+        {
+          "id": "u06-l4-e15",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "He comes from the shop and goes home.",
+          "answers": [
+            "Hän tulee kaupasta ja menee kotiin."
+          ],
+          "tiles": [
+            "kauppaan"
+          ],
+          "tags": [
+            "illative-form",
+            "rektio-menna-hin",
+            "rektio-tulla-sta"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u06-l5",
+      "title": "Mix",
+      "exercises": [
+        {
+          "id": "u06-l5-e01",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Sinä ___ suomea ja ruotsia.",
+          "hint": "opiskella",
+          "answers": [
+            "opiskelet"
+          ],
+          "form": {
+            "base": "opiskella",
+            "person": "2",
+            "number": "singular"
+          },
+          "tags": [
+            "verbtype-3"
+          ]
+        },
+        {
+          "id": "u06-l5-e02",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "He ___ aamulla kello kuusi.",
+          "hint": "herätä",
+          "answers": [
+            "heräävät"
+          ],
+          "form": {
+            "base": "herätä",
+            "person": "3",
+            "number": "plural"
+          },
+          "tags": [
+            "verbtype-4"
+          ]
+        },
+        {
+          "id": "u06-l5-e03",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hän ___ lääkäriä.",
+          "hint": "tarvita",
+          "answers": [
+            "tarvitsee"
+          ],
+          "form": {
+            "base": "tarvita",
+            "person": "3",
+            "number": "singular"
+          },
+          "tags": [
+            "verbtype-5"
+          ]
+        },
+        {
+          "id": "u06-l5-e04",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "He ___ yöllä.",
+          "hint": "nukkua",
+          "answers": [
+            "nukkuvat"
+          ],
+          "form": {
+            "base": "nukkua",
+            "person": "3",
+            "number": "plural"
+          },
+          "tags": [
+            "gradation-verbtype-1"
+          ]
+        },
+        {
+          "id": "u06-l5-e05",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "He ___ ystävän kahvilassa.",
+          "hint": "tavata (meet)",
+          "answers": [
+            "tapaavat"
+          ],
+          "form": {
+            "base": "tavata",
+            "person": "3",
+            "number": "plural"
+          },
+          "tags": [
+            "gradation-verbtype-3-4"
+          ]
+        },
+        {
+          "id": "u06-l5-e06",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I go to the library.",
+          "options": [
+            "Menen kirjastoon.",
+            "Menen kirjastossa.",
+            "Menen kirjastosta."
+          ],
+          "answer": 0,
+          "tags": [
+            "illative-form",
+            "rektio-menna-hin"
+          ]
+        },
+        {
+          "id": "u06-l5-e07",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Äiti odottaa ___ kotona.",
+          "hint": "minä (me)",
+          "answers": [
+            "minua"
+          ],
+          "form": {
+            "base": "minä",
+            "case": "osanto"
+          },
+          "tags": [
+            "pronoun-partitive"
+          ]
+        },
+        {
+          "id": "u06-l5-e08",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Minä olen sairas. Minulla on kuume ja pääni on kipeä. Tarvitsen lääkäriä.",
+          "prompt": "Selkäni on kipeä.",
+          "answer": false
+        },
+        {
+          "id": "u06-l5-e09",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Meidän ___ on pieni.",
+          "hint": "talo (house)",
+          "answers": [
+            "talomme"
+          ],
+          "form": {
+            "base": "talo",
+            "case": "nimento"
+          },
+          "tags": [
+            "possessive-suffix"
+          ]
+        },
+        {
+          "id": "u06-l5-e10",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minulla ei ole ___.",
+          "options": [
+            "autoa",
+            "auto",
+            "auton"
+          ],
+          "answer": 0,
+          "tags": [
+            "partitive-negative"
+          ]
+        },
+        {
+          "id": "u06-l5-e11",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä en ___ kahvia.",
+          "hint": "juoda",
+          "answers": [
+            "juo"
+          ],
+          "tags": [
+            "negative-verb"
+          ]
+        },
+        {
+          "id": "u06-l5-e12",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "In the evening I come home from school.",
+          "answers": [
+            "Minä tulen illalla kotiin koulusta.",
+            "Illalla tulen kotiin koulusta."
+          ],
+          "tiles": [
+            "koulussa"
+          ],
+          "tags": [
+            "illative-form",
+            "rektio-tulla-sta"
+          ]
+        },
+        {
+          "id": "u06-l5-e13",
+          "type": "translate",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I need water and my head is sore.",
+          "answers": [
+            "Tarvitsen vettä ja pääni on kipeä.",
+            "Minä tarvitsen vettä ja pääni on kipeä."
+          ],
+          "tags": [
+            "verbtype-5"
+          ]
+        },
+        {
+          "id": "u06-l5-e14",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Menen kotiin kello kuusi.",
+          "options": [
+            "Menen kotiin kello kuusi.",
+            "Tulen kotiin kello kuusi.",
+            "Menen kouluun kello kuusi."
+          ],
+          "answer": 0,
+          "tags": [
+            "rektio-menna-hin"
+          ]
+        }
+      ]
+    }
+  ]
+}
