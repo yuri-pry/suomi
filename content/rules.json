@@ -484,5 +484,241 @@
         "en": "There is no sofa in the living room."
       }
     ]
+  },
+  {
+    "id": "genitive-form",
+    "type": "case",
+    "unit": "u05",
+    "title": "Genitive -n: whose it is (äidin auto, veljen paita)",
+    "examples": [
+      {
+        "fi": "Äidin auto on punainen.",
+        "en": "Mother's car is red."
+      },
+      {
+        "fi": "Veljen koira on iso.",
+        "en": "Brother's dog is big."
+      },
+      {
+        "fi": "Siskon paita on sininen.",
+        "en": "Sister's shirt is blue."
+      },
+      {
+        "fi": "Lapsen huone on pieni.",
+        "en": "The child's room is small."
+      },
+      {
+        "fi": "Hänen veljensä asuu Oulussa.",
+        "en": "His/Her brother lives in Oulu."
+      }
+    ]
+  },
+  {
+    "id": "possessive-suffix",
+    "type": "case",
+    "unit": "u05",
+    "title": "Possessive endings: -ni, -si, -nsa/-nsä, -mme, -nne (äitini, äitisi, äitinsä, äitimme, äitinne)",
+    "examples": [
+      {
+        "fi": "Minun äitini on opettaja.",
+        "en": "My mother is a teacher."
+      },
+      {
+        "fi": "Sinun veljesi asuu Turussa.",
+        "en": "Your brother lives in Turku."
+      },
+      {
+        "fi": "Hänen äitinsä on kaunis.",
+        "en": "His/Her mother is beautiful."
+      },
+      {
+        "fi": "Meidän talomme on pieni.",
+        "en": "Our house is small."
+      },
+      {
+        "fi": "Teidän koiranne on iso.",
+        "en": "Your (plural) dog is big."
+      },
+      {
+        "fi": "Heidän isänsä on kotona.",
+        "en": "Their father is at home."
+      }
+    ]
+  },
+  {
+    "id": "demonstratives",
+    "type": "case",
+    "unit": "u05",
+    "title": "tämä (this), tuo (that over there), se (it, that one)",
+    "examples": [
+      {
+        "fi": "Tämä on veljeni.",
+        "en": "This is my brother."
+      },
+      {
+        "fi": "Tuo talo on iso.",
+        "en": "That house is big."
+      },
+      {
+        "fi": "Tämä koira on musta.",
+        "en": "This dog is black."
+      },
+      {
+        "fi": "Minulla on auto. Se on punainen.",
+        "en": "I have a car. It is red."
+      },
+      {
+        "fi": "Se on kaunis.",
+        "en": "It is beautiful."
+      }
+    ]
+  },
+  {
+    "id": "wordtype-nen",
+    "type": "wordtype",
+    "unit": "u05",
+    "title": "Words in -nen: nainen, naisen (-nen becomes -se- before an ending)",
+    "examples": [
+      {
+        "fi": "Nainen on opettaja.",
+        "en": "The woman is a teacher."
+      },
+      {
+        "fi": "Naisen koira on musta.",
+        "en": "The woman's dog is black."
+      },
+      {
+        "fi": "Se on punaisen auton ovi.",
+        "en": "It is the red car's door."
+      },
+      {
+        "fi": "Hän on suomalaisen miehen veli.",
+        "en": "He is the Finnish man's brother."
+      }
+    ]
+  },
+  {
+    "id": "wordtype-e",
+    "type": "wordtype",
+    "unit": "u05",
+    "title": "Words in -e: perhe, perheen (the stem ends in -ee-)",
+    "examples": [
+      {
+        "fi": "Perhe asuu Oulussa.",
+        "en": "The family lives in Oulu."
+      },
+      {
+        "fi": "Perheen auto on punainen.",
+        "en": "The family's car is red."
+      },
+      {
+        "fi": "Huoneen ovi on ruskea.",
+        "en": "The room's door is brown."
+      },
+      {
+        "fi": "Huoneessa on sänky.",
+        "en": "There is a bed in the room."
+      }
+    ]
+  },
+  {
+    "id": "wordtype-i-new",
+    "type": "wordtype",
+    "unit": "u05",
+    "title": "Newer words in -i: bussi, bussin (the -i stays)",
+    "examples": [
+      {
+        "fi": "Bussi on valkoinen.",
+        "en": "The bus is white."
+      },
+      {
+        "fi": "Bussin ovi on musta.",
+        "en": "The bus's door is black."
+      },
+      {
+        "fi": "Taksin väri on keltainen.",
+        "en": "The taxi's colour is yellow."
+      },
+      {
+        "fi": "Äidin kahvi on kuuma.",
+        "en": "Mother's coffee is hot."
+      }
+    ]
+  },
+  {
+    "id": "wordtype-i-old",
+    "type": "wordtype",
+    "unit": "u05",
+    "title": "Older words in -i: ovi, oven (-i becomes -e- before an ending)",
+    "examples": [
+      {
+        "fi": "Ovi on ruskea.",
+        "en": "The door is brown."
+      },
+      {
+        "fi": "Oven väri on ruskea.",
+        "en": "The door's colour is brown."
+      },
+      {
+        "fi": "Meri on harmaa.",
+        "en": "The sea is grey."
+      },
+      {
+        "fi": "Meren väri on kaunis.",
+        "en": "The sea's colour is beautiful."
+      }
+    ]
+  },
+  {
+    "id": "wordtype-si",
+    "type": "wordtype",
+    "unit": "u05",
+    "title": "Words in -si: uusi, uuden; vesi, veden; kaksi, kahden (-si becomes -de-)",
+    "examples": [
+      {
+        "fi": "Meillä on uusi auto.",
+        "en": "We have a new car."
+      },
+      {
+        "fi": "Uuden auton väri on musta.",
+        "en": "The new car's colour is black."
+      },
+      {
+        "fi": "Veden väri on sininen.",
+        "en": "The water's colour is blue."
+      },
+      {
+        "fi": "Hän on kahden lapsen äiti.",
+        "en": "She is the mother of two children."
+      }
+    ]
+  },
+  {
+    "id": "lla-vs-n",
+    "type": "sentence",
+    "unit": "u05",
+    "title": "Has or whose: Äidillä on auto (-lla on) vs Äidin auto (-n)",
+    "examples": [
+      {
+        "fi": "Äidillä on auto.",
+        "en": "Mother has a car."
+      },
+      {
+        "fi": "Äidin auto on punainen.",
+        "en": "Mother's car is red."
+      },
+      {
+        "fi": "Veljellä on iso koira.",
+        "en": "Brother has a big dog."
+      },
+      {
+        "fi": "Veljen koira on musta.",
+        "en": "Brother's dog is black."
+      },
+      {
+        "fi": "Minulla on koira, mutta minun koirani on pieni.",
+        "en": "I have a dog, but my dog is small."
+      }
+    ]
   }
 ]
