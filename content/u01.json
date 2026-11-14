@@ -84,7 +84,7 @@
         { "id": "u01-l4-e11", "type": "choice", "promptLang": "fi", "answerLang": "fi", "prompt": "Kiitos! – ___", "options": ["Ole hyvä.", "Hyvää yötä.", "Näkemiin."], "answer": 0 },
         { "id": "u01-l4-e12", "type": "fill", "promptLang": "fi", "answerLang": "fi", "prompt": "Hauska ___.", "hint": "Nice to meet you.", "answers": ["tutustua"] },
         { "id": "u01-l4-e13", "type": "order", "promptLang": "fi", "answerLang": "en", "prompt": "Hauska tutustua.", "answers": ["Nice to meet you."], "tiles": ["See","night"] },
-        { "id": "u01-l4-e14", "type": "translate", "promptLang": "en", "answerLang": "fi", "prompt": "My name is Anna.", "answers": ["Minun nimeni on Anna."] }
+        { "id": "u01-l4-e14", "type": "translate", "promptLang": "en", "answerLang": "fi", "prompt": "My name is Anna.", "answers": ["Minun nimeni on Anna.", "Nimeni on Anna."] }
       ]
     },
     {
