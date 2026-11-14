@@ -1,3 +1,4 @@
+import { Speakable } from './Speakable';
 import type { Translate as TranslateExercise } from '../lib/types';
 import { Letters, useLetterInput } from './Letters';
 
@@ -14,7 +15,7 @@ export function Translate({ exercise, value, onChange, locked, label }: Props) {
   return (
     <>
       <h1 className="prompt" lang={exercise.promptLang}>
-        {exercise.prompt}
+        <Speakable text={exercise.prompt} lang={exercise.promptLang} />
       </h1>
       <input
         ref={ref}

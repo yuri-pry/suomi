@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import type { Listen as ListenExercise } from '../lib/types';
 import type { Speaker } from '../lib/speech';
 import { Choice } from './Choice';
+import { Speakable } from './Speakable';
 
 type Props = {
   exercise: ListenExercise;
@@ -27,7 +28,7 @@ export function Listen({ exercise, speaker, selected, onSelect, locked, playLabe
       {/* The sentence is revealed only after checking, so it cannot be read instead of heard. */}
       {locked && (
         <p className="heard" lang="fi">
-          {exercise.prompt}
+          <Speakable text={exercise.prompt} lang="fi" />
         </p>
       )}
       <Choice exercise={exercise} selected={selected} onSelect={onSelect} locked={locked} />

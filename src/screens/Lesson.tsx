@@ -5,7 +5,9 @@ import type { Verdict } from '../lib/check';
 import { correctText, emptyResponse, grade, type Response } from '../lib/exercise';
 import type { Speaker } from '../lib/speech';
 import { t, type StringKey } from '../lib/strings';
+import { haptic } from '../lib/haptics';
 import { Choice } from '../exercises/Choice';
+import { Speakable } from '../exercises/Speakable';
 import { Fill } from '../exercises/Fill';
 import { Listen } from '../exercises/Listen';
 import { Match } from '../exercises/Match';
@@ -50,7 +52,7 @@ function Body({ exercise, response, onResponse, locked, speaker, lang }: BodyPro
       return (
         <>
           <h1 className="prompt" lang={exercise.promptLang}>
-            {exercise.prompt}
+            <Speakable text={exercise.prompt} lang={exercise.promptLang} />
           </h1>
           <Choice exercise={exercise} selected={response as number | null} onSelect={onResponse} locked={locked} />
         </>
@@ -98,11 +100,17 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
   function submit(e: FormEvent) {
     e.preventDefault();
     if (verdict === null) {
-      if (checked !== null) setVerdict(checked);
+      if (checked !== null) {
+        haptic(checked === 'wrong' ? 'wrong' : 'right');
+        setVerdict(checked);
+      }
       return;
     }
     const next = answer(state, verdict !== 'wrong');
-    if (isDone(next)) return onDone(next.total, next.wrong);
+    if (isDone(next)) {
+      haptic('done');
+      return onDone(next.total, next.wrong);
+    }
     setState(next);
     setAttempt(attempt + 1);
     setResponse(emptyResponse(next.queue[0]));
@@ -148,7 +156,9 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
               </p>
               {verdict !== 'right' && (
                 <p className="feedback-answer">
-                  {t('answerIs', lang)} <strong lang={correctLang}>{correct}</strong>
+                  {t('answerIs', lang)} <strong lang={correctLang}>
+                    <Speakable text={correct} lang={correctLang ?? 'en'} />
+                  </strong>
                 </p>
               )}
             </>

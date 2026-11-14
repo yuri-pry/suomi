@@ -53,3 +53,15 @@ test('progress survives save and load, and bad storage gives a fresh start', () 
   expect(load({ getItem: () => '{not json' })).toEqual(emptyProgress());
   expect(load({ getItem: () => '{"v":99}' })).toEqual(emptyProgress());
 });
+
+test('progress saved before settings and stats existed loads with defaults', () => {
+  const old = JSON.stringify({ v: 1, xp: 40, streak: { count: 2, best: 2, lastDay: '2026-11-13' }, goal: 20, lang: 'fi', done: {}, mistakes: {} });
+  const p = load({ getItem: () => old });
+  expect(p.xp).toBe(40);
+  expect(p.stats).toEqual({ answered: 0, firstTry: 0 });
+  expect(p.haptics).toBe(true);
+  const next = completeLesson(p, 'u01-l1', 12, ['x'], '2026-11-14').progress;
+  expect(next.stats).toEqual({ answered: 12, firstTry: 11 });
+  expect(next.day).toEqual({ date: '2026-11-14', xp: 10 });
+});
+

@@ -531,3 +531,23 @@ button:disabled {
     transition: none;
   }
 }
+
+/* A Finnish word that speaks when tapped: looks like text, with a quiet dotted underline as the hint. */
+.word {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  text-decoration: underline dotted var(--muted);
+  text-underline-offset: 0.2em;
+  border-radius: 4px;
+  user-select: none;
+}
+
+.word:active {
+  background: var(--line);
+}
+

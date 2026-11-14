@@ -3,7 +3,9 @@ import type { Unit } from './lib/types';
 import { loadAllUnits } from './lib/content';
 import { completeLesson, currentStreak, load, localDay, save } from './lib/progress';
 import { loadSpeaker, type Speaker } from './lib/speech';
+import { setHaptics } from './lib/haptics';
 import { t } from './lib/strings';
+import { SpeakerContext } from './exercises/Speakable';
 import { Home } from './screens/Home';
 import { Lesson } from './screens/Lesson';
 import { Result } from './screens/Result';
@@ -31,9 +33,12 @@ export function App() {
 
   const today = localDay(new Date());
 
+  setHaptics(progress.haptics);
+
   if (screen.name === 'lesson') {
     const lesson = units.flatMap((u) => u.lessons).find((l) => l.id === screen.lessonId)!;
     return (
+      <SpeakerContext value={speaker}>
       <Lesson
         key={lesson.id}
         lesson={lesson}
@@ -47,6 +52,7 @@ export function App() {
           setScreen({ name: 'result', xpGained: result.xpGained, mistakes: wrongIds.length });
         }}
       />
+      </SpeakerContext>
     );
   }
 

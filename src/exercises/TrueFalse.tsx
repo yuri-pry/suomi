@@ -1,3 +1,4 @@
+import { Speakable } from './Speakable';
 import type { Lang, TrueFalse as TrueFalseExercise } from '../lib/types';
 import { t } from '../lib/strings';
 
@@ -13,10 +14,10 @@ export function TrueFalse({ exercise, selected, onSelect, locked, lang }: Props)
   return (
     <>
       <p className="tf-text" lang={exercise.promptLang}>
-        {exercise.text}
+        <Speakable text={exercise.text} lang={exercise.promptLang} />
       </p>
       <h1 className="prompt" lang={exercise.promptLang}>
-        {exercise.prompt}
+        <Speakable text={exercise.prompt} lang={exercise.promptLang} />
       </h1>
       <div className="options" role="radiogroup">
         {[true, false].map((value) => (

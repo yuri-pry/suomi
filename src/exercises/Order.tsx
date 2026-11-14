@@ -1,3 +1,4 @@
+import { Speakable } from './Speakable';
 import { useMemo, useState } from 'react';
 import type { Lang, Order as OrderExercise } from '../lib/types';
 import { tilesFor } from '../lib/exercise';
@@ -30,7 +31,7 @@ export function Order({ exercise, onChange, locked, lang }: Props) {
   return (
     <>
       <h1 className="prompt" lang={exercise.promptLang}>
-        {exercise.prompt}
+        <Speakable text={exercise.prompt} lang={exercise.promptLang} />
       </h1>
       <div className="tiles built" role="group" aria-label={t('yourSentence', lang)} lang={exercise.answerLang}>
         {placed.map((id) => (

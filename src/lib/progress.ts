@@ -10,6 +10,14 @@ export type Progress = {
   streak: { count: number; best: number; lastDay: string | null };
   goal: number;
   lang: Lang;
+  /** Id of an avatar in the design system; '' means the first one. */
+  avatar: string;
+  theme: 'auto' | 'light' | 'dark';
+  haptics: boolean;
+  /** Exercises seen in finished lessons, and how many were right first time. Counted from the version that added it. */
+  stats: { answered: number; firstTry: number };
+  /** XP earned on `date`, for the daily goal. */
+  day: { date: string | null; xp: number };
   /** Finished lessons. `best` is the highest number of exercises answered right first time. */
   done: Record<string, { best: number; at: string }>;
   /** Exercise id to number of times answered wrong. Feeds the review session. */
@@ -22,6 +30,11 @@ export const emptyProgress = (): Progress => ({
   streak: { count: 0, best: 0, lastDay: null },
   goal: 20,
   lang: 'en',
+  avatar: '',
+  theme: 'auto',
+  haptics: true,
+  stats: { answered: 0, firstTry: 0 },
+  day: { date: null, xp: 0 },
   done: {},
   mistakes: {},
 });
@@ -41,6 +54,9 @@ export function currentStreak(p: Progress, today: string) {
   return lastDay === today || lastDay === dayBefore(today) ? count : 0;
 }
 
+/** XP earned today; yesterday's count does not carry over. */
+export const xpToday = (p: Progress, today: string) => (p.day.date === today ? p.day.xp : 0);
+
 export function completeLesson(p: Progress, lessonId: string, total: number, wrongIds: string[], today: string) {
   const xpGained = XP_LESSON + (wrongIds.length === 0 ? XP_PERFECT_BONUS : 0);
   const count = p.streak.lastDay === today ? p.streak.count : currentStreak(p, today) + 1;
@@ -50,6 +66,8 @@ export function completeLesson(p: Progress, lessonId: string, total: number, wro
   const progress: Progress = {
     ...p,
     xp: p.xp + xpGained,
+    stats: { answered: p.stats.answered + total, firstTry: p.stats.firstTry + score },
+    day: { date: today, xp: xpToday(p, today) + xpGained },
     streak: { count, best: Math.max(p.streak.best, count), lastDay: today },
     done: { ...p.done, [lessonId]: { best: Math.max(p.done[lessonId]?.best ?? 0, score), at: today } },
     mistakes,

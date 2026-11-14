@@ -1,3 +1,4 @@
+import { Speakable } from './Speakable';
 import type { Fill as FillExercise } from '../lib/types';
 import { Letters, useLetterInput } from './Letters';
 
@@ -16,7 +17,7 @@ export function Fill({ exercise, value, onChange, locked, label }: Props) {
   return (
     <div className="fill">
       <p className="fill-sentence" lang={exercise.promptLang}>
-        {before}
+        <Speakable text={before} lang={exercise.promptLang} />
         <input
           ref={ref}
           className="fill-input"
@@ -33,7 +34,7 @@ export function Fill({ exercise, value, onChange, locked, label }: Props) {
           // fixed width: sizing to the answer would give its length away
           size={12}
         />
-        {after}
+        <Speakable text={after ?? ''} lang={exercise.promptLang} />
       </p>
       {exercise.hint && <p className="hint">({exercise.hint})</p>}
       {exercise.answerLang === 'fi' && <Letters onInsert={insert} locked={locked} />}
