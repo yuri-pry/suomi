@@ -348,5 +348,141 @@
         "word": "banaanista"
       }
     ]
+  },
+  {
+    "id": "inessive-ssa",
+    "type": "case",
+    "unit": "u04",
+    "title": "Inessive -ssa/-ssä: in the house, in the kitchen",
+    "examples": [
+      {
+        "fi": "Asun talossa.",
+        "en": "I live in a house."
+      },
+      {
+        "fi": "Me olemme keittiössä.",
+        "en": "We are in the kitchen."
+      },
+      {
+        "fi": "Sänky on makuuhuoneessa.",
+        "en": "The bed is in the bedroom."
+      },
+      {
+        "fi": "Hän asuu asunnossa.",
+        "en": "He/She lives in a flat."
+      },
+      {
+        "fi": "Pöytä on olohuoneessa.",
+        "en": "The table is in the living room."
+      }
+    ]
+  },
+  {
+    "id": "existential",
+    "type": "sentence",
+    "unit": "u04",
+    "title": "There is: place + on + thing (Keittiössä on pöytä)",
+    "examples": [
+      {
+        "fi": "Keittiössä on pöytä.",
+        "en": "There is a table in the kitchen."
+      },
+      {
+        "fi": "Olohuoneessa on sohva ja televisio.",
+        "en": "There is a sofa and a television in the living room."
+      },
+      {
+        "fi": "Makuuhuoneessa on kaksi lamppua.",
+        "en": "There are two lamps in the bedroom."
+      },
+      {
+        "fi": "Talossa on viisi huonetta.",
+        "en": "There are five rooms in the house."
+      }
+    ]
+  },
+  {
+    "id": "possession-lla-on",
+    "type": "sentence",
+    "unit": "u04",
+    "title": "To have: owner + -lla/-llä + on (Minulla on koira)",
+    "examples": [
+      {
+        "fi": "Minulla on koira.",
+        "en": "I have a dog."
+      },
+      {
+        "fi": "Sinulla on uusi auto.",
+        "en": "You have a new car."
+      },
+      {
+        "fi": "Hänellä on kissa.",
+        "en": "He/She has a cat."
+      },
+      {
+        "fi": "Meillä on iso talo.",
+        "en": "We have a big house."
+      },
+      {
+        "fi": "Teillä on pieni asunto.",
+        "en": "You (plural) have a small flat."
+      },
+      {
+        "fi": "Heillä on kaksi koiraa.",
+        "en": "They have two dogs."
+      }
+    ]
+  },
+  {
+    "id": "adjective-agreement",
+    "type": "case",
+    "unit": "u04",
+    "title": "An adjective takes the same case as its noun: iso talo, isossa talossa",
+    "examples": [
+      {
+        "fi": "Asun isossa talossa.",
+        "en": "I live in a big house."
+      },
+      {
+        "fi": "Pienessä huoneessa on sänky.",
+        "en": "There is a bed in the small room."
+      },
+      {
+        "fi": "Kauniissa keittiössä on iso ikkuna.",
+        "en": "There is a big window in the beautiful kitchen."
+      },
+      {
+        "fi": "Vanhassa asunnossa on kaksi huonetta.",
+        "en": "There are two rooms in the old flat."
+      }
+    ]
+  },
+  {
+    "id": "partitive-negative",
+    "type": "object",
+    "unit": "u04",
+    "title": "No thing in the negative: ei ole + partitive (Minulla ei ole autoa)",
+    "examples": [
+      {
+        "fi": "Minulla ei ole autoa.",
+        "en": "I do not have a car."
+      },
+      {
+        "fi": "Meillä ei ole koiraa.",
+        "en": "We do not have a dog."
+      },
+      {
+        "fi": "Keittiössä ei ole tuolia.",
+        "en": "There is no chair in the kitchen."
+      },
+      {
+        "fi": "Hänellä ei ole kissaa.",
+        "en": "He/She does not have a cat."
+      },
+      {
+        "fi": "Olohuoneessa ei ole sohvaa.",
+        "en": "There is no sofa in the living room."
+      }
+    ]
   }
 ]
