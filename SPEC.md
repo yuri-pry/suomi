@@ -311,8 +311,13 @@ section 3b) and runs in the test command.
 
 Listening uses the browser's speech synthesis with a Finnish (fi-FI) voice. A Finnish
 voice is not present on every device, so the app checks at start-up and leaves out
-`listen` exercises when none is found. This needs testing on real devices before it is
-relied on. Recorded audio is not planned.
+`listen` exercises when none is found. Recorded audio is not planned.
+
+Tested 2026-11-14: this PC (Chrome) has a Finnish voice. The Android WebView inside the APK
+has no `speechSynthesis` at all, so the APK speaks through a small native plugin
+(`TtsPlugin.java`) that wraps Android's text-to-speech; the user confirmed voice works in the
+APK and in the installed PWA on their phone. Any Finnish word shown in a lesson can be tapped
+to hear it.
 
 ## 6. Placement test
 

@@ -106,7 +106,7 @@ calendar day, lesson unlock order) and the Result screen.
 ## Phase 2: Delivery risks first
 
 ### Task 6: Finnish speech and the `listen` exercise
-- [x] Done (on this PC; phone test pending)
+- [x] Done
 
 **Description:** Add `speech.ts` (find a fi-FI voice, speak a sentence) and the
 `listen` exercise. Leave `listen` exercises out of a lesson when no voice exists.
@@ -114,7 +114,7 @@ calendar day, lesson unlock order) and the Result screen.
 **Acceptance criteria:**
 - [x] With a Finnish voice, the sentence is spoken and can be replayed
 - [x] Without one, the lesson plays with no `listen` exercises and no error
-- [ ] Result of the test on the user's Android phone and on this PC is written into SPEC section 5
+- [x] Result of the test on the user's Android phone and on this PC is written into SPEC section 5
 
 **Verification:** `npm test` (filter logic), manual test on both devices
 **Dependencies:** Task 5
@@ -122,15 +122,15 @@ calendar day, lesson unlock order) and the Result screen.
 **Size:** S
 
 ### Task 7: PWA and first deploy
-- [ ] Done
+- [x] Done (https://yuri-pry.github.io/suomi/, deployed by GitHub Actions on every push to master)
 
 **Description:** Add the manifest, icons and service worker with vite-plugin-pwa, and
 deploy the build to the static host.
 
 **Acceptance criteria:**
-- [ ] Chrome on Android offers "Install app"
+- [x] Chrome on Android offers "Install app" (user confirmed 2026-11-14)
 - [ ] A lesson plays with the network off after one online visit
-- [ ] The deployed URL loads the app
+- [x] The deployed URL loads the app
 
 **Verification:** `npm run build`, manual install on the phone
 **Dependencies:** Task 5. Needs the user's go-ahead on hosting before deploying
@@ -138,13 +138,13 @@ deploy the build to the static host.
 **Size:** S
 
 ### Task 8: Android APK
-- [ ] Done
+- [x] Done
 
 **Description:** Wrap the build with Capacitor and produce a debug APK. Check first
 that Java and the Android SDK are installed; installing them needs the user's go-ahead.
 
 **Acceptance criteria:**
-- [ ] `app-debug.apk` installs on the phone (APK built 2026-11-13, not yet tried on a device)
+- [x] `app-debug.apk` installs on the phone (user confirmed 2026-11-14, voice included)
 - [ ] A lesson plays in flight mode
 - [x] The build steps are written in `README.md`
 
@@ -161,7 +161,7 @@ that Java and the Android SDK are installed; installing them needs the user's go
 ## Phase 3: Full lesson experience
 
 ### Task 9: `match` and `order` exercises
-- [ ] Done
+- [x] Done (built by a helper agent 2026-11-14; touch behaviour not yet checked by hand)
 
 **Acceptance criteria:**
 - [ ] `match` pairs 4 or 5 words; a wrong pair counts as one mistake
