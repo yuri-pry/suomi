@@ -5,12 +5,30 @@
     "unit": "u01",
     "title": "olla (to be), present tense",
     "examples": [
-      { "fi": "Minä olen opiskelija.", "en": "I am a student." },
-      { "fi": "Sinä olet kotona.", "en": "You are at home." },
-      { "fi": "Hän on opettaja.", "en": "He/She is a teacher." },
-      { "fi": "Me olemme Suomessa.", "en": "We are in Finland." },
-      { "fi": "Te olette koulussa.", "en": "You (plural) are at school." },
-      { "fi": "He ovat kotona.", "en": "They are at home." }
+      {
+        "fi": "Minä olen opiskelija.",
+        "en": "I am a student."
+      },
+      {
+        "fi": "Sinä olet kotona.",
+        "en": "You are at home."
+      },
+      {
+        "fi": "Hän on opettaja.",
+        "en": "He/She is a teacher."
+      },
+      {
+        "fi": "Me olemme Suomessa.",
+        "en": "We are in Finland."
+      },
+      {
+        "fi": "Te olette koulussa.",
+        "en": "You (plural) are at school."
+      },
+      {
+        "fi": "He ovat kotona.",
+        "en": "They are at home."
+      }
     ]
   },
   {
@@ -20,9 +38,18 @@
     "title": "Vowel harmony: a, o, u do not mix with ä, ö, y in one word",
     "ref": "https://uusikielemme.fi/finnish-grammar/vowel-harmony-vokaaliharmonia-finnish-grammar/",
     "examples": [
-      { "fi": "talossa", "en": "in the house (back vowels: ending -ssa)" },
-      { "fi": "metsässä", "en": "in the forest (front vowels: ending -ssä)" },
-      { "fi": "Helsingissä", "en": "in Helsinki (only e and i: ending -ssä)" }
+      {
+        "fi": "talossa",
+        "en": "in the house (back vowels: ending -ssa)"
+      },
+      {
+        "fi": "metsässä",
+        "en": "in the forest (front vowels: ending -ssä)"
+      },
+      {
+        "fi": "Helsingissä",
+        "en": "in Helsinki (only e and i: ending -ssä)"
+      }
     ]
   },
   {
@@ -31,12 +58,30 @@
     "unit": "u02",
     "title": "Verb type 1, present tense: puhun, puhut, puhuu, puhumme, puhutte, puhuvat",
     "examples": [
-      { "fi": "Minä puhun suomea.", "en": "I speak Finnish." },
-      { "fi": "Sinä asut Helsingissä.", "en": "You live in Helsinki." },
-      { "fi": "Hän sanoo hei.", "en": "He/She says hello." },
-      { "fi": "Me puhumme englantia.", "en": "We speak English." },
-      { "fi": "Te asutte Suomessa.", "en": "You (plural) live in Finland." },
-      { "fi": "He kysyvät nimen.", "en": "They ask the name." }
+      {
+        "fi": "Minä puhun suomea.",
+        "en": "I speak Finnish."
+      },
+      {
+        "fi": "Sinä asut Helsingissä.",
+        "en": "You live in Helsinki."
+      },
+      {
+        "fi": "Hän sanoo hei.",
+        "en": "He/She says hello."
+      },
+      {
+        "fi": "Me puhumme englantia.",
+        "en": "We speak English."
+      },
+      {
+        "fi": "Te asutte Suomessa.",
+        "en": "You (plural) live in Finland."
+      },
+      {
+        "fi": "He kysyvät nimen.",
+        "en": "They ask the name."
+      }
     ]
   },
   {
@@ -45,10 +90,22 @@
     "unit": "u02",
     "title": "Yes/no question: verb first + -ko/-kö (by vowel harmony)",
     "examples": [
-      { "fi": "Puhutko suomea?", "en": "Do you speak Finnish?" },
-      { "fi": "Asutteko Helsingissä?", "en": "Do you (plural) live in Helsinki?" },
-      { "fi": "Onko hän opettaja?", "en": "Is he/she a teacher?" },
-      { "fi": "Oletko sinä suomalainen?", "en": "Are you Finnish?" }
+      {
+        "fi": "Puhutko suomea?",
+        "en": "Do you speak Finnish?"
+      },
+      {
+        "fi": "Asutteko Helsingissä?",
+        "en": "Do you (plural) live in Helsinki?"
+      },
+      {
+        "fi": "Onko hän opettaja?",
+        "en": "Is he/she a teacher?"
+      },
+      {
+        "fi": "Oletko sinä suomalainen?",
+        "en": "Are you Finnish?"
+      }
     ]
   },
   {
@@ -57,12 +114,239 @@
     "unit": "u02",
     "title": "Question words come first: mikä, kuka, missä, mistä, mitä, millainen",
     "examples": [
-      { "fi": "Mikä sinun nimesi on?", "en": "What is your name?" },
-      { "fi": "Kuka hän on?", "en": "Who is he/she?" },
-      { "fi": "Missä sinä asut?", "en": "Where do you live?" },
-      { "fi": "Mistä sinä olet kotoisin?", "en": "Where are you from?" },
-      { "fi": "Mitä kieltä sinä puhut?", "en": "What language do you speak?" },
-      { "fi": "Millainen kieli suomi on?", "en": "What kind of language is Finnish?" }
+      {
+        "fi": "Mikä sinun nimesi on?",
+        "en": "What is your name?"
+      },
+      {
+        "fi": "Kuka hän on?",
+        "en": "Who is he/she?"
+      },
+      {
+        "fi": "Missä sinä asut?",
+        "en": "Where do you live?"
+      },
+      {
+        "fi": "Mistä sinä olet kotoisin?",
+        "en": "Where are you from?"
+      },
+      {
+        "fi": "Mitä kieltä sinä puhut?",
+        "en": "What language do you speak?"
+      },
+      {
+        "fi": "Millainen kieli suomi on?",
+        "en": "What kind of language is Finnish?"
+      }
+    ]
+  },
+  {
+    "id": "verbtype-2",
+    "type": "verbtype",
+    "unit": "u03",
+    "title": "Verb type 2 (-da/-dä), present tense: syön, syöt, syö, syömme, syötte, syövät",
+    "examples": [
+      {
+        "fi": "Minä syön leipää.",
+        "en": "I eat bread."
+      },
+      {
+        "fi": "Sinä juot kahvia.",
+        "en": "You drink coffee."
+      },
+      {
+        "fi": "Hän tuo maitoa.",
+        "en": "He/She brings milk."
+      },
+      {
+        "fi": "Me syömme kalaa.",
+        "en": "We eat fish."
+      },
+      {
+        "fi": "Te juotte teetä.",
+        "en": "You (plural) drink tea."
+      },
+      {
+        "fi": "He syövät riisiä.",
+        "en": "They eat rice."
+      }
+    ]
+  },
+  {
+    "id": "negative-verb",
+    "type": "verbtype",
+    "unit": "u03",
+    "title": "The negative verb: en, et, ei, emme, ette, eivät + the short verb",
+    "examples": [
+      {
+        "fi": "En juo kahvia.",
+        "en": "I do not drink coffee."
+      },
+      {
+        "fi": "Et syö lihaa.",
+        "en": "You do not eat meat."
+      },
+      {
+        "fi": "Hän ei puhu ruotsia.",
+        "en": "He/She does not speak Swedish."
+      },
+      {
+        "fi": "Emme asu Turussa.",
+        "en": "We do not live in Turku."
+      },
+      {
+        "fi": "Ette juo maitoa.",
+        "en": "You (plural) do not drink milk."
+      },
+      {
+        "fi": "He eivät syö kalaa.",
+        "en": "They do not eat fish."
+      }
+    ]
+  },
+  {
+    "id": "partitive-form",
+    "type": "case",
+    "unit": "u03",
+    "title": "Partitive singular: -a/-ä, -ta/-tä (kahvia, leipää, teetä, vettä)",
+    "examples": [
+      {
+        "fi": "Juon kahvia.",
+        "en": "I drink coffee."
+      },
+      {
+        "fi": "Syön leipää.",
+        "en": "I eat bread."
+      },
+      {
+        "fi": "Hän juo teetä.",
+        "en": "He/She drinks tea."
+      },
+      {
+        "fi": "Me juomme vettä.",
+        "en": "We drink water."
+      },
+      {
+        "fi": "Syön juustoa.",
+        "en": "I eat cheese."
+      }
+    ]
+  },
+  {
+    "id": "partitive-amount",
+    "type": "case",
+    "unit": "u03",
+    "title": "Partitive after numbers above one and after measures: kaksi omenaa, litra maitoa",
+    "examples": [
+      {
+        "fi": "Syön kaksi omenaa.",
+        "en": "I eat two apples."
+      },
+      {
+        "fi": "Hän juo kaksi kuppia kahvia.",
+        "en": "He/She drinks two cups of coffee."
+      },
+      {
+        "fi": "Me syömme viisi munaa.",
+        "en": "We eat five eggs."
+      },
+      {
+        "fi": "Hän syö kolme banaania.",
+        "en": "He/She eats three bananas."
+      }
+    ]
+  },
+  {
+    "id": "partitive-mass",
+    "type": "object",
+    "unit": "u03",
+    "title": "Food and drink in general are partitive objects: Syön leipää, juon kahvia",
+    "examples": [
+      {
+        "fi": "Minä syön kalaa.",
+        "en": "I eat fish."
+      },
+      {
+        "fi": "Sinä juot maitoa.",
+        "en": "You drink milk."
+      },
+      {
+        "fi": "Hän syö keittoa.",
+        "en": "He/She eats soup."
+      },
+      {
+        "fi": "Me juomme mehua.",
+        "en": "We drink juice."
+      },
+      {
+        "fi": "He syövät riisiä.",
+        "en": "They eat rice."
+      }
+    ]
+  },
+  {
+    "id": "rektio-pitaa-sta",
+    "type": "rektio",
+    "unit": "u03",
+    "title": "pitää + -sta/-stä (to like)",
+    "verb": "pitää",
+    "requires": "sisaeronto",
+    "examples": [
+      {
+        "fi": "Pidän kahvista.",
+        "en": "I like coffee.",
+        "word": "kahvista"
+      },
+      {
+        "fi": "Sinä pidät kalasta.",
+        "en": "You like fish.",
+        "word": "kalasta"
+      },
+      {
+        "fi": "Hän pitää leivästä.",
+        "en": "He/She likes bread.",
+        "word": "leivästä"
+      },
+      {
+        "fi": "Me pidämme jäätelöstä.",
+        "en": "We like ice cream.",
+        "word": "jäätelöstä"
+      },
+      {
+        "fi": "Pidätkö sinä teestä?",
+        "en": "Do you like tea?",
+        "word": "teestä"
+      }
+    ]
+  },
+  {
+    "id": "rektio-tykata-sta",
+    "type": "rektio",
+    "unit": "u03",
+    "title": "tykätä + -sta/-stä (to like)",
+    "verb": "tykätä",
+    "requires": "sisaeronto",
+    "examples": [
+      {
+        "fi": "Tykkään keitosta.",
+        "en": "I like soup.",
+        "word": "keitosta"
+      },
+      {
+        "fi": "Hän tykkää kakusta.",
+        "en": "He/She likes cake.",
+        "word": "kakusta"
+      },
+      {
+        "fi": "Me tykkäämme pullasta.",
+        "en": "We like buns.",
+        "word": "pullasta"
+      },
+      {
+        "fi": "He tykkäävät banaanista.",
+        "en": "They like bananas.",
+        "word": "banaanista"
+      }
     ]
   }
 ]

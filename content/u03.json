@@ -1,0 +1,1317 @@
+{
+  "id": "u03",
+  "section": 1,
+  "title": "Food",
+  "tip": {
+    "en": "Verb type 2 ends in -da or -dä: syödä (to eat), juoda (to drink), tuoda (to bring), käydä (to visit). Drop -da/-dä and add the personal endings: minä syön, sinä syöt, hän syö, me syömme, te syötte, he syövät. Note that hän has no ending at all.\n\nTo say no, use the negative verb, which changes with the person: en, et, ei, emme, ette, eivät. The main verb stays in its short form: En juo kahvia. Hän ei syö lihaa.\n\nFood and drink you eat or drink in general stands in the partitive: Juon kahvia. Syön leipää. The ending is -a/-ä, or -ta/-tä: kahvi - kahvia, tee - teetä, vesi - vettä. After a number above one and after measures the noun is partitive too: kaksi omenaa, litra maitoa, kaksi kuppia kahvia.\n\nTo like something you use pitää or tykätä with the ending -sta/-stä: Pidän kahvista. Tykkään kakusta. The word for the thing you like is in this form, not in the basic form."
+  },
+  "lessons": [
+    {
+      "id": "u03-l1",
+      "title": "Food, drink and colours",
+      "exercises": [
+        {
+          "id": "u03-l1-e01",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "coffee",
+          "options": [
+            "kahvi",
+            "tee",
+            "maito"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u03-l1-e02",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "milk",
+          "options": [
+            "maito",
+            "mehu",
+            "vesi"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u03-l1-e03",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "bread",
+          "options": [
+            "leipä",
+            "liha",
+            "juusto"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u03-l1-e04",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "kala",
+          "options": [
+            "fish",
+            "chicken",
+            "egg"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u03-l1-e05",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "apple",
+          "options": [
+            "omena",
+            "banaani",
+            "peruna"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u03-l1-e06",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Maito ja leipä.",
+          "options": [
+            "Maito ja leipä.",
+            "Mehu ja leipä.",
+            "Maito ja juusto."
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u03-l1-e07",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "kahvi",
+              "en": "coffee"
+            },
+            {
+              "fi": "tee",
+              "en": "tea"
+            },
+            {
+              "fi": "maito",
+              "en": "milk"
+            },
+            {
+              "fi": "vesi",
+              "en": "water"
+            },
+            {
+              "fi": "mehu",
+              "en": "juice"
+            }
+          ]
+        },
+        {
+          "id": "u03-l1-e08",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "leipä",
+              "en": "bread"
+            },
+            {
+              "fi": "juusto",
+              "en": "cheese"
+            },
+            {
+              "fi": "liha",
+              "en": "meat"
+            },
+            {
+              "fi": "kala",
+              "en": "fish"
+            },
+            {
+              "fi": "kana",
+              "en": "chicken"
+            }
+          ]
+        },
+        {
+          "id": "u03-l1-e09",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "ice cream",
+          "options": [
+            "jäätelö",
+            "kakku",
+            "keitto"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u03-l1-e10",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "keitto",
+          "options": [
+            "soup",
+            "salad",
+            "ice cream"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u03-l1-e11",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "peruna",
+              "en": "potato"
+            },
+            {
+              "fi": "riisi",
+              "en": "rice"
+            },
+            {
+              "fi": "muna",
+              "en": "egg"
+            },
+            {
+              "fi": "banaani",
+              "en": "banana"
+            },
+            {
+              "fi": "salaatti",
+              "en": "salad"
+            }
+          ]
+        },
+        {
+          "id": "u03-l1-e12",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "punainen",
+              "en": "red"
+            },
+            {
+              "fi": "sininen",
+              "en": "blue"
+            },
+            {
+              "fi": "vihreä",
+              "en": "green"
+            },
+            {
+              "fi": "keltainen",
+              "en": "yellow"
+            },
+            {
+              "fi": "musta",
+              "en": "black"
+            }
+          ]
+        },
+        {
+          "id": "u03-l1-e13",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "valkoinen",
+              "en": "white"
+            },
+            {
+              "fi": "ruskea",
+              "en": "brown"
+            },
+            {
+              "fi": "harmaa",
+              "en": "grey"
+            },
+            {
+              "fi": "musta",
+              "en": "black"
+            }
+          ]
+        },
+        {
+          "id": "u03-l1-e14",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Omena on ___.",
+          "hint": "red",
+          "answers": [
+            "punainen"
+          ]
+        },
+        {
+          "id": "u03-l1-e15",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "but",
+          "options": [
+            "mutta",
+            "ja",
+            "myös"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "u03-l2",
+      "title": "Verb type 2 and saying no",
+      "exercises": [
+        {
+          "id": "u03-l2-e01",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I eat",
+          "options": [
+            "minä syön",
+            "sinä syöt",
+            "hän syö"
+          ],
+          "answer": 0,
+          "tags": [
+            "verbtype-2"
+          ]
+        },
+        {
+          "id": "u03-l2-e02",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "you drink (one person)",
+          "options": [
+            "sinä juot",
+            "minä juon",
+            "hän juo"
+          ],
+          "answer": 0,
+          "tags": [
+            "verbtype-2"
+          ]
+        },
+        {
+          "id": "u03-l2-e03",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "he/she brings",
+          "options": [
+            "hän tuo",
+            "minä tuon",
+            "sinä tuot"
+          ],
+          "answer": 0,
+          "tags": [
+            "verbtype-2"
+          ]
+        },
+        {
+          "id": "u03-l2-e04",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä ___ kahvia ja syön leipää.",
+          "hint": "juoda",
+          "answers": [
+            "juon"
+          ],
+          "form": {
+            "base": "juoda",
+            "person": "1",
+            "number": "singular"
+          },
+          "tags": [
+            "verbtype-2"
+          ]
+        },
+        {
+          "id": "u03-l2-e05",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Sinä ___ vettä ja mehua.",
+          "hint": "juoda",
+          "answers": [
+            "juot"
+          ],
+          "form": {
+            "base": "juoda",
+            "person": "2",
+            "number": "singular"
+          },
+          "tags": [
+            "verbtype-2"
+          ]
+        },
+        {
+          "id": "u03-l2-e06",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hän ___ kalaa ja perunaa.",
+          "hint": "syödä",
+          "answers": [
+            "syö"
+          ],
+          "form": {
+            "base": "syödä",
+            "person": "3",
+            "number": "singular"
+          },
+          "tags": [
+            "verbtype-2"
+          ]
+        },
+        {
+          "id": "u03-l2-e07",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Me ___ keittoa ja leipää.",
+          "hint": "syödä",
+          "answers": [
+            "syömme"
+          ],
+          "form": {
+            "base": "syödä",
+            "person": "1",
+            "number": "plural"
+          },
+          "tags": [
+            "verbtype-2"
+          ]
+        },
+        {
+          "id": "u03-l2-e08",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Te ___ teetä ja maitoa.",
+          "hint": "juoda",
+          "answers": [
+            "juotte"
+          ],
+          "form": {
+            "base": "juoda",
+            "person": "2",
+            "number": "plural"
+          },
+          "tags": [
+            "verbtype-2"
+          ]
+        },
+        {
+          "id": "u03-l2-e09",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "He ___ lihaa ja riisiä.",
+          "hint": "syödä",
+          "answers": [
+            "syövät"
+          ],
+          "form": {
+            "base": "syödä",
+            "person": "3",
+            "number": "plural"
+          },
+          "tags": [
+            "verbtype-2"
+          ]
+        },
+        {
+          "id": "u03-l2-e10",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä juon kahvia.",
+          "options": [
+            "Minä juon kahvia.",
+            "Sinä juot kahvia.",
+            "Hän juo kahvia."
+          ],
+          "answer": 0,
+          "tags": [
+            "verbtype-2"
+          ]
+        },
+        {
+          "id": "u03-l2-e11",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I do not eat",
+          "options": [
+            "minä en syö",
+            "minä ei syö",
+            "minä et syö"
+          ],
+          "answer": 0,
+          "tags": [
+            "negative-verb"
+          ]
+        },
+        {
+          "id": "u03-l2-e12",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä ___ juo kahvia.",
+          "hint": "do not (negative verb)",
+          "answers": [
+            "en"
+          ],
+          "tags": [
+            "negative-verb"
+          ]
+        },
+        {
+          "id": "u03-l2-e13",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Sinä ___ syö lihaa.",
+          "hint": "do not (negative verb)",
+          "answers": [
+            "et"
+          ],
+          "tags": [
+            "negative-verb"
+          ]
+        },
+        {
+          "id": "u03-l2-e14",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hän ___ puhu ruotsia.",
+          "hint": "does not (negative verb)",
+          "answers": [
+            "ei"
+          ],
+          "tags": [
+            "negative-verb"
+          ]
+        },
+        {
+          "id": "u03-l2-e15",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "We do not drink milk.",
+          "answers": [
+            "Me emme juo maitoa."
+          ],
+          "tiles": [
+            "ei"
+          ],
+          "tags": [
+            "negative-verb"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u03-l3",
+      "title": "Partitive: how much?",
+      "exercises": [
+        {
+          "id": "u03-l3-e01",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "pulla",
+              "en": "bun"
+            },
+            {
+              "fi": "kakku",
+              "en": "cake"
+            },
+            {
+              "fi": "makkara",
+              "en": "sausage"
+            },
+            {
+              "fi": "sokeri",
+              "en": "sugar"
+            }
+          ]
+        },
+        {
+          "id": "u03-l3-e02",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "litra",
+              "en": "litre"
+            },
+            {
+              "fi": "kilo",
+              "en": "kilo"
+            },
+            {
+              "fi": "kuppi",
+              "en": "cup"
+            },
+            {
+              "fi": "lasi",
+              "en": "glass"
+            },
+            {
+              "fi": "pala",
+              "en": "piece"
+            }
+          ]
+        },
+        {
+          "id": "u03-l3-e03",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä juon ___.",
+          "options": [
+            "kahvia",
+            "kahvi",
+            "kahvin"
+          ],
+          "answer": 0,
+          "tags": [
+            "partitive-form",
+            "partitive-mass"
+          ]
+        },
+        {
+          "id": "u03-l3-e04",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä syön ___ ja leipää.",
+          "hint": "juusto",
+          "answers": [
+            "juustoa"
+          ],
+          "form": {
+            "base": "juusto",
+            "case": "osanto"
+          },
+          "tags": [
+            "partitive-form",
+            "partitive-mass"
+          ]
+        },
+        {
+          "id": "u03-l3-e05",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Sinä juot ___.",
+          "hint": "maito",
+          "answers": [
+            "maitoa"
+          ],
+          "form": {
+            "base": "maito",
+            "case": "osanto"
+          },
+          "tags": [
+            "partitive-form",
+            "partitive-mass"
+          ]
+        },
+        {
+          "id": "u03-l3-e06",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hän juo ___ ja kahvia.",
+          "hint": "tee",
+          "answers": [
+            "teetä"
+          ],
+          "form": {
+            "base": "tee",
+            "case": "osanto"
+          },
+          "tags": [
+            "partitive-form",
+            "partitive-mass"
+          ]
+        },
+        {
+          "id": "u03-l3-e07",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Me syömme ___ ja kalaa.",
+          "hint": "peruna",
+          "answers": [
+            "perunaa",
+            "perunoita"
+          ],
+          "form": {
+            "base": "peruna",
+            "case": "osanto"
+          },
+          "tags": [
+            "partitive-form",
+            "partitive-mass"
+          ]
+        },
+        {
+          "id": "u03-l3-e08",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "two apples",
+          "options": [
+            "kaksi omenaa",
+            "kaksi omena",
+            "kaksi omenan"
+          ],
+          "answer": 0,
+          "tags": [
+            "partitive-amount"
+          ]
+        },
+        {
+          "id": "u03-l3-e09",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "a litre of milk",
+          "options": [
+            "litra maitoa",
+            "litra maito",
+            "litra maidon"
+          ],
+          "answer": 0,
+          "tags": [
+            "partitive-amount"
+          ]
+        },
+        {
+          "id": "u03-l3-e10",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä juon kaksi kuppia ___.",
+          "hint": "kahvi",
+          "answers": [
+            "kahvia"
+          ],
+          "form": {
+            "base": "kahvi",
+            "case": "osanto"
+          },
+          "tags": [
+            "partitive-amount"
+          ]
+        },
+        {
+          "id": "u03-l3-e11",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hän syö kolme ___ ja juo vettä.",
+          "hint": "banaani",
+          "answers": [
+            "banaania"
+          ],
+          "form": {
+            "base": "banaani",
+            "case": "osanto"
+          },
+          "tags": [
+            "partitive-amount"
+          ]
+        },
+        {
+          "id": "u03-l3-e12",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Me syömme viisi ___.",
+          "hint": "muna",
+          "answers": [
+            "munaa"
+          ],
+          "form": {
+            "base": "muna",
+            "case": "osanto"
+          },
+          "tags": [
+            "partitive-amount"
+          ]
+        },
+        {
+          "id": "u03-l3-e13",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I eat two bananas.",
+          "answers": [
+            "Minä syön kaksi banaania.",
+            "Syön kaksi banaania."
+          ],
+          "tiles": [
+            "banaani"
+          ],
+          "tags": [
+            "partitive-amount"
+          ]
+        },
+        {
+          "id": "u03-l3-e14",
+          "type": "translate",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I drink two glasses of water.",
+          "answers": [
+            "Minä juon kaksi lasia vettä.",
+            "Juon kaksi lasia vettä."
+          ],
+          "tags": [
+            "partitive-amount"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u03-l4",
+      "title": "At the café",
+      "exercises": [
+        {
+          "id": "u03-l4-e01",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "kahvila",
+              "en": "café"
+            },
+            {
+              "fi": "tarjoilija",
+              "en": "waiter"
+            },
+            {
+              "fi": "tänään",
+              "en": "today"
+            },
+            {
+              "fi": "myös",
+              "en": "also"
+            },
+            {
+              "fi": "paljon",
+              "en": "a lot"
+            }
+          ]
+        },
+        {
+          "id": "u03-l4-e02",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I like coffee.",
+          "options": [
+            "Pidän kahvista.",
+            "Pidän kahvia.",
+            "Pidän kahvi."
+          ],
+          "answer": 0,
+          "tags": [
+            "rektio-pitaa-sta"
+          ]
+        },
+        {
+          "id": "u03-l4-e03",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Do you like fish?",
+          "options": [
+            "Pidätkö kalasta?",
+            "Pidätkö kalaa?",
+            "Pidätkö kala?"
+          ],
+          "answer": 0,
+          "tags": [
+            "rektio-pitaa-sta"
+          ]
+        },
+        {
+          "id": "u03-l4-e04",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Sinä pidät ___.",
+          "hint": "kala",
+          "answers": [
+            "kalasta"
+          ],
+          "form": {
+            "base": "kala",
+            "case": "sisaeronto"
+          },
+          "tags": [
+            "rektio-pitaa-sta"
+          ]
+        },
+        {
+          "id": "u03-l4-e05",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hän pitää ___ ja perunasta.",
+          "hint": "liha",
+          "answers": [
+            "lihasta"
+          ],
+          "form": {
+            "base": "liha",
+            "case": "sisaeronto"
+          },
+          "tags": [
+            "rektio-pitaa-sta"
+          ]
+        },
+        {
+          "id": "u03-l4-e06",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Anna pitää ___.",
+          "hint": "leipä",
+          "answers": [
+            "leivästä"
+          ],
+          "form": {
+            "base": "leipä",
+            "case": "sisaeronto"
+          },
+          "tags": [
+            "rektio-pitaa-sta"
+          ]
+        },
+        {
+          "id": "u03-l4-e07",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I like soup.",
+          "options": [
+            "Tykkään keitosta.",
+            "Tykkään keittoa.",
+            "Tykkään keitto."
+          ],
+          "answer": 0,
+          "tags": [
+            "rektio-tykata-sta"
+          ]
+        },
+        {
+          "id": "u03-l4-e08",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä tykkään ___.",
+          "hint": "pulla",
+          "answers": [
+            "pullasta"
+          ],
+          "form": {
+            "base": "pulla",
+            "case": "sisaeronto"
+          },
+          "tags": [
+            "rektio-tykata-sta"
+          ]
+        },
+        {
+          "id": "u03-l4-e09",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hän tykkää ___.",
+          "hint": "kakku",
+          "answers": [
+            "kakusta"
+          ],
+          "form": {
+            "base": "kakku",
+            "case": "sisaeronto"
+          },
+          "tags": [
+            "rektio-tykata-sta"
+          ]
+        },
+        {
+          "id": "u03-l4-e10",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "He tykkäävät ___.",
+          "hint": "banaani",
+          "answers": [
+            "banaanista"
+          ],
+          "form": {
+            "base": "banaani",
+            "case": "sisaeronto"
+          },
+          "tags": [
+            "rektio-tykata-sta"
+          ]
+        },
+        {
+          "id": "u03-l4-e11",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Anna on kahvilassa. Tarjoilija kysyy: Mitä sinä juot? Anna sanoo: Minä juon teetä. Tarjoilija tuo kaksi kuppia teetä.",
+          "prompt": "Tarjoilija tuo kahvia.",
+          "answer": false
+        },
+        {
+          "id": "u03-l4-e12",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Eero on kahvilassa. Hän juo kahvia ja syö kakkua. Hän pitää kahvista, mutta ei pidä teestä.",
+          "prompt": "Eero pitää kahvista.",
+          "answer": true,
+          "tags": [
+            "rektio-pitaa-sta"
+          ]
+        },
+        {
+          "id": "u03-l4-e13",
+          "type": "translate",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Today I eat fish, but I do not drink milk.",
+          "answers": [
+            "Tänään syön kalaa, mutta en juo maitoa.",
+            "Tänään minä syön kalaa, mutta en juo maitoa.",
+            "Tänään syön kalaa mutta en juo maitoa.",
+            "Tänään minä syön kalaa mutta en juo maitoa."
+          ],
+          "tags": [
+            "negative-verb"
+          ]
+        },
+        {
+          "id": "u03-l4-e14",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I like tea and cake.",
+          "answers": [
+            "Minä pidän teestä ja kakusta.",
+            "Pidän teestä ja kakusta."
+          ],
+          "tiles": [
+            "teetä"
+          ],
+          "tags": [
+            "rektio-pitaa-sta"
+          ]
+        },
+        {
+          "id": "u03-l4-e15",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Tykkään keitosta.",
+          "options": [
+            "I like soup.",
+            "I eat soup.",
+            "I make soup."
+          ],
+          "answer": 0,
+          "tags": [
+            "rektio-tykata-sta"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u03-l5",
+      "title": "Mix",
+      "exercises": [
+        {
+          "id": "u03-l5-e01",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Sinä ___ paljon teetä.",
+          "hint": "juoda",
+          "answers": [
+            "juot"
+          ],
+          "form": {
+            "base": "juoda",
+            "person": "2",
+            "number": "singular"
+          },
+          "tags": [
+            "verbtype-2"
+          ]
+        },
+        {
+          "id": "u03-l5-e02",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "we visit the café",
+          "options": [
+            "me käymme kahvilassa",
+            "me syömme kahvilassa",
+            "me juomme kahvilassa"
+          ],
+          "answer": 0,
+          "tags": [
+            "verbtype-2"
+          ]
+        },
+        {
+          "id": "u03-l5-e03",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hän ___ juo kahvia, mutta minä juon teetä.",
+          "hint": "does not (negative verb)",
+          "answers": [
+            "ei"
+          ],
+          "tags": [
+            "negative-verb"
+          ]
+        },
+        {
+          "id": "u03-l5-e04",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "He ___ syö lihaa.",
+          "hint": "do not (negative verb)",
+          "answers": [
+            "eivät"
+          ],
+          "tags": [
+            "negative-verb"
+          ]
+        },
+        {
+          "id": "u03-l5-e05",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä syön ___.",
+          "options": [
+            "riisiä",
+            "riisi",
+            "riisin"
+          ],
+          "answer": 0,
+          "tags": [
+            "partitive-form",
+            "partitive-mass"
+          ]
+        },
+        {
+          "id": "u03-l5-e06",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä juon kaksi lasia ___.",
+          "hint": "maito",
+          "answers": [
+            "maitoa"
+          ],
+          "form": {
+            "base": "maito",
+            "case": "osanto"
+          },
+          "tags": [
+            "partitive-amount"
+          ]
+        },
+        {
+          "id": "u03-l5-e07",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hän pitää ___.",
+          "options": [
+            "jäätelöstä",
+            "jäätelöä",
+            "jäätelö"
+          ],
+          "answer": 0,
+          "tags": [
+            "rektio-pitaa-sta"
+          ]
+        },
+        {
+          "id": "u03-l5-e08",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "yellow",
+          "options": [
+            "keltainen",
+            "sininen",
+            "harmaa"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u03-l5-e09",
+          "type": "fill",
+          "tags": [
+            "verbtype-1"
+          ],
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä asun Turussa ja ___ suomea.",
+          "hint": "puhua",
+          "answers": [
+            "puhun"
+          ],
+          "form": {
+            "base": "puhua",
+            "person": "1",
+            "number": "singular"
+          }
+        },
+        {
+          "id": "u03-l5-e10",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ sinä kahvista?",
+          "hint": "pitää",
+          "answers": [
+            "pidätkö"
+          ],
+          "tags": [
+            "question-ko",
+            "rektio-pitaa-sta"
+          ]
+        },
+        {
+          "id": "u03-l5-e11",
+          "type": "fill",
+          "tags": [
+            "olla-present"
+          ],
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Me ___ kahvilassa.",
+          "hint": "olla",
+          "answers": [
+            "olemme"
+          ],
+          "form": {
+            "base": "olla",
+            "person": "1",
+            "number": "plural"
+          }
+        },
+        {
+          "id": "u03-l5-e12",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Minä olen Mari. Minä asun Helsingissä. Tänään syön kalaa ja perunaa. Juon myös maitoa. En pidä kahvista.",
+          "prompt": "Mari juo kahvia.",
+          "answer": false
+        },
+        {
+          "id": "u03-l5-e13",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I eat fish and drink a lot of water.",
+          "answers": [
+            "Minä syön kalaa ja juon paljon vettä.",
+            "Syön kalaa ja juon paljon vettä."
+          ],
+          "tiles": [
+            "kala"
+          ],
+          "tags": [
+            "partitive-mass"
+          ]
+        },
+        {
+          "id": "u03-l5-e14",
+          "type": "translate",
+          "tags": [
+            "question-words"
+          ],
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "What do you drink today?",
+          "answers": [
+            "Mitä sinä juot tänään?",
+            "Mitä juot tänään?"
+          ]
+        },
+        {
+          "id": "u03-l5-e15",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä en juo kahvia.",
+          "options": [
+            "Minä en juo kahvia.",
+            "Minä juon kahvia.",
+            "Minä en syö kahvia."
+          ],
+          "answer": 0,
+          "tags": [
+            "negative-verb"
+          ]
+        }
+      ]
+    }
+  ]
+}
