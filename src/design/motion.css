@@ -1,0 +1,325 @@
+/*
+ * Suomi motion. Everything that moves is in this file; components.css is static.
+ * Rules: transform and opacity only (two documented exceptions), transitions for
+ * anything that can be toggled twice in a second, keyframes only for one-shot
+ * entrances, nothing on answer selection, and one reduced-motion block at the end.
+ * Keyframes are prefixed ds- so they cannot clash with the ones in styles.css.
+ */
+
+/* 1. Press feedback. Opt-in by class: answer options, tiles and letters stay out on purpose. */
+
+.pressable,
+.btn,
+.icon-btn,
+.word-chip,
+.module-head,
+.avatar-option {
+  transition: transform var(--dur-press) var(--ease-out);
+}
+
+.pressable:active:not(:disabled),
+.btn:active:not(:disabled),
+.icon-btn:active:not(:disabled),
+.word-chip:active:not(:disabled),
+.avatar-option:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+/* A full-width module header would visibly shift its text at 0.97. */
+.module-head:active {
+  transform: scale(0.99);
+}
+
+/*
+ * 2. Collapsible. A grid row goes from 0fr to 1fr, so the browser interpolates the
+ * height itself: no scrollHeight read, no JS, and a transition that reverses from
+ * where it is when tapped again. Height is a layout property; this is the one place
+ * it is accepted, because nothing composite-only can push the following units down.
+ *
+ * <div class="collapse" data-open="true">
+ *   <div class="collapse-inner">   no padding or border here, or it leaks when closed
+ *     <div class="module-body">…</div>
+ */
+
+.collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  /* closed content leaves the tab order and the accessibility tree once the close has finished */
+  visibility: hidden;
+  transition:
+    grid-template-rows var(--dur-collapse) var(--ease-out),
+    visibility 0s linear var(--dur-collapse);
+}
+
+.collapse[data-open='true'] {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.collapse-inner {
+  min-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity var(--dur-collapse) var(--ease-out);
+}
+
+.collapse[data-open='true'] > .collapse-inner {
+  opacity: 1;
+}
+
+.module-chevron {
+  transition: transform var(--dur-collapse) var(--ease-out);
+}
+
+/* 3. Bottom sheet: slides up by its own height. Leaves the way it came. */
+
+.sheet {
+  transform: translateY(100%);
+  visibility: hidden;
+  transition:
+    transform var(--dur-sheet) var(--ease-drawer),
+    visibility 0s linear var(--dur-sheet);
+}
+
+.sheet[data-open='true'] {
+  transform: none;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+/* A sheet that is mounted already open still slides in. */
+@starting-style {
+  .sheet[data-open='true'] {
+    transform: translateY(100%);
+  }
+}
+
+.scrim {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--dur-sheet) ease,
+    visibility 0s linear var(--dur-sheet);
+}
+
+.scrim[data-open='true'] {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+@starting-style {
+  .scrim[data-open='true'] {
+    opacity: 0;
+  }
+}
+
+/*
+ * 4. Screen change. Entrances are from-only keyframes with a backwards fill, so an
+ * element is never left invisible when the animation is switched off.
+ * Tabs are tapped many times a day: opacity only, 120 ms. Going into a lesson or to
+ * the result is rarer and gets a short rise.
+ */
+
+.screen-enter {
+  animation: ds-fade var(--dur-fast) ease backwards;
+}
+
+.screen-push {
+  animation: ds-rise var(--dur-sheet) var(--ease-out) backwards;
+}
+
+@keyframes ds-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes ds-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+}
+
+/* 5. List stagger for the home path. Capped at eight steps so a long list never feels slow. */
+
+.stagger > * {
+  animation: ds-rise var(--dur-enter) var(--ease-out) backwards;
+}
+
+.stagger > :nth-child(2) {
+  animation-delay: calc(var(--stagger-step) * 1);
+}
+
+.stagger > :nth-child(3) {
+  animation-delay: calc(var(--stagger-step) * 2);
+}
+
+.stagger > :nth-child(4) {
+  animation-delay: calc(var(--stagger-step) * 3);
+}
+
+.stagger > :nth-child(5) {
+  animation-delay: calc(var(--stagger-step) * 4);
+}
+
+.stagger > :nth-child(6) {
+  animation-delay: calc(var(--stagger-step) * 5);
+}
+
+.stagger > :nth-child(7) {
+  animation-delay: calc(var(--stagger-step) * 6);
+}
+
+.stagger > :nth-child(n + 8) {
+  animation-delay: calc(var(--stagger-step) * 7);
+}
+
+/* 6. Progress. The bar is a transform (scaleX set inline). The ring animates
+   stroke-dashoffset, which repaints, but only a 64 px SVG and only when XP changes. */
+
+.progress-fill {
+  transition: transform var(--dur-progress) var(--ease-out);
+}
+
+.ring-value {
+  transition: stroke-dashoffset var(--dur-enter) var(--ease-out);
+}
+
+/* 7. Switch. A transition, so a quick double tap reverses mid-way instead of restarting. */
+
+.switch::before {
+  transition: transform var(--dur-press) var(--ease-out);
+}
+
+/* 8. Celebration. Result screen only. */
+
+.celebrate-mark {
+  animation: ds-pop 400ms var(--ease-out) backwards;
+}
+
+.celebrate-burst > i {
+  animation: ds-burst var(--dur-celebrate) var(--ease-out) 100ms;
+}
+
+.celebrate-burst > :nth-child(1) {
+  --ds-angle: 0deg;
+}
+
+.celebrate-burst > :nth-child(2) {
+  --ds-angle: 45deg;
+}
+
+.celebrate-burst > :nth-child(3) {
+  --ds-angle: 90deg;
+}
+
+.celebrate-burst > :nth-child(4) {
+  --ds-angle: 135deg;
+}
+
+.celebrate-burst > :nth-child(5) {
+  --ds-angle: 180deg;
+}
+
+.celebrate-burst > :nth-child(6) {
+  --ds-angle: 225deg;
+}
+
+.celebrate-burst > :nth-child(7) {
+  --ds-angle: 270deg;
+}
+
+.celebrate-burst > :nth-child(8) {
+  --ds-angle: 315deg;
+}
+
+@keyframes ds-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.9) rotate(-12deg);
+  }
+}
+
+/* The dots rest at opacity 0 (components.css), so with the animation off they simply never show. */
+@keyframes ds-burst {
+  from {
+    opacity: 1;
+    transform: rotate(var(--ds-angle)) translateY(-1.5rem);
+  }
+
+  to {
+    opacity: 0;
+    transform: rotate(var(--ds-angle)) translateY(-4.5rem) scale(0.4);
+  }
+}
+
+/*
+ * 9. Reduced motion: movement goes, short opacity fades stay. Pressed and open
+ * states are still shown by colour and position (components.css), just without travel.
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  .pressable,
+  .btn,
+  .icon-btn,
+  .word-chip,
+  .module-head,
+  .avatar-option,
+  .collapse,
+  .collapse-inner,
+  .module-chevron,
+  .progress-fill,
+  .ring-value,
+  .switch::before {
+    transition: none;
+  }
+
+  .pressable:active:not(:disabled),
+  .btn:active:not(:disabled),
+  .icon-btn:active:not(:disabled),
+  .word-chip:active:not(:disabled),
+  .avatar-option:active:not(:disabled),
+  .module-head:active {
+    transform: none;
+  }
+
+  .pressable:active:not(:disabled) {
+    opacity: 0.7;
+  }
+
+  /* The sheet cross-fades in place instead of sliding. */
+  .sheet {
+    transform: none;
+    opacity: 0;
+    transition:
+      opacity var(--dur-fast) linear,
+      visibility 0s linear var(--dur-fast);
+  }
+
+  .sheet[data-open='true'] {
+    opacity: 1;
+    transition-delay: 0s;
+  }
+
+  @starting-style {
+    .sheet[data-open='true'] {
+      transform: none;
+      opacity: 0;
+    }
+  }
+
+  /* :nth-child(n) matches every child and outranks the per-child delays above */
+  .screen-push,
+  .stagger > :nth-child(n),
+  .celebrate-mark {
+    animation: ds-fade var(--dur-fast) ease backwards;
+    animation-delay: 0s;
+  }
+
+  .celebrate-burst > i {
+    animation: none;
+  }
+}
