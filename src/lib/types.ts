@@ -37,7 +37,34 @@ export type Listen = Base & {
   invalid?: number[];
 };
 
-export type Exercise = Choice | Fill | Listen;
+/** Pair every Finnish word with its English word. `prompt` is always '' (the instruction is fixed). */
+export type Match = Base & {
+  type: 'match';
+  promptLang: 'fi';
+  answerLang: 'en';
+  pairs: { fi: string; en: string }[];
+};
+
+/** Build a sentence from tiles: the words of `answers[0]` plus `tiles` as distractors. */
+export type Order = Base & {
+  type: 'order';
+  answers: string[];
+  tiles?: string[];
+};
+
+export type Translate = Base & {
+  type: 'translate';
+  answers: string[];
+};
+
+/** `text` and the statement `prompt` are both in `promptLang`; `answerLang` equals it. */
+export type TrueFalse = Base & {
+  type: 'truefalse';
+  text: string;
+  answer: boolean;
+};
+
+export type Exercise = Choice | Fill | Listen | Match | Order | Translate | TrueFalse;
 
 export type Lesson = { id: string; title: string; exercises: Exercise[] };
 

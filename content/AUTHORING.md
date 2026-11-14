@@ -91,6 +91,62 @@ Every exercise needs `id`, `type`, `prompt`, `promptLang`, `answerLang`. Ids fol
 - 2 or 3 per lesson. A lesson must still make sense without them, because devices
   with no Finnish voice skip them.
 
+`match`: the learner pairs 4 or 5 Finnish words with their English words.
+
+```json
+{ "id": "u02-l1-e15", "type": "match", "promptLang": "fi", "answerLang": "en", "prompt": "",
+  "pairs": [ { "fi": "yksi", "en": "one" }, { "fi": "kaksi", "en": "two" },
+             { "fi": "kolme", "en": "three" }, { "fi": "neljä", "en": "four" } ] }
+```
+
+- `prompt` is always `""`: the app shows a fixed instruction. Use `"promptLang": "fi"`
+  and `"answerLang": "en"`.
+- 4 or 5 pairs. The `fi` side is always Finnish and is spell checked. No `fi` or `en`
+  value may appear twice. The app shuffles each column on its own.
+- One wrong pair makes the whole exercise count as wrong, so keep it to words the
+  learner has met.
+
+`order`: the learner taps word tiles into a sentence.
+
+```json
+{ "id": "u02-l2-e14", "type": "order", "promptLang": "en", "answerLang": "fi",
+  "prompt": "They are at school.", "answers": ["He ovat koulussa."], "tiles": ["on"] }
+```
+
+- `prompt` is the sentence to translate (in `promptLang`). `answers` are the accepted
+  sentences in `answerLang`; the first one is the one shown as the correct answer.
+- The tiles are the words of `answers[0]` plus the optional `tiles`, which are
+  single-word distractors. Every other accepted answer must be buildable from those
+  tiles, ignoring case and final punctuation. The validator checks this.
+- Use 3 to 7 words and 1 or 2 distractors. If a distractor could also make a good
+  sentence, list that sentence in `answers`.
+- Finnish answers and tiles are spell checked when `answerLang` is `fi`.
+
+`translate`: the learner types a whole sentence.
+
+```json
+{ "id": "u02-l4-e14", "type": "translate", "promptLang": "en", "answerLang": "fi",
+  "prompt": "My name is Anna.", "answers": ["Minun nimeni on Anna."] }
+```
+
+- `answers` lists every accepted translation. Finnish is matched exactly (case and
+  final punctuation are ignored); English allows one wrong letter.
+- With `answerLang` `fi` the app shows ä, ö and å buttons and the answers are spell
+  checked. List every natural translation: if the learner may drop the pronoun, add
+  that version too.
+
+`truefalse`: the learner reads a short text and says whether a statement is true.
+
+```json
+{ "id": "u02-l5-e14", "type": "truefalse", "promptLang": "fi", "answerLang": "fi",
+  "text": "Hän on opettaja. He ovat opiskelijoita.", "prompt": "He ovat opiskelijoita.", "answer": true }
+```
+
+- `text` is the passage and `prompt` is the statement. Both are in `promptLang`, and
+  `answerLang` must equal `promptLang`. Finnish `text` and `prompt` are spell checked.
+- `answer` is `true` or `false` (JSON booleans). The statement must be clearly true or
+  false from the text alone. Make about half of them false.
+
 ## Case names for `form` and for rules
 
 The checker uses these names: nominative `nimento`, genitive `omanto`, partitive

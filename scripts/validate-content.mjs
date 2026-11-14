@@ -7,7 +7,7 @@ import BaseVoikko from 'voikko';
 let voikko;
 const fi = () => (voikko ??= BaseVoikko().init('fi'));
 
-const TYPES = ['choice', 'fill', 'listen'];
+const TYPES = ['choice', 'fill', 'listen', 'match', 'order', 'translate', 'truefalse'];
 const RULE_TYPES = ['rektio', 'case', 'verbtype', 'wordtype', 'gradation', 'phonology', 'object', 'tense', 'mood', 'sentence', 'construction', 'clitic'];
 const MIN_EXERCISES_PER_RULE = 4;
 
@@ -87,6 +87,10 @@ export function validate(units, rules, allow = new Set()) {
           if (!ruleIds.has(tag)) errors.push(`${e.id}: tag "${tag}" is not in rules.json`);
           else ruleUse.set(tag, ruleUse.get(tag) + 1);
         }
+        if (typeof e.prompt !== 'string') {
+          errors.push(`${e.id}: prompt must be a string`);
+          continue;
+        }
         if (e.promptLang === 'fi') finnish(e.id, 'prompt', e.prompt.replaceAll('___', ' '));
 
         if (e.type === 'listen' && e.promptLang !== 'fi') errors.push(`${e.id}: listen prompt must be Finnish`);
@@ -99,6 +103,59 @@ export function validate(units, rules, allow = new Set()) {
           if (invalid.includes(e.answer)) errors.push(`${e.id}: the correct option is marked invalid`);
           if (e.answerLang === 'fi')
             (e.options ?? []).forEach((o, i) => invalid.includes(i) || finnish(e.id, `option ${i}`, o));
+        }
+
+        const hasAnswers = () => {
+          const ok = Array.isArray(e.answers) && e.answers.length > 0 && e.answers.every((a) => typeof a === 'string' && a.trim());
+          if (!ok) errors.push(`${e.id}: needs at least one accepted answer`);
+          return ok;
+        };
+
+        if (e.type === 'match') {
+          if (e.prompt !== '') errors.push(`${e.id}: match prompt must be an empty string`);
+          const pairs = e.pairs;
+          if (!Array.isArray(pairs) || pairs.length < 4 || pairs.length > 5) errors.push(`${e.id}: match needs 4 or 5 pairs`);
+          else if (!pairs.every((p) => typeof p?.fi === 'string' && typeof p?.en === 'string' && p.fi.trim() && p.en.trim()))
+            errors.push(`${e.id}: every pair needs non-empty fi and en`);
+          else {
+            for (const side of ['fi', 'en'])
+              if (new Set(pairs.map((p) => p[side].trim().toLowerCase())).size < pairs.length)
+                errors.push(`${e.id}: duplicate ${side} word in pairs`);
+            pairs.forEach((p) => finnish(e.id, 'pair', p.fi));
+          }
+        }
+
+        if (e.type === 'order' && hasAnswers()) {
+          const extra = e.tiles ?? [];
+          // Grading ignores case and trailing punctuation, so tiles are compared the same way.
+          const split = (s) => s.trim().toLowerCase().replace(/[.!?,;:]+$/, '').split(/\s+/);
+          if (!Array.isArray(extra) || !extra.every((x) => typeof x === 'string' && x.trim() && split(x).length === 1))
+            errors.push(`${e.id}: tiles must be single words`);
+          else {
+            if (split(e.answers[0]).length < 2) errors.push(`${e.id}: order answer needs at least 2 words`);
+            const pool = [...split(e.answers[0]), ...extra];
+            // An accepted sentence the tiles cannot build could never be given.
+            for (const a of e.answers) {
+              const left = [...pool];
+              const missing = split(a).find((w) => {
+                const at = left.indexOf(w);
+                if (at >= 0) left.splice(at, 1);
+                return at < 0;
+              });
+              if (missing !== undefined) errors.push(`${e.id}: "${a}" cannot be built from the tiles (no ${missing})`);
+            }
+            if (e.answerLang === 'fi') [...e.answers, ...extra].forEach((a) => finnish(e.id, 'answer or tile', a));
+          }
+        }
+
+        if (e.type === 'translate' && hasAnswers() && e.answerLang === 'fi')
+          e.answers.forEach((a) => finnish(e.id, 'answer', a));
+
+        if (e.type === 'truefalse') {
+          if (typeof e.answer !== 'boolean') errors.push(`${e.id}: answer must be true or false`);
+          if (typeof e.text !== 'string' || !e.text.trim()) errors.push(`${e.id}: needs text`);
+          else if (e.promptLang === 'fi') finnish(e.id, 'text', e.text);
+          if (e.answerLang !== e.promptLang) errors.push(`${e.id}: answerLang must equal promptLang`);
         }
 
         if (e.type === 'fill') {

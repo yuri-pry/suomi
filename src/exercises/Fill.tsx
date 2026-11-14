@@ -1,6 +1,5 @@
-import { useRef } from 'react';
-import { flushSync } from 'react-dom';
 import type { Fill as FillExercise } from '../lib/types';
+import { Letters, useLetterInput } from './Letters';
 
 type Props = {
   exercise: FillExercise;
@@ -11,26 +10,15 @@ type Props = {
 };
 
 export function Fill({ exercise, value, onChange, locked, label }: Props) {
-  const input = useRef<HTMLInputElement>(null);
+  const { ref, insert } = useLetterInput(value, onChange);
   const [before, after] = exercise.prompt.split('___');
-
-  // Insert at the cursor so a letter can be added mid-word, then put the cursor after it.
-  function insert(letter: string) {
-    const el = input.current;
-    const at = el?.selectionStart ?? value.length;
-    const end = el?.selectionEnd ?? at;
-    // flushSync: the new value must be in the input before the cursor can be placed in it.
-    flushSync(() => onChange(value.slice(0, at) + letter + value.slice(end)));
-    el?.focus();
-    el?.setSelectionRange(at + 1, at + 1);
-  }
 
   return (
     <div className="fill">
       <p className="fill-sentence" lang={exercise.promptLang}>
         {before}
         <input
-          ref={input}
+          ref={ref}
           className="fill-input"
           aria-label={label}
           lang={exercise.answerLang}
@@ -48,15 +36,7 @@ export function Fill({ exercise, value, onChange, locked, label }: Props) {
         {after}
       </p>
       {exercise.hint && <p className="hint">({exercise.hint})</p>}
-      {exercise.answerLang === 'fi' && (
-        <div className="letters">
-          {['ä', 'ö', 'å'].map((letter) => (
-            <button key={letter} type="button" className="letter" disabled={locked} onClick={() => insert(letter)}>
-              {letter}
-            </button>
-          ))}
-        </div>
-      )}
+      {exercise.answerLang === 'fi' && <Letters onInsert={insert} locked={locked} />}
     </div>
   );
 }
