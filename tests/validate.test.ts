@@ -116,3 +116,48 @@ test('a rektio rule can demand an infinitive form', () => {
   expect(validate([unit(exercises)], [rule('uida', { requiresMood: 'A-infinitive' })]).errors).toEqual([]);
   expect(validate([unit(exercises)], [rule('uimaan', {})]).errors[0]).toContain('needs "requires"');
 });
+
+const ex = (id: string, type: string, extra: object) => ({ id, type, promptLang: 'en', answerLang: 'fi', prompt: 'x', ...extra });
+const pair = (fi: string, en: string) => ({ fi, en });
+const four = [pair('yksi', 'one'), pair('kaksi', 'two'), pair('kolme', 'three'), pair('neljä', 'four')];
+const matchEx = (extra: object = {}) => ex('m1', 'match', { promptLang: 'fi', answerLang: 'en', prompt: '', pairs: four, ...extra });
+
+test('match: 4 or 5 pairs, empty prompt, Finnish side spelled right, no duplicates', () => {
+  expect(validate([unit([matchEx()])], []).errors).toEqual([]);
+  expect(validate([unit([matchEx({ pairs: four.slice(0, 3) })])], []).errors[0]).toContain('4 or 5');
+  expect(validate([unit([matchEx({ prompt: 'Match' })])], []).errors.join('\n')).toContain('empty string');
+  expect(validate([unit([matchEx({ pairs: [...four.slice(0, 3), pair('nelja', 'four')] })])], []).errors[0]).toContain('nelja');
+  expect(validate([unit([matchEx({ pairs: [...four.slice(0, 3), pair('neljä', 'one')] })])], []).errors[0]).toContain('duplicate');
+  expect(validate([unit([matchEx({ pairs: [...four.slice(0, 3), { fi: 'neljä' }] })])], []).errors[0]).toContain('non-empty');
+});
+
+test('order: tiles and answers must be buildable and spelled right', () => {
+  const order = (extra: object) => ex('o1', 'order', { prompt: 'I am Anna.', answers: ['Minä olen Anna.'], ...extra });
+  expect(validate([unit([order({ tiles: ['on'] })])], []).errors).toEqual([]);
+  expect(validate([unit([order({ answers: ['Minä olen Anna.', 'Olen Anna.'] })])], []).errors).toEqual([]);
+  expect(validate([unit([order({ answers: ['Minä olen Anna.', 'Anna on minä.'] })])], []).errors[0]).toContain('cannot be built');
+  expect(validate([unit([order({ tiles: ['olin kotona'] })])], []).errors[0]).toContain('single words');
+  expect(validate([unit([order({ tiles: ['omenata'] })])], []).errors[0]).toContain('omenata');
+  expect(validate([unit([order({ answers: ['Anna'] })])], []).errors[0]).toContain('at least 2 words');
+  expect(validate([unit([order({ answers: [] })])], []).errors[0]).toContain('accepted answer');
+  // English answers are not spell checked as Finnish
+  expect(validate([unit([order({ answerLang: 'en', answers: ['I am Anna.'] })])], []).errors).toEqual([]);
+});
+
+test('translate: Finnish answers are spell checked, English ones are not', () => {
+  const tr = (extra: object) => ex('t1', 'translate', { answers: ['Kiitos.'], ...extra });
+  expect(validate([unit([tr({})])], []).errors).toEqual([]);
+  expect(validate([unit([tr({ answers: ['Kiitos.', 'Kiitoz'] })])], []).errors[0]).toContain('Kiitoz');
+  expect(validate([unit([tr({ promptLang: 'fi', answerLang: 'en', prompt: 'Kiitos.', answers: ['Thanks'] })])], []).errors).toEqual([]);
+  expect(validate([unit([tr({ answers: [] })])], []).errors[0]).toContain('accepted answer');
+});
+
+test('truefalse: boolean answer, text spell checked when Finnish, languages equal', () => {
+  const tf = (extra: object) =>
+    ex('f1', 'truefalse', { promptLang: 'fi', answerLang: 'fi', text: 'He ovat koulussa.', prompt: 'He ovat kotona.', answer: false, ...extra });
+  expect(validate([unit([tf({})])], []).errors).toEqual([]);
+  expect(validate([unit([tf({ answer: 'no' })])], []).errors[0]).toContain('true or false');
+  expect(validate([unit([tf({ text: 'He ovat koulusa.' })])], []).errors[0]).toContain('koulusa');
+  expect(validate([unit([tf({ answerLang: 'en' })])], []).errors[0]).toContain('answerLang');
+  expect(validate([unit([tf({ text: '' })])], []).errors[0]).toContain('needs text');
+});

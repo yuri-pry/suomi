@@ -261,7 +261,8 @@ button:disabled {
   border-radius: 0.75rem;
 }
 
-.option[aria-checked='true'] {
+.option[aria-checked='true'],
+.option[aria-pressed='true'] {
   border-color: var(--accent);
   box-shadow: inset 0 0 0 1px var(--accent);
 }
@@ -332,6 +333,66 @@ button:disabled {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 0.5rem;
+}
+
+.translate-input {
+  display: block;
+  width: 100%;
+  min-height: 3rem;
+  margin: 0 0 0.75rem;
+}
+
+.tf-text {
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+}
+
+.match {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+/* matched items carry a check mark and a dashed border, not just a colour */
+.option.is-matched {
+  color: var(--muted);
+  background: transparent;
+  border-style: dashed;
+}
+
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  min-height: 3.25rem;
+  margin-bottom: 1rem;
+}
+
+.tiles.built {
+  align-content: flex-start;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid var(--line);
+}
+
+.tile {
+  min-height: 2.75rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.0625rem;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: 0.75rem;
+}
+
+.tile-gap {
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  border: 2px dashed var(--line);
+  border-radius: 0.75rem;
 }
 
 /* Bottom action bar and feedback */
@@ -450,6 +511,7 @@ button:disabled {
 
 @media (hover: hover) and (pointer: fine) {
   .option:hover:not(:disabled),
+  .tile:hover:not(:disabled),
   .lesson-node:hover:not(:disabled),
   .letter:hover:not(:disabled) {
     border-color: var(--accent);
