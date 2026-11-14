@@ -1,14 +1,19 @@
 import { useEffect, useState } from 'react';
 import type { Unit } from './lib/types';
 import { loadAllUnits } from './lib/content';
-import { completeLesson, currentStreak, load, localDay, save } from './lib/progress';
+import { completeLesson, currentStreak, load, localDay, save, type Progress } from './lib/progress';
 import { loadSpeaker, type Speaker } from './lib/speech';
 import { setHaptics } from './lib/haptics';
 import { t } from './lib/strings';
 import { SpeakerContext } from './exercises/Speakable';
 import { Home } from './screens/Home';
+import { Profile } from './screens/Profile';
+import { Settings } from './screens/Settings';
 import { Lesson } from './screens/Lesson';
 import { Result } from './screens/Result';
+
+const tabs = ['home', 'profile', 'settings'] as const;
+type Tab = (typeof tabs)[number];
 
 type Screen =
   | { name: 'home' }
@@ -20,6 +25,7 @@ export function App() {
   const [units, setUnits] = useState<Unit[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [screen, setScreen] = useState<Screen>({ name: 'home' });
+  const [tab, setTab] = useState<Tab>('home');
 
   const [speaker, setSpeaker] = useState<Speaker | null>(null);
 
@@ -27,6 +33,12 @@ export function App() {
     loadAllUnits().then(setUnits, (e) => setError(String(e)));
     loadSpeaker().then(setSpeaker);
   }, []);
+
+  // 'auto' leaves the attribute off, so the system colour scheme decides
+  useEffect(() => {
+    if (progress.theme === 'auto') delete document.documentElement.dataset.theme;
+    else document.documentElement.dataset.theme = progress.theme;
+  }, [progress.theme]);
 
   if (error) return <p role="alert">{error}</p>;
   if (!units) return <p className="loading">{t('loading', progress.lang)}</p>;
@@ -67,7 +79,26 @@ export function App() {
       />
     );
 
+  const update = (patch: Partial<Progress>) => {
+    const next = { ...progress, ...patch };
+    setProgress(next);
+    save(next);
+  };
+
   return (
-    <Home units={units} progress={progress} today={today} onStart={(lessonId) => setScreen({ name: 'lesson', lessonId })} />
+    <div className="shell">
+      {tab === 'home' && (
+        <Home units={units} progress={progress} today={today} onStart={(lessonId) => setScreen({ name: 'lesson', lessonId })} />
+      )}
+      {tab === 'profile' && <Profile units={units} progress={progress} today={today} />}
+      {tab === 'settings' && <Settings progress={progress} onChange={update} />}
+      <nav className="tabbar" aria-label={t('mainNav', progress.lang)}>
+        {tabs.map((name) => (
+          <button key={name} type="button" className="tab" aria-current={tab === name ? 'page' : undefined} onClick={() => setTab(name)}>
+            {t(name, progress.lang)}
+          </button>
+        ))}
+      </nav>
+    </div>
   );
 }
