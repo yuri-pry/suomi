@@ -1,0 +1,226 @@
+/*
+ * Suomi design tokens. Light is the default. Dark applies when the OS asks for it,
+ * unless the settings switch forces a theme with <html data-theme="light|dark">.
+ *
+ * The dark values exist twice (OS preference and forced). The two blocks must stay
+ * identical: change one, change the other.
+ */
+
+:root {
+  color-scheme: light;
+
+  /* Colour: surfaces */
+  --bg: #f7f6f2; /* birch paper; also hardcoded in index.html theme-color and the PWA manifest */
+  --surface: #ffffff;
+  --surface-2: #eeece5; /* sunken: tracks, wells, locked nodes */
+  --line: #d9d7cf; /* decorative dividers */
+  --line-strong: #85837b; /* control outlines that must be seen: 3:1 on --bg and --surface */
+  --scrim: rgb(20 22 26 / 0.45);
+
+  /* Colour: text */
+  --text: #1b1d22;
+  --muted: #5a606b;
+
+  /* Colour: brand (lake blue) */
+  --accent: #1b4f9c;
+  --accent-strong: #143c78; /* pressed */
+  --accent-soft: #e2ebf8; /* tinted background */
+  --accent-text: #ffffff; /* text on --accent */
+
+  /* Colour: answer feedback. Always paired with an icon and a word. */
+  --right: #17713a; /* forest */
+  --right-bg: #dff3e4;
+  --wrong: #a81e3a; /* lingonberry */
+  --wrong-bg: #fbe3e7;
+  --typo: #8a5200; /* cloudberry */
+  --typo-bg: #fbeed3;
+  --danger: var(--wrong);
+  --danger-strong: #86172d; /* pressed */
+  --danger-text: #ffffff;
+
+  /* Colour: lesson and unit states */
+  --locked-fg: var(--muted);
+  --locked-bg: var(--surface-2);
+  --open-fg: var(--accent-text);
+  --open-bg: var(--accent);
+  --done-fg: var(--right);
+  --done-bg: var(--right-bg);
+
+  /* Colour: gamification marks */
+  --streak: #b4500a;
+  --xp: #7d6200;
+  --goal: var(--accent);
+
+  /* Colour: mastery scale, 0 (unseen) to 4 (mastered). Fills only, never the sole signal. */
+  --mastery-0: #d9d7cf;
+  --mastery-1: #b5c8e6;
+  --mastery-2: #7c9fd6;
+  --mastery-3: #4273bd;
+  --mastery-4: #1b4f9c;
+
+  /* Colour: avatar tones (background / glyph) */
+  --tone-1-bg: #dbe7f8;
+  --tone-1-fg: #1b4f9c;
+  --tone-2-bg: #fbe0e5;
+  --tone-2-fg: #a81e3a;
+  --tone-3-bg: #dcf0e1;
+  --tone-3-fg: #17713a;
+  --tone-4-bg: #f9ebcc;
+  --tone-4-fg: #8a5200;
+
+  /* Type */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --text-xs: 0.75rem; /* 12: tab labels, captions */
+  --text-sm: 0.875rem; /* 14: secondary */
+  --text-md: 1rem; /* 16: body, inputs (never smaller in an input) */
+  --text-lg: 1.0625rem; /* 17: answer options, buttons */
+  --text-xl: 1.25rem; /* 20: section titles */
+  --text-2xl: 1.5rem; /* 24: prompts, unit titles */
+  --text-3xl: 2rem; /* 32: result headline, big numbers */
+  --leading-tight: 1.15;
+  --leading-snug: 1.3;
+  --leading-normal: 1.5;
+  --tracking-tight: -0.02em; /* 24 px and up */
+  --tracking-wide: 0.02em; /* 12 px labels */
+  --weight-regular: 400;
+  --weight-medium: 600;
+  --weight-bold: 700;
+
+  /* Spacing (4 px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* Radii */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-full: 999px;
+
+  /* Elevation */
+  --shadow-1: 0 1px 2px rgb(27 29 34 / 0.08);
+  --shadow-2: 0 4px 12px rgb(27 29 34 / 0.1);
+  --shadow-3: 0 -8px 32px rgb(27 29 34 / 0.16); /* bottom sheet: light from below the fold */
+
+  /* Layers */
+  --z-sticky: 10;
+  --z-tabbar: 20;
+  --z-scrim: 30;
+  --z-sheet: 40;
+  --z-toast: 50;
+
+  /* Sizes */
+  --tap-min: 2.75rem; /* 44 px */
+  --tabbar-height: 3.5rem;
+  --appbar-height: 3.25rem;
+  --content-max: 34rem;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1); /* entering, leaving, press */
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1); /* moving on screen */
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1); /* sheets */
+  --dur-fast: 120ms; /* tab change, colour */
+  --dur-press: 150ms;
+  --dur-sheet: 200ms;
+  --dur-collapse: 240ms;
+  --dur-progress: 250ms;
+  --dur-enter: 300ms; /* list rise, ring fill */
+  --dur-celebrate: 600ms; /* result screen only */
+  --stagger-step: 40ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #14161a;
+    --surface: #1e2127;
+    --surface-2: #272b33;
+    --line: #353a44;
+    --line-strong: #727987;
+    --scrim: rgb(0 0 0 / 0.6);
+    --text: #eef0f3;
+    --muted: #a3a9b4;
+    --accent: #8fb5ff;
+    --accent-strong: #b4cdff;
+    --accent-soft: #1c2b47;
+    --accent-text: #0c1020;
+    --right: #6fd08c;
+    --right-bg: #173524;
+    --wrong: #ff8fa0;
+    --wrong-bg: #3d1a22;
+    --typo: #f2bd5c;
+    --typo-bg: #3a2c10;
+    --danger-strong: #ffb3bf;
+    --danger-text: #2a0a12;
+    --streak: #ff9d4d;
+    --xp: #f0c94a;
+    --mastery-0: #353a44;
+    --mastery-1: #2f4675;
+    --mastery-2: #4168ad;
+    --mastery-3: #6590dc;
+    --mastery-4: #8fb5ff;
+    --tone-1-bg: #1c2b47;
+    --tone-1-fg: #8fb5ff;
+    --tone-2-bg: #3d1a22;
+    --tone-2-fg: #ff8fa0;
+    --tone-3-bg: #173524;
+    --tone-3-fg: #6fd08c;
+    --tone-4-bg: #3a2c10;
+    --tone-4-fg: #f2bd5c;
+    --shadow-1: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow-2: 0 4px 12px rgb(0 0 0 / 0.45);
+    --shadow-3: 0 -8px 32px rgb(0 0 0 / 0.55);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #14161a;
+  --surface: #1e2127;
+  --surface-2: #272b33;
+  --line: #353a44;
+  --line-strong: #727987;
+  --scrim: rgb(0 0 0 / 0.6);
+  --text: #eef0f3;
+  --muted: #a3a9b4;
+  --accent: #8fb5ff;
+  --accent-strong: #b4cdff;
+  --accent-soft: #1c2b47;
+  --accent-text: #0c1020;
+  --right: #6fd08c;
+  --right-bg: #173524;
+  --wrong: #ff8fa0;
+  --wrong-bg: #3d1a22;
+  --typo: #f2bd5c;
+  --typo-bg: #3a2c10;
+  --danger-strong: #ffb3bf;
+  --danger-text: #2a0a12;
+  --streak: #ff9d4d;
+  --xp: #f0c94a;
+  --mastery-0: #353a44;
+  --mastery-1: #2f4675;
+  --mastery-2: #4168ad;
+  --mastery-3: #6590dc;
+  --mastery-4: #8fb5ff;
+  --tone-1-bg: #1c2b47;
+  --tone-1-fg: #8fb5ff;
+  --tone-2-bg: #3d1a22;
+  --tone-2-fg: #ff8fa0;
+  --tone-3-bg: #173524;
+  --tone-3-fg: #6fd08c;
+  --tone-4-bg: #3a2c10;
+  --tone-4-fg: #f2bd5c;
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-2: 0 4px 12px rgb(0 0 0 / 0.45);
+  --shadow-3: 0 -8px 32px rgb(0 0 0 / 0.55);
+}
+
+/* Forced light under a dark OS needs no values (the dark block above excludes it), only the scheme. */
+:root[data-theme='light'] {
+  color-scheme: light;
+}
