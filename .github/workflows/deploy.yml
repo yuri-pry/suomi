@@ -21,17 +21,17 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 26
+          node-version: 20
           cache: npm
       - run: npm ci
       # every push publishes, so a failing test or bad content must stop the deploy
       - run: npm test
       - run: npm run build
-      - uses: actions/upload-pages-artifact@v5
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
       - id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v4
