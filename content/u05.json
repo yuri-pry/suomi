@@ -1,0 +1,1352 @@
+{
+  "id": "u05",
+  "section": 1,
+  "title": "Family",
+  "tip": {
+    "en": "The genitive ending -n shows who something belongs to: äiti - äidin auto (mother's car), veli - veljen paita, lapsi - lapsen huone. The pronouns have their own forms: minun, sinun, hänen, meidän, teidän, heidän.\n\nWith a possessor you can also add a possessive ending to the thing: minun äitini (my mother), sinun äitisi, hänen äitinsä, meidän äitimme, teidän äitinne, heidän äitinsä. You already know nimeni and nimesi. The pronoun is often left out: Äitini on opettaja.\n\nTämä means this, tuo means that over there, and se means it or that one you have just mentioned: Tämä on veljeni. Tuo talo on iso. Minulla on auto. Se on punainen.\n\nThe stem of many words changes before the -n: nainen - naisen, perhe - perheen, ovi - oven, uusi - uuden, kaksi - kahden, but bussi - bussin and kahvi - kahvin stay the same. Learn the type with each new word.\n\nDo not mix up the two ways to own: Äidillä on auto (Mother has a car, ending -lla) and Äidin auto on punainen (Mother's car is red, ending -n)."
+  },
+  "lessons": [
+    {
+      "id": "u05-l1",
+      "title": "Family, clothes and looks",
+      "exercises": [
+        {
+          "id": "u05-l1-e01",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "mother",
+          "options": [
+            "äiti",
+            "isä",
+            "sisko"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u05-l1-e02",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "father",
+          "options": [
+            "isä",
+            "veli",
+            "poika"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u05-l1-e03",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "veli",
+          "options": [
+            "brother",
+            "sister",
+            "son"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u05-l1-e04",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "sister",
+          "options": [
+            "sisko",
+            "tyttö",
+            "äiti"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u05-l1-e05",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "äiti",
+              "en": "mother"
+            },
+            {
+              "fi": "isä",
+              "en": "father"
+            },
+            {
+              "fi": "veli",
+              "en": "brother"
+            },
+            {
+              "fi": "sisko",
+              "en": "sister"
+            },
+            {
+              "fi": "lapsi",
+              "en": "child"
+            }
+          ]
+        },
+        {
+          "id": "u05-l1-e06",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "poika",
+              "en": "boy"
+            },
+            {
+              "fi": "tyttö",
+              "en": "girl"
+            },
+            {
+              "fi": "isoäiti",
+              "en": "grandmother"
+            },
+            {
+              "fi": "isoisä",
+              "en": "grandfather"
+            },
+            {
+              "fi": "ystävä",
+              "en": "friend"
+            }
+          ]
+        },
+        {
+          "id": "u05-l1-e07",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "perhe",
+              "en": "family"
+            },
+            {
+              "fi": "nainen",
+              "en": "woman"
+            },
+            {
+              "fi": "mies",
+              "en": "man"
+            },
+            {
+              "fi": "nuori",
+              "en": "young"
+            },
+            {
+              "fi": "pitkä",
+              "en": "tall"
+            }
+          ]
+        },
+        {
+          "id": "u05-l1-e08",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "lyhyt",
+          "options": [
+            "short",
+            "tall",
+            "old"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u05-l1-e09",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "paita",
+              "en": "shirt"
+            },
+            {
+              "fi": "mekko",
+              "en": "dress"
+            },
+            {
+              "fi": "takki",
+              "en": "coat"
+            },
+            {
+              "fi": "hattu",
+              "en": "hat"
+            },
+            {
+              "fi": "huivi",
+              "en": "scarf"
+            }
+          ]
+        },
+        {
+          "id": "u05-l1-e10",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "dress",
+          "options": [
+            "mekko",
+            "paita",
+            "takki"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u05-l1-e11",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Äiti ja isä.",
+          "options": [
+            "Äiti ja isä.",
+            "Äiti ja isoisä.",
+            "Veli ja isä."
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u05-l1-e12",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "lapsi",
+          "options": [
+            "child",
+            "friend",
+            "boy"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u05-l1-e13",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Äiti, isä ja lapsi ovat yksi ___.",
+          "hint": "family",
+          "answers": [
+            "perhe"
+          ]
+        },
+        {
+          "id": "u05-l1-e14",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Isoäiti on vanha, mutta poika on ___.",
+          "hint": "young",
+          "answers": [
+            "nuori"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u05-l2",
+      "title": "Whose is it?",
+      "exercises": [
+        {
+          "id": "u05-l2-e01",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "minun",
+              "en": "my"
+            },
+            {
+              "fi": "sinun",
+              "en": "your"
+            },
+            {
+              "fi": "hänen",
+              "en": "his/her"
+            },
+            {
+              "fi": "meidän",
+              "en": "our"
+            },
+            {
+              "fi": "teidän",
+              "en": "your (plural)"
+            }
+          ]
+        },
+        {
+          "id": "u05-l2-e02",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "mother’s car",
+          "options": [
+            "äidin auto",
+            "äiti auto",
+            "äitin auto"
+          ],
+          "answer": 0,
+          "invalid": [
+            2
+          ],
+          "tags": [
+            "genitive-form"
+          ]
+        },
+        {
+          "id": "u05-l2-e03",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Anna’s dog",
+          "options": [
+            "Annan koira",
+            "Anna koira",
+            "Annaa koira"
+          ],
+          "answer": 0,
+          "tags": [
+            "genitive-form"
+          ]
+        },
+        {
+          "id": "u05-l2-e04",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ auto on punainen.",
+          "hint": "äiti (mother’s)",
+          "answers": [
+            "äidin"
+          ],
+          "form": {
+            "base": "äiti",
+            "case": "omanto"
+          },
+          "tags": [
+            "genitive-form"
+          ]
+        },
+        {
+          "id": "u05-l2-e05",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ koira on iso.",
+          "hint": "veli (brother’s)",
+          "answers": [
+            "veljen"
+          ],
+          "form": {
+            "base": "veli",
+            "case": "omanto"
+          },
+          "tags": [
+            "genitive-form"
+          ]
+        },
+        {
+          "id": "u05-l2-e06",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ paita on sininen.",
+          "hint": "sisko (sister’s)",
+          "answers": [
+            "siskon"
+          ],
+          "form": {
+            "base": "sisko",
+            "case": "omanto"
+          },
+          "tags": [
+            "genitive-form"
+          ]
+        },
+        {
+          "id": "u05-l2-e07",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ huone on pieni.",
+          "hint": "lapsi (child’s)",
+          "answers": [
+            "lapsen"
+          ],
+          "form": {
+            "base": "lapsi",
+            "case": "omanto"
+          },
+          "tags": [
+            "genitive-form"
+          ]
+        },
+        {
+          "id": "u05-l2-e08",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "my mother",
+          "options": [
+            "äitini",
+            "äitisi",
+            "äitinsä"
+          ],
+          "answer": 0,
+          "tags": [
+            "possessive-suffix"
+          ]
+        },
+        {
+          "id": "u05-l2-e09",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "our father",
+          "options": [
+            "isämme",
+            "isäni",
+            "isänne"
+          ],
+          "answer": 0,
+          "tags": [
+            "possessive-suffix"
+          ]
+        },
+        {
+          "id": "u05-l2-e10",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minun ___ on opettaja.",
+          "hint": "isä (father)",
+          "answers": [
+            "isäni"
+          ],
+          "form": {
+            "base": "isä",
+            "case": "nimento"
+          },
+          "tags": [
+            "possessive-suffix"
+          ]
+        },
+        {
+          "id": "u05-l2-e11",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Sinun ___ asuu Turussa.",
+          "hint": "veli (brother)",
+          "answers": [
+            "veljesi"
+          ],
+          "form": {
+            "base": "veli",
+            "case": "nimento"
+          },
+          "tags": [
+            "possessive-suffix"
+          ]
+        },
+        {
+          "id": "u05-l2-e12",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hänen ___ on kaunis.",
+          "hint": "äiti (mother)",
+          "answers": [
+            "äitinsä"
+          ],
+          "form": {
+            "base": "äiti",
+            "case": "nimento"
+          },
+          "tags": [
+            "possessive-suffix"
+          ]
+        },
+        {
+          "id": "u05-l2-e13",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Meidän ___ on pieni.",
+          "hint": "koira (dog)",
+          "answers": [
+            "koiramme"
+          ],
+          "form": {
+            "base": "koira",
+            "case": "nimento"
+          },
+          "tags": [
+            "possessive-suffix"
+          ]
+        },
+        {
+          "id": "u05-l2-e14",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "My mother’s car is red.",
+          "answers": [
+            "Minun äitini auto on punainen.",
+            "Äitini auto on punainen."
+          ],
+          "tiles": [
+            "äiti"
+          ],
+          "tags": [
+            "possessive-suffix"
+          ]
+        },
+        {
+          "id": "u05-l2-e15",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minun veljeni on pitkä.",
+          "options": [
+            "Minun veljeni on pitkä.",
+            "Minun siskoni on pitkä.",
+            "Minun veljeni on lyhyt."
+          ],
+          "answer": 0,
+          "tags": [
+            "possessive-suffix"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u05-l3",
+      "title": "This and that, and word types",
+      "exercises": [
+        {
+          "id": "u05-l3-e01",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "bussi",
+              "en": "bus"
+            },
+            {
+              "fi": "taksi",
+              "en": "taxi"
+            },
+            {
+              "fi": "väri",
+              "en": "colour"
+            },
+            {
+              "fi": "ovi",
+              "en": "door"
+            },
+            {
+              "fi": "meri",
+              "en": "sea"
+            }
+          ]
+        },
+        {
+          "id": "u05-l3-e02",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Tämä on minun äitini.",
+          "options": [
+            "This is my mother.",
+            "That is my mother.",
+            "It is my mother."
+          ],
+          "answer": 0,
+          "tags": [
+            "demonstratives"
+          ]
+        },
+        {
+          "id": "u05-l3-e03",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ on minun veljeni.",
+          "hint": "this",
+          "answers": [
+            "tämä"
+          ],
+          "tags": [
+            "demonstratives"
+          ]
+        },
+        {
+          "id": "u05-l3-e04",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ koira on iso.",
+          "hint": "that (over there)",
+          "answers": [
+            "tuo"
+          ],
+          "tags": [
+            "demonstratives"
+          ]
+        },
+        {
+          "id": "u05-l3-e05",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "the woman’s dog",
+          "options": [
+            "naisen koira",
+            "nainen koira",
+            "naista koira"
+          ],
+          "answer": 0,
+          "tags": [
+            "genitive-form",
+            "wordtype-nen"
+          ]
+        },
+        {
+          "id": "u05-l3-e06",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ koira on musta.",
+          "hint": "nainen (woman)",
+          "answers": [
+            "naisen"
+          ],
+          "form": {
+            "base": "nainen",
+            "case": "omanto"
+          },
+          "tags": [
+            "genitive-form",
+            "wordtype-nen"
+          ]
+        },
+        {
+          "id": "u05-l3-e07",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "the family’s car",
+          "options": [
+            "perheen auto",
+            "perhe auto",
+            "perhen auto"
+          ],
+          "answer": 0,
+          "invalid": [
+            2
+          ],
+          "tags": [
+            "genitive-form",
+            "wordtype-e"
+          ]
+        },
+        {
+          "id": "u05-l3-e08",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ auto on punainen.",
+          "hint": "perhe (family)",
+          "answers": [
+            "perheen"
+          ],
+          "form": {
+            "base": "perhe",
+            "case": "omanto"
+          },
+          "tags": [
+            "genitive-form",
+            "wordtype-e"
+          ]
+        },
+        {
+          "id": "u05-l3-e09",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "the door’s colour",
+          "options": [
+            "oven väri",
+            "ovi väri",
+            "ovea väri"
+          ],
+          "answer": 0,
+          "tags": [
+            "genitive-form",
+            "wordtype-i-old"
+          ]
+        },
+        {
+          "id": "u05-l3-e10",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ väri on ruskea.",
+          "hint": "ovi (door)",
+          "answers": [
+            "oven"
+          ],
+          "form": {
+            "base": "ovi",
+            "case": "omanto"
+          },
+          "tags": [
+            "genitive-form",
+            "wordtype-i-old"
+          ]
+        },
+        {
+          "id": "u05-l3-e11",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "the new car’s colour",
+          "options": [
+            "uuden auton väri",
+            "uusi auton väri",
+            "uuta auton väri"
+          ],
+          "answer": 0,
+          "tags": [
+            "genitive-form",
+            "wordtype-si"
+          ]
+        },
+        {
+          "id": "u05-l3-e12",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ auton väri on musta.",
+          "hint": "uusi (new)",
+          "answers": [
+            "uuden"
+          ],
+          "form": {
+            "base": "uusi",
+            "case": "omanto"
+          },
+          "tags": [
+            "genitive-form",
+            "wordtype-si"
+          ]
+        },
+        {
+          "id": "u05-l3-e13",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "the bus’s door",
+          "options": [
+            "bussin ovi",
+            "bussi ovi",
+            "bussia ovi"
+          ],
+          "answer": 0,
+          "tags": [
+            "genitive-form",
+            "wordtype-i-new"
+          ]
+        },
+        {
+          "id": "u05-l3-e14",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ ovi on keltainen.",
+          "hint": "bussi (bus)",
+          "answers": [
+            "bussin"
+          ],
+          "form": {
+            "base": "bussi",
+            "case": "omanto"
+          },
+          "tags": [
+            "genitive-form",
+            "wordtype-i-new"
+          ]
+        },
+        {
+          "id": "u05-l3-e15",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "That is the woman’s big dog.",
+          "answers": [
+            "Tuo on naisen iso koira."
+          ],
+          "tiles": [
+            "nainen"
+          ],
+          "tags": [
+            "demonstratives",
+            "genitive-form",
+            "wordtype-nen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u05-l4",
+      "title": "My family and my week",
+      "exercises": [
+        {
+          "id": "u05-l4-e01",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "maanantai",
+              "en": "Monday"
+            },
+            {
+              "fi": "tiistai",
+              "en": "Tuesday"
+            },
+            {
+              "fi": "keskiviikko",
+              "en": "Wednesday"
+            },
+            {
+              "fi": "torstai",
+              "en": "Thursday"
+            },
+            {
+              "fi": "perjantai",
+              "en": "Friday"
+            }
+          ]
+        },
+        {
+          "id": "u05-l4-e02",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "lauantai",
+              "en": "Saturday"
+            },
+            {
+              "fi": "sunnuntai",
+              "en": "Sunday"
+            },
+            {
+              "fi": "huomenna",
+              "en": "tomorrow"
+            },
+            {
+              "fi": "nyt",
+              "en": "now"
+            }
+          ]
+        },
+        {
+          "id": "u05-l4-e03",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "tammikuu",
+              "en": "January"
+            },
+            {
+              "fi": "toukokuu",
+              "en": "May"
+            },
+            {
+              "fi": "heinäkuu",
+              "en": "July"
+            },
+            {
+              "fi": "syyskuu",
+              "en": "September"
+            },
+            {
+              "fi": "joulukuu",
+              "en": "December"
+            }
+          ]
+        },
+        {
+          "id": "u05-l4-e04",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Tämä on minun perheeni. Äitini on opettaja ja isäni asuu Oulussa. Minulla on veli ja sisko. Veljeni on pitkä, mutta siskoni on lyhyt.",
+          "prompt": "Isä asuu Oulussa.",
+          "answer": true,
+          "tags": [
+            "possessive-suffix"
+          ]
+        },
+        {
+          "id": "u05-l4-e05",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Tämä on minun perheeni. Äitini on opettaja ja isäni asuu Oulussa. Minulla on veli ja sisko. Veljeni on pitkä, mutta siskoni on lyhyt.",
+          "prompt": "Siskoni on pitkä.",
+          "answer": false,
+          "tags": [
+            "possessive-suffix"
+          ]
+        },
+        {
+          "id": "u05-l4-e06",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Veljellä on iso koira. Siskolla on kaksi kissaa. Äidillä on uusi auto, mutta isällä ei ole autoa.",
+          "prompt": "Isällä on auto.",
+          "answer": false,
+          "tags": [
+            "lla-vs-n"
+          ]
+        },
+        {
+          "id": "u05-l4-e07",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Brother has a big dog.",
+          "options": [
+            "Veljellä on iso koira.",
+            "Veljen on iso koira.",
+            "Veli on iso koira."
+          ],
+          "answer": 0,
+          "tags": [
+            "lla-vs-n"
+          ]
+        },
+        {
+          "id": "u05-l4-e08",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ on pieni asunto.",
+          "hint": "isä (father has)",
+          "answers": [
+            "isällä"
+          ],
+          "tags": [
+            "lla-vs-n"
+          ]
+        },
+        {
+          "id": "u05-l4-e09",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Äidillä on auto. ___ auto on punainen.",
+          "hint": "äiti (mother’s)",
+          "answers": [
+            "äidin"
+          ],
+          "form": {
+            "base": "äiti",
+            "case": "omanto"
+          },
+          "tags": [
+            "lla-vs-n"
+          ]
+        },
+        {
+          "id": "u05-l4-e10",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Perhe asuu talossa. ___ talo on iso.",
+          "hint": "perhe (family)",
+          "answers": [
+            "perheen"
+          ],
+          "form": {
+            "base": "perhe",
+            "case": "omanto"
+          },
+          "tags": [
+            "genitive-form",
+            "wordtype-e"
+          ]
+        },
+        {
+          "id": "u05-l4-e11",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Meri on harmaa. ___ väri on kaunis.",
+          "hint": "meri (sea)",
+          "answers": [
+            "meren"
+          ],
+          "form": {
+            "base": "meri",
+            "case": "omanto"
+          },
+          "tags": [
+            "genitive-form",
+            "wordtype-i-old"
+          ]
+        },
+        {
+          "id": "u05-l4-e12",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hän on ___ lapsen äiti.",
+          "hint": "kaksi (two)",
+          "answers": [
+            "kahden"
+          ],
+          "form": {
+            "base": "kaksi",
+            "case": "omanto"
+          },
+          "tags": [
+            "genitive-form",
+            "wordtype-si"
+          ]
+        },
+        {
+          "id": "u05-l4-e13",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Bussi on valkoinen. ___ ovi on musta.",
+          "hint": "bussi (bus)",
+          "answers": [
+            "bussin"
+          ],
+          "form": {
+            "base": "bussi",
+            "case": "omanto"
+          },
+          "tags": [
+            "genitive-form",
+            "wordtype-i-new"
+          ]
+        },
+        {
+          "id": "u05-l4-e14",
+          "type": "translate",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Brother has a new coat, but sister has a new dress.",
+          "answers": [
+            "Veljellä on uusi takki, mutta siskolla on uusi mekko.",
+            "Veljellä on uusi takki mutta siskolla on uusi mekko."
+          ],
+          "tags": [
+            "lla-vs-n"
+          ]
+        },
+        {
+          "id": "u05-l4-e15",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Tänään on lauantai.",
+          "options": [
+            "Today is Saturday.",
+            "Tomorrow is Saturday.",
+            "Today is Sunday."
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "u05-l5",
+      "title": "Mix",
+      "exercises": [
+        {
+          "id": "u05-l5-e01",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Se on ___ hattu.",
+          "hint": "nainen (woman)",
+          "answers": [
+            "naisen"
+          ],
+          "form": {
+            "base": "nainen",
+            "case": "omanto"
+          },
+          "tags": [
+            "genitive-form",
+            "wordtype-nen"
+          ]
+        },
+        {
+          "id": "u05-l5-e02",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ talo on iso ja kaunis.",
+          "hint": "perhe (family)",
+          "answers": [
+            "perheen"
+          ],
+          "form": {
+            "base": "perhe",
+            "case": "omanto"
+          },
+          "tags": [
+            "genitive-form",
+            "wordtype-e"
+          ]
+        },
+        {
+          "id": "u05-l5-e03",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ ikkuna on pieni.",
+          "hint": "ovi (door)",
+          "answers": [
+            "oven"
+          ],
+          "form": {
+            "base": "ovi",
+            "case": "omanto"
+          },
+          "tags": [
+            "genitive-form",
+            "wordtype-i-old"
+          ]
+        },
+        {
+          "id": "u05-l5-e04",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ väri on sininen.",
+          "hint": "vesi (water)",
+          "answers": [
+            "veden"
+          ],
+          "form": {
+            "base": "vesi",
+            "case": "omanto"
+          },
+          "tags": [
+            "genitive-form",
+            "wordtype-si"
+          ]
+        },
+        {
+          "id": "u05-l5-e05",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Se on ___ ovi.",
+          "hint": "taksi (taxi)",
+          "answers": [
+            "taksin"
+          ],
+          "form": {
+            "base": "taksi",
+            "case": "omanto"
+          },
+          "tags": [
+            "genitive-form",
+            "wordtype-i-new"
+          ]
+        },
+        {
+          "id": "u05-l5-e06",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ talo on pieni, mutta tuo talo on iso.",
+          "hint": "this",
+          "answers": [
+            "tämä"
+          ],
+          "tags": [
+            "demonstratives"
+          ]
+        },
+        {
+          "id": "u05-l5-e07",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ on kaksi koiraa.",
+          "hint": "lapsi (the child has)",
+          "answers": [
+            "lapsella"
+          ],
+          "tags": [
+            "lla-vs-n"
+          ]
+        },
+        {
+          "id": "u05-l5-e08",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minun ___ on kaunis.",
+          "hint": "äiti (mother)",
+          "answers": [
+            "äitini"
+          ],
+          "form": {
+            "base": "äiti",
+            "case": "nimento"
+          },
+          "tags": [
+            "possessive-suffix"
+          ]
+        },
+        {
+          "id": "u05-l5-e09",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Meillä ei ole ___.",
+          "hint": "auto (car)",
+          "answers": [
+            "autoa"
+          ],
+          "tags": [
+            "partitive-negative"
+          ]
+        },
+        {
+          "id": "u05-l5-e10",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Isä juo ___.",
+          "options": [
+            "kahvia",
+            "kahvi",
+            "kahvin"
+          ],
+          "answer": 0,
+          "tags": [
+            "partitive-mass"
+          ]
+        },
+        {
+          "id": "u05-l5-e11",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Isällä on uusi auto. Äidin auto on vanha, mutta se on kaunis.",
+          "prompt": "Isän auto on vanha.",
+          "answer": false,
+          "tags": [
+            "genitive-form",
+            "lla-vs-n"
+          ]
+        },
+        {
+          "id": "u05-l5-e12",
+          "type": "translate",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Mother’s new coat is blue, but my sister’s dress is red.",
+          "answers": [
+            "Äidin uusi takki on sininen, mutta siskoni mekko on punainen.",
+            "Äidin uusi takki on sininen mutta siskoni mekko on punainen.",
+            "Äidin uusi takki on sininen, mutta minun siskoni mekko on punainen.",
+            "Äidin uusi takki on sininen mutta minun siskoni mekko on punainen."
+          ],
+          "tags": [
+            "possessive-suffix",
+            "genitive-form"
+          ]
+        },
+        {
+          "id": "u05-l5-e13",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Our new house is big.",
+          "answers": [
+            "Meidän uusi talomme on iso.",
+            "Uusi talomme on iso."
+          ],
+          "tiles": [
+            "meillä"
+          ],
+          "tags": [
+            "possessive-suffix"
+          ]
+        },
+        {
+          "id": "u05-l5-e14",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Isällä on kaksi koiraa.",
+          "options": [
+            "Father has two dogs.",
+            "Father’s two dogs are here.",
+            "Father is with two dogs."
+          ],
+          "answer": 0,
+          "tags": [
+            "lla-vs-n"
+          ]
+        },
+        {
+          "id": "u05-l5-e15",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minun veljeni ___ Oulussa ja puhuu ruotsia.",
+          "hint": "asua",
+          "answers": [
+            "asuu"
+          ],
+          "form": {
+            "base": "asua",
+            "person": "3",
+            "number": "singular"
+          },
+          "tags": [
+            "verbtype-1"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1163 @@
+{
+  "id": "u04",
+  "section": 1,
+  "title": "Home",
+  "tip": {
+    "en": "To say where something is, add -ssa or -ssä (by vowel harmony) to the noun: talo - talossa (in the house), keittiö - keittiössä (in the kitchen), olohuone - olohuoneessa (in the living room). Some words change a little: pöytä - pöydässä, asunto - asunnossa.\n\nTo say what is somewhere, put the place first, then on, then the thing: Keittiössä on pöytä. Olohuoneessa on sohva ja televisio. After a number above one the thing is partitive: Keittiössä on kaksi tuolia.\n\nTo say what you have, use the ending -lla/-llä on the owner and the verb on: Minulla on koira. Sinulla on auto. Hänellä on kissa. Meillä on talo. Teillä on asunto. Heillä on koti. The thing you have stays in its basic form.\n\nTo say you do not have something, use ei ole and the partitive: Minulla ei ole autoa. Keittiössä ei ole tuolia. Note that ei does not change here, whoever the owner is.\n\nAn adjective takes the same ending as its noun: iso talo, isossa talossa; pieni huone, pienessä huoneessa."
+  },
+  "lessons": [
+    {
+      "id": "u04-l1",
+      "title": "Rooms, furniture and things",
+      "exercises": [
+        {
+          "id": "u04-l1-e01",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "house",
+          "options": [
+            "talo",
+            "koti",
+            "huone"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u04-l1-e02",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "kitchen",
+          "options": [
+            "keittiö",
+            "olohuone",
+            "kylpyhuone"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u04-l1-e03",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "bedroom",
+          "options": [
+            "makuuhuone",
+            "kylpyhuone",
+            "olohuone"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u04-l1-e04",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "sohva",
+          "options": [
+            "sofa",
+            "table",
+            "bed"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u04-l1-e05",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "table",
+          "options": [
+            "pöytä",
+            "tuoli",
+            "kaappi"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u04-l1-e06",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "kylpyhuone",
+          "options": [
+            "bathroom",
+            "bedroom",
+            "kitchen"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u04-l1-e07",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "keittiö",
+              "en": "kitchen"
+            },
+            {
+              "fi": "olohuone",
+              "en": "living room"
+            },
+            {
+              "fi": "makuuhuone",
+              "en": "bedroom"
+            },
+            {
+              "fi": "kylpyhuone",
+              "en": "bathroom"
+            },
+            {
+              "fi": "huone",
+              "en": "room"
+            }
+          ]
+        },
+        {
+          "id": "u04-l1-e08",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "pöytä",
+              "en": "table"
+            },
+            {
+              "fi": "tuoli",
+              "en": "chair"
+            },
+            {
+              "fi": "sänky",
+              "en": "bed"
+            },
+            {
+              "fi": "sohva",
+              "en": "sofa"
+            },
+            {
+              "fi": "kaappi",
+              "en": "cupboard"
+            }
+          ]
+        },
+        {
+          "id": "u04-l1-e09",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "ikkuna",
+              "en": "window"
+            },
+            {
+              "fi": "ovi",
+              "en": "door"
+            },
+            {
+              "fi": "lamppu",
+              "en": "lamp"
+            },
+            {
+              "fi": "televisio",
+              "en": "television"
+            },
+            {
+              "fi": "asunto",
+              "en": "flat"
+            }
+          ]
+        },
+        {
+          "id": "u04-l1-e10",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "iso",
+              "en": "big"
+            },
+            {
+              "fi": "pieni",
+              "en": "small"
+            },
+            {
+              "fi": "vanha",
+              "en": "old"
+            },
+            {
+              "fi": "uusi",
+              "en": "new"
+            },
+            {
+              "fi": "kaunis",
+              "en": "beautiful"
+            }
+          ]
+        },
+        {
+          "id": "u04-l1-e11",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "dog",
+          "options": [
+            "koira",
+            "kissa",
+            "auto"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u04-l1-e12",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "kissa",
+          "options": [
+            "cat",
+            "dog",
+            "car"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u04-l1-e13",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "car",
+          "options": [
+            "auto",
+            "koira",
+            "talo"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u04-l1-e14",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Olohuone on iso, mutta makuuhuone on ___.",
+          "hint": "small",
+          "answers": [
+            "pieni"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u04-l2",
+      "title": "In the room: -ssa and \"there is\"",
+      "exercises": [
+        {
+          "id": "u04-l2-e01",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "in the kitchen",
+          "options": [
+            "keittiössä",
+            "keittiöstä",
+            "keittiö"
+          ],
+          "answer": 0,
+          "tags": [
+            "inessive-ssa"
+          ]
+        },
+        {
+          "id": "u04-l2-e02",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "in the house",
+          "options": [
+            "talossa",
+            "talosta",
+            "talo"
+          ],
+          "answer": 0,
+          "tags": [
+            "inessive-ssa"
+          ]
+        },
+        {
+          "id": "u04-l2-e03",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "in the bedroom",
+          "options": [
+            "makuuhuoneessa",
+            "makuuhuoneesta",
+            "makuuhuone"
+          ],
+          "answer": 0,
+          "tags": [
+            "inessive-ssa"
+          ]
+        },
+        {
+          "id": "u04-l2-e04",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Me juomme kahvia ___.",
+          "hint": "keittiö",
+          "answers": [
+            "keittiössä"
+          ],
+          "form": {
+            "base": "keittiö",
+            "case": "sisaolento"
+          },
+          "tags": [
+            "inessive-ssa"
+          ]
+        },
+        {
+          "id": "u04-l2-e05",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Sänky on ___.",
+          "hint": "makuuhuone",
+          "answers": [
+            "makuuhuoneessa"
+          ],
+          "form": {
+            "base": "makuuhuone",
+            "case": "sisaolento"
+          },
+          "tags": [
+            "inessive-ssa"
+          ]
+        },
+        {
+          "id": "u04-l2-e06",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ on kaksi huonetta ja keittiö.",
+          "hint": "asunto",
+          "answers": [
+            "asunnossa"
+          ],
+          "form": {
+            "base": "asunto",
+            "case": "sisaolento"
+          },
+          "tags": [
+            "inessive-ssa"
+          ]
+        },
+        {
+          "id": "u04-l2-e07",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "There is a table in the kitchen.",
+          "options": [
+            "Keittiössä on pöytä.",
+            "Keittiö on pöytä.",
+            "Pöytä on keittiö."
+          ],
+          "answer": 0,
+          "tags": [
+            "existential"
+          ]
+        },
+        {
+          "id": "u04-l2-e08",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "There is a sofa in the living room.",
+          "options": [
+            "Olohuoneessa on sohva.",
+            "Olohuone on sohva.",
+            "Sohva on olohuone."
+          ],
+          "answer": 0,
+          "tags": [
+            "existential"
+          ]
+        },
+        {
+          "id": "u04-l2-e09",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Makuuhuoneessa on sänky ja lamppu.",
+          "options": [
+            "There is a bed and a lamp in the bedroom.",
+            "There is a bed and a lamp in the kitchen.",
+            "The bedroom is a bed and a lamp."
+          ],
+          "answer": 0,
+          "tags": [
+            "existential"
+          ]
+        },
+        {
+          "id": "u04-l2-e10",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Keittiössä ___ pöytä ja kaksi tuolia.",
+          "hint": "olla",
+          "answers": [
+            "on"
+          ],
+          "tags": [
+            "existential"
+          ]
+        },
+        {
+          "id": "u04-l2-e11",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Olohuoneessa ___ sohva ja televisio.",
+          "hint": "olla",
+          "answers": [
+            "on"
+          ],
+          "tags": [
+            "existential"
+          ]
+        },
+        {
+          "id": "u04-l2-e12",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "There are two chairs in the kitchen.",
+          "answers": [
+            "Keittiössä on kaksi tuolia."
+          ],
+          "tiles": [
+            "ovat"
+          ],
+          "tags": [
+            "inessive-ssa",
+            "existential"
+          ]
+        },
+        {
+          "id": "u04-l2-e13",
+          "type": "translate",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "There is a lamp and a sofa in the living room.",
+          "answers": [
+            "Olohuoneessa on lamppu ja sohva.",
+            "Olohuoneessa on sohva ja lamppu."
+          ],
+          "tags": [
+            "inessive-ssa",
+            "existential"
+          ]
+        },
+        {
+          "id": "u04-l2-e14",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Keittiössä on pöytä ja kaksi tuolia.",
+          "options": [
+            "Keittiössä on pöytä ja kaksi tuolia.",
+            "Keittiössä on pöytä ja kaksi lamppua.",
+            "Olohuoneessa on pöytä ja kaksi tuolia."
+          ],
+          "answer": 0,
+          "tags": [
+            "existential"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u04-l3",
+      "title": "Having, not having, and adjectives",
+      "exercises": [
+        {
+          "id": "u04-l3-e01",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "minulla",
+              "en": "I have"
+            },
+            {
+              "fi": "sinulla",
+              "en": "you have"
+            },
+            {
+              "fi": "hänellä",
+              "en": "he/she has"
+            },
+            {
+              "fi": "meillä",
+              "en": "we have"
+            },
+            {
+              "fi": "teillä",
+              "en": "you (plural) have"
+            }
+          ]
+        },
+        {
+          "id": "u04-l3-e02",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I have a dog.",
+          "options": [
+            "Minulla on koira.",
+            "Minä olen koira.",
+            "Minun on koira."
+          ],
+          "answer": 0,
+          "tags": [
+            "possession-lla-on"
+          ]
+        },
+        {
+          "id": "u04-l3-e03",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ on iso talo.",
+          "hint": "I have",
+          "answers": [
+            "minulla"
+          ],
+          "tags": [
+            "possession-lla-on"
+          ]
+        },
+        {
+          "id": "u04-l3-e04",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ on uusi auto.",
+          "hint": "he/she has",
+          "answers": [
+            "hänellä"
+          ],
+          "tags": [
+            "possession-lla-on"
+          ]
+        },
+        {
+          "id": "u04-l3-e05",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ on kaksi huonetta.",
+          "hint": "we have",
+          "answers": [
+            "meillä"
+          ],
+          "tags": [
+            "possession-lla-on"
+          ]
+        },
+        {
+          "id": "u04-l3-e06",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I do not have a car.",
+          "options": [
+            "Minulla ei ole autoa.",
+            "Minulla ei ole auto.",
+            "Minulla ei on autoa."
+          ],
+          "answer": 0,
+          "tags": [
+            "partitive-negative"
+          ]
+        },
+        {
+          "id": "u04-l3-e07",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Keittiössä ei ole ___.",
+          "hint": "tuoli",
+          "answers": [
+            "tuolia"
+          ],
+          "form": {
+            "base": "tuoli",
+            "case": "osanto"
+          },
+          "tags": [
+            "partitive-negative"
+          ]
+        },
+        {
+          "id": "u04-l3-e08",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Meillä ei ole ___.",
+          "hint": "koira",
+          "answers": [
+            "koiraa"
+          ],
+          "form": {
+            "base": "koira",
+            "case": "osanto"
+          },
+          "tags": [
+            "partitive-negative"
+          ]
+        },
+        {
+          "id": "u04-l3-e09",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Meillä ei ole autoa.",
+          "options": [
+            "Meillä ei ole autoa.",
+            "Meillä on auto.",
+            "Minulla ei ole autoa."
+          ],
+          "answer": 0,
+          "tags": [
+            "possession-lla-on",
+            "partitive-negative"
+          ]
+        },
+        {
+          "id": "u04-l3-e10",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Talo on iso. ___ talossa on viisi huonetta.",
+          "options": [
+            "Isossa",
+            "Iso",
+            "Ison"
+          ],
+          "answer": 0,
+          "tags": [
+            "adjective-agreement"
+          ]
+        },
+        {
+          "id": "u04-l3-e11",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Huone on pieni. ___ huoneessa on sänky.",
+          "hint": "pieni",
+          "answers": [
+            "pienessä"
+          ],
+          "form": {
+            "base": "pieni",
+            "case": "sisaolento"
+          },
+          "tags": [
+            "adjective-agreement"
+          ]
+        },
+        {
+          "id": "u04-l3-e12",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Meillä on vanha kylpyhuone. ___ kylpyhuoneessa on pieni ikkuna.",
+          "hint": "vanha",
+          "answers": [
+            "vanhassa"
+          ],
+          "form": {
+            "base": "vanha",
+            "case": "sisaolento"
+          },
+          "tags": [
+            "adjective-agreement"
+          ]
+        },
+        {
+          "id": "u04-l3-e13",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "There is a big table in the small kitchen.",
+          "answers": [
+            "Pienessä keittiössä on iso pöytä."
+          ],
+          "tiles": [
+            "Isossa"
+          ],
+          "tags": [
+            "existential",
+            "adjective-agreement"
+          ]
+        },
+        {
+          "id": "u04-l3-e14",
+          "type": "translate",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I do not have a big car.",
+          "answers": [
+            "Minulla ei ole isoa autoa."
+          ],
+          "tags": [
+            "partitive-negative",
+            "adjective-agreement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u04-l4",
+      "title": "Showing my home",
+      "exercises": [
+        {
+          "id": "u04-l4-e01",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Minulla on pieni asunto Helsingissä. Asunnossa on kaksi huonetta: olohuone ja makuuhuone. Olohuoneessa on sohva ja iso televisio. Keittiössä on pöytä, mutta keittiössä ei ole tuolia.",
+          "prompt": "Olohuoneessa on televisio.",
+          "answer": true,
+          "tags": [
+            "existential"
+          ]
+        },
+        {
+          "id": "u04-l4-e02",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Minulla on pieni asunto Helsingissä. Asunnossa on kaksi huonetta: olohuone ja makuuhuone. Olohuoneessa on sohva ja iso televisio. Keittiössä on pöytä, mutta keittiössä ei ole tuolia.",
+          "prompt": "Keittiössä on kaksi tuolia.",
+          "answer": false,
+          "tags": [
+            "existential"
+          ]
+        },
+        {
+          "id": "u04-l4-e03",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Eero asuu isossa talossa Oulussa. Talossa on viisi huonetta. Hänellä on koira, mutta hänellä ei ole kissaa.",
+          "prompt": "Eero asuu isossa talossa.",
+          "answer": true,
+          "tags": [
+            "inessive-ssa",
+            "adjective-agreement"
+          ]
+        },
+        {
+          "id": "u04-l4-e04",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Eero asuu isossa talossa Oulussa. Talossa on viisi huonetta. Hänellä on koira, mutta hänellä ei ole kissaa.",
+          "prompt": "Hänellä on kissa.",
+          "answer": false,
+          "tags": [
+            "possession-lla-on"
+          ]
+        },
+        {
+          "id": "u04-l4-e05",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Onko sinulla iso asunto? – ___",
+          "options": [
+            "Ei, minulla on pieni asunto.",
+            "Ei, minä olen pieni asunto.",
+            "Kyllä, minulla on asunto ei."
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u04-l4-e06",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Missä sinä asut? – ___",
+          "options": [
+            "Asun pienessä asunnossa Turussa.",
+            "Asun pieni asunto Turussa.",
+            "Asun pienessä asunnon Turussa."
+          ],
+          "answer": 0,
+          "tags": [
+            "adjective-agreement",
+            "inessive-ssa"
+          ]
+        },
+        {
+          "id": "u04-l4-e07",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Onko sinulla koira? – Ei, minulla ___ ole koiraa.",
+          "hint": "does not",
+          "answers": [
+            "ei"
+          ],
+          "tags": [
+            "partitive-negative"
+          ]
+        },
+        {
+          "id": "u04-l4-e08",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Missä sohva on? – Sohva on ___.",
+          "hint": "olohuone",
+          "answers": [
+            "olohuoneessa"
+          ],
+          "form": {
+            "base": "olohuone",
+            "case": "sisaolento"
+          },
+          "tags": [
+            "inessive-ssa"
+          ]
+        },
+        {
+          "id": "u04-l4-e09",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Onko teillä iso keittiö? – Kyllä, ___ on iso keittiö.",
+          "hint": "we have",
+          "answers": [
+            "meillä"
+          ],
+          "tags": [
+            "possession-lla-on"
+          ]
+        },
+        {
+          "id": "u04-l4-e10",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I live in a small flat in Helsinki.",
+          "answers": [
+            "Minä asun pienessä asunnossa Helsingissä.",
+            "Asun pienessä asunnossa Helsingissä.",
+            "Minä asun Helsingissä pienessä asunnossa.",
+            "Asun Helsingissä pienessä asunnossa."
+          ],
+          "tiles": [
+            "pieni"
+          ],
+          "tags": [
+            "inessive-ssa",
+            "adjective-agreement"
+          ]
+        },
+        {
+          "id": "u04-l4-e11",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "There is a big sofa and a small table in the living room.",
+          "answers": [
+            "Olohuoneessa on iso sohva ja pieni pöytä."
+          ],
+          "tiles": [
+            "pienessä"
+          ],
+          "tags": [
+            "existential",
+            "adjective-agreement"
+          ]
+        },
+        {
+          "id": "u04-l4-e12",
+          "type": "translate",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "We have a big house, but we do not have a car.",
+          "answers": [
+            "Meillä on iso talo, mutta meillä ei ole autoa.",
+            "Meillä on iso talo mutta meillä ei ole autoa.",
+            "Meillä on iso talo, mutta ei autoa.",
+            "Meillä on iso talo mutta ei autoa."
+          ],
+          "tags": [
+            "partitive-negative",
+            "possession-lla-on"
+          ]
+        },
+        {
+          "id": "u04-l4-e13",
+          "type": "translate",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Is there a table in the kitchen?",
+          "answers": [
+            "Onko keittiössä pöytä?"
+          ],
+          "tags": [
+            "existential"
+          ]
+        },
+        {
+          "id": "u04-l4-e14",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Meillä on iso talo.",
+          "options": [
+            "We have a big house.",
+            "We live in a big house.",
+            "They have a big house."
+          ],
+          "answer": 0,
+          "tags": [
+            "possession-lla-on"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u04-l5",
+      "title": "Mix",
+      "exercises": [
+        {
+          "id": "u04-l5-e01",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Keittiössä ___ pöytä ja kolme tuolia.",
+          "hint": "olla",
+          "answers": [
+            "on"
+          ],
+          "tags": [
+            "existential"
+          ]
+        },
+        {
+          "id": "u04-l5-e02",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minulla ___ ole autoa.",
+          "hint": "does not",
+          "answers": [
+            "ei"
+          ],
+          "tags": [
+            "partitive-negative"
+          ]
+        },
+        {
+          "id": "u04-l5-e03",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Talo on vanha. ___ talossa on iso keittiö.",
+          "options": [
+            "Vanhassa",
+            "Vanha",
+            "Vanhan"
+          ],
+          "answer": 0,
+          "tags": [
+            "adjective-agreement"
+          ]
+        },
+        {
+          "id": "u04-l5-e04",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ on kaksi koiraa ja kissa.",
+          "hint": "we have",
+          "answers": [
+            "meillä"
+          ],
+          "tags": [
+            "possession-lla-on"
+          ]
+        },
+        {
+          "id": "u04-l5-e05",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Me syömme kakkua ___.",
+          "hint": "olohuone",
+          "answers": [
+            "olohuoneessa"
+          ],
+          "form": {
+            "base": "olohuone",
+            "case": "sisaolento"
+          },
+          "tags": [
+            "inessive-ssa"
+          ]
+        },
+        {
+          "id": "u04-l5-e06",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "in the bathroom",
+          "options": [
+            "kylpyhuoneessa",
+            "kylpyhuoneesta",
+            "kylpyhuone"
+          ],
+          "answer": 0,
+          "tags": [
+            "inessive-ssa"
+          ]
+        },
+        {
+          "id": "u04-l5-e07",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Anna asuu pienessä asunnossa Turussa. Hänellä on kissa, mutta hänellä ei ole koiraa. Keittiössä on pöytä ja kaksi tuolia.",
+          "prompt": "Anna asuu isossa talossa.",
+          "answer": false
+        },
+        {
+          "id": "u04-l5-e08",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä en ___ kahvia, mutta juon teetä.",
+          "hint": "juoda",
+          "answers": [
+            "juo"
+          ],
+          "tags": [
+            "negative-verb"
+          ]
+        },
+        {
+          "id": "u04-l5-e09",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hän pitää ___.",
+          "options": [
+            "kakusta",
+            "kakkua",
+            "kakku"
+          ],
+          "answer": 0,
+          "tags": [
+            "rektio-pitaa-sta"
+          ]
+        },
+        {
+          "id": "u04-l5-e10",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ sinä Helsingissä?",
+          "hint": "asua",
+          "answers": [
+            "asutko"
+          ],
+          "tags": [
+            "question-ko"
+          ]
+        },
+        {
+          "id": "u04-l5-e11",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "twelve",
+          "options": [
+            "kaksitoista",
+            "kaksikymmentä",
+            "kaksi"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u04-l5-e12",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Is there a lamp in the bedroom?",
+          "answers": [
+            "Onko makuuhuoneessa lamppu?"
+          ],
+          "tiles": [
+            "on"
+          ],
+          "tags": [
+            "existential"
+          ]
+        },
+        {
+          "id": "u04-l5-e13",
+          "type": "translate",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I do not have a big house, but I have a small flat.",
+          "answers": [
+            "Minulla ei ole isoa taloa, mutta minulla on pieni asunto.",
+            "Minulla ei ole isoa taloa mutta minulla on pieni asunto."
+          ],
+          "tags": [
+            "adjective-agreement",
+            "partitive-negative"
+          ]
+        },
+        {
+          "id": "u04-l5-e14",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Meillä ei ole koiraa.",
+          "options": [
+            "Meillä ei ole koiraa.",
+            "Meillä on koira.",
+            "Minulla ei ole koiraa."
+          ],
+          "answer": 0,
+          "tags": [
+            "possession-lla-on",
+            "partitive-negative"
+          ]
+        }
+      ]
+    }
+  ]
+}

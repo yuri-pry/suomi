@@ -30,7 +30,26 @@ export function matchesForm(word, form) {
     );
 }
 
-export function validate(units, rules, allow = new Set()) {
+const PLACEMENT_TYPES = ['choice', 'fill'];
+const PLACEMENT_PER_UNIT = 3;
+const PLACEMENT_MIN_FILL = 2;
+
+/** Structure of the placement bank (SPEC section 6). Spelling is checked by validate(), which treats the bank as one lesson. */
+function checkPlacement(items, unitIds, errors) {
+  const byUnit = new Map(unitIds.map((id) => [id, []]));
+  for (const it of items) {
+    if (!/^u\d{2}$/.test(it?.unit ?? '')) errors.push(`${it?.id}: placement item needs "unit" like "u01"`);
+    if (!PLACEMENT_TYPES.includes(it?.type)) errors.push(`${it?.id}: placement type must be choice or fill`);
+    if (byUnit.has(it?.unit)) byUnit.get(it.unit).push(it);
+  }
+  for (const [unit, list] of byUnit) {
+    if (list.length !== PLACEMENT_PER_UNIT) errors.push(`${unit}: placement has ${list.length} items, needs ${PLACEMENT_PER_UNIT}`);
+    else if (list.filter((i) => i.type === 'fill').length < PLACEMENT_MIN_FILL)
+      errors.push(`${unit}: placement needs at least ${PLACEMENT_MIN_FILL} fill items`);
+  }
+}
+
+export function validate(units, rules, allow = new Set(), placement = null) {
   const errors = [];
   const warnings = [];
   const seen = new Set();
@@ -69,7 +88,11 @@ export function validate(units, rules, allow = new Set()) {
     if (r.ref && !r.ref.startsWith('https://')) errors.push(`${r.id}: ref must be an https link`);
   }
 
-  for (const unit of units) {
+  if (placement) checkPlacement(placement, units.map((u) => u.id), errors);
+  // The bank runs through the same exercise checks as a lesson of its own.
+  const bank = placement ? [{ id: 'placement', tip: { en: '-' }, lessons: [{ id: 'placement-bank', exercises: placement }] }] : [];
+
+  for (const unit of [...units, ...bank]) {
     unique(unit.id, 'unit');
     if (!unit.tip?.en) errors.push(`${unit.id}: missing tip`);
     for (const lesson of unit.lessons ?? []) {
@@ -188,10 +211,11 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       ? readFileSync(allowFile, 'utf8').split(/\r?\n/).map((l) => l.trim().toLowerCase()).filter((l) => l && !l.startsWith('#'))
       : [],
   );
-  const { errors, warnings } = validate(units, rules, allow);
+  const placement = existsSync(join(dir, 'placement.json')) ? read(join(dir, 'placement.json')) : null;
+  const { errors, warnings } = validate(units, rules, allow, placement);
   warnings.forEach((w) => console.warn('warning:', w));
   errors.forEach((e) => console.error('error:', e));
   const count = units.reduce((n, u) => n + u.lessons.reduce((m, l) => m + l.exercises.length, 0), 0);
-  console.log(`content: ${units.length} units, ${count} exercises, ${rules.length} rules, ${errors.length} errors, ${warnings.length} warnings`);
+  console.log(`content: ${units.length} units, ${count} exercises, ${placement?.length ?? 0} placement items, ${rules.length} rules, ${errors.length} errors, ${warnings.length} warnings`);
   process.exit(errors.length ? 1 : 0);
 }

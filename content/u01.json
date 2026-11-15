@@ -10,101 +10,1119 @@
       "id": "u01-l1",
       "title": "Greetings",
       "exercises": [
-        { "id": "u01-l1-e01", "type": "choice", "promptLang": "en", "answerLang": "fi", "prompt": "Hello", "options": ["Hei", "Kiitos", "Anteeksi"], "answer": 0 },
-        { "id": "u01-l1-e02", "type": "choice", "promptLang": "en", "answerLang": "fi", "prompt": "Thank you", "options": ["Kiitos", "Hei hei", "Huomenta"], "answer": 0 },
-        { "id": "u01-l1-e03", "type": "choice", "promptLang": "fi", "answerLang": "en", "prompt": "Hyvää huomenta", "options": ["Good morning", "Good night", "Goodbye"], "answer": 0 },
-        { "id": "u01-l1-e04", "type": "choice", "promptLang": "en", "answerLang": "fi", "prompt": "Good evening", "options": ["Hyvää iltaa", "Hyvää yötä", "Hyvää päivää"], "answer": 0 },
-        { "id": "u01-l1-e05", "type": "choice", "promptLang": "fi", "answerLang": "en", "prompt": "Anteeksi", "options": ["Sorry / Excuse me", "Thanks", "Welcome"], "answer": 0 },
-        { "id": "u01-l1-e06", "type": "choice", "promptLang": "en", "answerLang": "fi", "prompt": "Goodbye", "options": ["Näkemiin", "Tervetuloa", "Ole hyvä"], "answer": 0 },
-        { "id": "u01-l1-e07", "type": "choice", "promptLang": "fi", "answerLang": "en", "prompt": "Tervetuloa", "options": ["Welcome", "Goodbye", "Good day"], "answer": 0 },
-        { "id": "u01-l1-e08", "type": "choice", "promptLang": "fi", "answerLang": "en", "prompt": "Ole hyvä", "options": ["You're welcome / Here you are", "Sorry", "Good night"], "answer": 0 },
-        { "id": "u01-l1-e09", "type": "fill", "promptLang": "fi", "answerLang": "fi", "prompt": "Hyvää ___!", "hint": "Good day!", "answers": ["päivää"] },
-        { "id": "u01-l1-e10", "type": "fill", "promptLang": "fi", "answerLang": "fi", "prompt": "___ huomenta!", "hint": "Good morning!", "answers": ["hyvää"] },
-        { "id": "u01-l1-e11", "type": "choice", "promptLang": "fi", "answerLang": "en", "prompt": "Mitä kuuluu?", "options": ["How are you?", "What is your name?", "Where are you from?"], "answer": 0 },
-        { "id": "u01-l1-e12", "type": "choice", "promptLang": "en", "answerLang": "fi", "prompt": "Fine, thanks.", "options": ["Kiitos, hyvää.", "Hei hei.", "Anteeksi."], "answer": 0 },
-        { "id": "u01-l1-e13", "type": "listen", "promptLang": "fi", "answerLang": "en", "prompt": "Hyvää huomenta!", "options": ["Good morning!", "Good evening!", "Good night!"], "answer": 0 },
-        { "id": "u01-l1-e14", "type": "listen", "promptLang": "fi", "answerLang": "fi", "prompt": "Kiitos, hyvää.", "options": ["Kiitos, hyvää.", "Hyvää iltaa.", "Hei hei."], "answer": 0 },
-        { "id": "u01-l1-e15", "type": "match", "promptLang": "fi", "answerLang": "en", "prompt": "", "pairs": [{"fi":"Hei","en":"hello"},{"fi":"Kiitos","en":"thank you"},{"fi":"Anteeksi","en":"sorry"},{"fi":"Tervetuloa","en":"welcome"},{"fi":"Näkemiin","en":"goodbye"}] }
+        {
+          "id": "u01-l1-e01",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Hello",
+          "options": [
+            "Hei",
+            "Kiitos",
+            "Anteeksi"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l1-e02",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Thank you",
+          "options": [
+            "Kiitos",
+            "Hei hei",
+            "Huomenta"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l1-e03",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Hyvää huomenta",
+          "options": [
+            "Good morning",
+            "Good night",
+            "Goodbye"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l1-e04",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Good evening",
+          "options": [
+            "Hyvää iltaa",
+            "Hyvää yötä",
+            "Hyvää päivää"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l1-e05",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Anteeksi",
+          "options": [
+            "Sorry / Excuse me",
+            "Thanks",
+            "Welcome"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l1-e06",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Goodbye",
+          "options": [
+            "Näkemiin",
+            "Tervetuloa",
+            "Ole hyvä"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l1-e07",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Tervetuloa",
+          "options": [
+            "Welcome",
+            "Goodbye",
+            "Good day"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l1-e08",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Ole hyvä",
+          "options": [
+            "You're welcome / Here you are",
+            "Sorry",
+            "Good night"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l1-e09",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hyvää ___!",
+          "hint": "Good day!",
+          "answers": [
+            "päivää"
+          ]
+        },
+        {
+          "id": "u01-l1-e10",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ huomenta!",
+          "hint": "Good morning!",
+          "answers": [
+            "hyvää"
+          ]
+        },
+        {
+          "id": "u01-l1-e11",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Mitä kuuluu?",
+          "options": [
+            "How are you?",
+            "What is your name?",
+            "Where are you from?"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l1-e12",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Fine, thanks.",
+          "options": [
+            "Kiitos, hyvää.",
+            "Hei hei.",
+            "Anteeksi."
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l1-e13",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Hyvää huomenta!",
+          "options": [
+            "Good morning!",
+            "Good evening!",
+            "Good night!"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l1-e14",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Kiitos, hyvää.",
+          "options": [
+            "Kiitos, hyvää.",
+            "Hyvää iltaa.",
+            "Hei hei."
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l1-e15",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "Hei",
+              "en": "hello"
+            },
+            {
+              "fi": "Kiitos",
+              "en": "thank you"
+            },
+            {
+              "fi": "Anteeksi",
+              "en": "sorry"
+            },
+            {
+              "fi": "Tervetuloa",
+              "en": "welcome"
+            },
+            {
+              "fi": "Näkemiin",
+              "en": "goodbye"
+            }
+          ]
+        }
       ]
     },
     {
       "id": "u01-l2",
       "title": "To be",
       "exercises": [
-        { "id": "u01-l2-e01", "type": "choice", "tags": ["olla-present"], "promptLang": "en", "answerLang": "fi", "prompt": "I am", "options": ["minä olen", "sinä olet", "hän on"], "answer": 0 },
-        { "id": "u01-l2-e02", "type": "choice", "tags": ["olla-present"], "promptLang": "en", "answerLang": "fi", "prompt": "you are (one person)", "options": ["sinä olet", "te olette", "minä olen"], "answer": 0 },
-        { "id": "u01-l2-e03", "type": "choice", "tags": ["olla-present"], "promptLang": "en", "answerLang": "fi", "prompt": "he is / she is", "options": ["hän on", "he ovat", "me olemme"], "answer": 0 },
-        { "id": "u01-l2-e04", "type": "choice", "tags": ["olla-present"], "promptLang": "en", "answerLang": "fi", "prompt": "we are", "options": ["me olemme", "te olette", "he ovat"], "answer": 0 },
-        { "id": "u01-l2-e05", "type": "choice", "tags": ["olla-present"], "promptLang": "en", "answerLang": "fi", "prompt": "they are", "options": ["he ovat", "hän on", "me olemme"], "answer": 0 },
-        { "id": "u01-l2-e06", "type": "fill", "tags": ["olla-present"], "promptLang": "fi", "answerLang": "fi", "prompt": "Minä ___ Anna.", "hint": "olla", "answers": ["olen"], "form": { "base": "olla", "person": "1", "number": "singular" } },
-        { "id": "u01-l2-e07", "type": "fill", "tags": ["olla-present"], "promptLang": "fi", "answerLang": "fi", "prompt": "Sinä ___ opiskelija.", "hint": "olla", "answers": ["olet"], "form": { "base": "olla", "person": "2", "number": "singular" } },
-        { "id": "u01-l2-e08", "type": "fill", "tags": ["olla-present"], "promptLang": "fi", "answerLang": "fi", "prompt": "Hän ___ opettaja.", "hint": "olla", "answers": ["on"], "form": { "base": "olla", "person": "3", "number": "singular" } },
-        { "id": "u01-l2-e09", "type": "fill", "tags": ["olla-present"], "promptLang": "fi", "answerLang": "fi", "prompt": "Me ___ Suomessa.", "hint": "olla", "answers": ["olemme"], "form": { "base": "olla", "person": "1", "number": "plural" } },
-        { "id": "u01-l2-e10", "type": "fill", "tags": ["olla-present"], "promptLang": "fi", "answerLang": "fi", "prompt": "Te ___ kotona.", "hint": "olla", "answers": ["olette"], "form": { "base": "olla", "person": "2", "number": "plural" } },
-        { "id": "u01-l2-e11", "type": "fill", "tags": ["olla-present"], "promptLang": "fi", "answerLang": "fi", "prompt": "He ___ koulussa.", "hint": "olla", "answers": ["ovat"], "form": { "base": "olla", "person": "3", "number": "plural" } },
-        { "id": "u01-l2-e12", "type": "choice", "tags": ["olla-present"], "promptLang": "fi", "answerLang": "en", "prompt": "Hän on opettaja.", "options": ["He/She is a teacher.", "I am a teacher.", "They are teachers."], "answer": 0 },
-        { "id": "u01-l2-e13", "type": "listen", "tags": ["olla-present"], "promptLang": "fi", "answerLang": "fi", "prompt": "He ovat koulussa.", "options": ["He ovat koulussa.", "Hän on koulussa.", "Me olemme koulussa."], "answer": 0 },
-        { "id": "u01-l2-e14", "type": "order", "tags": ["olla-present"], "promptLang": "en", "answerLang": "fi", "prompt": "They are at school.", "answers": ["He ovat koulussa."], "tiles": ["on"] },
-        { "id": "u01-l2-e15", "type": "truefalse", "tags": ["olla-present"], "promptLang": "fi", "answerLang": "fi", "text": "Minä olen Anna. Hän on opettaja.", "prompt": "Anna on opettaja.", "answer": false }
+        {
+          "id": "u01-l2-e01",
+          "type": "choice",
+          "tags": [
+            "olla-present"
+          ],
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I am",
+          "options": [
+            "minä olen",
+            "sinä olet",
+            "hän on"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l2-e03",
+          "type": "choice",
+          "tags": [
+            "olla-present"
+          ],
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "he is / she is",
+          "options": [
+            "hän on",
+            "he ovat",
+            "me olemme"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l2-e04",
+          "type": "choice",
+          "tags": [
+            "olla-present"
+          ],
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "we are",
+          "options": [
+            "me olemme",
+            "te olette",
+            "he ovat"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l2-e06",
+          "type": "fill",
+          "tags": [
+            "olla-present"
+          ],
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä ___ Anna.",
+          "hint": "olla",
+          "answers": [
+            "olen"
+          ],
+          "form": {
+            "base": "olla",
+            "person": "1",
+            "number": "singular"
+          }
+        },
+        {
+          "id": "u01-l2-e07",
+          "type": "fill",
+          "tags": [
+            "olla-present"
+          ],
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Sinä ___ opiskelija.",
+          "hint": "olla",
+          "answers": [
+            "olet"
+          ],
+          "form": {
+            "base": "olla",
+            "person": "2",
+            "number": "singular"
+          }
+        },
+        {
+          "id": "u01-l2-e08",
+          "type": "fill",
+          "tags": [
+            "olla-present"
+          ],
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hän ___ opettaja.",
+          "hint": "olla",
+          "answers": [
+            "on"
+          ],
+          "form": {
+            "base": "olla",
+            "person": "3",
+            "number": "singular"
+          }
+        },
+        {
+          "id": "u01-l2-e09",
+          "type": "fill",
+          "tags": [
+            "olla-present"
+          ],
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Me ___ Suomessa.",
+          "hint": "olla",
+          "answers": [
+            "olemme"
+          ],
+          "form": {
+            "base": "olla",
+            "person": "1",
+            "number": "plural"
+          }
+        },
+        {
+          "id": "u01-l2-e10",
+          "type": "fill",
+          "tags": [
+            "olla-present"
+          ],
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Te ___ kotona.",
+          "hint": "olla",
+          "answers": [
+            "olette"
+          ],
+          "form": {
+            "base": "olla",
+            "person": "2",
+            "number": "plural"
+          }
+        },
+        {
+          "id": "u01-l2-e11",
+          "type": "fill",
+          "tags": [
+            "olla-present"
+          ],
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "He ___ koulussa.",
+          "hint": "olla",
+          "answers": [
+            "ovat"
+          ],
+          "form": {
+            "base": "olla",
+            "person": "3",
+            "number": "plural"
+          }
+        },
+        {
+          "id": "u01-l2-e16",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "and",
+          "options": [
+            "ja",
+            "on",
+            "ei"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l2-e13",
+          "type": "listen",
+          "tags": [
+            "olla-present"
+          ],
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "He ovat koulussa.",
+          "options": [
+            "He ovat koulussa.",
+            "Hän on koulussa.",
+            "Me olemme koulussa."
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l2-e14",
+          "type": "order",
+          "tags": [
+            "olla-present"
+          ],
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "They are at school.",
+          "answers": [
+            "He ovat koulussa."
+          ],
+          "tiles": [
+            "on"
+          ]
+        },
+        {
+          "id": "u01-l2-e17",
+          "type": "order",
+          "tags": [
+            "olla-present"
+          ],
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "We are at home and they are at school.",
+          "answers": [
+            "Me olemme kotona ja he ovat koulussa.",
+            "Olemme kotona ja he ovat koulussa."
+          ],
+          "tiles": [
+            "on"
+          ]
+        },
+        {
+          "id": "u01-l2-e15",
+          "type": "truefalse",
+          "tags": [
+            "olla-present"
+          ],
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Minä olen Anna. Minä olen opettaja. Te olette opiskelijoita. Me olemme koulussa.",
+          "prompt": "Anna on kotona.",
+          "answer": false
+        },
+        {
+          "id": "u01-l2-e18",
+          "type": "truefalse",
+          "tags": [
+            "olla-present"
+          ],
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Sinä olet opiskelija. Hän on opettaja. Me olemme kotona ja te olette koulussa.",
+          "prompt": "Te olette kotona.",
+          "answer": false
+        }
       ]
     },
     {
       "id": "u01-l3",
       "title": "Numbers and vowels",
       "exercises": [
-        { "id": "u01-l3-e01", "type": "choice", "promptLang": "en", "answerLang": "fi", "prompt": "one", "options": ["yksi", "kaksi", "kolme"], "answer": 0 },
-        { "id": "u01-l3-e02", "type": "choice", "promptLang": "en", "answerLang": "fi", "prompt": "four", "options": ["neljä", "viisi", "kuusi"], "answer": 0 },
-        { "id": "u01-l3-e03", "type": "choice", "promptLang": "fi", "answerLang": "en", "prompt": "seitsemän", "options": ["seven", "eight", "nine"], "answer": 0 },
-        { "id": "u01-l3-e04", "type": "choice", "promptLang": "fi", "answerLang": "en", "prompt": "kymmenen", "options": ["ten", "nine", "eight"], "answer": 0 },
-        { "id": "u01-l3-e05", "type": "fill", "promptLang": "fi", "answerLang": "fi", "prompt": "yksi, kaksi, ___", "hint": "3", "answers": ["kolme"] },
-        { "id": "u01-l3-e06", "type": "fill", "promptLang": "fi", "answerLang": "fi", "prompt": "kahdeksan, yhdeksän, ___", "hint": "10", "answers": ["kymmenen"] },
-        { "id": "u01-l3-e07", "type": "choice", "promptLang": "fi", "answerLang": "en", "prompt": "kaksikymmentä", "options": ["twenty", "twelve", "two"], "answer": 0 },
-        { "id": "u01-l3-e08", "type": "choice", "promptLang": "en", "answerLang": "fi", "prompt": "eleven", "options": ["yksitoista", "kaksitoista", "kymmenen"], "answer": 0 },
-        { "id": "u01-l3-e09", "type": "choice", "tags": ["vowel-harmony"], "promptLang": "en", "answerLang": "fi", "prompt": "Which one is a possible Finnish word? (table)", "options": ["pöytä", "pöyta"], "answer": 0, "invalid": [1] },
-        { "id": "u01-l3-e10", "type": "choice", "tags": ["vowel-harmony"], "promptLang": "en", "answerLang": "fi", "prompt": "Which one is a possible Finnish word? (question)", "options": ["kysymys", "kysymus"], "answer": 0, "invalid": [1] },
-        { "id": "u01-l3-e11", "type": "choice", "tags": ["vowel-harmony"], "promptLang": "en", "answerLang": "fi", "prompt": "Which form follows vowel harmony? (in the house)", "options": ["talossa", "talossä"], "answer": 0, "invalid": [1] },
-        { "id": "u01-l3-e12", "type": "choice", "tags": ["vowel-harmony"], "promptLang": "en", "answerLang": "fi", "prompt": "Which form follows vowel harmony? (in the forest)", "options": ["metsässä", "metsässa"], "answer": 0, "invalid": [1] },
-        { "id": "u01-l3-e13", "type": "match", "promptLang": "fi", "answerLang": "en", "prompt": "", "pairs": [{"fi":"yksi","en":"one"},{"fi":"neljä","en":"four"},{"fi":"seitsemän","en":"seven"},{"fi":"kymmenen","en":"ten"},{"fi":"yksitoista","en":"eleven"}] }
+        {
+          "id": "u01-l3-e01",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "one",
+          "options": [
+            "yksi",
+            "kaksi",
+            "kolme"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l3-e02",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "four",
+          "options": [
+            "neljä",
+            "viisi",
+            "kuusi"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l3-e03",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "seitsemän",
+          "options": [
+            "seven",
+            "eight",
+            "nine"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l3-e04",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "kymmenen",
+          "options": [
+            "ten",
+            "nine",
+            "eight"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l3-e05",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "yksi, kaksi, ___",
+          "hint": "3",
+          "answers": [
+            "kolme"
+          ]
+        },
+        {
+          "id": "u01-l3-e06",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "kahdeksan, yhdeksän, ___",
+          "hint": "10",
+          "answers": [
+            "kymmenen"
+          ]
+        },
+        {
+          "id": "u01-l3-e07",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "kaksikymmentä",
+          "options": [
+            "twenty",
+            "twelve",
+            "two"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l3-e08",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "eleven",
+          "options": [
+            "yksitoista",
+            "kaksitoista",
+            "kymmenen"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l3-e14",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "seitsemän",
+          "options": [
+            "seven",
+            "eight",
+            "nine"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l3-e09",
+          "type": "choice",
+          "tags": [
+            "vowel-harmony"
+          ],
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Which one is a possible Finnish word? (table)",
+          "options": [
+            "pöytä",
+            "pöyta"
+          ],
+          "answer": 0,
+          "invalid": [
+            1
+          ]
+        },
+        {
+          "id": "u01-l3-e10",
+          "type": "choice",
+          "tags": [
+            "vowel-harmony"
+          ],
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Which one is a possible Finnish word? (question)",
+          "options": [
+            "kysymys",
+            "kysymus"
+          ],
+          "answer": 0,
+          "invalid": [
+            1
+          ]
+        },
+        {
+          "id": "u01-l3-e11",
+          "type": "choice",
+          "tags": [
+            "vowel-harmony"
+          ],
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Which form follows vowel harmony? (in the house)",
+          "options": [
+            "talossa",
+            "talossä"
+          ],
+          "answer": 0,
+          "invalid": [
+            1
+          ]
+        },
+        {
+          "id": "u01-l3-e12",
+          "type": "choice",
+          "tags": [
+            "vowel-harmony"
+          ],
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Which form follows vowel harmony? (in the forest)",
+          "options": [
+            "metsässä",
+            "metsässa"
+          ],
+          "answer": 0,
+          "invalid": [
+            1
+          ]
+        },
+        {
+          "id": "u01-l3-e15",
+          "type": "order",
+          "tags": [
+            "vowel-harmony"
+          ],
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "They are in the house and we are in the forest.",
+          "answers": [
+            "He ovat talossa ja me olemme metsässä."
+          ],
+          "tiles": [
+            "on"
+          ]
+        },
+        {
+          "id": "u01-l3-e13",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "yksi",
+              "en": "one"
+            },
+            {
+              "fi": "neljä",
+              "en": "four"
+            },
+            {
+              "fi": "seitsemän",
+              "en": "seven"
+            },
+            {
+              "fi": "kymmenen",
+              "en": "ten"
+            },
+            {
+              "fi": "yksitoista",
+              "en": "eleven"
+            }
+          ]
+        }
       ]
     },
     {
       "id": "u01-l4",
       "title": "Nice to meet you",
       "exercises": [
-        { "id": "u01-l4-e01", "type": "choice", "promptLang": "fi", "answerLang": "en", "prompt": "Mikä sinun nimesi on?", "options": ["What is your name?", "How are you?", "What is your address?"], "answer": 0 },
-        { "id": "u01-l4-e02", "type": "choice", "promptLang": "en", "answerLang": "fi", "prompt": "My name is Anna.", "options": ["Minun nimeni on Anna.", "Minä olen Suomessa.", "Hän on Anna."], "answer": 0 },
-        { "id": "u01-l4-e03", "type": "choice", "promptLang": "fi", "answerLang": "en", "prompt": "Hauska tutustua.", "options": ["Nice to meet you.", "See you.", "Good night."], "answer": 0 },
-        { "id": "u01-l4-e04", "type": "fill", "tags": ["olla-present"], "promptLang": "fi", "answerLang": "fi", "prompt": "Minä ___ kotoisin Suomesta.", "hint": "olla", "answers": ["olen"], "form": { "base": "olla", "person": "1", "number": "singular" } },
-        { "id": "u01-l4-e05", "type": "choice", "promptLang": "fi", "answerLang": "en", "prompt": "Mikä sinun puhelinnumerosi on?", "options": ["What is your phone number?", "What is your address?", "What is your name?"], "answer": 0 },
-        { "id": "u01-l4-e06", "type": "choice", "promptLang": "fi", "answerLang": "en", "prompt": "osoite", "options": ["address", "name", "number"], "answer": 0 },
-        { "id": "u01-l4-e07", "type": "choice", "promptLang": "en", "answerLang": "fi", "prompt": "first name", "options": ["etunimi", "sukunimi", "osoite"], "answer": 0 },
-        { "id": "u01-l4-e08", "type": "choice", "promptLang": "en", "answerLang": "fi", "prompt": "surname", "options": ["sukunimi", "etunimi", "puhelinnumero"], "answer": 0 },
-        { "id": "u01-l4-e09", "type": "fill", "promptLang": "fi", "answerLang": "fi", "prompt": "Mikä sinun ___ on?", "hint": "What is your name?", "answers": ["nimesi"] },
-        { "id": "u01-l4-e10", "type": "choice", "promptLang": "fi", "answerLang": "en", "prompt": "Minä olen kotoisin Suomesta.", "options": ["I am from Finland.", "I am going to Finland.", "I am a teacher in Finland."], "answer": 0 },
-        { "id": "u01-l4-e11", "type": "choice", "promptLang": "fi", "answerLang": "fi", "prompt": "Kiitos! – ___", "options": ["Ole hyvä.", "Hyvää yötä.", "Näkemiin."], "answer": 0 },
-        { "id": "u01-l4-e12", "type": "fill", "promptLang": "fi", "answerLang": "fi", "prompt": "Hauska ___.", "hint": "Nice to meet you.", "answers": ["tutustua"] },
-        { "id": "u01-l4-e13", "type": "order", "promptLang": "fi", "answerLang": "en", "prompt": "Hauska tutustua.", "answers": ["Nice to meet you."], "tiles": ["See","night"] },
-        { "id": "u01-l4-e14", "type": "translate", "promptLang": "en", "answerLang": "fi", "prompt": "My name is Anna.", "answers": ["Minun nimeni on Anna.", "Nimeni on Anna."] }
+        {
+          "id": "u01-l4-e01",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Mikä sinun nimesi on?",
+          "options": [
+            "What is your name?",
+            "How are you?",
+            "What is your address?"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l4-e02",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "My name is Anna.",
+          "options": [
+            "Minun nimeni on Anna.",
+            "Minä olen Suomessa.",
+            "Hän on Anna."
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l4-e03",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Hauska tutustua.",
+          "options": [
+            "Nice to meet you.",
+            "See you.",
+            "Good night."
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l4-e15",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Minun nimeni on Anna.",
+          "options": [
+            "My name is Anna.",
+            "My address is Anna.",
+            "Your name is Anna."
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l4-e04",
+          "type": "fill",
+          "tags": [
+            "olla-present"
+          ],
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minä ___ kotoisin Suomesta.",
+          "hint": "olla",
+          "answers": [
+            "olen"
+          ],
+          "form": {
+            "base": "olla",
+            "person": "1",
+            "number": "singular"
+          }
+        },
+        {
+          "id": "u01-l4-e05",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Mikä sinun puhelinnumerosi on?",
+          "options": [
+            "What is your phone number?",
+            "What is your address?",
+            "What is your name?"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l4-e06",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "osoite",
+          "options": [
+            "address",
+            "name",
+            "number"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l4-e08",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "surname",
+          "options": [
+            "sukunimi",
+            "etunimi",
+            "puhelinnumero"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l4-e09",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Mikä sinun ___ on? – Anna Virtanen.",
+          "hint": "name",
+          "answers": [
+            "nimesi"
+          ]
+        },
+        {
+          "id": "u01-l4-e12",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hauska ___.",
+          "hint": "Nice to meet you.",
+          "answers": [
+            "tutustua"
+          ]
+        },
+        {
+          "id": "u01-l4-e13",
+          "type": "order",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Hauska tutustua.",
+          "answers": [
+            "Nice to meet you."
+          ],
+          "tiles": [
+            "See",
+            "night"
+          ]
+        },
+        {
+          "id": "u01-l4-e14",
+          "type": "translate",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "My name is Anna.",
+          "answers": [
+            "Minun nimeni on Anna.",
+            "Nimeni on Anna."
+          ]
+        },
+        {
+          "id": "u01-l4-e19",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Minun nimeni on Eero. Sukunimeni on Virtanen. Olen kotoisin Suomesta ja olen opiskelija.",
+          "prompt": "Eero on kotoisin Suomesta.",
+          "answer": true
+        },
+        {
+          "id": "u01-l4-e18",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Hei! Minun nimeni on Anna Virtanen. Olen opettaja. Olen kotoisin Suomesta.",
+          "prompt": "Anna on opiskelija.",
+          "answer": false
+        },
+        {
+          "id": "u01-l4-e17",
+          "type": "translate",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Hello, my name is Anna and I am a teacher.",
+          "answers": [
+            "Hei, minun nimeni on Anna ja olen opettaja.",
+            "Hei, nimeni on Anna ja olen opettaja.",
+            "Hei, minä olen Anna ja minä olen opettaja.",
+            "Hei, minun nimeni on Anna ja minä olen opettaja.",
+            "Hei, nimeni on Anna ja minä olen opettaja.",
+            "Hei, minä olen Anna ja olen opettaja.",
+            "Hei, minun nimeni on Anna, ja olen opettaja.",
+            "Hei, nimeni on Anna, ja olen opettaja."
+          ]
+        },
+        {
+          "id": "u01-l4-e16",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "What is your phone number?",
+          "answers": [
+            "Mikä sinun puhelinnumerosi on?",
+            "Mikä on sinun puhelinnumerosi?",
+            "Mikä puhelinnumerosi on?",
+            "Mikä on puhelinnumerosi?"
+          ],
+          "tiles": [
+            "nimesi"
+          ]
+        }
       ]
     },
     {
       "id": "u01-l5",
       "title": "Mix",
       "exercises": [
-        { "id": "u01-l5-e01", "type": "fill", "tags": ["olla-present"], "promptLang": "fi", "answerLang": "fi", "prompt": "Me ___ opiskelijoita.", "hint": "olla", "answers": ["olemme"], "form": { "base": "olla", "person": "1", "number": "plural" } },
-        { "id": "u01-l5-e02", "type": "fill", "tags": ["olla-present"], "promptLang": "fi", "answerLang": "fi", "prompt": "He ___ Suomessa.", "hint": "olla", "answers": ["ovat"], "form": { "base": "olla", "person": "3", "number": "plural" } },
-        { "id": "u01-l5-e03", "type": "choice", "tags": ["olla-present"], "promptLang": "fi", "answerLang": "en", "prompt": "Te olette kotona.", "options": ["You (plural) are at home.", "We are at home.", "They are at home."], "answer": 0 },
-        { "id": "u01-l5-e04", "type": "choice", "promptLang": "en", "answerLang": "fi", "prompt": "Good night", "options": ["Hyvää yötä", "Hyvää iltaa", "Hyvää huomenta"], "answer": 0 },
-        { "id": "u01-l5-e05", "type": "choice", "promptLang": "fi", "answerLang": "en", "prompt": "viisi", "options": ["five", "four", "six"], "answer": 0 },
-        { "id": "u01-l5-e06", "type": "fill", "promptLang": "fi", "answerLang": "fi", "prompt": "kuusi, seitsemän, ___", "hint": "8", "answers": ["kahdeksan"] },
-        { "id": "u01-l5-e07", "type": "choice", "tags": ["vowel-harmony"], "promptLang": "en", "answerLang": "fi", "prompt": "Which one is a possible Finnish word? (good)", "options": ["hyvää", "hyvaa"], "answer": 0, "invalid": [1] },
-        { "id": "u01-l5-e08", "type": "choice", "tags": ["vowel-harmony"], "promptLang": "en", "answerLang": "fi", "prompt": "Which form follows vowel harmony? (in Finland)", "options": ["Suomessa", "Suomessä"], "answer": 0, "invalid": [1] },
-        { "id": "u01-l5-e09", "type": "choice", "promptLang": "en", "answerLang": "fi", "prompt": "Excuse me", "options": ["Anteeksi", "Kiitos", "Tervetuloa"], "answer": 0 },
-        { "id": "u01-l5-e10", "type": "choice", "promptLang": "fi", "answerLang": "en", "prompt": "Näkemiin", "options": ["Goodbye", "Hello", "Thanks"], "answer": 0 },
-        { "id": "u01-l5-e11", "type": "fill", "promptLang": "fi", "answerLang": "fi", "prompt": "Mitä ___?", "hint": "How are you?", "answers": ["kuuluu"] },
-        { "id": "u01-l5-e12", "type": "choice", "promptLang": "en", "answerLang": "fi", "prompt": "What is your name?", "options": ["Mikä sinun nimesi on?", "Mitä kuuluu?", "Mikä sinun osoitteesi on?"], "answer": 0 },
-        { "id": "u01-l5-e13", "type": "translate", "promptLang": "fi", "answerLang": "en", "prompt": "Mitä kuuluu?", "answers": ["How are you?"] },
-        { "id": "u01-l5-e14", "type": "truefalse", "promptLang": "fi", "answerLang": "fi", "text": "Hän on opettaja. He ovat opiskelijoita.", "prompt": "He ovat opiskelijoita.", "answer": true }
+        {
+          "id": "u01-l5-e01",
+          "type": "fill",
+          "tags": [
+            "olla-present"
+          ],
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Me ___ opiskelijoita.",
+          "hint": "olla",
+          "answers": [
+            "olemme"
+          ],
+          "form": {
+            "base": "olla",
+            "person": "1",
+            "number": "plural"
+          }
+        },
+        {
+          "id": "u01-l5-e02",
+          "type": "fill",
+          "tags": [
+            "olla-present"
+          ],
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "He ___ Suomessa.",
+          "hint": "olla",
+          "answers": [
+            "ovat"
+          ],
+          "form": {
+            "base": "olla",
+            "person": "3",
+            "number": "plural"
+          }
+        },
+        {
+          "id": "u01-l5-e03",
+          "type": "choice",
+          "tags": [
+            "olla-present"
+          ],
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Te olette kotona.",
+          "options": [
+            "You (plural) are at home.",
+            "We are at home.",
+            "They are at home."
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l5-e04",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Good night",
+          "options": [
+            "Hyvää yötä",
+            "Hyvää iltaa",
+            "Hyvää huomenta"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l5-e17",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Hyvää iltaa, tervetuloa!",
+          "options": [
+            "Good evening, welcome!",
+            "Good night, goodbye!",
+            "Good morning, thank you!"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l5-e06",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "kuusi, seitsemän, ___",
+          "hint": "8",
+          "answers": [
+            "kahdeksan"
+          ]
+        },
+        {
+          "id": "u01-l5-e07",
+          "type": "choice",
+          "tags": [
+            "vowel-harmony"
+          ],
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Which one is a possible Finnish word? (good)",
+          "options": [
+            "hyvää",
+            "hyvaa"
+          ],
+          "answer": 0,
+          "invalid": [
+            1
+          ]
+        },
+        {
+          "id": "u01-l5-e08",
+          "type": "choice",
+          "tags": [
+            "vowel-harmony"
+          ],
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "Which form follows vowel harmony? (in Finland)",
+          "options": [
+            "Suomessa",
+            "Suomessä"
+          ],
+          "answer": 0,
+          "invalid": [
+            1
+          ]
+        },
+        {
+          "id": "u01-l5-e11",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Mitä ___?",
+          "hint": "How are you?",
+          "answers": [
+            "kuuluu"
+          ]
+        },
+        {
+          "id": "u01-l5-e12",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "What is your name?",
+          "options": [
+            "Mikä sinun nimesi on?",
+            "Mitä kuuluu?",
+            "Mikä sinun osoitteesi on?"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u01-l5-e15",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I am a student and I am from Finland.",
+          "answers": [
+            "Minä olen opiskelija ja olen kotoisin Suomesta.",
+            "Olen opiskelija ja olen kotoisin Suomesta."
+          ],
+          "tiles": [
+            "sinä"
+          ]
+        },
+        {
+          "id": "u01-l5-e13",
+          "type": "translate",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "Hyvää huomenta, opettaja. Mitä kuuluu?",
+          "answers": [
+            "Good morning, teacher. How are you?",
+            "Good morning teacher, how are you?",
+            "Good morning, teacher, how are you?",
+            "Good morning teacher. How are you?"
+          ]
+        },
+        {
+          "id": "u01-l5-e14",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Hän on opettaja. He ovat opiskelijoita. Me olemme koulussa.",
+          "prompt": "He ovat opiskelijoita.",
+          "answer": true
+        },
+        {
+          "id": "u01-l5-e16",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Hei! Minä olen Anna. Minä olen kotoisin Suomesta. Hän on Eero. Hän on opiskelija.",
+          "prompt": "Eero on opettaja.",
+          "answer": false
+        }
       ]
     }
   ]

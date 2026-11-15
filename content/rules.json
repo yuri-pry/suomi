@@ -5,12 +5,30 @@
     "unit": "u01",
     "title": "olla (to be), present tense",
     "examples": [
-      { "fi": "Minä olen opiskelija.", "en": "I am a student." },
-      { "fi": "Sinä olet kotona.", "en": "You are at home." },
-      { "fi": "Hän on opettaja.", "en": "He/She is a teacher." },
-      { "fi": "Me olemme Suomessa.", "en": "We are in Finland." },
-      { "fi": "Te olette koulussa.", "en": "You (plural) are at school." },
-      { "fi": "He ovat kotona.", "en": "They are at home." }
+      {
+        "fi": "Minä olen opiskelija.",
+        "en": "I am a student."
+      },
+      {
+        "fi": "Sinä olet kotona.",
+        "en": "You are at home."
+      },
+      {
+        "fi": "Hän on opettaja.",
+        "en": "He/She is a teacher."
+      },
+      {
+        "fi": "Me olemme Suomessa.",
+        "en": "We are in Finland."
+      },
+      {
+        "fi": "Te olette koulussa.",
+        "en": "You (plural) are at school."
+      },
+      {
+        "fi": "He ovat kotona.",
+        "en": "They are at home."
+      }
     ]
   },
   {
@@ -20,9 +38,18 @@
     "title": "Vowel harmony: a, o, u do not mix with ä, ö, y in one word",
     "ref": "https://uusikielemme.fi/finnish-grammar/vowel-harmony-vokaaliharmonia-finnish-grammar/",
     "examples": [
-      { "fi": "talossa", "en": "in the house (back vowels: ending -ssa)" },
-      { "fi": "metsässä", "en": "in the forest (front vowels: ending -ssä)" },
-      { "fi": "Helsingissä", "en": "in Helsinki (only e and i: ending -ssä)" }
+      {
+        "fi": "talossa",
+        "en": "in the house (back vowels: ending -ssa)"
+      },
+      {
+        "fi": "metsässä",
+        "en": "in the forest (front vowels: ending -ssä)"
+      },
+      {
+        "fi": "Helsingissä",
+        "en": "in Helsinki (only e and i: ending -ssä)"
+      }
     ]
   },
   {
@@ -31,12 +58,30 @@
     "unit": "u02",
     "title": "Verb type 1, present tense: puhun, puhut, puhuu, puhumme, puhutte, puhuvat",
     "examples": [
-      { "fi": "Minä puhun suomea.", "en": "I speak Finnish." },
-      { "fi": "Sinä asut Helsingissä.", "en": "You live in Helsinki." },
-      { "fi": "Hän sanoo hei.", "en": "He/She says hello." },
-      { "fi": "Me puhumme englantia.", "en": "We speak English." },
-      { "fi": "Te asutte Suomessa.", "en": "You (plural) live in Finland." },
-      { "fi": "He kysyvät nimen.", "en": "They ask the name." }
+      {
+        "fi": "Minä puhun suomea.",
+        "en": "I speak Finnish."
+      },
+      {
+        "fi": "Sinä asut Helsingissä.",
+        "en": "You live in Helsinki."
+      },
+      {
+        "fi": "Hän sanoo hei.",
+        "en": "He/She says hello."
+      },
+      {
+        "fi": "Me puhumme englantia.",
+        "en": "We speak English."
+      },
+      {
+        "fi": "Te asutte Suomessa.",
+        "en": "You (plural) live in Finland."
+      },
+      {
+        "fi": "He kysyvät nimen.",
+        "en": "They ask the name."
+      }
     ]
   },
   {
@@ -45,10 +90,22 @@
     "unit": "u02",
     "title": "Yes/no question: verb first + -ko/-kö (by vowel harmony)",
     "examples": [
-      { "fi": "Puhutko suomea?", "en": "Do you speak Finnish?" },
-      { "fi": "Asutteko Helsingissä?", "en": "Do you (plural) live in Helsinki?" },
-      { "fi": "Onko hän opettaja?", "en": "Is he/she a teacher?" },
-      { "fi": "Oletko sinä suomalainen?", "en": "Are you Finnish?" }
+      {
+        "fi": "Puhutko suomea?",
+        "en": "Do you speak Finnish?"
+      },
+      {
+        "fi": "Asutteko Helsingissä?",
+        "en": "Do you (plural) live in Helsinki?"
+      },
+      {
+        "fi": "Onko hän opettaja?",
+        "en": "Is he/she a teacher?"
+      },
+      {
+        "fi": "Oletko sinä suomalainen?",
+        "en": "Are you Finnish?"
+      }
     ]
   },
   {
@@ -57,12 +114,921 @@
     "unit": "u02",
     "title": "Question words come first: mikä, kuka, missä, mistä, mitä, millainen",
     "examples": [
-      { "fi": "Mikä sinun nimesi on?", "en": "What is your name?" },
-      { "fi": "Kuka hän on?", "en": "Who is he/she?" },
-      { "fi": "Missä sinä asut?", "en": "Where do you live?" },
-      { "fi": "Mistä sinä olet kotoisin?", "en": "Where are you from?" },
-      { "fi": "Mitä kieltä sinä puhut?", "en": "What language do you speak?" },
-      { "fi": "Millainen kieli suomi on?", "en": "What kind of language is Finnish?" }
+      {
+        "fi": "Mikä sinun nimesi on?",
+        "en": "What is your name?"
+      },
+      {
+        "fi": "Kuka hän on?",
+        "en": "Who is he/she?"
+      },
+      {
+        "fi": "Missä sinä asut?",
+        "en": "Where do you live?"
+      },
+      {
+        "fi": "Mistä sinä olet kotoisin?",
+        "en": "Where are you from?"
+      },
+      {
+        "fi": "Mitä kieltä sinä puhut?",
+        "en": "What language do you speak?"
+      },
+      {
+        "fi": "Millainen kieli suomi on?",
+        "en": "What kind of language is Finnish?"
+      }
+    ]
+  },
+  {
+    "id": "verbtype-2",
+    "type": "verbtype",
+    "unit": "u03",
+    "title": "Verb type 2 (-da/-dä), present tense: syön, syöt, syö, syömme, syötte, syövät",
+    "examples": [
+      {
+        "fi": "Minä syön leipää.",
+        "en": "I eat bread."
+      },
+      {
+        "fi": "Sinä juot kahvia.",
+        "en": "You drink coffee."
+      },
+      {
+        "fi": "Hän tuo maitoa.",
+        "en": "He/She brings milk."
+      },
+      {
+        "fi": "Me syömme kalaa.",
+        "en": "We eat fish."
+      },
+      {
+        "fi": "Te juotte teetä.",
+        "en": "You (plural) drink tea."
+      },
+      {
+        "fi": "He syövät riisiä.",
+        "en": "They eat rice."
+      }
+    ]
+  },
+  {
+    "id": "negative-verb",
+    "type": "verbtype",
+    "unit": "u03",
+    "title": "The negative verb: en, et, ei, emme, ette, eivät + the short verb",
+    "examples": [
+      {
+        "fi": "En juo kahvia.",
+        "en": "I do not drink coffee."
+      },
+      {
+        "fi": "Et syö lihaa.",
+        "en": "You do not eat meat."
+      },
+      {
+        "fi": "Hän ei puhu ruotsia.",
+        "en": "He/She does not speak Swedish."
+      },
+      {
+        "fi": "Emme asu Turussa.",
+        "en": "We do not live in Turku."
+      },
+      {
+        "fi": "Ette juo maitoa.",
+        "en": "You (plural) do not drink milk."
+      },
+      {
+        "fi": "He eivät syö kalaa.",
+        "en": "They do not eat fish."
+      }
+    ]
+  },
+  {
+    "id": "partitive-form",
+    "type": "case",
+    "unit": "u03",
+    "title": "Partitive singular: -a/-ä, -ta/-tä (kahvia, leipää, teetä, vettä)",
+    "examples": [
+      {
+        "fi": "Juon kahvia.",
+        "en": "I drink coffee."
+      },
+      {
+        "fi": "Syön leipää.",
+        "en": "I eat bread."
+      },
+      {
+        "fi": "Hän juo teetä.",
+        "en": "He/She drinks tea."
+      },
+      {
+        "fi": "Me juomme vettä.",
+        "en": "We drink water."
+      },
+      {
+        "fi": "Syön juustoa.",
+        "en": "I eat cheese."
+      }
+    ]
+  },
+  {
+    "id": "partitive-amount",
+    "type": "case",
+    "unit": "u03",
+    "title": "Partitive after numbers above one and after measures: kaksi omenaa, litra maitoa",
+    "examples": [
+      {
+        "fi": "Syön kaksi omenaa.",
+        "en": "I eat two apples."
+      },
+      {
+        "fi": "Hän juo kaksi kuppia kahvia.",
+        "en": "He/She drinks two cups of coffee."
+      },
+      {
+        "fi": "Me syömme viisi munaa.",
+        "en": "We eat five eggs."
+      },
+      {
+        "fi": "Hän syö kolme banaania.",
+        "en": "He/She eats three bananas."
+      }
+    ]
+  },
+  {
+    "id": "partitive-mass",
+    "type": "object",
+    "unit": "u03",
+    "title": "Food and drink in general are partitive objects: Syön leipää, juon kahvia",
+    "examples": [
+      {
+        "fi": "Minä syön kalaa.",
+        "en": "I eat fish."
+      },
+      {
+        "fi": "Sinä juot maitoa.",
+        "en": "You drink milk."
+      },
+      {
+        "fi": "Hän syö keittoa.",
+        "en": "He/She eats soup."
+      },
+      {
+        "fi": "Me juomme mehua.",
+        "en": "We drink juice."
+      },
+      {
+        "fi": "He syövät riisiä.",
+        "en": "They eat rice."
+      }
+    ]
+  },
+  {
+    "id": "rektio-pitaa-sta",
+    "type": "rektio",
+    "unit": "u03",
+    "title": "pitää + -sta/-stä (to like)",
+    "verb": "pitää",
+    "requires": "sisaeronto",
+    "examples": [
+      {
+        "fi": "Pidän kahvista.",
+        "en": "I like coffee.",
+        "word": "kahvista"
+      },
+      {
+        "fi": "Sinä pidät kalasta.",
+        "en": "You like fish.",
+        "word": "kalasta"
+      },
+      {
+        "fi": "Hän pitää leivästä.",
+        "en": "He/She likes bread.",
+        "word": "leivästä"
+      },
+      {
+        "fi": "Me pidämme jäätelöstä.",
+        "en": "We like ice cream.",
+        "word": "jäätelöstä"
+      },
+      {
+        "fi": "Pidätkö sinä teestä?",
+        "en": "Do you like tea?",
+        "word": "teestä"
+      }
+    ]
+  },
+  {
+    "id": "rektio-tykata-sta",
+    "type": "rektio",
+    "unit": "u03",
+    "title": "tykätä + -sta/-stä (to like)",
+    "verb": "tykätä",
+    "requires": "sisaeronto",
+    "examples": [
+      {
+        "fi": "Tykkään keitosta.",
+        "en": "I like soup.",
+        "word": "keitosta"
+      },
+      {
+        "fi": "Hän tykkää kakusta.",
+        "en": "He/She likes cake.",
+        "word": "kakusta"
+      },
+      {
+        "fi": "Me tykkäämme pullasta.",
+        "en": "We like buns.",
+        "word": "pullasta"
+      },
+      {
+        "fi": "He tykkäävät banaanista.",
+        "en": "They like bananas.",
+        "word": "banaanista"
+      }
+    ]
+  },
+  {
+    "id": "inessive-ssa",
+    "type": "case",
+    "unit": "u04",
+    "title": "Inessive -ssa/-ssä: in the house, in the kitchen",
+    "examples": [
+      {
+        "fi": "Asun talossa.",
+        "en": "I live in a house."
+      },
+      {
+        "fi": "Me olemme keittiössä.",
+        "en": "We are in the kitchen."
+      },
+      {
+        "fi": "Sänky on makuuhuoneessa.",
+        "en": "The bed is in the bedroom."
+      },
+      {
+        "fi": "Hän asuu asunnossa.",
+        "en": "He/She lives in a flat."
+      },
+      {
+        "fi": "Pöytä on olohuoneessa.",
+        "en": "The table is in the living room."
+      }
+    ]
+  },
+  {
+    "id": "existential",
+    "type": "sentence",
+    "unit": "u04",
+    "title": "There is: place + on + thing (Keittiössä on pöytä)",
+    "examples": [
+      {
+        "fi": "Keittiössä on pöytä.",
+        "en": "There is a table in the kitchen."
+      },
+      {
+        "fi": "Olohuoneessa on sohva ja televisio.",
+        "en": "There is a sofa and a television in the living room."
+      },
+      {
+        "fi": "Makuuhuoneessa on kaksi lamppua.",
+        "en": "There are two lamps in the bedroom."
+      },
+      {
+        "fi": "Talossa on viisi huonetta.",
+        "en": "There are five rooms in the house."
+      }
+    ]
+  },
+  {
+    "id": "possession-lla-on",
+    "type": "sentence",
+    "unit": "u04",
+    "title": "To have: owner + -lla/-llä + on (Minulla on koira)",
+    "examples": [
+      {
+        "fi": "Minulla on koira.",
+        "en": "I have a dog."
+      },
+      {
+        "fi": "Sinulla on uusi auto.",
+        "en": "You have a new car."
+      },
+      {
+        "fi": "Hänellä on kissa.",
+        "en": "He/She has a cat."
+      },
+      {
+        "fi": "Meillä on iso talo.",
+        "en": "We have a big house."
+      },
+      {
+        "fi": "Teillä on pieni asunto.",
+        "en": "You (plural) have a small flat."
+      },
+      {
+        "fi": "Heillä on kaksi koiraa.",
+        "en": "They have two dogs."
+      }
+    ]
+  },
+  {
+    "id": "adjective-agreement",
+    "type": "case",
+    "unit": "u04",
+    "title": "An adjective takes the same case as its noun: iso talo, isossa talossa",
+    "examples": [
+      {
+        "fi": "Asun isossa talossa.",
+        "en": "I live in a big house."
+      },
+      {
+        "fi": "Pienessä huoneessa on sänky.",
+        "en": "There is a bed in the small room."
+      },
+      {
+        "fi": "Kauniissa keittiössä on iso ikkuna.",
+        "en": "There is a big window in the beautiful kitchen."
+      },
+      {
+        "fi": "Vanhassa asunnossa on kaksi huonetta.",
+        "en": "There are two rooms in the old flat."
+      }
+    ]
+  },
+  {
+    "id": "partitive-negative",
+    "type": "object",
+    "unit": "u04",
+    "title": "No thing in the negative: ei ole + partitive (Minulla ei ole autoa)",
+    "examples": [
+      {
+        "fi": "Minulla ei ole autoa.",
+        "en": "I do not have a car."
+      },
+      {
+        "fi": "Meillä ei ole koiraa.",
+        "en": "We do not have a dog."
+      },
+      {
+        "fi": "Keittiössä ei ole tuolia.",
+        "en": "There is no chair in the kitchen."
+      },
+      {
+        "fi": "Hänellä ei ole kissaa.",
+        "en": "He/She does not have a cat."
+      },
+      {
+        "fi": "Olohuoneessa ei ole sohvaa.",
+        "en": "There is no sofa in the living room."
+      }
+    ]
+  },
+  {
+    "id": "genitive-form",
+    "type": "case",
+    "unit": "u05",
+    "title": "Genitive -n: whose it is (äidin auto, veljen paita)",
+    "examples": [
+      {
+        "fi": "Äidin auto on punainen.",
+        "en": "Mother's car is red."
+      },
+      {
+        "fi": "Veljen koira on iso.",
+        "en": "Brother's dog is big."
+      },
+      {
+        "fi": "Siskon paita on sininen.",
+        "en": "Sister's shirt is blue."
+      },
+      {
+        "fi": "Lapsen huone on pieni.",
+        "en": "The child's room is small."
+      },
+      {
+        "fi": "Hänen veljensä asuu Oulussa.",
+        "en": "His/Her brother lives in Oulu."
+      }
+    ]
+  },
+  {
+    "id": "possessive-suffix",
+    "type": "case",
+    "unit": "u05",
+    "title": "Possessive endings: -ni, -si, -nsa/-nsä, -mme, -nne (äitini, äitisi, äitinsä, äitimme, äitinne)",
+    "examples": [
+      {
+        "fi": "Minun äitini on opettaja.",
+        "en": "My mother is a teacher."
+      },
+      {
+        "fi": "Sinun veljesi asuu Turussa.",
+        "en": "Your brother lives in Turku."
+      },
+      {
+        "fi": "Hänen äitinsä on kaunis.",
+        "en": "His/Her mother is beautiful."
+      },
+      {
+        "fi": "Meidän talomme on pieni.",
+        "en": "Our house is small."
+      },
+      {
+        "fi": "Teidän koiranne on iso.",
+        "en": "Your (plural) dog is big."
+      },
+      {
+        "fi": "Heidän isänsä on kotona.",
+        "en": "Their father is at home."
+      }
+    ]
+  },
+  {
+    "id": "demonstratives",
+    "type": "case",
+    "unit": "u05",
+    "title": "tämä (this), tuo (that over there), se (it, that one)",
+    "examples": [
+      {
+        "fi": "Tämä on veljeni.",
+        "en": "This is my brother."
+      },
+      {
+        "fi": "Tuo talo on iso.",
+        "en": "That house is big."
+      },
+      {
+        "fi": "Tämä koira on musta.",
+        "en": "This dog is black."
+      },
+      {
+        "fi": "Minulla on auto. Se on punainen.",
+        "en": "I have a car. It is red."
+      },
+      {
+        "fi": "Se on kaunis.",
+        "en": "It is beautiful."
+      }
+    ]
+  },
+  {
+    "id": "wordtype-nen",
+    "type": "wordtype",
+    "unit": "u05",
+    "title": "Words in -nen: nainen, naisen (-nen becomes -se- before an ending)",
+    "examples": [
+      {
+        "fi": "Nainen on opettaja.",
+        "en": "The woman is a teacher."
+      },
+      {
+        "fi": "Naisen koira on musta.",
+        "en": "The woman's dog is black."
+      },
+      {
+        "fi": "Se on punaisen auton ovi.",
+        "en": "It is the red car's door."
+      },
+      {
+        "fi": "Hän on suomalaisen miehen veli.",
+        "en": "He is the Finnish man's brother."
+      }
+    ]
+  },
+  {
+    "id": "wordtype-e",
+    "type": "wordtype",
+    "unit": "u05",
+    "title": "Words in -e: perhe, perheen (the stem ends in -ee-)",
+    "examples": [
+      {
+        "fi": "Perhe asuu Oulussa.",
+        "en": "The family lives in Oulu."
+      },
+      {
+        "fi": "Perheen auto on punainen.",
+        "en": "The family's car is red."
+      },
+      {
+        "fi": "Huoneen ovi on ruskea.",
+        "en": "The room's door is brown."
+      },
+      {
+        "fi": "Huoneessa on sänky.",
+        "en": "There is a bed in the room."
+      }
+    ]
+  },
+  {
+    "id": "wordtype-i-new",
+    "type": "wordtype",
+    "unit": "u05",
+    "title": "Newer words in -i: bussi, bussin (the -i stays)",
+    "examples": [
+      {
+        "fi": "Bussi on valkoinen.",
+        "en": "The bus is white."
+      },
+      {
+        "fi": "Bussin ovi on musta.",
+        "en": "The bus's door is black."
+      },
+      {
+        "fi": "Taksin väri on keltainen.",
+        "en": "The taxi's colour is yellow."
+      },
+      {
+        "fi": "Kahvin väri on ruskea.",
+        "en": "The coffee's colour is brown."
+      }
+    ]
+  },
+  {
+    "id": "wordtype-i-old",
+    "type": "wordtype",
+    "unit": "u05",
+    "title": "Older words in -i: ovi, oven (-i becomes -e- before an ending)",
+    "examples": [
+      {
+        "fi": "Ovi on ruskea.",
+        "en": "The door is brown."
+      },
+      {
+        "fi": "Oven väri on ruskea.",
+        "en": "The door's colour is brown."
+      },
+      {
+        "fi": "Meri on harmaa.",
+        "en": "The sea is grey."
+      },
+      {
+        "fi": "Meren väri on kaunis.",
+        "en": "The sea's colour is beautiful."
+      }
+    ]
+  },
+  {
+    "id": "wordtype-si",
+    "type": "wordtype",
+    "unit": "u05",
+    "title": "Words in -si: uusi, uuden; vesi, veden; kaksi, kahden (-si becomes -de-)",
+    "examples": [
+      {
+        "fi": "Meillä on uusi auto.",
+        "en": "We have a new car."
+      },
+      {
+        "fi": "Uuden auton väri on musta.",
+        "en": "The new car's colour is black."
+      },
+      {
+        "fi": "Veden väri on sininen.",
+        "en": "The water's colour is blue."
+      },
+      {
+        "fi": "Hän on kahden lapsen äiti.",
+        "en": "She is the mother of two children."
+      }
+    ]
+  },
+  {
+    "id": "lla-vs-n",
+    "type": "sentence",
+    "unit": "u05",
+    "title": "Has or whose: Äidillä on auto (-lla on) vs Äidin auto (-n)",
+    "examples": [
+      {
+        "fi": "Äidillä on auto.",
+        "en": "Mother has a car."
+      },
+      {
+        "fi": "Äidin auto on punainen.",
+        "en": "Mother's car is red."
+      },
+      {
+        "fi": "Veljellä on iso koira.",
+        "en": "Brother has a big dog."
+      },
+      {
+        "fi": "Veljen koira on musta.",
+        "en": "Brother's dog is black."
+      },
+      {
+        "fi": "Minulla on koira, mutta minun koirani on pieni.",
+        "en": "I have a dog, but my dog is small."
+      }
+    ]
+  },
+  {
+    "id": "verbtype-3",
+    "type": "verbtype",
+    "unit": "u06",
+    "title": "Verb type 3 (-lla/-llä, -nnä, -sta): tulen, tulet, tulee, tulemme, tulette, tulevat",
+    "examples": [
+      {
+        "fi": "Minä tulen kotiin.",
+        "en": "I come home."
+      },
+      {
+        "fi": "Sinä menet kouluun.",
+        "en": "You go to school."
+      },
+      {
+        "fi": "Hän opiskelee suomea.",
+        "en": "He/She studies Finnish."
+      },
+      {
+        "fi": "Me tulemme kahvilasta.",
+        "en": "We come from the café."
+      },
+      {
+        "fi": "Te menette kauppaan.",
+        "en": "You (plural) go to the shop."
+      },
+      {
+        "fi": "He opiskelevat ruotsia.",
+        "en": "They study Swedish."
+      }
+    ]
+  },
+  {
+    "id": "verbtype-4",
+    "type": "verbtype",
+    "unit": "u06",
+    "title": "Verb type 4 (-ta/-tä after a vowel): haluan, haluat, haluaa, haluamme, haluatte, haluavat",
+    "examples": [
+      {
+        "fi": "Minä haluan kahvia.",
+        "en": "I want coffee."
+      },
+      {
+        "fi": "Sinä haluat teetä.",
+        "en": "You want tea."
+      },
+      {
+        "fi": "Hän herää kello seitsemän.",
+        "en": "He/She wakes up at seven."
+      },
+      {
+        "fi": "Me heräämme aamulla.",
+        "en": "We wake up in the morning."
+      },
+      {
+        "fi": "Te haluatte vettä.",
+        "en": "You (plural) want water."
+      },
+      {
+        "fi": "He heräävät kello kuusi.",
+        "en": "They wake up at six."
+      }
+    ]
+  },
+  {
+    "id": "verbtype-5",
+    "type": "verbtype",
+    "unit": "u06",
+    "title": "Verb type 5 (-ita/-itä): tarvitsen, tarvitset, tarvitsee, tarvitsemme, tarvitsette, tarvitsevat",
+    "examples": [
+      {
+        "fi": "Minä tarvitsen vettä.",
+        "en": "I need water."
+      },
+      {
+        "fi": "Sinä tarvitset lääkäriä.",
+        "en": "You need a doctor."
+      },
+      {
+        "fi": "Hän tarvitsee kahvia.",
+        "en": "He/She needs coffee."
+      },
+      {
+        "fi": "Me tarvitsemme ruokaa.",
+        "en": "We need food."
+      },
+      {
+        "fi": "Te tarvitsette apua.",
+        "en": "You (plural) need help."
+      },
+      {
+        "fi": "He tarvitsevat maitoa.",
+        "en": "They need milk."
+      }
+    ]
+  },
+  {
+    "id": "gradation-verbtype-1",
+    "type": "gradation",
+    "unit": "u06",
+    "title": "Gradation in verb type 1: nukkua, nukun, nukut, but nukkuu",
+    "examples": [
+      {
+        "fi": "Minä nukun yöllä.",
+        "en": "I sleep at night."
+      },
+      {
+        "fi": "Sinä nukut hyvin.",
+        "en": "You sleep well."
+      },
+      {
+        "fi": "Lapsi nukkuu.",
+        "en": "The child sleeps."
+      },
+      {
+        "fi": "Me nukumme kotona.",
+        "en": "We sleep at home."
+      },
+      {
+        "fi": "He nukkuvat yöllä.",
+        "en": "They sleep at night."
+      },
+      {
+        "fi": "Minä keitän kahvia.",
+        "en": "I make coffee."
+      }
+    ]
+  },
+  {
+    "id": "gradation-verbtype-3-4",
+    "type": "gradation",
+    "unit": "u06",
+    "title": "Gradation in verb types 3 and 4: tavata, tapaan, tapaat, tapaa",
+    "examples": [
+      {
+        "fi": "Minä tapaan ystävän.",
+        "en": "I meet a friend."
+      },
+      {
+        "fi": "Sinä tapaat veljen.",
+        "en": "You meet your brother."
+      },
+      {
+        "fi": "Hän tapaa siskon.",
+        "en": "He/She meets his/her sister."
+      },
+      {
+        "fi": "Me tapaamme isoäidin.",
+        "en": "We meet grandmother."
+      },
+      {
+        "fi": "He tapaavat opettajan.",
+        "en": "They meet the teacher."
+      }
+    ]
+  },
+  {
+    "id": "illative-form",
+    "type": "case",
+    "unit": "u06",
+    "title": "Illative (where to): koulu - kouluun, kauppa - kauppaan, koti - kotiin, Suomi - Suomeen",
+    "examples": [
+      {
+        "fi": "Menen kouluun.",
+        "en": "I go to school."
+      },
+      {
+        "fi": "Menemme kotiin.",
+        "en": "We go home."
+      },
+      {
+        "fi": "He menevät kauppaan.",
+        "en": "They go to the shop."
+      },
+      {
+        "fi": "Hän menee kahvilaan.",
+        "en": "He/She goes to the café."
+      },
+      {
+        "fi": "Minä menen Helsinkiin.",
+        "en": "I go to Helsinki."
+      },
+      {
+        "fi": "Me menemme Suomeen.",
+        "en": "We go to Finland."
+      }
+    ]
+  },
+  {
+    "id": "rektio-kayda-ssa",
+    "type": "rektio",
+    "unit": "u06",
+    "title": "käydä + -ssa/-ssä (to visit a place)",
+    "verb": "käydä",
+    "requires": "sisaolento",
+    "examples": [
+      {
+        "fi": "Käyn kaupassa.",
+        "en": "I go to the shop.",
+        "word": "kaupassa"
+      },
+      {
+        "fi": "Hän käy kirjastossa.",
+        "en": "He/She visits the library.",
+        "word": "kirjastossa"
+      },
+      {
+        "fi": "Me käymme kahvilassa.",
+        "en": "We visit the café.",
+        "word": "kahvilassa"
+      },
+      {
+        "fi": "Te käytte koulussa.",
+        "en": "You (plural) go to school.",
+        "word": "koulussa"
+      }
+    ]
+  },
+  {
+    "id": "rektio-menna-hin",
+    "type": "rektio",
+    "unit": "u06",
+    "title": "mennä + illative (to go to a place)",
+    "verb": "mennä",
+    "requires": "sisatulento",
+    "examples": [
+      {
+        "fi": "Menen kouluun.",
+        "en": "I go to school.",
+        "word": "kouluun"
+      },
+      {
+        "fi": "Sinä menet kauppaan.",
+        "en": "You go to the shop.",
+        "word": "kauppaan"
+      },
+      {
+        "fi": "Hän menee kotiin.",
+        "en": "He/She goes home.",
+        "word": "kotiin"
+      },
+      {
+        "fi": "He menevät kirjastoon.",
+        "en": "They go to the library.",
+        "word": "kirjastoon"
+      }
+    ]
+  },
+  {
+    "id": "rektio-tulla-sta",
+    "type": "rektio",
+    "unit": "u06",
+    "title": "tulla + -sta/-stä (to come from a place)",
+    "verb": "tulla",
+    "requires": "sisaeronto",
+    "examples": [
+      {
+        "fi": "Tulen koulusta.",
+        "en": "I come from school.",
+        "word": "koulusta"
+      },
+      {
+        "fi": "Hän tulee kaupasta.",
+        "en": "He/She comes from the shop.",
+        "word": "kaupasta"
+      },
+      {
+        "fi": "Me tulemme kahvilasta.",
+        "en": "We come from the café.",
+        "word": "kahvilasta"
+      },
+      {
+        "fi": "He tulevat kirjastosta.",
+        "en": "They come from the library.",
+        "word": "kirjastosta"
+      }
+    ]
+  },
+  {
+    "id": "pronoun-partitive",
+    "type": "case",
+    "unit": "u06",
+    "title": "Partitive of pronouns: minua, sinua, häntä, meitä, teitä, heitä",
+    "examples": [
+      {
+        "fi": "Odotan sinua.",
+        "en": "I am waiting for you."
+      },
+      {
+        "fi": "Äiti odottaa minua.",
+        "en": "Mother is waiting for me."
+      },
+      {
+        "fi": "Odotatko häntä?",
+        "en": "Are you waiting for him/her?"
+      },
+      {
+        "fi": "He odottavat meitä.",
+        "en": "They are waiting for us."
+      },
+      {
+        "fi": "Odotamme teitä kotona.",
+        "en": "We are waiting for you (plural) at home."
+      },
+      {
+        "fi": "Hän odottaa heitä.",
+        "en": "He/She is waiting for them."
+      }
     ]
   }
 ]

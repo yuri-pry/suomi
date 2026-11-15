@@ -161,3 +161,30 @@ test('truefalse: boolean answer, text spell checked when Finnish, languages equa
   expect(validate([unit([tf({ answerLang: 'en' })])], []).errors[0]).toContain('answerLang');
   expect(validate([unit([tf({ text: '' })])], []).errors[0]).toContain('needs text');
 });
+
+const ploy = (id: string, unitId: string, type = 'fill', extra: object = {}) =>
+  type === 'fill'
+    ? fill(id, { unit: unitId, ...extra })
+    : { id, unit: unitId, type: 'choice', promptLang: 'en', answerLang: 'fi', prompt: 'apple', options: ['omena', 'banaani'], answer: 0, ...extra };
+const bank = (unitId: string) => [ploy(`${unitId}-1`, unitId), ploy(`${unitId}-2`, unitId), ploy(`${unitId}-3`, unitId, 'choice')];
+// one content unit, "u01", so the bank must hold exactly its 3 items
+const run = (placement: object[]) => validate([{ ...unit([fill('e1')]), id: 'u01' }], [], new Set(), placement);
+
+test('placement: 3 items per unit, 2 fill and 1 choice passes', () => {
+  expect(run(bank('u01')).errors).toEqual([]);
+});
+
+test('placement: wrong item count, too few fill, bad type or unit field fail', () => {
+  expect(run(bank('u01').slice(0, 2)).errors[0]).toContain('needs 3');
+  expect(run([...bank('u01'), ploy('x4', 'u01')]).errors[0]).toContain('needs 3');
+  const oneFill = [ploy('a', 'u01'), ploy('b', 'u01', 'choice'), ploy('c', 'u01', 'choice')];
+  expect(run(oneFill).errors[0]).toContain('at least 2 fill');
+  expect(run([ploy('a', 'u01'), ploy('b', 'u01'), ploy('c', 'u01', 'fill', { type: 'match' })]).errors.join('\n')).toContain('choice or fill');
+  expect(run([ploy('a', 'u01'), ploy('b', 'u01'), ploy('c', 'u01', 'choice', { unit: 'one' })]).errors.join('\n')).toContain('"unit"');
+});
+
+test('placement: ids are unique across the bank and lessons, Finnish is spell checked', () => {
+  expect(run([ploy('e1', 'u01'), ploy('b', 'u01'), ploy('c', 'u01', 'choice')]).errors[0]).toContain('duplicate');
+  const misspelled = [ploy('a', 'u01', 'fill', { answers: ['omenata'] }), ploy('b', 'u01'), ploy('c', 'u01', 'choice')];
+  expect(run(misspelled).errors[0]).toContain('omenata');
+});

@@ -1,0 +1,276 @@
+[
+  {
+    "id": "pl-u01-1",
+    "unit": "u01",
+    "type": "fill",
+    "promptLang": "fi",
+    "answerLang": "fi",
+    "prompt": "Me ___ Suomessa.",
+    "hint": "olla",
+    "answers": [
+      "olemme"
+    ],
+    "form": {
+      "base": "olla",
+      "person": "1",
+      "number": "plural"
+    }
+  },
+  {
+    "id": "pl-u01-2",
+    "unit": "u01",
+    "type": "fill",
+    "promptLang": "fi",
+    "answerLang": "fi",
+    "prompt": "He ___ koulussa.",
+    "hint": "olla",
+    "answers": [
+      "ovat"
+    ],
+    "form": {
+      "base": "olla",
+      "person": "3",
+      "number": "plural"
+    }
+  },
+  {
+    "id": "pl-u01-3",
+    "unit": "u01",
+    "type": "choice",
+    "promptLang": "en",
+    "answerLang": "fi",
+    "prompt": "You (plural) are at home.",
+    "options": [
+      "Te olette kotona.",
+      "Te olet kotona.",
+      "Te ovat kotona."
+    ],
+    "answer": 0
+  },
+  {
+    "id": "pl-u02-1",
+    "unit": "u02",
+    "type": "fill",
+    "promptLang": "fi",
+    "answerLang": "fi",
+    "prompt": "He ___ ruotsia ja saksaa.",
+    "hint": "puhua",
+    "answers": [
+      "puhuvat"
+    ],
+    "form": {
+      "base": "puhua",
+      "person": "3",
+      "number": "plural"
+    }
+  },
+  {
+    "id": "pl-u02-2",
+    "unit": "u02",
+    "type": "fill",
+    "promptLang": "fi",
+    "answerLang": "fi",
+    "prompt": "___ sinä suomea?",
+    "hint": "puhua",
+    "answers": [
+      "puhutko"
+    ]
+  },
+  {
+    "id": "pl-u02-3",
+    "unit": "u02",
+    "type": "choice",
+    "promptLang": "en",
+    "answerLang": "fi",
+    "prompt": "Where are you from?",
+    "options": [
+      "Mistä sinä olet kotoisin?",
+      "Missä sinä olet kotoisin?",
+      "Mitä sinä olet kotoisin?"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "pl-u03-1",
+    "unit": "u03",
+    "type": "fill",
+    "promptLang": "fi",
+    "answerLang": "fi",
+    "prompt": "Hän ___ kalaa ja perunaa.",
+    "hint": "syödä",
+    "answers": [
+      "syö"
+    ],
+    "form": {
+      "base": "syödä",
+      "person": "3",
+      "number": "singular"
+    }
+  },
+  {
+    "id": "pl-u03-2",
+    "unit": "u03",
+    "type": "fill",
+    "promptLang": "fi",
+    "answerLang": "fi",
+    "prompt": "Minä en ___ kahvia.",
+    "hint": "juoda",
+    "answers": [
+      "juo"
+    ]
+  },
+  {
+    "id": "pl-u03-3",
+    "unit": "u03",
+    "type": "choice",
+    "promptLang": "en",
+    "answerLang": "fi",
+    "prompt": "I like fish.",
+    "options": [
+      "Pidän kalasta.",
+      "Pidän kalaa.",
+      "Pidän kala."
+    ],
+    "answer": 0
+  },
+  {
+    "id": "pl-u04-1",
+    "unit": "u04",
+    "type": "fill",
+    "promptLang": "fi",
+    "answerLang": "fi",
+    "prompt": "Me asumme isossa ___.",
+    "hint": "talo",
+    "answers": [
+      "talossa"
+    ],
+    "form": {
+      "base": "talo",
+      "case": "sisaolento"
+    }
+  },
+  {
+    "id": "pl-u04-2",
+    "unit": "u04",
+    "type": "fill",
+    "promptLang": "fi",
+    "answerLang": "fi",
+    "prompt": "Minulla ei ole ___.",
+    "hint": "auto",
+    "answers": [
+      "autoa"
+    ],
+    "form": {
+      "base": "auto",
+      "case": "osanto"
+    }
+  },
+  {
+    "id": "pl-u04-3",
+    "unit": "u04",
+    "type": "choice",
+    "promptLang": "en",
+    "answerLang": "fi",
+    "prompt": "Do you have a dog?",
+    "options": [
+      "Onko sinulla koira?",
+      "Onko sinä koira?",
+      "Onko sinun koira?"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "pl-u05-1",
+    "unit": "u05",
+    "type": "fill",
+    "promptLang": "fi",
+    "answerLang": "fi",
+    "prompt": "___ auto on punainen.",
+    "hint": "äiti (mother’s)",
+    "answers": [
+      "äidin"
+    ],
+    "form": {
+      "base": "äiti",
+      "case": "omanto"
+    }
+  },
+  {
+    "id": "pl-u05-2",
+    "unit": "u05",
+    "type": "fill",
+    "promptLang": "fi",
+    "answerLang": "fi",
+    "prompt": "Minun ___ on opettaja.",
+    "hint": "isä (father)",
+    "answers": [
+      "isäni"
+    ],
+    "form": {
+      "base": "isä",
+      "case": "nimento"
+    }
+  },
+  {
+    "id": "pl-u05-3",
+    "unit": "u05",
+    "type": "choice",
+    "promptLang": "en",
+    "answerLang": "fi",
+    "prompt": "Brother has a dog.",
+    "options": [
+      "Veljellä on koira.",
+      "Veljen on koira.",
+      "Veli on koira."
+    ],
+    "answer": 0
+  },
+  {
+    "id": "pl-u06-1",
+    "unit": "u06",
+    "type": "fill",
+    "promptLang": "fi",
+    "answerLang": "fi",
+    "prompt": "Me ___ kouluun.",
+    "hint": "mennä",
+    "answers": [
+      "menemme"
+    ],
+    "form": {
+      "base": "mennä",
+      "person": "1",
+      "number": "plural"
+    }
+  },
+  {
+    "id": "pl-u06-2",
+    "unit": "u06",
+    "type": "fill",
+    "promptLang": "fi",
+    "answerLang": "fi",
+    "prompt": "Minä ___ yöllä.",
+    "hint": "nukkua",
+    "answers": [
+      "nukun"
+    ],
+    "form": {
+      "base": "nukkua",
+      "person": "1",
+      "number": "singular"
+    }
+  },
+  {
+    "id": "pl-u06-3",
+    "unit": "u06",
+    "type": "choice",
+    "promptLang": "en",
+    "answerLang": "fi",
+    "prompt": "I come from the shop.",
+    "options": [
+      "Tulen kaupasta.",
+      "Tulen kauppaan.",
+      "Tulen kaupassa."
+    ],
+    "answer": 0
+  }
+]
