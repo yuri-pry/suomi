@@ -51,7 +51,7 @@ export function Welcome({ lang, onBeginner, onTest }: Props) {
         {picked !== null && picked > 0 && <p className="caption">{t('testNote', lang)}</p>}
       </main>
       <footer className="action">
-        <button type="button" className="primary" disabled={picked === null} onClick={picked === 0 ? onBeginner : onTest}>
+        <button type="button" className="btn btn-primary btn-block" disabled={picked === null} onClick={picked === 0 ? onBeginner : onTest}>
           {t(picked === 0 || picked === null ? 'levelStart' : 'levelTest', lang)}
         </button>
       </footer>

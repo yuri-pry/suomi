@@ -32,7 +32,7 @@ export function Placement({ items, units, lang, onDone, onQuit }: Props) {
     return (
       <div className="result">
         <main>
-          <p className="result-mark" aria-hidden="true">
+          <p className="celebrate celebrate-mark" aria-hidden="true">
             <Icon name="target" size={64} />
           </p>
           <h1>{t('placementDone', lang)}</h1>
@@ -42,7 +42,7 @@ export function Placement({ items, units, lang, onDone, onQuit }: Props) {
           <p className="caption">{t('placementNote', lang)}</p>
         </main>
         <footer className="action">
-          <button type="button" className="primary" autoFocus onClick={() => onDone(unit.id)}>
+          <button type="button" className="btn btn-primary btn-block" autoFocus onClick={() => onDone(unit.id)}>
             {t('start', lang)}
           </button>
         </footer>
@@ -79,11 +79,11 @@ export function Placement({ items, units, lang, onDone, onQuit }: Props) {
   return (
     <form className="lesson" onSubmit={submit}>
       <header className="lesson-top">
-        <button type="button" className="quit" aria-label={t('quitTest', lang)} onClick={onQuit}>
+        <button type="button" className="icon-btn" aria-label={t('quitTest', lang)} onClick={onQuit}>
           <Icon name="close" />
         </button>
-        <div className="bar" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={asked}>
-          <div className="bar-fill" style={{ transform: `scaleX(${asked / total})` }} />
+        <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={asked}>
+          <div className="progress-fill" style={{ transform: `scaleX(${asked / total})` }} />
         </div>
       </header>
 
@@ -105,7 +105,7 @@ export function Placement({ items, units, lang, onDone, onQuit }: Props) {
         <button type="button" className="btn btn-ghost btn-block" onClick={() => record(false)}>
           {t('dontKnow', lang)}
         </button>
-        <button type="submit" className="primary" disabled={verdict === null}>
+        <button type="submit" className="btn btn-primary btn-block" disabled={verdict === null}>
           {t('next', lang)}
         </button>
       </footer>

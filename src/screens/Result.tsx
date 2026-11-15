@@ -8,22 +8,22 @@ export function Result({ lang, title = 'lessonDone', xpGained, mistakes, streak,
   return (
     <div className="result">
       <main>
-        <p className="result-mark" aria-hidden="true">
+        <p className="celebrate celebrate-mark" aria-hidden="true">
           <Icon name="star" size={64} />
         </p>
         <h1>{t(title, lang)}</h1>
-        <dl className="result-stats">
-          <div>
+        <dl className="stat-grid stagger">
+          <div className="stat-tile">
             <dt>{t('xp', lang)}</dt>
             <dd>
               +{xpGained} {t('earned', lang)}
             </dd>
           </div>
-          <div>
+          <div className="stat-tile">
             <dt>{t('mistakes', lang)}</dt>
             <dd>{mistakes === 0 ? t('perfect', lang) : mistakes}</dd>
           </div>
-          <div>
+          <div className="stat-tile">
             <dt><Icon name="flame" /></dt>
             <dd>
               {streak} {t('streak', lang)}
@@ -32,7 +32,7 @@ export function Result({ lang, title = 'lessonDone', xpGained, mistakes, streak,
         </dl>
       </main>
       <footer className="action">
-        <button type="button" className="primary" autoFocus onClick={onHome}>
+        <button type="button" className="btn btn-primary btn-block" autoFocus onClick={onHome}>
           {t('backHome', lang)}
         </button>
       </footer>

@@ -121,17 +121,17 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
   return (
     <form className="lesson" onSubmit={submit}>
       <header className="lesson-top">
-        <button type="button" className="quit" aria-label={t('quit', lang)} onClick={onQuit}>
+        <button type="button" className="icon-btn" aria-label={t('quit', lang)} onClick={onQuit}>
           <Icon name="close" />
         </button>
         <div
-          className="bar"
+          className="progress"
           role="progressbar"
           aria-valuemin={0}
           aria-valuemax={100}
           aria-valuenow={Math.round(fractionDone(state) * 100)}
         >
-          <div className="bar-fill" style={{ transform: `scaleX(${fractionDone(state)})` }} />
+          <div className="progress-fill" style={{ transform: `scaleX(${fractionDone(state)})` }} />
         </div>
       </header>
 
@@ -165,7 +165,7 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
             </>
           )}
         </div>
-        <button type="submit" className="primary" disabled={verdict === null && checked === null}>
+        <button type="submit" className="btn btn-primary btn-block" disabled={verdict === null && checked === null}>
           {t(verdict === null ? 'check' : 'continue', lang)}
         </button>
       </footer>
