@@ -640,8 +640,8 @@
         "en": "The taxi's colour is yellow."
       },
       {
-        "fi": "Äidin kahvi on kuuma.",
-        "en": "Mother's coffee is hot."
+        "fi": "Kahvin väri on ruskea.",
+        "en": "The coffee's colour is brown."
       }
     ]
   },
@@ -865,7 +865,7 @@
       },
       {
         "fi": "Hän tapaa siskon.",
-        "en": "He/She meets a sister."
+        "en": "He/She meets his/her sister."
       },
       {
         "fi": "Me tapaamme isoäidin.",

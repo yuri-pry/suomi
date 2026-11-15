@@ -897,7 +897,11 @@
             "Hei, minun nimeni on Anna ja olen opettaja.",
             "Hei, nimeni on Anna ja olen opettaja.",
             "Hei, minä olen Anna ja minä olen opettaja.",
-            "Hei, minun nimeni on Anna ja minä olen opettaja."
+            "Hei, minun nimeni on Anna ja minä olen opettaja.",
+            "Hei, nimeni on Anna ja minä olen opettaja.",
+            "Hei, minä olen Anna ja olen opettaja.",
+            "Hei, minun nimeni on Anna, ja olen opettaja.",
+            "Hei, nimeni on Anna, ja olen opettaja."
           ]
         },
         {
@@ -907,7 +911,10 @@
           "answerLang": "fi",
           "prompt": "What is your phone number?",
           "answers": [
-            "Mikä sinun puhelinnumerosi on?"
+            "Mikä sinun puhelinnumerosi on?",
+            "Mikä on sinun puhelinnumerosi?",
+            "Mikä puhelinnumerosi on?",
+            "Mikä on puhelinnumerosi?"
           ],
           "tiles": [
             "nimesi"

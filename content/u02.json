@@ -449,7 +449,9 @@
           "prompt": "You speak Finnish and Spanish.",
           "answers": [
             "Sinä puhut suomea ja espanjaa.",
-            "Puhut suomea ja espanjaa."
+            "Puhut suomea ja espanjaa.",
+            "Te puhutte suomea ja espanjaa.",
+            "Puhutte suomea ja espanjaa."
           ]
         },
         {
@@ -699,7 +701,11 @@
           "answers": [
             "Asutko sinä Helsingissä ja puhutko sinä suomea?",
             "Asutko Helsingissä ja puhutko suomea?",
-            "Asutko sinä Helsingissä ja puhutko suomea?"
+            "Asutko sinä Helsingissä ja puhutko suomea?",
+            "Asutko Helsingissä ja puhutko sinä suomea?",
+            "Asutteko Helsingissä ja puhutteko suomea?",
+            "Asutteko te Helsingissä ja puhutteko te suomea?",
+            "Asutteko te Helsingissä ja puhutteko suomea?"
           ]
         }
       ]
@@ -890,7 +896,12 @@
           "prompt": "Where are you from and where do you live?",
           "answers": [
             "Mistä sinä olet kotoisin ja missä sinä asut?",
-            "Mistä olet kotoisin ja missä asut?"
+            "Mistä olet kotoisin ja missä asut?",
+            "Mistä sinä olet kotoisin ja missä asut?",
+            "Mistä olet kotoisin ja missä sinä asut?",
+            "Mistä te olette kotoisin ja missä te asutte?",
+            "Mistä olette kotoisin ja missä asutte?",
+            "Mistä te olette kotoisin ja missä asutte?"
           ]
         },
         {
@@ -1115,7 +1126,8 @@
           "answerLang": "fi",
           "prompt": "Is the teacher from Germany and does she speak Finnish?",
           "answers": [
-            "Onko opettaja kotoisin Saksasta ja puhuuko hän suomea?"
+            "Onko opettaja kotoisin Saksasta ja puhuuko hän suomea?",
+            "Onko opettaja Saksasta ja puhuuko hän suomea?"
           ]
         },
         {

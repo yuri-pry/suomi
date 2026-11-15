@@ -270,7 +270,8 @@
           "prompt": "Minä olen ___. Minulla on kuume.",
           "hint": "ill",
           "answers": [
-            "sairas"
+            "sairas",
+            "kipeä"
           ]
         },
         {
@@ -546,7 +547,8 @@
           "answerLang": "fi",
           "prompt": "He wakes up at seven.",
           "answers": [
-            "Hän herää kello seitsemän."
+            "Hän herää kello seitsemän.",
+            "Hän herää seitsemältä."
           ],
           "tags": [
             "verbtype-4"
@@ -1076,7 +1078,11 @@
           "prompt": "In the morning I go to school and I come home at three.",
           "answers": [
             "Aamulla menen kouluun ja tulen kotiin kello kolme.",
-            "Menen aamulla kouluun ja tulen kotiin kello kolme."
+            "Menen aamulla kouluun ja tulen kotiin kello kolme.",
+            "Aamulla minä menen kouluun ja tulen kotiin kello kolme.",
+            "Minä menen aamulla kouluun ja tulen kotiin kello kolme.",
+            "Aamulla menen kouluun ja tulen kello kolme kotiin.",
+            "Menen aamulla kouluun ja tulen kello kolme kotiin."
           ],
           "tags": [
             "illative-form",
@@ -1243,7 +1249,7 @@
           "promptLang": "fi",
           "answerLang": "fi",
           "text": "Minä olen sairas. Minulla on kuume ja pääni on kipeä. Tarvitsen lääkäriä.",
-          "prompt": "Selkäni on kipeä.",
+          "prompt": "Minulla ei ole kuumetta.",
           "answer": false
         },
         {
@@ -1302,7 +1308,13 @@
           "prompt": "In the evening I come home from school.",
           "answers": [
             "Minä tulen illalla kotiin koulusta.",
-            "Illalla tulen kotiin koulusta."
+            "Illalla tulen kotiin koulusta.",
+            "Illalla minä tulen kotiin koulusta.",
+            "Tulen illalla kotiin koulusta.",
+            "Minä tulen illalla koulusta kotiin.",
+            "Illalla tulen koulusta kotiin.",
+            "Tulen illalla koulusta kotiin.",
+            "Illalla minä tulen koulusta kotiin."
           ],
           "tiles": [
             "koulussa"
@@ -1320,7 +1332,11 @@
           "prompt": "I need water and my head is sore.",
           "answers": [
             "Tarvitsen vettä ja pääni on kipeä.",
-            "Minä tarvitsen vettä ja pääni on kipeä."
+            "Minä tarvitsen vettä ja pääni on kipeä.",
+            "Tarvitsen vettä, ja pääni on kipeä.",
+            "Minä tarvitsen vettä, ja pääni on kipeä.",
+            "Tarvitsen vettä ja minun pääni on kipeä.",
+            "Minä tarvitsen vettä ja minun pääni on kipeä."
           ],
           "tags": [
             "verbtype-5"

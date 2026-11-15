@@ -349,7 +349,7 @@
           "type": "fill",
           "promptLang": "fi",
           "answerLang": "fi",
-          "prompt": "Minä asun ___ Helsingissä.",
+          "prompt": "___ on kaksi huonetta ja keittiö.",
           "hint": "asunto",
           "answers": [
             "asunnossa"
@@ -687,13 +687,13 @@
           "type": "fill",
           "promptLang": "fi",
           "answerLang": "fi",
-          "prompt": "Meillä on kaunis kylpyhuone. ___ kylpyhuoneessa on iso ikkuna.",
-          "hint": "kaunis",
+          "prompt": "Meillä on vanha kylpyhuone. ___ kylpyhuoneessa on pieni ikkuna.",
+          "hint": "vanha",
           "answers": [
-            "kauniissa"
+            "vanhassa"
           ],
           "form": {
-            "base": "kaunis",
+            "base": "vanha",
             "case": "sisaolento"
           },
           "tags": [
@@ -788,7 +788,7 @@
         {
           "id": "u04-l4-e05",
           "type": "choice",
-          "promptLang": "en",
+          "promptLang": "fi",
           "answerLang": "fi",
           "prompt": "Onko sinulla iso asunto? – ___",
           "options": [
@@ -801,7 +801,7 @@
         {
           "id": "u04-l4-e06",
           "type": "choice",
-          "promptLang": "en",
+          "promptLang": "fi",
           "answerLang": "fi",
           "prompt": "Missä sinä asut? – ___",
           "options": [
@@ -869,7 +869,9 @@
           "prompt": "I live in a small flat in Helsinki.",
           "answers": [
             "Minä asun pienessä asunnossa Helsingissä.",
-            "Asun pienessä asunnossa Helsingissä."
+            "Asun pienessä asunnossa Helsingissä.",
+            "Minä asun Helsingissä pienessä asunnossa.",
+            "Asun Helsingissä pienessä asunnossa."
           ],
           "tiles": [
             "pieni"
@@ -904,7 +906,9 @@
           "prompt": "We have a big house, but we do not have a car.",
           "answers": [
             "Meillä on iso talo, mutta meillä ei ole autoa.",
-            "Meillä on iso talo mutta meillä ei ole autoa."
+            "Meillä on iso talo mutta meillä ei ole autoa.",
+            "Meillä on iso talo, mutta ei autoa.",
+            "Meillä on iso talo mutta ei autoa."
           ],
           "tags": [
             "partitive-negative",

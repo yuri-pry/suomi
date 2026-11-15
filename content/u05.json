@@ -509,7 +509,7 @@
             "Äitini auto on punainen."
           ],
           "tiles": [
-            "äidin"
+            "äiti"
           ],
           "tags": [
             "possessive-suffix"
@@ -1285,7 +1285,9 @@
           "prompt": "Mother’s new coat is blue, but my sister’s dress is red.",
           "answers": [
             "Äidin uusi takki on sininen, mutta siskoni mekko on punainen.",
-            "Äidin uusi takki on sininen mutta siskoni mekko on punainen."
+            "Äidin uusi takki on sininen mutta siskoni mekko on punainen.",
+            "Äidin uusi takki on sininen, mutta minun siskoni mekko on punainen.",
+            "Äidin uusi takki on sininen mutta minun siskoni mekko on punainen."
           ],
           "tags": [
             "possessive-suffix",

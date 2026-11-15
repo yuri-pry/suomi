@@ -917,12 +917,12 @@
           "promptLang": "fi",
           "answerLang": "fi",
           "prompt": "Anna pitää ___.",
-          "hint": "leipä",
+          "hint": "juusto",
           "answers": [
-            "leivästä"
+            "juustosta"
           ],
           "form": {
-            "base": "leipä",
+            "base": "juusto",
             "case": "sisaeronto"
           },
           "tags": [
@@ -969,12 +969,12 @@
           "promptLang": "fi",
           "answerLang": "fi",
           "prompt": "Hän tykkää ___.",
-          "hint": "kakku",
+          "hint": "jäätelö",
           "answers": [
-            "kakusta"
+            "jäätelöstä"
           ],
           "form": {
-            "base": "kakku",
+            "base": "jäätelö",
             "case": "sisaeronto"
           },
           "tags": [
@@ -1030,7 +1030,11 @@
             "Tänään syön kalaa, mutta en juo maitoa.",
             "Tänään minä syön kalaa, mutta en juo maitoa.",
             "Tänään syön kalaa mutta en juo maitoa.",
-            "Tänään minä syön kalaa mutta en juo maitoa."
+            "Tänään minä syön kalaa mutta en juo maitoa.",
+            "Syön tänään kalaa, mutta en juo maitoa.",
+            "Minä syön tänään kalaa, mutta en juo maitoa.",
+            "Syön tänään kalaa mutta en juo maitoa.",
+            "Minä syön tänään kalaa mutta en juo maitoa."
           ],
           "tags": [
             "negative-verb"
@@ -1261,7 +1265,7 @@
           "promptLang": "fi",
           "answerLang": "fi",
           "text": "Minä olen Mari. Minä asun Helsingissä. Tänään syön kalaa ja perunaa. Juon myös maitoa. En pidä kahvista.",
-          "prompt": "Mari juo kahvia.",
+          "prompt": "Mari pitää kahvista.",
           "answer": false
         },
         {
@@ -1292,7 +1296,9 @@
           "prompt": "What do you drink today?",
           "answers": [
             "Mitä sinä juot tänään?",
-            "Mitä juot tänään?"
+            "Mitä juot tänään?",
+            "Mitä te juotte tänään?",
+            "Mitä juotte tänään?"
           ]
         },
         {
