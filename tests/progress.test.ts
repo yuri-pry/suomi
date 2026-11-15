@@ -60,8 +60,16 @@ test('progress saved before settings and stats existed loads with defaults', () 
   expect(p.xp).toBe(40);
   expect(p.stats).toEqual({ answered: 0, firstTry: 0 });
   expect(p.haptics).toBe(true);
+  expect(p.testedOutBefore).toBeNull();
+  expect(p.review).toEqual({});
   const next = completeLesson(p, 'u01-l1', 12, ['x'], '2026-11-14').progress;
   expect(next.stats).toEqual({ answered: 12, firstTry: 11 });
   expect(next.day).toEqual({ date: '2026-11-14', xp: 10 });
 });
 
+
+test('a placement result opens the tested-out units and the first lesson of the start unit', () => {
+  const ids = ['u01-l1', 'u01-l2', 'u02-l1', 'u02-l2', 'u03-l1', 'u03-l2', 'u04-l1'];
+  const p = { ...emptyProgress(), testedOutBefore: 'u03' };
+  expect(ids.map((id) => isUnlocked(p, ids, id))).toEqual([true, true, true, true, true, false, false]);
+});

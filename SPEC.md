@@ -349,8 +349,11 @@ to hear it.
 - Daily goal: one setting (10, 20 or 30 XP), shown as a ring on the home screen.
 - Unlocking: lessons unlock in order inside a unit. The next unit unlocks when the
   checkpoint is passed at 80 percent.
-- Review: every wrong answer is saved with its exercise id. A "Practice mistakes"
-  session draws from that list and removes an item after two correct answers.
+- Review: every wrong answer puts its exercise id into a spaced-repetition deck, due
+  the same day. A right answer in a review session moves the item up one box, with
+  intervals of 1, 3, 7, 14 and 30 days; after the last box it leaves the deck. A wrong
+  answer sends it back to the first box, due the same day. A session plays at most 15
+  due items.
 - Not in version 1: hearts or lives, leagues, friends, streak freezes, gems, accounts.
 
 ### Rulebook
@@ -427,6 +430,7 @@ One JSON object in `localStorage` under a single versioned key:
 { "v": 1, "xp": 0, "streak": { "count": 0, "best": 0, "lastDay": "2026-11-13" },
   "goal": 20, "done": { "u01-l1": { "best": 12, "at": "2026-11-13" } },
   "testedOutBefore": "u01", "mistakes": { "u03-l1-e2": 1 },
+  "review": { "u03-l1-e2": { "box": 1, "due": "2026-11-16" } },
   "rules": { "rektio-pitaa-sta": { "n": 9, "s": 0.84 } } }
 ```
 

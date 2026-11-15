@@ -22,6 +22,10 @@ export type Progress = {
   done: Record<string, { best: number; at: string }>;
   /** Exercise id to number of times answered wrong. Feeds the review session. */
   mistakes: Record<string, number>;
+  /** First unit that is not tested out, set by the level picker or the placement test. null until the learner has chosen. */
+  testedOutBefore: string | null;
+  /** Spaced-repetition deck: exercise id to its box and the local day it is next due. See review.ts. */
+  review: Record<string, { box: number; due: string }>;
 };
 
 export const emptyProgress = (): Progress => ({
@@ -37,6 +41,8 @@ export const emptyProgress = (): Progress => ({
   day: { date: null, xp: 0 },
   done: {},
   mistakes: {},
+  testedOutBefore: null,
+  review: {},
 });
 
 /** Local calendar day as YYYY-MM-DD. Streaks follow the learner's own midnight, not UTC. */
@@ -75,10 +81,13 @@ export function completeLesson(p: Progress, lessonId: string, total: number, wro
   return { progress, xpGained };
 }
 
-/** Lessons open in order: the first one always, the rest once the one before is done. */
+/** Lesson ids start with their unit id: u03-l2 belongs to u03. */
+export const testedOut = (p: Progress, lessonId: string) => p.testedOutBefore !== null && lessonId.split('-')[0] < p.testedOutBefore;
+
+/** Lessons open in order: the first one always, the rest once the one before is done or tested out. */
 export function isUnlocked(p: Progress, lessonIds: string[], lessonId: string) {
   const i = lessonIds.indexOf(lessonId);
-  return i === 0 || (i > 0 && lessonIds[i - 1] in p.done);
+  return i === 0 || (i > 0 && (lessonIds[i - 1] in p.done || testedOut(p, lessonIds[i - 1])));
 }
 
 export function load(storage: Pick<Storage, 'getItem'> = localStorage): Progress {

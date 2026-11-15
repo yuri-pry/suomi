@@ -1,7 +1,7 @@
 import { Icon } from '../design/Icon';
 import { useState, type ReactNode } from 'react';
 import type { Unit } from '../lib/types';
-import { currentStreak, isUnlocked, type Progress } from '../lib/progress';
+import { currentStreak, isUnlocked, testedOut, type Progress } from '../lib/progress';
 import { t } from '../lib/strings';
 
 type Props = { units: Unit[]; progress: Progress; today: string; onStart: (lessonId: string) => void };
@@ -25,7 +25,7 @@ export function Home({ units, progress, today, onStart }: Props) {
   // Lessons unlock in one line across units until checkpoints exist (task 11).
   const ids = units.flatMap((u) => u.lessons.map((l) => l.id));
   // Only the unit being worked on starts open, so a long course does not mean a long scroll.
-  const current = units.find((u) => u.lessons.some((l) => !(l.id in progress.done))) ?? units[units.length - 1];
+  const current = units.find((u) => u.lessons.some((l) => !(l.id in progress.done) && !testedOut(progress, l.id))) ?? units[units.length - 1];
   return (
     <div className="home">
       <header className="stats">

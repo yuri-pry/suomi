@@ -207,7 +207,7 @@ percent, unlocks the next unit).
 - [ ] Done
 
 **Acceptance criteria:**
-- [ ] "Practice mistakes" plays saved wrong items and drops one after two correct answers
+- [ ] Review plays the due items of the spaced-repetition deck (SPEC section 7); an item leaves after the last box
 - [ ] Export downloads the progress file; import restores it and rejects a malformed file
 - [ ] Daily goal can be set to 10, 20 or 30
 
