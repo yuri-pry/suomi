@@ -4,7 +4,15 @@ import type { Unit } from '../lib/types';
 import { currentStreak, isUnlocked, testedOut, type Progress } from '../lib/progress';
 import { t } from '../lib/strings';
 
-type Props = { units: Unit[]; progress: Progress; today: string; onStart: (lessonId: string) => void };
+type Props = {
+  units: Unit[];
+  progress: Progress;
+  today: string;
+  /** Exercises due for review that this device can play. */
+  reviewDue: number;
+  onStart: (lessonId: string) => void;
+  onReview: () => void;
+};
 
 /** A unit that folds away. The learner's choice sticks while the screen is open. */
 function Module({ title, count, startOpen, children }: { title: string; count: string; startOpen: boolean; children: ReactNode }) {
@@ -20,7 +28,7 @@ function Module({ title, count, startOpen, children }: { title: string; count: s
   );
 }
 
-export function Home({ units, progress, today, onStart }: Props) {
+export function Home({ units, progress, today, reviewDue, onStart, onReview }: Props) {
   const lang = progress.lang;
   // Lessons unlock in one line across units until checkpoints exist (task 11).
   const ids = units.flatMap((u) => u.lessons.map((l) => l.id));
@@ -39,6 +47,21 @@ export function Home({ units, progress, today, onStart }: Props) {
       </header>
 
       <main>
+        <section className="review-card" data-empty={reviewDue === 0 || undefined}>
+          <h2 className="review-card-title">{t('review', lang)}</h2>
+          {reviewDue === 0 ? (
+            <p className="review-card-count">{t('reviewNone', lang)}</p>
+          ) : (
+            <>
+              <p className="review-card-count">
+                {reviewDue} {t('reviewDue', lang)}
+              </p>
+              <button type="button" className="btn btn-primary" onClick={onReview}>
+                {t('reviewStart', lang)}
+              </button>
+            </>
+          )}
+        </section>
         {units.map((unit) => (
           <Module
             key={unit.id}

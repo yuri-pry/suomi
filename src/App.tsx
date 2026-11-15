@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import type { Unit } from './lib/types';
 import { loadAllUnits, loadPlacement } from './lib/content';
 import { testableUnits, type PlacementItem } from './lib/placement';
+import { addMistakes, completeReview, dueExercises } from './lib/review';
+import { playable } from './lib/lesson';
 import { completeLesson, currentStreak, load, localDay, save, type Progress } from './lib/progress';
 import { loadSpeaker, type Speaker } from './lib/speech';
 import { setHaptics } from './lib/haptics';
@@ -23,7 +25,8 @@ type Screen =
   | { name: 'home' }
   | { name: 'placement' }
   | { name: 'lesson'; lessonId: string }
-  | { name: 'result'; xpGained: number; mistakes: number };
+  | { name: 'review' }
+  | { name: 'result'; xpGained: number; mistakes: number; review?: true };
 
 export function App() {
   const [progress, setProgress] = useState(load);
@@ -108,9 +111,11 @@ export function App() {
         speaker={speaker}
         onQuit={() => setScreen({ name: 'home' })}
         onDone={(total, wrongIds) => {
-          const result = completeLesson(progress, lesson.id, total, wrongIds, localDay(new Date()));
-          setProgress(result.progress);
-          save(result.progress);
+          const day = localDay(new Date());
+          const result = completeLesson(progress, lesson.id, total, wrongIds, day);
+          const next = { ...result.progress, review: addMistakes(result.progress.review, wrongIds, day) };
+          setProgress(next);
+          save(next);
           setScreen({ name: 'result', xpGained: result.xpGained, mistakes: wrongIds.length });
         }}
       />
@@ -118,10 +123,33 @@ export function App() {
     );
   }
 
+  // Listening items wait in the deck on a device with no Finnish voice.
+  const due = playable(dueExercises(units, progress.review, today), speaker !== null);
+
+  if (screen.name === 'review' && due.length > 0)
+    return (
+      <SpeakerContext value={speaker}>
+        <Lesson
+          key="review"
+          lesson={{ id: 'review', title: t('review', progress.lang), exercises: due }}
+          lang={progress.lang}
+          speaker={speaker}
+          onQuit={() => setScreen({ name: 'home' })}
+          onDone={(_total, wrongIds) => {
+            const next = completeReview(progress, due.map((e) => e.id), wrongIds, localDay(new Date()));
+            setProgress(next);
+            save(next);
+            setScreen({ name: 'result', xpGained: next.xp - progress.xp, mistakes: wrongIds.length, review: true });
+          }}
+        />
+      </SpeakerContext>
+    );
+
   if (screen.name === 'result')
     return (
       <Result
         lang={progress.lang}
+        title={screen.review ? 'reviewDone' : 'lessonDone'}
         xpGained={screen.xpGained}
         mistakes={screen.mistakes}
         streak={currentStreak(progress, today)}
@@ -132,7 +160,14 @@ export function App() {
   return (
     <div className="shell">
       {tab === 'home' && (
-        <Home units={units} progress={progress} today={today} onStart={(lessonId) => setScreen({ name: 'lesson', lessonId })} />
+        <Home
+          units={units}
+          progress={progress}
+          today={today}
+          reviewDue={due.length}
+          onStart={(lessonId) => setScreen({ name: 'lesson', lessonId })}
+          onReview={() => setScreen({ name: 'review' })}
+        />
       )}
       {tab === 'profile' && <Profile units={units} progress={progress} today={today} onChange={update} />}
       {tab === 'settings' && <Settings progress={progress} onChange={update} onPlacement={() => setScreen({ name: 'placement' })} />}

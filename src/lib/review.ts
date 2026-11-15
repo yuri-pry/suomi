@@ -1,5 +1,5 @@
-import type { Progress } from './progress';
-import { localDay } from './progress';
+import { XP_REVIEW, earn, localDay, type Progress } from './progress';
+import type { Exercise, Unit } from './types';
 
 export type Deck = Progress['review'];
 
@@ -39,4 +39,17 @@ export function reviewed(deck: Deck, id: string, correct: boolean, today: string
     return { ...deck, [id]: { box: box + 1, due: addDays(today, INTERVALS[box]) } };
   }
   return { ...deck, [id]: { box: 0, due: today } };
+}
+
+/** The due exercises, looked up by id across all units. An id whose exercise no longer exists is skipped. */
+export function dueExercises(units: Unit[], deck: Deck, today: string): Exercise[] {
+  const byId = new Map(units.flatMap((u) => u.lessons.flatMap((l) => l.exercises)).map((e) => [e.id, e]));
+  return dueItems(deck, today).flatMap((id) => byId.get(id) ?? []);
+}
+
+/** A finished review session: every played item moves by its first answer, and the session earns XP_REVIEW. */
+export function completeReview(p: Progress, playedIds: string[], wrongIds: string[], today: string): Progress {
+  let deck = p.review;
+  for (const id of playedIds) deck = reviewed(deck, id, !wrongIds.includes(id), today);
+  return { ...earn(p, XP_REVIEW, today), review: deck };
 }

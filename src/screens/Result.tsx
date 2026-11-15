@@ -1,17 +1,17 @@
 import { Icon } from '../design/Icon';
 import type { Lang } from '../lib/types';
-import { t } from '../lib/strings';
+import { t, type StringKey } from '../lib/strings';
 
-type Props = { lang: Lang; xpGained: number; mistakes: number; streak: number; onHome: () => void };
+type Props = { lang: Lang; title?: StringKey; xpGained: number; mistakes: number; streak: number; onHome: () => void };
 
-export function Result({ lang, xpGained, mistakes, streak, onHome }: Props) {
+export function Result({ lang, title = 'lessonDone', xpGained, mistakes, streak, onHome }: Props) {
   return (
     <div className="result">
       <main>
         <p className="result-mark" aria-hidden="true">
           <Icon name="star" size={64} />
         </p>
-        <h1>{t('lessonDone', lang)}</h1>
+        <h1>{t(title, lang)}</h1>
         <dl className="result-stats">
           <div>
             <dt>{t('xp', lang)}</dt>

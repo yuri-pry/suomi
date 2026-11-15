@@ -1,5 +1,7 @@
 import { expect, test } from 'vitest';
-import { addDays, addMistakes, dueItems, INTERVALS, reviewed, REVIEW_CAP } from '../src/lib/review';
+import { addDays, addMistakes, completeReview, dueExercises, dueItems, INTERVALS, reviewed, REVIEW_CAP } from '../src/lib/review';
+import { emptyProgress } from '../src/lib/progress';
+import type { Unit } from '../src/lib/types';
 
 test('addDays crosses a month boundary', () => {
   expect(addDays('2026-11-30', 1)).toBe('2026-12-01');
@@ -104,4 +106,21 @@ test('reviewing an unknown id changes nothing', () => {
   const deck = { ex1: { box: 1, due: '2026-11-16' } };
   const result = reviewed(deck, 'unknown', true, '2026-11-15');
   expect(result).toBe(deck); // same reference — unchanged
+});
+
+test('a review session moves each played item, gives 5 XP and counts for the streak', () => {
+  const today = '2026-11-15';
+  const p = { ...emptyProgress(), review: addMistakes({}, ['a', 'b', 'c'], today) };
+  const next = completeReview(p, ['a', 'b'], ['b'], today);
+  expect(next.review).toEqual({ a: { box: 1, due: '2026-11-16' }, b: { box: 0, due: today }, c: { box: 0, due: today } });
+  expect(next.xp).toBe(5);
+  expect(next.streak.count).toBe(1);
+  expect(next.day).toEqual({ date: today, xp: 5 });
+});
+
+test('due exercises are found across units and a vanished id is skipped', () => {
+  const exercise = (id: string) => ({ id, type: 'truefalse', prompt: '', text: '', answer: true, promptLang: 'fi', answerLang: 'fi' });
+  const units = [{ lessons: [{ exercises: [exercise('a')] }] }, { lessons: [{ exercises: [exercise('b')] }] }] as unknown as Unit[];
+  const deck = addMistakes({}, ['b', 'gone', 'a'], '2026-11-15');
+  expect(dueExercises(units, deck, '2026-11-15').map((e) => e.id)).toEqual(['a', 'b']);
 });

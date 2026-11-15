@@ -63,18 +63,27 @@ export function currentStreak(p: Progress, today: string) {
 /** XP earned today; yesterday's count does not carry over. */
 export const xpToday = (p: Progress, today: string) => (p.day.date === today ? p.day.xp : 0);
 
+export const XP_REVIEW = 5;
+
+/** Adds XP for a finished session and counts today for the streak and the daily goal. */
+export function earn(p: Progress, xpGained: number, today: string): Progress {
+  const count = p.streak.lastDay === today ? p.streak.count : currentStreak(p, today) + 1;
+  return {
+    ...p,
+    xp: p.xp + xpGained,
+    day: { date: today, xp: xpToday(p, today) + xpGained },
+    streak: { count, best: Math.max(p.streak.best, count), lastDay: today },
+  };
+}
+
 export function completeLesson(p: Progress, lessonId: string, total: number, wrongIds: string[], today: string) {
   const xpGained = XP_LESSON + (wrongIds.length === 0 ? XP_PERFECT_BONUS : 0);
-  const count = p.streak.lastDay === today ? p.streak.count : currentStreak(p, today) + 1;
   const mistakes = { ...p.mistakes };
   for (const id of wrongIds) mistakes[id] = (mistakes[id] ?? 0) + 1;
   const score = total - wrongIds.length;
   const progress: Progress = {
-    ...p,
-    xp: p.xp + xpGained,
+    ...earn(p, xpGained, today),
     stats: { answered: p.stats.answered + total, firstTry: p.stats.firstTry + score },
-    day: { date: today, xp: xpToday(p, today) + xpGained },
-    streak: { count, best: Math.max(p.streak.best, count), lastDay: today },
     done: { ...p.done, [lessonId]: { best: Math.max(p.done[lessonId]?.best ?? 0, score), at: today } },
     mistakes,
   };

@@ -76,6 +76,11 @@ const S = {
   placementNote: { en: 'Earlier units stay open for review.', fi: 'Aiemmat kappaleet pysyvät auki kertausta varten.' },
   placement: { en: 'Placement test', fi: 'Tasotesti' },
   retake: { en: 'Take the test', fi: 'Tee testi' },
+  review: { en: 'Review', fi: 'Kertaus' },
+  reviewDue: { en: 'to review today', fi: 'kerrattavaa tänään' },
+  reviewNone: { en: 'Nothing to review today. Mistakes come back here.', fi: 'Ei kerrattavaa tänään. Virheet palaavat tänne.' },
+  reviewStart: { en: 'Review now', fi: 'Kertaa nyt' },
+  reviewDone: { en: 'Review complete', fi: 'Kertaus valmis' },
 } as const;
 
 export type StringKey = keyof typeof S;
