@@ -127,7 +127,7 @@ Weights: `--weight-regular` 400, `--weight-medium` 600, `--weight-bold` 700.
 ### Renames and changed values
 
 No existing custom property was renamed. All twelve names in `src/styles.css` are kept.
-Five values changed for the new palette:
+Four tokens changed value for the new palette:
 
 | Token | Was (light / dark) | Now (light / dark) |
 | --- | --- | --- |
@@ -184,11 +184,16 @@ control outlines need 3.
 | `--tone-4-fg` | `--tone-4-bg` | 5.41 | 7.89 | 3 |
 | `--line-strong` | `--bg` | 3.51 | 4.14 | 3 |
 | `--line-strong` | `--surface` | 3.80 | 3.69 | 3 |
-| `--accent` | `--surface-2` | 6.72 | 6.91 | 3 |
-| `--mastery-3` | `--surface-2` | 4.02 | 4.44 | 3 |
+| `--accent` | `--line` (bar and ring track) | 5.51 | 5.55 | 3 |
+| `--right` | `--line` | 4.21 | 6.02 | 3 |
+| `--mastery-4` | `--line` | 5.51 | 5.55 | 3 |
+| `--mastery-3` | `--line` | 3.30 | 3.57 | 3 |
+| `--mastery-2` | `--line` | 1.87 | 2.07 | fails 3 |
+| `--mastery-1` | `--line` | 1.18 | 1.22 | fails 3 |
 
-Not covered: disabled buttons (`--muted` on `--line`, exempt under WCAG) and
-`--mastery-0` to `--mastery-2`, which are fills that always sit next to a number.
+Not covered: disabled buttons (`--muted` on `--line`, exempt under WCAG). The two palest
+mastery steps are below 3:1 against their track, so a mastery bar must always sit next to
+its number or label.
 
 ## Icons
 
@@ -205,7 +210,8 @@ string in `Icon.tsx`, drawn for this app. `iconNames` lists them for tooling.
 
 | Name | Use |
 | --- | --- |
-| `home`, `book`, `profile`, `settings` | Tab bar: Home, Rules, Profile, Settings |
+| `home`, `profile`, `settings` | Tab bar: Home, Profile, Settings |
+| `book` | Rules (no Rules tab exists in the app yet) |
 | `path` | Lessons, an open unit |
 | `menu`, `close`, `back`, `chevron-down`, `chevron-right` | Navigation |
 | `check`, `cross` | Right and wrong, done |
@@ -236,14 +242,15 @@ All of it is in `src/design/motion.css`. `components.css` has no transitions.
 | Press | `.btn`, `.icon-btn`, `.word-chip`, `.avatar-option`, any `.pressable` | `transform: scale(0.97)` | 150 ms `--ease-out` | Feedback: the control heard the finger |
 | Module header press | `.module-head` | `scale(0.99)` plus a tint | 150 ms `--ease-out` | Same, but 0.97 on a full-width row shifts its text |
 | Collapsible | `.collapse[data-open]` | `grid-template-rows`, `opacity` | 240 ms `--ease-out` | Shows where the lessons came from and keeps the list below from jumping |
-| Chevron | `.module-chevron` | `transform: rotate` | 240 ms `--ease-out` | State |
+| Chevron | `.module-chevron`, `.unit-head::after` | `transform: rotate` | 240 ms `--ease-out` | State |
+| Native unit | `.unit::details-content` | `block-size` | 240 ms `--ease-out` | Only where `interpolate-size` is supported; elsewhere it opens at once |
 | Bottom sheet | `.sheet[data-open]`, `.scrim[data-open]` | `transform: translateY(100%)`, `opacity` | 200 ms `--ease-drawer` | Spatial: comes from the bottom, leaves to the bottom |
 | Tab change | `.screen-enter` | `opacity` | 120 ms `ease` | Softens the swap. No movement: tabs are tapped often |
 | Screen push | `.screen-push` | `opacity`, `translateY(8px)` | 200 ms `--ease-out` | Entering a lesson or the result is rarer |
 | Home path | `.stagger > *` | `opacity`, `translateY(8px)` | 300 ms `--ease-out`, 40 ms apart, capped at 8 steps | First impression of the path |
 | Progress bar | `.progress-fill` | `transform: scaleX` | 250 ms `--ease-out` | State |
 | Goal ring | `.ring-value` | `stroke-dashoffset` | 300 ms `--ease-out` | State |
-| Switch | `.switch::before` | `transform: translateX` | 150 ms `--ease-out` | State |
+| Switch | `.switch` | `background-position` (the thumb) | 150 ms `--ease-out` | State |
 | Celebration | `.celebrate-mark`, `.celebrate-burst > i` | `transform`, `opacity` | 400 ms pop, 600 ms burst, `--ease-out` | Delight, result screen only |
 
 ### What never animates
@@ -258,8 +265,11 @@ All of it is in `src/design/motion.css`. `components.css` has no transitions.
 
 ### Rules
 
-- `transform` and `opacity` only. Two exceptions, both small and rare: the collapsible
-  (below) and the ring's `stroke-dashoffset`, which repaints one 64 px SVG when XP changes.
+- `transform` and `opacity` only. Three exceptions, all small and rare: the collapsible
+  (below), the ring's `stroke-dashoffset`, which repaints one 64 px SVG when XP changes, and
+  the switch thumb, a `background-position` change that repaints one 52 px control. The
+  thumb is a background because the app's switch is an `<input>`, which has no
+  pseudo-element to move with `transform`.
 - Toggles (collapsible, sheet, switch, progress) are transitions, so a second tap reverses
   from where the motion is instead of restarting.
 - One-shot entrances are from-only keyframes with a `backwards` fill and names prefixed
@@ -298,6 +308,12 @@ Structure, three levels (padding goes on the third, or it leaks height when clos
 </div>
 ```
 
+What the app has today is the native version: `Home.tsx` renders each unit as
+`<details class="unit">`. That markup is styled too (see "Unit as native details" below).
+It gets the height animation only inside `@supports (interpolate-size: allow-keywords)`,
+which means the Android WebView and Chrome; in Safari it opens at once. Moving Home to
+`.module` + `.collapse` gives the animation everywhere, at the cost listed above.
+
 ### Reduced motion
 
 One block at the end of `motion.css`. Movement is removed, short fades stay:
@@ -305,7 +321,7 @@ One block at the end of `motion.css`. Movement is removed, short fades stay:
 | Normal | Under `prefers-reduced-motion: reduce` |
 | --- | --- |
 | Press scale | None. Pressed colour still shows; a bare `.pressable` dims to 0.7 |
-| Collapsible, chevron, switch, progress bar, ring | Change at once |
+| Collapsible, native unit, chevron, switch, progress bar, ring | Change at once |
 | Sheet slide | 120 ms cross-fade in place |
 | Screen push, list stagger, celebration pop | 120 ms fade, no delay |
 | Celebration burst | Not shown |
@@ -328,6 +344,21 @@ Class names from `src/design/components.css`. All tappable classes set
 
 `.app` is the centred 34rem column at `100dvh`. `.screen` pads the sides and respects the
 left and right safe areas. `.has-tabbar` leaves room for the tab bar and the home indicator.
+
+The names `App.tsx` uses today are styled as well: `.shell` is the same as `.app`; `.page`
+is a tab screen with no app bar (side padding, notch padding on top, room for the tab bar
+below); `.page-title` is its heading.
+
+```html
+<div class="shell">
+  <main class="page">
+    <h1 class="page-title">Settings</h1>
+    …
+  </main>
+  <nav class="tabbar">…</nav>
+</div>
+```
+
 Text helpers: `.section-title`, `.display`, `.caption`, `.tint-streak`, `.tint-xp`, `.tint-goal`.
 
 ### Bottom tab bar
@@ -339,14 +370,17 @@ Text helpers: `.section-title`, `.display`, `.caption`, `.tint-streak`, `.tint-x
     Home
   </button>
   <button type="button" className="tab">
-    <span className="tab-icon"><Icon name="book" /></span>
-    Rules
+    <span className="tab-icon"><Icon name="profile" /></span>
+    Profile
   </button>
-  …Profile (profile), Settings (settings)
+  …Settings (settings)
 </nav>
 ```
 
 Fixed, 56 px plus `env(safe-area-inset-bottom)`. Current tab: `aria-current="page"`.
+Three tabs: Home, Profile, Settings. The columns are equal for any number of tabs.
+A text-only `.tab` (what `App.tsx` renders now) works: the current one is bold and blue.
+Add the `.tab-icon` span to get the pill, which marks the current tab by shape as well.
 
 ### Top app bar
 
@@ -405,6 +439,22 @@ Sticky, pads itself below the notch.
 `data-state` on `.module` and on `.state-badge`: `locked`, `open` (default) or `done`.
 A locked module has a disabled header and no chevron.
 
+### Unit as native details
+
+The markup `Home.tsx` has today. No JS state; the chevron is drawn by `.unit-head::after`.
+
+```tsx
+<details className="unit" open={isCurrent}>
+  <summary className="unit-head">
+    <h2 className="unit-title">Unit 1: Minä olen</h2>
+    <span className="unit-count">3/8</span>
+  </summary>
+  <div className="unit-body">…lessons…</div>
+</details>
+```
+
+The header is 64 px tall. See "The collapsible" for where it animates.
+
 ### Stat tile
 
 ```tsx
@@ -415,6 +465,10 @@ A locked module has a disabled header and no chevron.
   </div>
 </div>
 ```
+
+The definition list in `Profile.tsx` gets the same look with no extra classes:
+`<dl class="stat-grid"><div class="stat-tile"><dt>Day streak</dt><dd>7</dd></div></dl>`.
+`dt` is the label, `dd` the value.
 
 ### Progress ring
 
@@ -427,6 +481,9 @@ A locked module has a disabled header and no chevron.
   <span className="ring-label">12/20</span>
 </div>
 ```
+
+Pass the offset as the `stroke-dashoffset` attribute (`strokeDashoffset` prop), not in
+`style`: at 0 % the arc is hidden by an attribute selector, or its round cap shows as a dot.
 
 `data-done="true"` on `.ring` turns the arc green; put a `check` icon in the label then.
 Clamp `percent` to 0–100.
@@ -467,10 +524,17 @@ A row that is itself tappable adds `.row-action`.
 ### Switch
 
 ```html
+<label class="setting switch-row">
+  <span>Sound</span>
+  <input type="checkbox" role="switch" class="switch" checked />
+</label>
+
 <button type="button" role="switch" class="switch" aria-checked="true" aria-label="Sound"></button>
 ```
 
-52 × 32 px drawn, 60 × 52 px touch target through `::after`.
+Both markups look the same. On is `:checked` or `aria-checked="true"`. The track is drawn
+52 × 32 px inside a 52 × 44 px box, so the control itself is the touch target. `.switch-row`
+is a 56 px card row; as a `<label>` the whole row toggles the switch.
 
 ### Segmented control
 
@@ -480,7 +544,22 @@ A row that is itself tappable adds `.row-action`.
   <button type="button" role="radio" aria-checked={goal === 20}>20 XP</button>
   <button type="button" role="radio" aria-checked={goal === 30}>30 XP</button>
 </div>
+
+<fieldset className="setting">
+  <legend>Theme</legend>
+  <div className="segmented">
+    <label className="segment">
+      <input type="radio" name="theme" checked={theme === 'auto'} onChange={…} />
+      <span>Auto</span>
+    </label>
+    …
+  </div>
+</fieldset>
 ```
+
+Both markups look the same. The second is what `Settings.tsx` has: the radio is stretched
+unseen over its segment, so it keeps native keyboard behaviour, and the `span` is drawn.
+`.setting` resets the fieldset and styles its `legend` as the setting's label.
 
 ### Avatar
 
@@ -505,7 +584,7 @@ A row that is itself tappable adds `.row-action`.
 <button type="button" className="word-chip" lang="fi"><Icon name="speaker" size={18} /> kahvi</button>
 ```
 
-`.word` sits in running text. The affordance is a dotted blue underline; pressed, the word
+`.word` sits in running text (`Speakable.tsx` renders it). The affordance is a dotted blue underline; pressed, the word
 turns blue on a blue tint. Its box is one line tall, so `::after` extends the touch target
 to 44 px. `.word-chip` stands alone and has a speaker icon. Both accept
 `aria-pressed="true"` to hold the pressed look while the word is being spoken.
@@ -542,17 +621,19 @@ handling and Escape are the caller's job.
 
 ## Haptics
 
-The app calls `navigator.vibrate(pattern)`. Haptics are kept for the few moments that have
-an outcome. Used on every tap, they stop meaning anything.
+`src/lib/haptics.ts` is the source of the patterns; it calls `navigator.vibrate(pattern)`
+through `haptic(name)`. Haptics are kept for the few moments that have an outcome. Used on
+every tap, they stop meaning anything.
 
-| Moment | Pattern (ms) | Note |
-| --- | --- | --- |
-| Check: answer right | `12` | One light tick, with the green sheet |
-| Check: accepted with a typo | `12` | Same as right; the text explains the typo |
-| Check: answer wrong | `[30, 60, 30]` | Two firmer pulses. The only "error" pattern in the app |
-| Lesson finished (result screen appears) | `[15, 50, 15, 50, 40]` | Starts with the celebration. Covers goal reached and streak extended too: one pattern, not three in a row |
-| Switch toggled | `10` | Confirms the flip |
-| Everything else | none | Button press, tab change, answer selection, tile and letter taps, word tap (sound is the feedback), collapsible, sheet, typing, scrolling |
+| Moment | Name | Pattern (ms) | Note |
+| --- | --- | --- | --- |
+| Check: answer right | `right` | `[12, 40, 20]` | Light double tick, with the green sheet |
+| Check: accepted with a typo | `right` | `[12, 40, 20]` | Same as right; the text explains the typo |
+| Check: answer wrong | `wrong` | `[35, 50, 35]` | Two firmer pulses. The only "error" pattern in the app |
+| Lesson finished (result screen appears) | `done` | `[15, 50, 15, 50, 40]` | Starts with the celebration. Covers goal reached and streak extended too: one pattern, not three in a row |
+| Tappable word | `tap` | `8` | Already wired in `Speakable.tsx` |
+| Switch toggled | `tap` | `8` | Confirms the flip |
+| Everything else | | none | Button press, tab change, answer selection, tile and letter taps, collapsible, sheet, typing, scrolling |
 
 Rules:
 
@@ -560,9 +641,11 @@ Rules:
 - One setting, "Vibration" (`vibrate` icon). Do not tie it to `prefers-reduced-motion`.
 - Guard with `'vibrate' in navigator`. Safari on iPhone has no Vibration API, so the PWA
   there is silent; that is acceptable.
-- Pulses under 10 ms are not felt on many phones, so nothing here is shorter.
-- To check on a device: the Android WebView may need the `VIBRATE` permission in
-  `AndroidManifest.xml` before `navigator.vibrate` does anything. Not verified.
+- Open question: `tap` is 8 ms, and pulses under about 10 ms are not felt on many phones.
+  If the word tap feels like nothing on the test phone, raise it to 10–12 ms. The sound is
+  the real feedback for a word, so dropping the haptic there is also fine.
+- The `VIBRATE` permission is in `AndroidManifest.xml` on master. Whether the patterns are
+  felt in the WebView has not been checked on a device.
 
 ## Mobile-native details
 
@@ -601,7 +684,12 @@ controls; hover only for a fine pointer.
 | `.quit` | `.icon-btn` | With `<Icon name="close" />` |
 | `.bar`, `.bar-fill` | `.progress`, `.progress-fill` | Same inline `scaleX` |
 | `.stats`, `.brand`, `.stat` | `.appbar`, `.appbar-title`, `.appbar-stat` | |
-| `.unit-title` + `.lessons` | `.module` + `.collapse` | `details.tip` can stay inside `.module-body` |
+| `details.unit` + `.unit-head`, `.unit-title`, `.unit-count`, `.unit-body` | styled as they are, or `.module` + `.collapse` | The second animates in Safari too. `details.tip` can stay inside the body |
+| `.shell`, `.page`, `.page-title` | styled as they are | `.shell` = `.app` |
+| `.setting`, `.segmented` + `.segment`, `.switch-row`, `input.switch` | styled as they are | |
+| `dl.stat-grid` + `.stat-tile` with `dt`, `dd` | styled as they are | Or the `.stat-tile-value` / `-label` spans, which take an icon |
+| `.tabbar`, `.tab` | styled as they are | Add `.tab-icon` + `<Icon>` for the pill |
+| `.word` | styled as it is | Remove the `.word` rule in `styles.css`: its `:active` background would be overridden anyway |
 | `.lesson-node` | `.row .row-action .pressable` inside `.list` | |
 | `.node-number` | `.state-badge[data-state]` | |
 | `.node-title`, `.node-state` | `.row-label`, `.row-value` | |
@@ -624,4 +712,10 @@ controls; hover only for a fine pointer.
 - Nothing was tested on a phone. The gallery was checked in a desktop browser at 375 px
   wide in both themes, which shows layout and colour but not tap delay, safe areas, sticky
   hover or how the motion feels under a finger.
-- Motion timing was read from code and still screenshots, not watched frame by frame.
+- Motion timing was read from code and still screenshots, not watched frame by frame. That
+  covers press, focus ring, collapse, sheet, switch thumb and the celebration.
+- The reduced-motion block was never run with the setting on.
+- The `<details class="unit">` height animation (`interpolate-size`, `::details-content`)
+  was not watched; only the open and closed end states were seen.
+- The class names from master were checked in the gallery with the same markup, not inside
+  the app itself, where `src/styles.css` also applies.

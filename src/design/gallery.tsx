@@ -29,7 +29,8 @@ const pairs = [
 const typeScale = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'];
 const spaces = [1, 2, 3, 4, 5, 6, 7, 8];
 const motionTokens = ['dur-fast', 'dur-press', 'dur-sheet', 'dur-collapse', 'dur-progress', 'dur-enter', 'dur-celebrate', 'stagger-step', 'ease-out', 'ease-in-out', 'ease-drawer'];
-const tabs: [IconName, string][] = [['home', 'Home'], ['book', 'Rules'], ['profile', 'Profile'], ['settings', 'Settings']];
+const otherTokens = ['scrim', 'leading-tight', 'leading-snug', 'leading-normal', 'tracking-tight', 'tracking-wide', 'weight-regular', 'weight-medium', 'weight-bold', 'z-sticky', 'z-tabbar', 'z-scrim', 'z-sheet', 'z-toast', 'tap-min', 'tabbar-height', 'appbar-height', 'content-max'];
+const tabs: [IconName, string][] = [['home', 'Home'], ['profile', 'Profile'], ['settings', 'Settings']];
 
 const token = (name: string) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
 
@@ -183,9 +184,9 @@ function Gallery() {
             </div>
           ))}
         </div>
-        <h3>Motion tokens</h3>
+        <h3>Motion, type detail, layers and sizes</h3>
         <ul className="list">
-          {motionTokens.map((name) => (
+          {[...motionTokens, ...otherTokens].map((name) => (
             <li className="row" key={name}>
               <span className="row-label">--{name}</span>
               <span className="row-value">{token(name)}</span>
@@ -314,6 +315,52 @@ function Gallery() {
             ))}
           </div>
           <input className="input" type="search" placeholder="Search rules" aria-label="Search rules" enterKeyHint="search" />
+        </div>
+      </Section>
+
+      <Section title="Class names the app already uses">
+        <div className="g-stack">
+          <h1 className="page-title">Settings</h1>
+          <fieldset className="setting">
+            <legend>Theme</legend>
+            <div className="segmented">
+              {['Auto', 'Light', 'Dark'].map((label, i) => (
+                <label key={label} className="segment">
+                  <input type="radio" name="g-theme" defaultChecked={i === 0} />
+                  <span>{label}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+          <label className="setting switch-row">
+            <span>Sound</span>
+            <input type="checkbox" role="switch" className="switch" defaultChecked />
+          </label>
+          <dl className="stat-grid">
+            <div className="stat-tile"><dt>Day streak</dt><dd>7</dd></div>
+            <div className="stat-tile"><dt>Total XP</dt><dd>340</dd></div>
+          </dl>
+          <details className="unit" open>
+            <summary className="unit-head">
+              <h2 className="unit-title">Unit 1: Minä olen</h2>
+              <span className="unit-count">3/8</span>
+            </summary>
+            <div className="unit-body">
+              Tap <button type="button" className="word">kiitos</button> to hear it.
+            </div>
+          </details>
+          <details className="unit">
+            <summary className="unit-head">
+              <h2 className="unit-title">Unit 2: Missä sinä asut?</h2>
+              <span className="unit-count">0/9</span>
+            </summary>
+            <div className="unit-body">Closed by default.</div>
+          </details>
+          <nav className="tabbar g-static" aria-label="Text-only tabs">
+            {['Home', 'Profile', 'Settings'].map((label, i) => (
+              <button key={label} type="button" className="tab" aria-current={i === 0 ? 'page' : undefined}>{label}</button>
+            ))}
+          </nav>
         </div>
       </Section>
 

@@ -1,6 +1,6 @@
 /*
  * Suomi motion. Everything that moves is in this file; components.css is static.
- * Rules: transform and opacity only (two documented exceptions), transitions for
+ * Rules: transform and opacity only (three documented exceptions), transitions for
  * anything that can be toggled twice in a second, keyframes only for one-shot
  * entrances, nothing on answer selection, and one reduced-motion block at the end.
  * Keyframes are prefixed ds- so they cannot clash with the ones in styles.css.
@@ -69,6 +69,34 @@
 }
 
 .module-chevron {
+  transition: transform var(--dur-collapse) var(--ease-out);
+}
+
+/*
+ * The same section as a native <details class="unit"> animates its height only where
+ * the engine can interpolate to auto (interpolate-size). Elsewhere it opens at once.
+ * Use .collapse above when it has to animate in every engine.
+ */
+
+@supports (interpolate-size: allow-keywords) {
+  .unit {
+    interpolate-size: allow-keywords;
+  }
+
+  .unit::details-content {
+    block-size: 0;
+    overflow: clip;
+    transition:
+      block-size var(--dur-collapse) var(--ease-out),
+      content-visibility var(--dur-collapse) allow-discrete;
+  }
+
+  .unit[open]::details-content {
+    block-size: auto;
+  }
+}
+
+.unit-head::after {
   transition: transform var(--dur-collapse) var(--ease-out);
 }
 
@@ -188,10 +216,14 @@
   transition: stroke-dashoffset var(--dur-enter) var(--ease-out);
 }
 
-/* 7. Switch. A transition, so a quick double tap reverses mid-way instead of restarting. */
+/*
+ * 7. Switch. A transition, so a quick double tap reverses mid-way instead of restarting.
+ * The thumb is a background image (components.css), so this moves background-position:
+ * a repaint of one 52 px control, and the third exception to transform and opacity.
+ */
 
-.switch::before {
-  transition: transform var(--dur-press) var(--ease-out);
+.switch {
+  transition: background-position var(--dur-press) var(--ease-out);
 }
 
 /* 8. Celebration. Result screen only. */
@@ -273,7 +305,9 @@
   .module-chevron,
   .progress-fill,
   .ring-value,
-  .switch::before {
+  .switch,
+  .unit::details-content,
+  .unit-head::after {
     transition: none;
   }
 
