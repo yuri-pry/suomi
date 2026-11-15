@@ -49,6 +49,7 @@ function checkPlacement(items, unitIds, errors) {
   }
 }
 
+/** @param {object[] | null} placement */
 export function validate(units, rules, allow = new Set(), placement = null) {
   const errors = [];
   const warnings = [];
