@@ -281,7 +281,7 @@ draw from the weakest rules after the saved mistakes.
 ## Phase 4: Placement test
 
 ### Task 15: Placement logic and screen
-- [ ] Done
+- [x] Done (2026-11-15; searches the units that have a full block in the bank, 6 today. Rule seeding waits for Task 12a)
 
 **Description:** Build `placement.ts` (the block binary search from SPEC section 6)
 and the first-launch screen with "start from the beginning" as the other choice.

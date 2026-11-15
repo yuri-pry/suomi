@@ -1,7 +1,7 @@
 import type { Progress } from '../lib/progress';
 import { t, type StringKey } from '../lib/strings';
 
-type Props = { progress: Progress; onChange: (patch: Partial<Progress>) => void };
+type Props = { progress: Progress; onChange: (patch: Partial<Progress>) => void; onPlacement: () => void };
 
 type GroupProps<T extends string | number> = {
   label: string;
@@ -28,7 +28,7 @@ function Group<T extends string | number>({ label, name, value, options, onPick 
   );
 }
 
-export function Settings({ progress, onChange }: Props) {
+export function Settings({ progress, onChange, onPlacement }: Props) {
   const lang = progress.lang;
   const theme = (key: StringKey, value: Progress['theme']) => ({ value, label: t(key, lang) });
   return (
@@ -68,6 +68,12 @@ export function Settings({ progress, onChange }: Props) {
           onChange={(e) => onChange({ haptics: e.target.checked })}
         />
       </label>
+      <div className="setting switch-row">
+        <span>{t('placement', lang)}</span>
+        <button type="button" className="btn btn-secondary" onClick={onPlacement}>
+          {t('retake', lang)}
+        </button>
+      </div>
     </main>
   );
 }
