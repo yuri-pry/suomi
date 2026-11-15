@@ -1,35 +1,7 @@
 :root {
-  --bg: #f7f6f2;
-  --surface: #ffffff;
-  --text: #1b1d22;
-  --muted: #5d6470;
-  --line: #d9d7cf;
-  --accent: #1d4ed8;
-  --accent-text: #ffffff;
-  --right: #17713a;
-  --right-bg: #dff3e4;
-  --wrong: #b42318;
-  --wrong-bg: #fde4e1;
-  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   color: var(--text);
   background: var(--bg);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #14161a;
-    --surface: #1e2127;
-    --text: #eef0f3;
-    --muted: #a3a9b4;
-    --line: #353a44;
-    --accent: #7aa2ff;
-    --accent-text: #0c1020;
-    --right: #6fd08c;
-    --right-bg: #173524;
-    --wrong: #ff8f85;
-    --wrong-bg: #3b1c19;
-  }
 }
 
 * {
@@ -532,22 +504,6 @@ button:disabled {
   }
 }
 
-/* A Finnish word that speaks when tapped: looks like text, with a quiet dotted underline as the hint. */
-.word {
-  font: inherit;
-  color: inherit;
-  background: none;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  text-decoration: underline dotted var(--muted);
-  text-underline-offset: 0.2em;
-  border-radius: 4px;
-  user-select: none;
+.page .avatar-grid {
+  margin-bottom: 1rem;
 }
-
-.word:active {
-  background: var(--line);
-}
-

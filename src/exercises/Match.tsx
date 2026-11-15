@@ -1,3 +1,4 @@
+import { Icon } from '../design/Icon';
 import { useMemo, useState } from 'react';
 import type { Lang, Match as MatchExercise } from '../lib/types';
 import { isMatched, pick, type MatchState } from '../lib/exercise';
@@ -52,7 +53,7 @@ export function Match({ exercise, onComplete, lang }: Props) {
             disabled={done}
             onClick={() => choose(side, i)}
           >
-            {done && <span aria-label={t('matched', lang)}>✓ </span>}
+            {done && <Icon name="check" size={18} title={t('matched', lang)} />}
             {exercise.pairs[i][side]}
           </button>
         );

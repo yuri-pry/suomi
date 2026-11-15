@@ -1,3 +1,4 @@
+import { Icon } from './design/Icon';
 import { useEffect, useState } from 'react';
 import type { Unit } from './lib/types';
 import { loadAllUnits } from './lib/content';
@@ -90,11 +91,14 @@ export function App() {
       {tab === 'home' && (
         <Home units={units} progress={progress} today={today} onStart={(lessonId) => setScreen({ name: 'lesson', lessonId })} />
       )}
-      {tab === 'profile' && <Profile units={units} progress={progress} today={today} />}
+      {tab === 'profile' && <Profile units={units} progress={progress} today={today} onChange={update} />}
       {tab === 'settings' && <Settings progress={progress} onChange={update} />}
       <nav className="tabbar" aria-label={t('mainNav', progress.lang)}>
         {tabs.map((name) => (
           <button key={name} type="button" className="tab" aria-current={tab === name ? 'page' : undefined} onClick={() => setTab(name)}>
+            <span className="tab-icon">
+              <Icon name={name} />
+            </span>
             {t(name, progress.lang)}
           </button>
         ))}

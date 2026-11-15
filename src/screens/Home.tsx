@@ -1,3 +1,4 @@
+import { Icon } from '../design/Icon';
 import { useState, type ReactNode } from 'react';
 import type { Unit } from '../lib/types';
 import { currentStreak, isUnlocked, type Progress } from '../lib/progress';
@@ -30,10 +31,10 @@ export function Home({ units, progress, today, onStart }: Props) {
       <header className="stats">
         <strong className="brand">{t('appName', lang)}</strong>
         <span className="stat">
-          <span aria-hidden="true">🔥</span> {currentStreak(progress, today)} {t('streak', lang)}
+          <Icon name="flame" size={20} /> {currentStreak(progress, today)} {t('streak', lang)}
         </span>
         <span className="stat">
-          <span aria-hidden="true">★</span> {progress.xp} {t('xp', lang)}
+          <Icon name="star" size={20} /> {progress.xp} {t('xp', lang)}
         </span>
       </header>
 
@@ -42,7 +43,7 @@ export function Home({ units, progress, today, onStart }: Props) {
           <Module
             key={unit.id}
             title={unit.title}
-            count={` / `}
+            count={`${unit.lessons.filter((l) => l.id in progress.done).length} / ${unit.lessons.length}`}
             startOpen={unit === current}
           >
           <details className="tip">
@@ -59,7 +60,7 @@ export function Home({ units, progress, today, onStart }: Props) {
                 <li key={lesson.id}>
                   <button type="button" className="lesson-node" disabled={!open} onClick={() => onStart(lesson.id)}>
                     <span className="node-number" aria-hidden="true">
-                      {done ? '✓' : open ? i + 1 : '🔒'}
+                      {done ? <Icon name="check" size={20} /> : open ? i + 1 : <Icon name="lock" size={20} />}
                     </span>
                     <span className="node-title">{lesson.title}</span>
                     <span className="node-state">{t(done ? 'done' : open ? 'start' : 'locked', lang)}</span>

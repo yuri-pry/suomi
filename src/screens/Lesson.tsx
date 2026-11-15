@@ -1,3 +1,4 @@
+import { Icon } from '../design/Icon';
 import { useState, type FormEvent } from 'react';
 import type { Exercise, Lang, Lesson as LessonData } from '../lib/types';
 import { answer, fractionDone, isDone, playable, startLesson } from '../lib/lesson';
@@ -121,7 +122,7 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
     <form className="lesson" onSubmit={submit}>
       <header className="lesson-top">
         <button type="button" className="quit" aria-label={t('quit', lang)} onClick={onQuit}>
-          ✕
+          <Icon name="close" />
         </button>
         <div
           className="bar"
@@ -151,7 +152,7 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
           {verdict !== null && (
             <>
               <p className="feedback-title">
-                <span aria-hidden="true">{verdict === 'wrong' ? '✕ ' : '✓ '}</span>
+                <Icon name={verdict === 'wrong' ? 'cross' : 'check'} size={20} />{' '}
                 {t(verdict === 'right' ? 'correct' : verdict === 'typo' ? 'typo' : 'wrong', lang)}
               </p>
               {verdict !== 'right' && (
