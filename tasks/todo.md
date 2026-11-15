@@ -174,12 +174,12 @@ that Java and the Android SDK are installed; installing them needs the user's go
 **Size:** M
 
 ### Task 10: `translate` and `truefalse` exercises, grammar tip screen
-- [ ] Done
+- [ ] Done (both exercise types exist in `src/exercises/`; the tip screen came with the 2026-11-15 redesign; not checked by hand on the phone)
 
 **Acceptance criteria:**
 - [ ] `translate` works in both directions with the right leniency per language
 - [ ] `truefalse` shows a short text and a statement
-- [ ] The tip opens before lesson 1 of a unit and can be reopened
+- [x] The tip opens before lesson 1 of a unit and can be reopened
 
 **Verification:** `npm test`, manual play
 **Dependencies:** Task 4
@@ -207,9 +207,9 @@ percent, unlocks the next unit).
 - [ ] Done
 
 **Acceptance criteria:**
-- [ ] Review plays the due items of the spaced-repetition deck (SPEC section 7); an item leaves after the last box
+- [x] Review plays the due items of the spaced-repetition deck (SPEC section 7); an item leaves after the last box
 - [ ] Export downloads the progress file; import restores it and rejects a malformed file
-- [ ] Daily goal can be set to 10, 20 or 30
+- [x] Daily goal can be set to 10, 20 or 30
 
 **Verification:** `npm test`, manual export in the browser and import in the APK
 **Dependencies:** Task 11
@@ -272,6 +272,12 @@ draw from the weakest rules after the saved mistakes.
 **Dependencies:** Task 13
 **Files:** `src/styles.css`, screens as needed
 **Size:** M
+
+### Redesign (2026-11-15)
+- [x] Design system rebuilt from the reference screenshots (`DESIGN.md`, version 2)
+- [x] Home dashboard, Path tab, grammar tip page, new lesson, result and profile screens
+- [ ] Checked on the phone and in the APK
+- [ ] Proposals in `tasks/redesign.md` reviewed with the user
 
 ### Checkpoint 3
 - [ ] Unit 1, extended to use all 7 exercise types, plays through to its checkpoint

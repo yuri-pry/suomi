@@ -30,16 +30,18 @@ export function Placement({ items, units, lang, onDone, onQuit }: Props) {
   if (unitIndex === null) {
     const unit = units[startIndex(search, units.length)];
     return (
-      <div className="result">
-        <main>
-          <p className="celebrate celebrate-mark" aria-hidden="true">
-            <Icon name="target" size={64} />
+      <div className="screen">
+        <main className="result-body">
+          <p className="result-mark celebrate-mark" aria-hidden="true">
+            <Icon name="target" size={44} />
           </p>
-          <h1>{t('placementDone', lang)}</h1>
-          <p className="placement-unit">
-            {t('unit', lang)} {units.indexOf(unit) + 1}: {unit.title}
-          </p>
-          <p className="caption">{t('placementNote', lang)}</p>
+          <div>
+            <p className="eyebrow">{t('placementDone', lang)}</p>
+            <h1 className="display" style={{ marginTop: 'var(--space-2)' }}>
+              {t('unit', lang)} {units.indexOf(unit) + 1}: {unit.title}
+            </h1>
+          </div>
+          <p className="lead">{t('placementNote', lang)}</p>
         </main>
         <footer className="action">
           <button type="button" className="btn btn-primary btn-block" autoFocus onClick={() => onDone(unit.id)}>
@@ -77,11 +79,18 @@ export function Placement({ items, units, lang, onDone, onQuit }: Props) {
   }
 
   return (
-    <form className="lesson" onSubmit={submit}>
+    <form className="screen" onSubmit={submit}>
       <header className="lesson-top">
         <button type="button" className="icon-btn" aria-label={t('quitTest', lang)} onClick={onQuit}>
           <Icon name="close" />
         </button>
+        <div className="lesson-heading">
+          <span className="lesson-heading-title">{t('placement', lang)}</span>
+          <span className="lesson-heading-count">
+            {asked + 1} / {total}
+          </span>
+        </div>
+        <span />
         <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={asked}>
           <div className="progress-fill" style={{ transform: `scaleX(${asked / total})` }} />
         </div>
@@ -102,11 +111,11 @@ export function Placement({ items, units, lang, onDone, onQuit }: Props) {
       </main>
 
       <footer className="action">
-        <button type="button" className="btn btn-ghost btn-block" onClick={() => record(false)}>
-          {t('dontKnow', lang)}
-        </button>
         <button type="submit" className="btn btn-primary btn-block" disabled={verdict === null}>
-          {t('next', lang)}
+          {t('next', lang)} <Icon name="arrow" size={20} />
+        </button>
+        <button type="button" className="btn btn-ghost btn-block btn-sm" onClick={() => record(false)}>
+          {t('dontKnow', lang)}
         </button>
       </footer>
     </form>

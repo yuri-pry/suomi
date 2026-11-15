@@ -36,6 +36,8 @@ const icons = {
   globe: `${circle(12, 12, 9)}M3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z`,
   download: 'M12 4v12M7 11l5 5 5-5M5 20h14',
   upload: 'M12 16V4M7 9l5-5 5 5M5 20h14',
+  arrow: 'M4 12h16M14 6l6 6-6 6',
+  layers: 'M12 4l8 4-8 4-8-4zM4 12l8 4 8-4M4 16l8 4 8-4',
   info: `${circle(12, 12, 9)}M12 11v5M12 8h.01`,
 } as const;
 

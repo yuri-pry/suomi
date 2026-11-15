@@ -118,20 +118,37 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
     setVerdict(null);
   }
 
+  const doneCount = state.total - state.queue.length;
+  // Re-asked items stay on the last dash; past ~24 dashes a plain bar reads better.
+  const steps = state.total <= 24;
+
   return (
-    <form className="lesson" onSubmit={submit}>
+    <form className="screen" onSubmit={submit}>
       <header className="lesson-top">
         <button type="button" className="icon-btn" aria-label={t('quit', lang)} onClick={onQuit}>
           <Icon name="close" />
         </button>
+        <div className="lesson-heading">
+          <span className="lesson-heading-title">{lesson.title}</span>
+          <span className="lesson-heading-count">
+            {Math.min(doneCount + 1, state.total)} / {state.total}
+          </span>
+        </div>
+        <span />
         <div
-          className="progress"
+          className={steps ? 'steps' : 'progress'}
           role="progressbar"
           aria-valuemin={0}
-          aria-valuemax={100}
-          aria-valuenow={Math.round(fractionDone(state) * 100)}
+          aria-valuemax={state.total}
+          aria-valuenow={doneCount}
         >
-          <div className="progress-fill" style={{ transform: `scaleX(${fractionDone(state)})` }} />
+          {steps ? (
+            Array.from({ length: state.total }, (_, i) => (
+              <span key={i} className="step" data-state={i < doneCount ? 'done' : i === doneCount ? 'current' : undefined} />
+            ))
+          ) : (
+            <div className="progress-fill" style={{ transform: `scaleX(${fractionDone(state)})` }} />
+          )}
         </div>
       </header>
 
@@ -145,31 +162,32 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
           speaker={speaker}
           lang={lang}
         />
-      </main>
-
-      <footer className={`action ${verdict === null ? '' : verdict === 'wrong' ? 'is-wrong' : 'is-right'}`}>
-        <div className="feedback" aria-live="polite">
+        <div aria-live="polite">
           {verdict !== null && (
-            <>
+            <div className="feedback-card" data-verdict={verdict}>
               <p className="feedback-title">
-                <Icon name={verdict === 'wrong' ? 'cross' : 'check'} size={20} />{' '}
+                <Icon name={verdict === 'wrong' ? 'cross' : 'check'} size={22} />
                 {t(verdict === 'right' ? 'correct' : verdict === 'typo' ? 'typo' : 'wrong', lang)}
               </p>
               {verdict !== 'right' && (
-                <p className="feedback-answer">
-                  {t('answerIs', lang)} <strong lang={correctLang}>
+                <p className="feedback-text">
+                  {t('answerIs', lang)}{' '}
+                  <strong lang={correctLang}>
                     <Speakable text={correct} lang={correctLang ?? 'en'} />
                   </strong>
                 </p>
               )}
-            </>
+            </div>
           )}
         </div>
+      </main>
+
+      <footer className="action">
         <button type="submit" className="btn btn-primary btn-block" disabled={verdict === null && checked === null}>
           {t(verdict === null ? 'check' : 'continue', lang)}
+          {verdict !== null && <Icon name="arrow" size={20} />}
         </button>
       </footer>
     </form>
   );
 }
-

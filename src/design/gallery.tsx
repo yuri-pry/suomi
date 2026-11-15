@@ -1,486 +1,276 @@
 // Review page for the design system. Dev only: open /src/design/gallery.html under `npm run dev`.
-import { StrictMode, useEffect, useState, type CSSProperties, type ReactNode } from 'react';
+import { StrictMode, useEffect, useState, type ReactNode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Avatar, Icon, avatars, iconNames, type AvatarId, type IconName } from './Icon';
+import { Avatar, Icon, avatars, iconNames } from './Icon';
+import { Ring } from './Ring';
 import './tokens.css';
-import './motion.css';
 import './components.css';
+import './motion.css';
 
 type Theme = 'auto' | 'light' | 'dark';
 
 const colours: [string, string[]][] = [
-  ['Surfaces', ['bg', 'surface', 'surface-2', 'line', 'line-strong']],
-  ['Text', ['text', 'muted']],
-  ['Brand', ['accent', 'accent-strong', 'accent-soft', 'accent-text']],
-  ['Feedback', ['right', 'right-bg', 'wrong', 'wrong-bg', 'typo', 'typo-bg', 'danger', 'danger-strong', 'danger-text']],
-  ['States', ['locked-fg', 'locked-bg', 'open-fg', 'open-bg', 'done-fg', 'done-bg']],
-  ['Marks', ['streak', 'xp', 'goal']],
+  ['Surfaces', ['bg', 'surface', 'surface-2', 'chip', 'line', 'line-strong']],
+  ['Text', ['text', 'muted', 'subtle']],
+  ['Ink and accent', ['ink', 'ink-text', 'accent', 'accent-strong', 'accent-soft']],
+  ['Feedback', ['right', 'right-bg', 'wrong', 'wrong-bg', 'typo', 'typo-bg']],
+  ['Card tones', ['tone-night-bg', 'tone-lake-bg', 'tone-sun-bg', 'tone-mint-bg']],
+  ['Marks', ['streak', 'xp']],
   ['Mastery scale', ['mastery-0', 'mastery-1', 'mastery-2', 'mastery-3', 'mastery-4']],
-  ['Avatar tones', [1, 2, 3, 4].flatMap((n) => [`tone-${n}-bg`, `tone-${n}-fg`])],
 ];
 
-// [text token, background token]: the pairs the components actually use
-const pairs = [
-  ['text', 'bg'], ['muted', 'bg'], ['text', 'surface'], ['muted', 'surface'], ['muted', 'surface-2'],
-  ['accent', 'surface'], ['accent', 'accent-soft'], ['accent-text', 'accent'], ['right', 'right-bg'],
-  ['wrong', 'wrong-bg'], ['typo', 'typo-bg'], ['danger-text', 'danger'], ['streak', 'surface'], ['xp', 'surface'],
+// [text, background, minimum ratio]: every pair the components use. 3 is for large or bold text only.
+const pairs: [string, string, number][] = [
+  ['text', 'bg', 4.5], ['muted', 'bg', 4.5], ['muted', 'surface', 4.5], ['muted', 'surface-2', 4.5], ['subtle', 'surface', 3],
+  ['ink-text', 'ink', 4.5], ['accent', 'surface', 4.5], ['accent', 'accent-soft', 4.5], ['accent-text', 'accent', 4.5], ['text', 'chip', 4.5],
+  ['right', 'right-bg', 4.5], ['wrong', 'wrong-bg', 4.5], ['typo', 'typo-bg', 4.5],
+  ['tone-night-fg', 'tone-night-bg', 4.5], ['tone-night-muted', 'tone-night-bg', 4.5], ['tone-lake-fg', 'tone-lake-bg', 4.5],
+  ['tone-sun-fg', 'tone-sun-bg', 4.5], ['tone-mint-fg', 'tone-mint-bg', 4.5], ['streak', 'surface', 3], ['xp', 'surface', 3],
 ];
-
-const typeScale = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'];
-const spaces = [1, 2, 3, 4, 5, 6, 7, 8];
-const motionTokens = ['dur-fast', 'dur-press', 'dur-sheet', 'dur-collapse', 'dur-progress', 'dur-enter', 'dur-celebrate', 'stagger-step', 'ease-out', 'ease-in-out', 'ease-drawer'];
-const otherTokens = ['scrim', 'leading-tight', 'leading-snug', 'leading-normal', 'tracking-tight', 'tracking-wide', 'weight-regular', 'weight-medium', 'weight-bold', 'z-sticky', 'z-tabbar', 'z-scrim', 'z-sheet', 'z-toast', 'tap-min', 'tabbar-height', 'appbar-height', 'content-max'];
-const tabs: [IconName, string][] = [['home', 'Home'], ['profile', 'Profile'], ['settings', 'Settings']];
 
 const token = (name: string) => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
 
+function luminance(hex: string) {
+  const n = hex.replace('#', '');
+  if (n.length !== 6) return null;
+  const [r, g, b] = [0, 2, 4].map((i) => {
+    const c = parseInt(n.slice(i, i + 2), 16) / 255;
+    return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+  });
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+
+function ratio(a: string, b: string) {
+  const [la, lb] = [luminance(a), luminance(b)];
+  if (la === null || lb === null) return null;
+  return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
+}
+
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section>
-      <h2>{title}</h2>
+    <section style={{ marginTop: 'var(--space-7)' }}>
+      <h2 className="section-title">{title}</h2>
       {children}
-    </section>
-  );
-}
-
-function Ring({ percent, label, done, size }: { percent: number; label: ReactNode; done?: boolean; size?: string }) {
-  return (
-    <div className="ring" data-done={done} style={size ? ({ '--ring-size': size } as CSSProperties) : undefined}>
-      <svg viewBox="0 0 36 36" aria-hidden="true">
-        <circle className="ring-track" cx="18" cy="18" r="15" pathLength="100" />
-        <circle className="ring-value" cx="18" cy="18" r="15" pathLength="100" strokeDashoffset={100 - percent} />
-      </svg>
-      <span className="ring-label">{label}</span>
-    </div>
-  );
-}
-
-function Module({ title, meta, state, children }: { title: string; meta: string; state: 'open' | 'done' | 'locked'; children?: ReactNode }) {
-  const [open, setOpen] = useState(state === 'open');
-  const id = `module-${title}`;
-  return (
-    <section className="module" data-state={state}>
-      <h3 className="module-heading">
-        <button type="button" className="module-head" aria-expanded={open} aria-controls={id} disabled={state === 'locked'} onClick={() => setOpen(!open)}>
-          <span className="state-badge" data-state={state}>
-            <Icon name={state === 'done' ? 'check' : state === 'locked' ? 'lock' : 'path'} size={20} />
-          </span>
-          <span className="module-title">
-            {title}
-            <span className="module-meta">{meta}</span>
-          </span>
-          {state !== 'locked' && <Icon name="chevron-down" className="module-chevron" />}
-        </button>
-      </h3>
-      <div className="collapse" id={id} data-open={open}>
-        <div className="collapse-inner">
-          <div className="module-body">{children}</div>
-        </div>
-      </div>
     </section>
   );
 }
 
 function Gallery() {
   const [theme, setTheme] = useState<Theme>('auto');
-  const [tab, setTab] = useState('Home');
-  const [sound, setSound] = useState(true);
-  const [haptics, setHaptics] = useState(false);
-  const [goal, setGoal] = useState(20);
-  const [avatar, setAvatar] = useState<AvatarId>('kuusi');
-  const [sheet, setSheet] = useState(false);
-  const [xp, setXp] = useState(12);
-  const [replay, setReplay] = useState(0);
-  // re-read the swatch values when the OS theme flips while the gallery is on "auto"
-  const [, setOsFlips] = useState(0);
+  const [, redraw] = useState(0);
   useEffect(() => {
-    const query = matchMedia('(prefers-color-scheme: dark)');
-    const onChange = () => setOsFlips((n) => n + 1);
-    query.addEventListener('change', onChange);
-    return () => query.removeEventListener('change', onChange);
-  }, []);
-
-  function pickTheme(next: Theme) {
-    // set before rendering, so the swatch values below are read in the new theme
-    if (next === 'auto') delete document.documentElement.dataset.theme;
-    else document.documentElement.dataset.theme = next;
-    setTheme(next);
-  }
+    if (theme === 'auto') delete document.documentElement.dataset.theme;
+    else document.documentElement.dataset.theme = theme;
+    redraw((n) => n + 1);
+  }, [theme]);
 
   return (
     <div className="g-page">
       <header className="g-top">
-        <h1>Suomi design gallery</h1>
-        <div className="segmented" role="radiogroup" aria-label="Theme">
-          {(['auto', 'light', 'dark'] as const).map((t) => (
-            <button key={t} type="button" role="radio" aria-checked={theme === t} onClick={() => pickTheme(t)}>
-              {t === 'light' && <Icon name="sun" size={18} />}
-              {t === 'dark' && <Icon name="moon" size={18} />}
-              {t}
-            </button>
+        <strong>Suomi design system</strong>
+        <div className="segmented">
+          {(['auto', 'light', 'dark'] as Theme[]).map((t) => (
+            <label key={t} className="segment">
+              <input type="radio" name="theme" checked={theme === t} onChange={() => setTheme(t)} />
+              <span>{t}</span>
+            </label>
           ))}
         </div>
       </header>
 
       <Section title="Colour">
         {colours.map(([group, names]) => (
-          <div key={group}>
-            <h3>{group}</h3>
+          <div key={group} style={{ marginBottom: 'var(--space-4)' }}>
+            <p className="eyebrow" style={{ marginBottom: 'var(--space-2)' }}>
+              {group}
+            </p>
             <div className="g-grid">
-              {names.map((name) => (
-                <div className="g-swatch" key={name}>
-                  <i style={{ background: `var(--${name})` }} />
+              {names.map((n) => (
+                <div key={n} className="g-swatch">
+                  <i style={{ background: `var(--${n})` }} />
                   <span>
-                    --{name}
+                    --{n}
                     <br />
-                    <code>{token(name)}</code>
+                    <code>{token(n)}</code>
                   </span>
                 </div>
               ))}
             </div>
           </div>
         ))}
-        <h3>Text on background</h3>
+        <p className="eyebrow" style={{ margin: 'var(--space-5) 0 var(--space-2)' }}>
+          Contrast of the pairs in use
+        </p>
         <div className="g-grid">
-          {pairs.map(([fg, bg]) => (
-            <div className="g-pair" key={fg + bg} style={{ color: `var(--${fg})`, background: `var(--${bg})` }}>
-              {fg} on {bg}
-            </div>
-          ))}
+          {pairs.map(([fg, bg, min]) => {
+            const r = ratio(token(fg), token(bg));
+            return (
+              <div key={fg + bg} className="g-pair" style={{ color: `var(--${fg})`, background: `var(--${bg})`, outline: r !== null && r < min ? '3px solid red' : undefined }}>
+                {fg} on {bg}
+                <br />
+                {r === null ? 'n/a' : `${r.toFixed(2)} : 1`} (min {min})
+              </div>
+            );
+          })}
         </div>
       </Section>
 
       <Section title="Type">
-        {typeScale.map((size) => (
-          <p key={size} style={{ margin: '0 0 0.25rem', fontSize: `var(--text-${size})`, lineHeight: 'var(--leading-snug)' }}>
-            --text-{size} · Hyvää päivää, mitä kuuluu?
+        <div className="g-stack" style={{ maxWidth: '34rem' }}>
+          <p className="eyebrow">Eyebrow · Chapter 1</p>
+          <p className="display">You reached the end of the lesson.</p>
+          <p className="page-title">Page title</p>
+          <p className="tile-title">Card title</p>
+          <p className="prompt" style={{ margin: 0 }}>
+            <button type="button" className="word">Mitä</button> <button type="button" className="word">teit</button> <button type="button" className="word">eilen</button>?
           </p>
-        ))}
-        <p className="display">Display: Oppitunti valmis</p>
-        <p className="caption">Caption: 12 of 30 rules mastered</p>
-      </Section>
-
-      <Section title="Spacing, radii, elevation, motion">
-        <h3>Spacing</h3>
-        {spaces.map((n) => (
-          <div className="g-row" key={n} style={{ marginBottom: 4 }}>
-            <code style={{ width: '5.5rem' }}>--space-{n}</code>
-            <div className="g-bar" style={{ width: `var(--space-${n})` }} />
+          <p className="lead">Lead text for a screen, quieter than the headline.</p>
+          <div className="explain-body">
+            <p>
+              An <span className="hl">i</span> before the person ending makes the past: <span className="hl">puhun</span> becomes <span className="hl">puhuin</span>.
+            </p>
           </div>
-        ))}
-        <h3>Radii</h3>
-        <div className="g-row">
-          {['sm', 'md', 'lg', 'full'].map((r) => (
-            <div className="g-box" key={r} style={{ borderRadius: `var(--radius-${r})` }}>
-              {r}
-            </div>
-          ))}
-        </div>
-        <h3>Elevation</h3>
-        <div className="g-row" style={{ gap: '2rem', padding: '1rem 0' }}>
-          {[1, 2, 3].map((n) => (
-            <div className="g-box" key={n} style={{ borderRadius: 'var(--radius-md)', borderColor: 'transparent', boxShadow: `var(--shadow-${n})` }}>
-              shadow-{n}
-            </div>
-          ))}
-        </div>
-        <h3>Motion, type detail, layers and sizes</h3>
-        <ul className="list">
-          {[...motionTokens, ...otherTokens].map((name) => (
-            <li className="row" key={name}>
-              <span className="row-label">--{name}</span>
-              <span className="row-value">{token(name)}</span>
-            </li>
-          ))}
-        </ul>
-      </Section>
-
-      <Section title={`Icons (${iconNames.length})`}>
-        <div className="g-grid">
-          {iconNames.map((name) => (
-            <div className="g-icon" key={name}>
-              <Icon name={name} />
-              {name}
-            </div>
-          ))}
-        </div>
-        <h3>Sizes 16, 20, 24, 32, 48 and a labelled icon</h3>
-        <div className="g-row">
-          {[16, 20, 24, 32, 48].map((size) => (
-            <Icon key={size} name="flame" size={size} className="tint-streak" />
-          ))}
-          <Icon name="star" title="Experience points" className="tint-xp" />
-        </div>
-      </Section>
-
-      <Section title={`Avatars (${avatars.length})`}>
-        <div className="g-grid">
-          {avatars.map((a) => (
-            <div className="g-icon" key={a.id}>
-              <Avatar id={a.id} size={64} className="avatar" />
-              {a.id} · {a.label}
-            </div>
-          ))}
-        </div>
-        <h3>Picker (.avatar-grid, .avatar-option)</h3>
-        <div className="avatar-grid" role="radiogroup" aria-label="Avatar" style={{ maxWidth: '20rem' }}>
-          {avatars.map((a) => (
-            <button key={a.id} type="button" role="radio" className="avatar-option" aria-checked={avatar === a.id} aria-label={a.label} onClick={() => setAvatar(a.id)}>
-              <Avatar id={a.id} size={52} className="avatar" />
-            </button>
-          ))}
+          <p className="caption">Caption and counters</p>
         </div>
       </Section>
 
       <Section title="Buttons">
         <div className="g-row">
-          <button type="button" className="btn btn-primary">Primary</button>
+          <button type="button" className="btn btn-primary">Check</button>
+          <button type="button" className="btn btn-primary">
+            Next <Icon name="arrow" size={20} />
+          </button>
+          <button type="button" className="btn btn-accent">Accent</button>
           <button type="button" className="btn btn-secondary">Secondary</button>
           <button type="button" className="btn btn-ghost">Ghost</button>
-          <button type="button" className="btn btn-danger">Danger</button>
-        </div>
-        <h3>Disabled</h3>
-        <div className="g-row">
-          <button type="button" className="btn btn-primary" disabled>Primary</button>
-          <button type="button" className="btn btn-secondary" disabled>Secondary</button>
-          <button type="button" className="btn btn-ghost" disabled>Ghost</button>
-          <button type="button" className="btn btn-danger" disabled>Danger</button>
-        </div>
-        <h3>With icon, block, icon button</h3>
-        <div className="g-stack">
-          <button type="button" className="btn btn-primary btn-block">Check</button>
-          <button type="button" className="btn btn-secondary btn-block">
-            <Icon name="refresh" size={20} /> Practice mistakes
+          <button type="button" className="btn btn-primary" disabled>
+            Disabled
           </button>
-          <div className="g-row">
-            <button type="button" className="icon-btn" aria-label="Back"><Icon name="back" /></button>
-            <button type="button" className="icon-btn" aria-label="Close"><Icon name="close" /></button>
-            <button type="button" className="icon-btn" aria-label="Menu"><Icon name="menu" /></button>
-          </div>
+          <button type="button" className="icon-btn" aria-label="Close">
+            <Icon name="close" />
+          </button>
+          <span className="round-go">
+            <Icon name="arrow" />
+          </span>
+          <span className="pill">Next</span>
+          <span className="tag">
+            <Icon name="book" size={18} /> Grammar
+          </span>
         </div>
       </Section>
 
-      <Section title="Tappable word">
-        <p style={{ fontSize: 'var(--text-2xl)', lineHeight: 'var(--leading-snug)', margin: 0 }} lang="fi">
-          <button type="button" className="word">Minä</button> <button type="button" className="word">pidän</button>{' '}
-          <button type="button" className="word" aria-pressed="true">kahvista</button> <button type="button" className="word">ja</button>{' '}
-          <button type="button" className="word">teestä</button>.
-        </p>
-        <p className="caption">Third word shown pressed. Underline is the affordance; the touch target is 44 px.</p>
-        <div className="g-row" lang="fi">
-          <button type="button" className="word-chip"><Icon name="speaker" size={18} /> kahvi</button>
-          <button type="button" className="word-chip" aria-pressed="true"><Icon name="speaker" size={18} /> järvi</button>
-          <button type="button" className="word-chip"><Icon name="speaker" size={18} /> hyvää yötä</button>
-        </div>
-      </Section>
-
-      <Section title="Controls">
+      <Section title="Answer options">
         <div className="g-stack">
-          <ul className="list">
-            <li className="row">
-              <Icon name="volume" className="row-icon" />
-              <span className="row-label">Sound<span className="row-hint">Speak Finnish words aloud</span></span>
-              <button type="button" role="switch" className="switch" aria-checked={sound} aria-label="Sound" onClick={() => setSound(!sound)} />
-            </li>
-            <li className="row">
-              <Icon name="vibrate" className="row-icon" />
-              <span className="row-label">Vibration</span>
-              <button type="button" role="switch" className="switch" aria-checked={haptics} aria-label="Vibration" onClick={() => setHaptics(!haptics)} />
-            </li>
-            <li className="row">
-              <Icon name="lock" className="row-icon" />
-              <span className="row-label">Disabled switch</span>
-              <button type="button" role="switch" className="switch" aria-checked="true" aria-label="Disabled" disabled />
-            </li>
-            <li>
-              <button type="button" className="row row-action">
-                <Icon name="download" className="row-icon" />
-                <span className="row-label">Export progress</span>
-                <Icon name="chevron-right" className="row-icon" />
-              </button>
-            </li>
-            <li>
-              <button type="button" className="row row-action">
-                <Icon name="globe" className="row-icon" />
-                <span className="row-label">Language</span>
-                <span className="row-value">English</span>
-              </button>
-            </li>
-          </ul>
-          <div className="segmented" role="radiogroup" aria-label="Daily goal">
-            {[10, 20, 30].map((g) => (
-              <button key={g} type="button" role="radio" aria-checked={goal === g} onClick={() => setGoal(g)}>
-                {g} XP
-              </button>
+          {[
+            ['A', 'to sleep', undefined, false],
+            ['B', 'to rest', undefined, true],
+            ['C', 'to do', 'wrong', false],
+            ['D', 'bus', 'right', false],
+          ].map(([key, text, verdict, checked]) => (
+            <button key={key as string} type="button" role="radio" aria-checked={checked as boolean} className="option" data-verdict={verdict as string | undefined}>
+              <span className="option-key">{key as string}</span>
+              <span className="option-text">{text as string}</span>
+              {verdict && (
+                <span className="option-mark">
+                  <Icon name={verdict === 'right' ? 'check' : 'cross'} size={16} />
+                </span>
+              )}
+            </button>
+          ))}
+          {(['right', 'typo', 'wrong'] as const).map((v) => (
+            <div key={v} className="feedback-card" data-verdict={v} style={{ marginTop: 0 }}>
+              <p className="feedback-title">
+                <Icon name={v === 'wrong' ? 'cross' : 'check'} size={22} /> {v === 'right' ? 'Correct' : v === 'typo' ? 'Correct, with a typo' : 'Not quite'}
+              </p>
+              {v !== 'right' && (
+                <p className="feedback-text">
+                  Correct answer: <strong>levätä</strong>
+                </p>
+              )}
+            </div>
+          ))}
+          <div className="steps">
+            {Array.from({ length: 12 }, (_, i) => (
+              <span key={i} className="step" data-state={i < 7 ? 'done' : i === 7 ? 'current' : undefined} />
             ))}
           </div>
-          <input className="input" type="search" placeholder="Search rules" aria-label="Search rules" enterKeyHint="search" />
+          <div className="tiles built">
+            <button type="button" className="tile-word">Minä</button>
+            <button type="button" className="tile-word">puhun</button>
+          </div>
+          <div className="tiles">
+            <span className="tile-gap" />
+            <span className="tile-gap" />
+            <button type="button" className="tile-word">suomea</button>
+          </div>
         </div>
       </Section>
 
-      <Section title="Class names the app already uses">
+      <Section title="Path">
         <div className="g-stack">
-          <h1 className="page-title">Settings</h1>
-          <fieldset className="setting">
-            <legend>Theme</legend>
-            <div className="segmented">
-              {['Auto', 'Light', 'Dark'].map((label, i) => (
-                <label key={label} className="segment">
-                  <input type="radio" name="g-theme" defaultChecked={i === 0} />
-                  <span>{label}</span>
-                </label>
-              ))}
-            </div>
-          </fieldset>
-          <label className="setting switch-row">
-            <span>Sound</span>
-            <input type="checkbox" role="switch" className="switch" defaultChecked />
-          </label>
-          <dl className="stat-grid">
-            <div className="stat-tile"><dt>Day streak</dt><dd>7</dd></div>
-            <div className="stat-tile"><dt>Total XP</dt><dd>340</dd></div>
-          </dl>
-          <details className="unit" open>
-            <summary className="unit-head">
-              <h2 className="unit-title">Unit 1: Minä olen</h2>
-              <span className="unit-count">3/8</span>
-            </summary>
-            <div className="unit-body">
-              Tap <button type="button" className="word">kiitos</button> to hear it.
-            </div>
-          </details>
-          <details className="unit">
-            <summary className="unit-head">
-              <h2 className="unit-title">Unit 2: Missä sinä asut?</h2>
-              <span className="unit-count">0/9</span>
-            </summary>
-            <div className="unit-body">Closed by default.</div>
-          </details>
-          <nav className="tabbar g-static" aria-label="Text-only tabs">
-            {['Home', 'Profile', 'Settings'].map((label, i) => (
-              <button key={label} type="button" className="tab" aria-current={i === 0 ? 'page' : undefined}>{label}</button>
-            ))}
-          </nav>
-        </div>
-      </Section>
-
-      <Section title="Cards, stats, progress">
-        <div className="g-stack">
-          <div className="card">Card: plain surface with a hairline.</div>
-          <div className="card card-raised">Card raised: shadow-2 instead of the border.</div>
-          <div className="stat-grid">
-            <div className="stat-tile">
-              <span className="stat-tile-value"><Icon name="flame" className="tint-streak" /> 7</span>
-              <span className="stat-tile-label">Day streak</span>
-            </div>
-            <div className="stat-tile">
-              <span className="stat-tile-value"><Icon name="star" className="tint-xp" /> 340</span>
-              <span className="stat-tile-label">Total XP</span>
-            </div>
-            <div className="stat-tile">
-              <span className="stat-tile-value"><Icon name="trophy" className="tint-goal" /> 2.4</span>
-              <span className="stat-tile-label">Level of 5</span>
-            </div>
-            <div className="stat-tile">
-              <span className="stat-tile-value">12/30</span>
-              <span className="stat-tile-label">Rules mastered</span>
-            </div>
-          </div>
-          <div className="g-row">
-            <Ring percent={0} label="0/20" />
-            <Ring percent={(xp / 20) * 100} label={`${xp}/20`} />
-            <Ring percent={100} done label={<Icon name="check" size={20} title="Daily goal reached" />} />
-            <button type="button" className="btn btn-ghost" onClick={() => setXp(xp >= 20 ? 0 : xp + 4)}>+4 XP</button>
-          </div>
-          <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={(xp / 20) * 100} aria-label="Lesson progress">
-            <div className="progress-fill" style={{ transform: `scaleX(${xp / 20})` }} />
-          </div>
-          <div>
-            <h3>Mastery levels 0 to 4</h3>
-            {[0, 1, 2, 3, 4].map((level) => (
-              <div className="g-row" key={level} style={{ marginBottom: 8 }}>
-                <div className="progress progress-thin" style={{ flex: 1 }}>
-                  <div className="progress-fill" data-level={level} style={{ transform: `scaleX(${[0, 0.3, 0.5, 0.7, 0.9][level]})` }} />
-                </div>
-                <span className="row-value">{[0, 30, 50, 70, 90][level]}%</span>
+          {(['done', 'open', 'locked'] as const).map((s, i) => (
+            <button key={s} type="button" className="lesson-card" data-state={s} disabled={s === 'locked'}>
+              <span className="lesson-thumb">
+                {i + 1}
+                <span className="state-mark" data-state={s}>
+                  {s === 'done' && <Icon name="check" size={14} />}
+                  {s === 'locked' && <Icon name="lock" size={14} />}
+                </span>
+              </span>
+              <span className="lesson-card-title">{['Greetings', 'To be', 'Numbers'][i]}</span>
+              {s === 'open' && <span className="pill">Next</span>}
+            </button>
+          ))}
+          <dl className="stat-strip">
+            {[['Units', '6'], ['Lessons', '30'], ['Progress', '7%']].map(([k, v]) => (
+              <div key={k}>
+                <dt className="eyebrow">{k}</dt>
+                <dd>
+                  <strong>{v}</strong>
+                </dd>
               </div>
             ))}
+          </dl>
+        </div>
+      </Section>
+
+      <Section title="Home tiles">
+        <div className="bento" style={{ maxWidth: '26rem' }}>
+          <div className="tile tile-wide" data-tone="night">
+            <span className="eyebrow">Continue · Unit 1</span>
+            <span className="tile-title">Numbers and vowels</span>
           </div>
-          <div className="g-row">
-            <span className="state-badge" data-state="locked"><Icon name="lock" size={20} /></span>
-            <span className="state-badge" data-state="open">3</span>
-            <span className="state-badge" data-state="done"><Icon name="check" size={20} /></span>
-            <span className="caption">locked · open · done</span>
+          <div className="tile" data-tone="lake">
+            <span className="eyebrow">Review</span>
+            <span className="tile-count">4</span>
+            <span className="tile-foot">
+              <button type="button" className="btn btn-on-tone">Review now</button>
+            </span>
+          </div>
+          <div className="tile" data-tone="sun">
+            <span className="eyebrow">Daily goal</span>
+            <Ring value={75} label="15/20" style={{ '--ring-color': 'var(--tone-sun-fg)', '--ring-track': 'var(--tone-sun-soft)' }} />
+          </div>
+          <div className="tile tile-wide" data-tone="mint" style={{ minHeight: 0 }}>
+            <span className="eyebrow">Grammar</span>
+            <span className="tile-title">Hello</span>
           </div>
         </div>
       </Section>
 
-      <Section title="Screen: app bar, modules, tab bar, sheet">
-        <div className="g-phone">
-          <div className="g-phone-scroll">
-            <div className="app">
-              <header className="appbar">
-                <h1 className="appbar-title">Suomi</h1>
-                <span className="appbar-stat tint-streak"><Icon name="flame" size={20} /> 7</span>
-                <span className="appbar-stat tint-xp"><Icon name="star" size={20} /> 340</span>
-                <Ring percent={60} label="12" size="2.5rem" />
-              </header>
-              <main className="screen has-tabbar screen-enter" key={tab}>
-                {tab !== 'Home' && <p className="caption">{tab} tab (.screen-enter fades in)</p>}
-                <div className="g-lessons stagger" key={replay}>
-                  <Module title="1. Tervetuloa" meta="4 of 4 lessons" state="done">
-                    <p className="caption" style={{ margin: 0 }}>Finished unit, closed by default.</p>
-                  </Module>
-                  <Module title="2. Minä ja sinä" meta="1 of 4 lessons" state="open">
-                    <ul className="list">
-                      <li className="row">
-                        <span className="state-badge" data-state="done"><Icon name="check" size={20} /></span>
-                        <span className="row-label">Personal pronouns</span>
-                      </li>
-                      <li>
-                        <button type="button" className="row row-action">
-                          <span className="state-badge">2</span>
-                          <span className="row-label">olla: to be</span>
-                          <Icon name="chevron-right" className="row-icon" />
-                        </button>
-                      </li>
-                      <li className="row">
-                        <span className="state-badge" data-state="locked"><Icon name="lock" size={20} /></span>
-                        <span className="row-label caption">Questions with -ko</span>
-                      </li>
-                    </ul>
-                  </Module>
-                  <Module title="3. Kahvilassa" meta="Pass unit 2 to open" state="locked" />
-                  <button type="button" className="btn btn-secondary btn-block" onClick={() => setSheet(true)}>Open bottom sheet</button>
-                  <button type="button" className="btn btn-ghost btn-block" onClick={() => setReplay(replay + 1)}>Replay list stagger</button>
-                </div>
-              </main>
-            </div>
-          </div>
-          <nav className="tabbar" aria-label="Main">
-            {tabs.map(([icon, label]) => (
-              <button key={label} type="button" className="tab" aria-current={tab === label ? 'page' : undefined} onClick={() => setTab(label)}>
-                <span className="tab-icon"><Icon name={icon} /></span>
-                {label}
-              </button>
-            ))}
-          </nav>
-          <div className="scrim" data-open={sheet} onClick={() => setSheet(false)} />
-          <div className="sheet" role="dialog" aria-modal="true" aria-label="Daily goal" data-open={sheet}>
-            <h2 className="sheet-title">Daily goal</h2>
-            <p className="caption">Slides up in 200 ms; cross-fades under reduced motion.</p>
-            <button type="button" className="btn btn-primary btn-block" onClick={() => setSheet(false)}>Done</button>
-          </div>
+      <Section title="Icons and avatars">
+        <div className="g-row">
+          {iconNames.map((n) => (
+            <span key={n} className="g-icon" title={n}>
+              <Icon name={n} />
+              <small>{n}</small>
+            </span>
+          ))}
         </div>
-      </Section>
-
-      <Section title="Celebration (result screen only)">
-        <div className="g-row" style={{ padding: '4rem 2rem 1rem' }}>
-          <div className="celebrate" key={replay}>
-            <span className="celebrate-burst" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /><i /></span>
-            <Icon name="star" size={72} className="celebrate-mark" />
-          </div>
-          <button type="button" className="btn btn-ghost" onClick={() => setReplay(replay + 1)}>Replay</button>
+        <div className="g-row" style={{ marginTop: 'var(--space-4)' }}>
+          {avatars.map((a) => (
+            <Avatar key={a.id} id={a.id} size={52} className="avatar" />
+          ))}
         </div>
       </Section>
     </div>

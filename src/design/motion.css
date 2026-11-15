@@ -11,6 +11,10 @@
 .pressable,
 .btn,
 .icon-btn,
+.round-go,
+.lesson-card,
+.tile-button,
+.continue-bar,
 .word-chip,
 .module-head,
 .avatar-option {
@@ -20,9 +24,19 @@
 .pressable:active:not(:disabled),
 .btn:active:not(:disabled),
 .icon-btn:active:not(:disabled),
+.round-go:active,
+.lesson-card:active:not(:disabled),
+.tile-button:active,
+.continue-bar:active,
 .word-chip:active:not(:disabled),
 .avatar-option:active:not(:disabled) {
   transform: scale(0.97);
+}
+
+/* Large cards would visibly shift at 0.97 */
+.tile-button:active,
+.continue-bar:active {
+  transform: scale(0.985);
 }
 
 /* A full-width module header would visibly shift its text at 0.97. */
@@ -218,12 +232,10 @@
 
 /*
  * 7. Switch. A transition, so a quick double tap reverses mid-way instead of restarting.
- * The thumb is a background image (components.css), so this moves background-position:
- * a repaint of one 52 px control, and the third exception to transform and opacity.
  */
 
-.switch {
-  transition: background-position var(--dur-press) var(--ease-out);
+.switch::before {
+  transition: transform var(--dur-press) var(--ease-out);
 }
 
 /* 8. Celebration. Result screen only. */
@@ -297,6 +309,11 @@
   .pressable,
   .btn,
   .icon-btn,
+  .round-go,
+  .lesson-card,
+  .tile-button,
+  .continue-bar,
+  .switch::before,
   .word-chip,
   .module-head,
   .avatar-option,
@@ -305,7 +322,6 @@
   .module-chevron,
   .progress-fill,
   .ring-value,
-  .switch,
   .unit::details-content,
   .unit-head::after {
     transition: none;
@@ -314,6 +330,10 @@
   .pressable:active:not(:disabled),
   .btn:active:not(:disabled),
   .icon-btn:active:not(:disabled),
+  .round-go:active,
+  .lesson-card:active:not(:disabled),
+  .tile-button:active,
+  .continue-bar:active,
   .word-chip:active:not(:disabled),
   .avatar-option:active:not(:disabled),
   .module-head:active {

@@ -81,7 +81,46 @@ const S = {
   reviewNone: { en: 'Nothing to review today. Mistakes come back here.', fi: 'Ei kerrattavaa tänään. Virheet palaavat tänne.' },
   reviewStart: { en: 'Review now', fi: 'Kertaa nyt' },
   reviewDone: { en: 'Review complete', fi: 'Kertaus valmis' },
+  path: { en: 'Path', fi: 'Polku' },
+  yourPath: { en: 'Your path', fi: 'Sinun polkusi' },
+  stage: { en: 'Stage', fi: 'Taso' },
+  units: { en: 'Units', fi: 'Kappaleet' },
+  lessons: { en: 'Lessons', fi: 'Oppitunnit' },
+  progressLabel: { en: 'Progress', fi: 'Edistyminen' },
+  lessonsWord: { en: 'lessons', fi: 'oppituntia' },
+  nextUp: { en: 'Next', fi: 'Seuraavaksi' },
+  courseDone: { en: 'Every lesson is done. Review keeps it fresh.', fi: 'Kaikki oppitunnit tehty. Kertaus pitää taidot tuoreina.' },
+  goodMorning: { en: 'Good morning', fi: 'Hyvää huomenta' },
+  goodDay: { en: 'Good afternoon', fi: 'Hyvää päivää' },
+  goodEvening: { en: 'Good evening', fi: 'Hyvää iltaa' },
+  goalDone: { en: 'Goal reached today', fi: 'Päivän tavoite saavutettu' },
+  goalLeft: { en: 'XP to go today', fi: 'XP:tä jäljellä tänään' },
+  reviewClear: { en: 'All clear', fi: 'Kaikki kerrattu' },
+  grammar: { en: 'Grammar', fi: 'Kielioppi' },
+  grammarSub: { en: 'The rules of this unit, in one page', fi: 'Kappaleen säännöt yhdellä sivulla' },
+  startLesson: { en: 'Start lesson', fi: 'Aloita oppitunti' },
+  gotIt: { en: 'Got it', fi: 'Selvä' },
+  back: { en: 'Back', fi: 'Takaisin' },
+  reviewComesBack: { en: 'These come back in your review, so they stick.', fi: 'Nämä palaavat kertaukseen, jotta ne jäävät mieleen.' },
+  cleanRun: { en: 'Nothing to review from this one.', fi: 'Tästä ei jäänyt kerrattavaa.' },
+  continueTo: { en: 'Continue to', fi: 'Jatka:' },
+  streakTitle: { en: 'Current streak', fi: 'Nykyinen putki' },
+  keepGoing: { en: 'Keep it going!', fi: 'Jatka samaan malliin!' },
+  streakStart: { en: 'Finish a lesson to start one.', fi: 'Tee oppitunti, niin putki alkaa.' },
+  day: { en: 'day', fi: 'päivä' },
+  days: { en: 'days', fi: 'päivää' },
+  overview: { en: 'Overview', fi: 'Yleiskatsaus' },
+  learner: { en: 'Learner', fi: 'Oppija' },
+  changeAvatar: { en: 'Change avatar', fi: 'Vaihda kuva' },
+  inReview: { en: 'In review', fi: 'Kertauksessa' },
+  testOptional: { en: 'Find your starting unit with a short test', fi: 'Löydä aloituskappale lyhyellä testillä' },
 } as const;
+
+/** Monday first. */
+export const weekdays: Record<Lang, string[]> = {
+  en: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+  fi: ['ma', 'ti', 'ke', 'to', 'pe', 'la', 'su'],
+};
 
 export type StringKey = keyof typeof S;
 

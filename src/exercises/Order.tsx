@@ -35,7 +35,7 @@ export function Order({ exercise, onChange, locked, lang }: Props) {
       </h1>
       <div className="tiles built" role="group" aria-label={t('yourSentence', lang)} lang={exercise.answerLang}>
         {placed.map((id) => (
-          <button key={id} type="button" className="tile" disabled={locked} onClick={() => update(placed.filter((p) => p !== id))}>
+          <button key={id} type="button" className="tile-word" disabled={locked} onClick={() => update(placed.filter((p) => p !== id))}>
             {word(id)}
           </button>
         ))}
@@ -46,7 +46,7 @@ export function Order({ exercise, onChange, locked, lang }: Props) {
             // keeps the pool from reflowing; the tile reads as moved to the sentence
             <span key={id} className="tile-gap" aria-hidden="true" />
           ) : (
-            <button key={id} type="button" className="tile" disabled={locked} onClick={() => update([...placed, id])}>
+            <button key={id} type="button" className="tile-word" disabled={locked} onClick={() => update([...placed, id])}>
               {w}
             </button>
           ),

@@ -23,8 +23,11 @@ export function Listen({ exercise, speaker, selected, onSelect, locked, playLabe
 
   return (
     <>
-      <button type="button" className="play" onClick={() => speaker.speak(exercise.prompt)}>
-        <Icon name="speaker" /> {playLabel}
+      <button type="button" className="play pressable" onClick={() => speaker.speak(exercise.prompt)}>
+        <span className="play-disc" aria-hidden="true">
+          <Icon name="play" size={22} />
+        </span>
+        {playLabel}
       </button>
       {/* The sentence is revealed only after checking, so it cannot be read instead of heard. */}
       {locked && (

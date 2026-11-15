@@ -19,10 +19,12 @@ export function Welcome({ lang, onBeginner, onTest }: Props) {
   const speaker = useContext(SpeakerContext);
   const [picked, setPicked] = useState<number | null>(null);
   return (
-    <div className="welcome">
-      <main className="page">
-        <h1 className="page-title">{t('welcomeTitle', lang)}</h1>
-        <p className="caption">{t('welcomeSub', lang)}</p>
+    <div className="screen">
+      <main className="screen-body" style={{ paddingTop: 'calc(var(--space-7) + env(safe-area-inset-top, 0px))' }}>
+        <h1 className="display">{t('welcomeTitle', lang)}</h1>
+        <p className="lead" style={{ marginTop: 'var(--space-3)' }}>
+          {t('welcomeSub', lang)}
+        </p>
         <div className="level-list" role="radiogroup" aria-label={t('welcomeTitle', lang)}>
           {levels.map((level, i) => (
             <div key={level.label} className="level-card" data-selected={picked === i || undefined}>
@@ -41,14 +43,18 @@ export function Welcome({ lang, onBeginner, onTest }: Props) {
                 </span>
               </button>
               {speaker && (
-                <button type="button" className="icon-btn" aria-label={`${t('hear', lang)}: ${level.fi}`} onClick={() => speaker.speak(level.fi)}>
+                <button type="button" className="icon-btn is-plain" aria-label={`${t('hear', lang)}: ${level.fi}`} onClick={() => speaker.speak(level.fi)}>
                   <Icon name="speaker" />
                 </button>
               )}
             </div>
           ))}
         </div>
-        {picked !== null && picked > 0 && <p className="caption">{t('testNote', lang)}</p>}
+        {picked !== null && picked > 0 && (
+          <p className="caption" style={{ marginTop: 'var(--space-4)' }}>
+            {t('testNote', lang)}
+          </p>
+        )}
       </main>
       <footer className="action">
         <button type="button" className="btn btn-primary btn-block" disabled={picked === null} onClick={picked === 0 ? onBeginner : onTest}>

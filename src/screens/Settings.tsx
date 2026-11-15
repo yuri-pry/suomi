@@ -1,7 +1,8 @@
+import { Icon } from '../design/Icon';
 import type { Progress } from '../lib/progress';
 import { t, type StringKey } from '../lib/strings';
 
-type Props = { progress: Progress; onChange: (patch: Partial<Progress>) => void; onPlacement: () => void };
+type Props = { progress: Progress; onChange: (patch: Partial<Progress>) => void; onPlacement: () => void; onBack: () => void };
 
 type GroupProps<T extends string | number> = {
   label: string;
@@ -28,12 +29,18 @@ function Group<T extends string | number>({ label, name, value, options, onPick 
   );
 }
 
-export function Settings({ progress, onChange, onPlacement }: Props) {
+export function Settings({ progress, onChange, onPlacement, onBack }: Props) {
   const lang = progress.lang;
   const theme = (key: StringKey, value: Progress['theme']) => ({ value, label: t(key, lang) });
   return (
-    <main className="page">
-      <h1 className="page-title">{t('settings', lang)}</h1>
+    <div className="screen">
+      <header className="subhead">
+        <button type="button" className="icon-btn" aria-label={t('back', lang)} onClick={onBack}>
+          <Icon name="back" />
+        </button>
+        <h1 className="subhead-title">{t('settings', lang)}</h1>
+      </header>
+      <main className="screen-body list">
       <Group
         label={t('language', lang)}
         name="lang"
@@ -68,12 +75,19 @@ export function Settings({ progress, onChange, onPlacement }: Props) {
           onChange={(e) => onChange({ haptics: e.target.checked })}
         />
       </label>
-      <div className="setting switch-row">
-        <span>{t('placement', lang)}</span>
-        <button type="button" className="btn btn-secondary" onClick={onPlacement}>
-          {t('retake', lang)}
-        </button>
-      </div>
-    </main>
+      <button type="button" className="row" onClick={onPlacement}>
+        <span className="row-icon">
+          <Icon name="target" />
+        </span>
+        <span className="row-text">
+          <span className="row-title">{t('placement', lang)}</span>
+          <span className="row-sub">{t('testOptional', lang)}</span>
+        </span>
+        <span className="row-chevron">
+          <Icon name="chevron-right" />
+        </span>
+      </button>
+      </main>
+    </div>
   );
 }

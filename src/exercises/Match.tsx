@@ -53,7 +53,7 @@ export function Match({ exercise, onComplete, lang }: Props) {
             disabled={done}
             onClick={() => choose(side, i)}
           >
-            {done && <Icon name="check" size={18} title={t('matched', lang)} />}
+            {done && <Icon name="check" size={18} title={t('matched', lang)} />}{' '}
             {exercise.pairs[i][side]}
           </button>
         );
