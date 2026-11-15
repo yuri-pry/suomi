@@ -770,7 +770,8 @@
           "prompt": "Eero asuu isossa talossa.",
           "answer": true,
           "tags": [
-            "possession-lla-on"
+            "inessive-ssa",
+            "adjective-agreement"
           ]
         },
         {

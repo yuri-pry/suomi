@@ -464,7 +464,8 @@
           "answerLang": "fi",
           "prompt": "We live in Turku and speak Swedish.",
           "answers": [
-            "Me asumme Turussa ja puhumme ruotsia."
+            "Me asumme Turussa ja puhumme ruotsia.",
+            "Asumme Turussa ja puhumme ruotsia."
           ],
           "tiles": [
             "asutte"

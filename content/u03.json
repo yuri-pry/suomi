@@ -528,7 +528,8 @@
           "answerLang": "fi",
           "prompt": "We do not drink milk.",
           "answers": [
-            "Me emme juo maitoa."
+            "Me emme juo maitoa.",
+            "Emme juo maitoa."
           ],
           "tiles": [
             "ei"
@@ -969,12 +970,12 @@
           "promptLang": "fi",
           "answerLang": "fi",
           "prompt": "Hän tykkää ___.",
-          "hint": "jäätelö",
+          "hint": "kakku",
           "answers": [
-            "jäätelöstä"
+            "kakusta"
           ],
           "form": {
-            "base": "jäätelö",
+            "base": "kakku",
             "case": "sisaeronto"
           },
           "tags": [

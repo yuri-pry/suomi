@@ -440,7 +440,8 @@
           "answerLang": "fi",
           "prompt": "We are at home and they are at school.",
           "answers": [
-            "Me olemme kotona ja he ovat koulussa."
+            "Me olemme kotona ja he ovat koulussa.",
+            "Olemme kotona ja he ovat koulussa."
           ],
           "tiles": [
             "on"

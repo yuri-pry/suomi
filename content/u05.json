@@ -930,7 +930,7 @@
           "promptLang": "fi",
           "answerLang": "fi",
           "text": "Veljellä on iso koira. Siskolla on kaksi kissaa. Äidillä on uusi auto, mutta isällä ei ole autoa.",
-          "prompt": "Siskolla on koira.",
+          "prompt": "Isällä on auto.",
           "answer": false,
           "tags": [
             "lla-vs-n"
