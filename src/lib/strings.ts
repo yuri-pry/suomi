@@ -81,6 +81,8 @@ const S = {
   reviewNone: { en: 'Nothing to review today. Mistakes come back here.', fi: 'Ei kerrattavaa tänään. Virheet palaavat tänne.' },
   reviewStart: { en: 'Review now', fi: 'Kertaa nyt' },
   reviewDone: { en: 'Review complete', fi: 'Kertaus valmis' },
+  yourPath: { en: 'Your path', fi: 'Polkusi' },
+  lessons: { en: 'lessons', fi: 'oppituntia' },
 } as const;
 
 export type StringKey = keyof typeof S;

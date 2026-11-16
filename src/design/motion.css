@@ -96,7 +96,7 @@
   }
 }
 
-.unit-head::after {
+.unit-chevron > svg {
   transition: transform var(--dur-collapse) var(--ease-out);
 }
 
@@ -307,7 +307,7 @@
   .ring-value,
   .switch,
   .unit::details-content,
-  .unit-head::after {
+  .unit-chevron > svg {
     transition: none;
   }
 

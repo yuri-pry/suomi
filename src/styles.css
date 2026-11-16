@@ -57,108 +57,221 @@ button:disabled {
 /* Home */
 
 .home {
-  padding: 0 1rem calc(2rem + env(safe-area-inset-bottom));
+  padding: calc(var(--space-4) + env(safe-area-inset-top, 0px)) max(var(--space-4), env(safe-area-inset-right, 0px))
+    calc(var(--tabbar-height) + var(--tabbar-gap) + var(--space-6) + env(safe-area-inset-bottom, 0px))
+    max(var(--space-4), env(safe-area-inset-left, 0px));
 }
 
-.stats {
-  position: sticky;
-  top: 0;
+.home-top {
   display: flex;
-  gap: 1rem;
+  gap: var(--space-2);
   align-items: center;
-  padding: calc(0.75rem + env(safe-area-inset-top)) 0 0.75rem;
-  background: var(--bg);
-  border-bottom: 1px solid var(--line);
+  min-height: var(--appbar-height);
+  padding: 0 var(--space-1) var(--space-4);
 }
 
-.brand {
-  margin-right: auto;
-  font-size: 1.125rem;
+.home-title {
+  flex: 1;
+  margin: 0;
+  font-size: var(--text-display);
+  font-weight: var(--weight-heavy);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
 }
 
-.stat {
+/* Two cards side by side: today's goal and the review deck. */
+.home-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.goal-card,
+.review-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 12.5rem;
+  margin: 0;
+  padding: var(--space-5) var(--space-4) var(--space-4) var(--space-5);
+  border-radius: var(--radius-xl);
+}
+
+.goal-ring {
+  --ring-size: 4.5rem;
+  margin: var(--space-3) 0 auto;
+}
+
+.goal-ring .ring-track,
+.goal-ring .ring-value {
+  stroke-width: 5;
+}
+
+.goal-value {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-heavy);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
   font-variant-numeric: tabular-nums;
+}
+
+.goal-label {
+  margin: 0;
+  font-size: var(--text-sm);
   color: var(--muted);
 }
 
-.unit-title {
-  margin: 1.5rem 0 0.75rem;
-  font-size: 1.5rem;
+.review-card-count {
+  margin: var(--space-2) 0 auto;
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+}
+
+.review-card-number {
+  display: block;
+  font-size: 3rem;
+  font-weight: var(--weight-heavy);
+  line-height: 1;
+  letter-spacing: var(--tracking-display);
+  font-variant-numeric: tabular-nums;
+}
+
+.review-card-none {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+}
+
+.review-card-btn {
+  align-self: flex-start;
+  margin-top: var(--space-4);
+  padding-right: var(--space-3);
+  color: var(--block-bg);
+  background: var(--block-fg);
+}
+
+.home-section {
+  margin: var(--space-6) var(--space-1) var(--space-3);
+}
+
+/* Inside an open unit: a surface panel holding the grammar tip and the lesson path. */
+.unit-panel {
+  padding: var(--space-2);
+  color: var(--text);
+  background: var(--surface);
+  border-radius: var(--radius-lg);
 }
 
 .tip {
-  padding: 0.75rem 1rem;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 0.75rem;
+  border-bottom: 1px solid var(--line);
 }
 
-.tip summary {
-  min-height: 1.75rem;
+.tip-head {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  min-height: 3.5rem;
+  padding: var(--space-2);
+  list-style: none;
   cursor: pointer;
-  font-weight: 600;
+  border-radius: var(--radius-md);
 }
 
-.tip p {
-  margin: 0.75rem 0 0;
-  line-height: 1.5;
+.tip-head::-webkit-details-marker {
+  display: none;
 }
 
-.lessons {
-  display: grid;
-  gap: 0.75rem;
-  margin: 1rem 0 0;
-  padding: 0;
+.tip-chevron {
+  flex: none;
+  color: var(--muted);
+}
+
+.tip[open] .tip-chevron {
+  transform: rotate(180deg);
+}
+
+.tip-body {
+  padding: 0 var(--space-3) var(--space-3);
+}
+
+.tip-body p {
+  margin: var(--space-2) 0 0;
+  line-height: var(--leading-normal);
+}
+
+/* The lesson path: discs on a thread. The thread runs behind the badges from step to step. */
+.path {
+  margin: 0;
+  padding: var(--space-1) 0 0;
   list-style: none;
 }
 
-.lesson-node {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  width: 100%;
-  min-height: 3.5rem;
-  padding: 0.5rem 1rem;
-  text-align: left;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 0.75rem;
-  transition: transform 150ms var(--ease-out);
+.path-step {
+  position: relative;
 }
 
-.lesson-node:active:not(:disabled) {
-  transform: scale(0.97);
-}
-
-.lesson-node:disabled {
-  color: var(--muted);
-  background: transparent;
-}
-
-.node-number {
-  display: grid;
-  place-items: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  flex: none;
-  font-weight: 700;
-  color: var(--accent-text);
-  background: var(--accent);
-  border-radius: 50%;
-}
-
-.lesson-node:disabled .node-number {
+.path-step + .path-step::before {
+  position: absolute;
+  top: -0.875rem;
+  left: calc(var(--space-3) + 1.25rem - 1px);
+  width: 2px;
+  height: 1.75rem;
+  content: '';
   background: var(--line);
 }
 
-.node-title {
-  flex: 1;
-  font-weight: 600;
+.path-step[data-state='done'] + .path-step::before {
+  background: var(--done-fg);
 }
 
-.node-state {
-  font-size: 0.875rem;
+.path-node {
+  position: relative;
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  width: 100%;
+  min-height: 3.75rem;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+}
+
+.path-label {
+  flex: 1;
+  min-width: 0;
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+}
+
+.path-state {
+  flex: none;
+  font-size: var(--text-sm);
   color: var(--muted);
+}
+
+.path-node:disabled {
+  color: var(--muted);
+}
+
+/* the next lesson: a raised row with its action as a pill */
+.path-step[data-next] .path-node {
+  background: var(--accent-soft);
+}
+
+.path-step[data-next] .path-label {
+  font-weight: var(--weight-bold);
+}
+
+.path-step[data-next] .path-state {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  padding: 0 var(--space-4);
+  font-weight: var(--weight-bold);
+  color: var(--accent-text);
+  background: var(--accent);
+  border-radius: var(--radius-full);
 }
 
 /* Lesson */
