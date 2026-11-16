@@ -974,51 +974,38 @@ button:disabled {
   background: var(--wrong);
 }
 
-/* Result */
+/* Result: a coloured disc, a display headline, the numbers on colour blocks */
 
-.result main {
-  flex: 1;
-  padding: 3rem 1rem 1rem;
-  text-align: center;
-}
-
-.result-mark {
-  margin: 0;
-  font-size: 4rem;
-  line-height: 1;
-  color: var(--accent);
-  animation: pop 400ms var(--ease-out);
-}
-
-@keyframes pop {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-}
-
-.result-stats {
+.celebrate-mark {
   display: grid;
-  gap: 0.75rem;
-  margin: 2rem 0 0;
+  place-items: center;
 }
 
-.result-stats div {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.875rem 1rem;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 0.75rem;
+.result .stat-grid {
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  margin-top: var(--space-6);
+  text-align: left;
 }
 
-.result-stats dt {
-  color: var(--muted);
+/* XP earned leads, across the full width */
+.result .stat-tile:first-child {
+  grid-column: 1 / -1;
 }
 
-.result-stats dd {
-  margin: 0;
-  font-weight: 600;
+.result .stat-tile {
+  min-height: 6.5rem;
+  background: var(--block-bg);
+  padding: var(--space-5);
+  border-radius: var(--radius-xl);
+}
+
+.result .stat-tile > dd {
+  font-size: var(--text-xl);
+}
+
+.result .stat-tile:first-child > dd {
+  font-size: var(--text-3xl);
 }
 
 @media (hover: hover) and (pointer: fine) {
