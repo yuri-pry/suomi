@@ -2,13 +2,15 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   // relative base: the same build runs on a static host subpath and inside the APK
   base: './',
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      // the APK ships its own files, so a cache only delays each update by one launch: its worker unregisters itself
+      selfDestroying: mode === 'apk',
       // precache everything, unit content chunks included, so lessons work offline
       workbox: { globPatterns: ['**/*.{js,css,html,png,svg,woff2}'] },
       manifest: {
@@ -29,4 +31,4 @@ export default defineConfig({
       },
     }),
   ],
-});
+}));
