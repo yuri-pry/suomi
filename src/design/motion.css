@@ -289,11 +289,12 @@
 }
 
 /*
- * 8b. Lesson. The feedback sheet rises once per answer. Answer rows and the step
- * dots change colour, a short transition so a quick change of mind never stutters.
+ * 8b. Lesson. After Check, the footer takes its tint at once and only the verdict text
+ * rises: moving the whole footer would slide Continue under the thumb. Answer rows and
+ * step dots change colour over a short transition.
  */
 
-.action[data-verdict] {
+.action[data-verdict] .feedback {
   animation: ds-rise var(--dur-sheet) var(--ease-out) backwards;
 }
 
@@ -364,7 +365,7 @@
 
   /* :nth-child(n) matches every child and outranks the per-child delays above */
   .screen-push,
-  .action[data-verdict],
+  .action[data-verdict] .feedback,
   .stagger > :nth-child(n),
   .celebrate-mark {
     animation: ds-fade var(--dur-fast) ease backwards;
