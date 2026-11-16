@@ -272,5 +272,51 @@
       "Tulen kaupassa."
     ],
     "answer": 0
+  },
+  {
+    "id": "pl-u07-1",
+    "unit": "u07",
+    "type": "fill",
+    "promptLang": "fi",
+    "answerLang": "fi",
+    "prompt": "Minä odotan ___ pysäkillä.",
+    "hint": "bussi (bus)",
+    "answers": [
+      "bussia"
+    ],
+    "form": {
+      "base": "bussi",
+      "case": "osanto"
+    }
+  },
+  {
+    "id": "pl-u07-2",
+    "unit": "u07",
+    "type": "fill",
+    "promptLang": "fi",
+    "answerLang": "fi",
+    "prompt": "Hän käy ___.",
+    "hint": "pankki (in the bank)",
+    "answers": [
+      "pankissa"
+    ],
+    "form": {
+      "base": "pankki",
+      "case": "sisaolento"
+    }
+  },
+  {
+    "id": "pl-u07-3",
+    "unit": "u07",
+    "type": "choice",
+    "promptLang": "en",
+    "answerLang": "fi",
+    "prompt": "I help him on the street.",
+    "options": [
+      "Autan häntä kadulla.",
+      "Autan hän kadulla.",
+      "Autan hänelle kadulla."
+    ],
+    "answer": 0
   }
 ]

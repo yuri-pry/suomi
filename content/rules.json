@@ -1030,5 +1030,305 @@
         "en": "He/She is waiting for them."
       }
     ]
+  },
+  {
+    "id": "gradation-noun-a",
+    "type": "gradation",
+    "unit": "u07",
+    "title": "Nouns strong in the basic form, weak before case endings: kauppa - kaupassa, pankki - pankissa, katu - kadulla (illative and partitive stay strong)",
+    "examples": [
+      {
+        "fi": "Olen kaupassa.",
+        "en": "I am in the shop."
+      },
+      {
+        "fi": "Olen pankissa.",
+        "en": "I am in the bank."
+      },
+      {
+        "fi": "Pankki on kartalla.",
+        "en": "The bank is on the map."
+      },
+      {
+        "fi": "Bussi on kadulla.",
+        "en": "The bus is on the street."
+      },
+      {
+        "fi": "Asun kaupungissa.",
+        "en": "I live in the city."
+      },
+      {
+        "fi": "Menen kauppaan.",
+        "en": "I go to the shop."
+      }
+    ]
+  },
+  {
+    "id": "gradation-noun-b",
+    "type": "gradation",
+    "unit": "u07",
+    "title": "Nouns in -e are weak in the basic form and strong in the stem: osoite - osoitteessa, liike - liikkeessä, sade - sateessa",
+    "examples": [
+      {
+        "fi": "Asun osoitteessa Satamakatu viisi.",
+        "en": "I live at the address Satamakatu 5."
+      },
+      {
+        "fi": "Liikkeessä on iso ikkuna.",
+        "en": "The store has a big window."
+      },
+      {
+        "fi": "Parvekkeella on tuoli.",
+        "en": "There is a chair on the balcony."
+      },
+      {
+        "fi": "Odotan bussia sateessa.",
+        "en": "I wait for the bus in the rain."
+      }
+    ]
+  },
+  {
+    "id": "ssa-vs-lla",
+    "type": "case",
+    "unit": "u07",
+    "title": "-ssa in buildings and most cities; -lla on surfaces, at stops and stations, in some towns, and for transport",
+    "examples": [
+      {
+        "fi": "Olen pankissa.",
+        "en": "I am in the bank."
+      },
+      {
+        "fi": "Hän on kirjastossa.",
+        "en": "She is in the library."
+      },
+      {
+        "fi": "Asun Helsingissä.",
+        "en": "I live in Helsinki."
+      },
+      {
+        "fi": "Odotan pysäkillä.",
+        "en": "I wait at the stop."
+      },
+      {
+        "fi": "Asun Tampereella.",
+        "en": "I live in Tampere."
+      },
+      {
+        "fi": "Menen asemalle junalla.",
+        "en": "I go to the station by train."
+      }
+    ]
+  },
+  {
+    "id": "local-cases-six",
+    "type": "case",
+    "unit": "u07",
+    "title": "Six local cases: missä -ssa/-lla, mistä -sta/-lta, mihin illative/-lle",
+    "examples": [
+      {
+        "fi": "Olen kaupassa.",
+        "en": "I am in the shop."
+      },
+      {
+        "fi": "Tulen kaupasta.",
+        "en": "I come from the shop."
+      },
+      {
+        "fi": "Menen kauppaan.",
+        "en": "I go to the shop."
+      },
+      {
+        "fi": "Olen kadulla.",
+        "en": "I am on the street."
+      },
+      {
+        "fi": "Tulen kadulta.",
+        "en": "I come from the street."
+      },
+      {
+        "fi": "Menen kadulle.",
+        "en": "I go onto the street."
+      }
+    ]
+  },
+  {
+    "id": "rektio-odottaa-part",
+    "type": "rektio",
+    "unit": "u07",
+    "title": "odottaa + partitive (to wait for)",
+    "verb": "odottaa",
+    "requires": "osanto",
+    "examples": [
+      {
+        "fi": "Odotan bussia.",
+        "en": "I am waiting for the bus.",
+        "word": "bussia"
+      },
+      {
+        "fi": "Odotamme ratikkaa.",
+        "en": "We are waiting for the tram.",
+        "word": "ratikkaa"
+      },
+      {
+        "fi": "Hän odottaa taksia.",
+        "en": "He is waiting for a taxi.",
+        "word": "taksia"
+      },
+      {
+        "fi": "Odotan sinua asemalla.",
+        "en": "I am waiting for you at the station.",
+        "word": "sinua"
+      }
+    ]
+  },
+  {
+    "id": "rektio-rakastaa-part",
+    "type": "rektio",
+    "unit": "u07",
+    "title": "rakastaa + partitive (to love)",
+    "verb": "rakastaa",
+    "requires": "osanto",
+    "examples": [
+      {
+        "fi": "Rakastan sinua.",
+        "en": "I love you.",
+        "word": "sinua"
+      },
+      {
+        "fi": "Rakastan Helsinkiä.",
+        "en": "I love Helsinki.",
+        "word": "Helsinkiä"
+      },
+      {
+        "fi": "Hän rakastaa Suomea.",
+        "en": "She loves Finland.",
+        "word": "Suomea"
+      },
+      {
+        "fi": "Isä rakastaa kahvia.",
+        "en": "Dad loves coffee.",
+        "word": "kahvia"
+      }
+    ]
+  },
+  {
+    "id": "rektio-auttaa-part",
+    "type": "rektio",
+    "unit": "u07",
+    "title": "auttaa + partitive (to help)",
+    "verb": "auttaa",
+    "requires": "osanto",
+    "examples": [
+      {
+        "fi": "Autan turistia.",
+        "en": "I help the tourist.",
+        "word": "turistia"
+      },
+      {
+        "fi": "Autan häntä.",
+        "en": "I help him.",
+        "word": "häntä"
+      },
+      {
+        "fi": "Maria auttaa meitä.",
+        "en": "Maria helps us.",
+        "word": "meitä"
+      },
+      {
+        "fi": "Autamme ystävää.",
+        "en": "We help a friend.",
+        "word": "ystävää"
+      }
+    ]
+  },
+  {
+    "id": "rektio-etsia-part",
+    "type": "rektio",
+    "unit": "u07",
+    "title": "etsiä + partitive (to look for)",
+    "verb": "etsiä",
+    "requires": "osanto",
+    "examples": [
+      {
+        "fi": "Etsin osoitetta.",
+        "en": "I am looking for the address.",
+        "word": "osoitetta"
+      },
+      {
+        "fi": "Hän etsii pysäkkiä.",
+        "en": "He is looking for the stop.",
+        "word": "pysäkkiä"
+      },
+      {
+        "fi": "Etsimme asemaa.",
+        "en": "We are looking for the station.",
+        "word": "asemaa"
+      },
+      {
+        "fi": "Turisti etsii kirjastoa.",
+        "en": "The tourist is looking for the library.",
+        "word": "kirjastoa"
+      }
+    ]
+  },
+  {
+    "id": "rektio-katsoa-part",
+    "type": "rektio",
+    "unit": "u07",
+    "title": "katsoa + partitive (to look at, watch)",
+    "verb": "katsoa",
+    "requires": "osanto",
+    "examples": [
+      {
+        "fi": "Katson karttaa.",
+        "en": "I am looking at the map.",
+        "word": "karttaa"
+      },
+      {
+        "fi": "Hän katsoo televisiota.",
+        "en": "He is watching television.",
+        "word": "televisiota"
+      },
+      {
+        "fi": "Katsomme karttaa.",
+        "en": "We are looking at the map.",
+        "word": "karttaa"
+      },
+      {
+        "fi": "Katson sinua.",
+        "en": "I am looking at you.",
+        "word": "sinua"
+      }
+    ]
+  },
+  {
+    "id": "rektio-kuunnella-part",
+    "type": "rektio",
+    "unit": "u07",
+    "title": "kuunnella + partitive (to listen to)",
+    "verb": "kuunnella",
+    "requires": "osanto",
+    "examples": [
+      {
+        "fi": "Kuuntelen äitiä.",
+        "en": "I listen to my mother.",
+        "word": "äitiä"
+      },
+      {
+        "fi": "Kuuntelemme opettajaa.",
+        "en": "We listen to the teacher.",
+        "word": "opettajaa"
+      },
+      {
+        "fi": "Kuuntelen sinua.",
+        "en": "I am listening to you.",
+        "word": "sinua"
+      },
+      {
+        "fi": "Hän kuuntelee isää.",
+        "en": "He listens to his father.",
+        "word": "isää"
+      }
+    ]
   }
 ]

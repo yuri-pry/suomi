@@ -1,0 +1,1328 @@
+{
+  "id": "u07",
+  "section": 2,
+  "title": "Getting around",
+  "tip": {
+    "en": "Many nouns have a strong consonant in the basic form and a weak one before most case endings: kauppa - kaupassa, pankki - pankissa, kartta - kartalla, katu - kadulla, silta - sillalla, kaupunki - kaupungissa. The illative and the partitive keep the strong grade: kauppaan, kaupunkiin, karttaa. Nouns in -e work the other way: the basic form is weak and the stem is strong: osoite - osoitteessa, liike - liikkeessä, sade - sateessa. Their partitive keeps the weak grade: osoitetta, liikettä.\n\nThere are six local cases. Inside (-ssa, -sta, -an/-in): kaupassa, kaupasta, kauppaan. Outside (-lla, -lta, -lle): kadulla, kadulta, kadulle. Use -ssa for buildings, closed places and most cities (pankissa, Helsingissä). Use -lla for surfaces, stops, stations and some towns (kadulla, pysäkillä, asemalla, Tampereella), and for transport: bussilla (by bus).\n\nSome verbs take their object in the partitive: odottaa (Odotan bussia), rakastaa (Rakastan sinua), auttaa (Autan turistia), etsiä (Etsin osoitetta), katsoa (Katson karttaa), kuunnella (Kuuntelen äitiä)."
+  },
+  "lessons": [
+    {
+      "id": "u07-l1",
+      "title": "Transport and places in town",
+      "exercises": [
+        {
+          "id": "u07-l1-e01",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "train",
+          "options": [
+            "juna",
+            "ratikka",
+            "taksi"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u07-l1-e02",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "street",
+          "options": [
+            "katu",
+            "silta",
+            "tori"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u07-l1-e03",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "juna",
+              "en": "train"
+            },
+            {
+              "fi": "ratikka",
+              "en": "tram"
+            },
+            {
+              "fi": "pysäkki",
+              "en": "stop"
+            },
+            {
+              "fi": "lippu",
+              "en": "ticket"
+            },
+            {
+              "fi": "asema",
+              "en": "station"
+            }
+          ]
+        },
+        {
+          "id": "u07-l1-e04",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "katu",
+              "en": "street"
+            },
+            {
+              "fi": "silta",
+              "en": "bridge"
+            },
+            {
+              "fi": "tori",
+              "en": "market square"
+            },
+            {
+              "fi": "kaupunki",
+              "en": "city"
+            },
+            {
+              "fi": "keskusta",
+              "en": "city centre"
+            }
+          ]
+        },
+        {
+          "id": "u07-l1-e05",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "kartta",
+              "en": "map"
+            },
+            {
+              "fi": "osoite",
+              "en": "address"
+            },
+            {
+              "fi": "pankki",
+              "en": "bank"
+            },
+            {
+              "fi": "sairaala",
+              "en": "hospital"
+            },
+            {
+              "fi": "turisti",
+              "en": "tourist"
+            }
+          ]
+        },
+        {
+          "id": "u07-l1-e06",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "oikealla",
+              "en": "on the right"
+            },
+            {
+              "fi": "vasemmalla",
+              "en": "on the left"
+            },
+            {
+              "fi": "lähellä",
+              "en": "near"
+            },
+            {
+              "fi": "kaukana",
+              "en": "far"
+            }
+          ]
+        },
+        {
+          "id": "u07-l1-e07",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "odottaa",
+              "en": "wait for"
+            },
+            {
+              "fi": "etsiä",
+              "en": "look for"
+            },
+            {
+              "fi": "katsoa",
+              "en": "look at"
+            },
+            {
+              "fi": "kuunnella",
+              "en": "listen to"
+            },
+            {
+              "fi": "auttaa",
+              "en": "help"
+            }
+          ]
+        },
+        {
+          "id": "u07-l1-e08",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "to love",
+          "options": [
+            "rakastaa",
+            "auttaa",
+            "odottaa"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u07-l1-e09",
+          "type": "match",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "",
+          "pairs": [
+            {
+              "fi": "liike",
+              "en": "store"
+            },
+            {
+              "fi": "parveke",
+              "en": "balcony"
+            },
+            {
+              "fi": "sade",
+              "en": "rain"
+            },
+            {
+              "fi": "lento",
+              "en": "flight"
+            },
+            {
+              "fi": "vaate",
+              "en": "garment"
+            }
+          ]
+        },
+        {
+          "id": "u07-l1-e10",
+          "type": "choice",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "pysäkki",
+          "options": [
+            "stop",
+            "station",
+            "ticket"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u07-l1-e11",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "en",
+          "prompt": "lähellä",
+          "options": [
+            "near",
+            "far",
+            "on the right"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u07-l1-e12",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Pankki on lähellä.",
+          "options": [
+            "Pankki on lähellä.",
+            "Pankki on kaukana.",
+            "Asema on lähellä."
+          ],
+          "answer": 0
+        },
+        {
+          "id": "u07-l1-e13",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Minulla on ___.",
+          "hint": "ticket",
+          "answers": [
+            "lippu"
+          ],
+          "form": {
+            "base": "lippu",
+            "case": "nimento"
+          }
+        },
+        {
+          "id": "u07-l1-e14",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Asema on ___.",
+          "hint": "far",
+          "answers": [
+            "kaukana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u07-l2",
+      "title": "Strong and weak: gradation in nouns",
+      "exercises": [
+        {
+          "id": "u07-l2-e01",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "in the shop",
+          "options": [
+            "kaupassa",
+            "kauppassa",
+            "kaupasta"
+          ],
+          "answer": 0,
+          "invalid": [
+            1
+          ],
+          "tags": [
+            "gradation-noun-a"
+          ]
+        },
+        {
+          "id": "u07-l2-e02",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "in the bank",
+          "options": [
+            "pankissa",
+            "pankkissa",
+            "pankista"
+          ],
+          "answer": 0,
+          "invalid": [
+            1
+          ],
+          "tags": [
+            "gradation-noun-a"
+          ]
+        },
+        {
+          "id": "u07-l2-e03",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "on the map",
+          "options": [
+            "kartalla",
+            "karttalla",
+            "kartalta"
+          ],
+          "answer": 0,
+          "invalid": [
+            1
+          ],
+          "tags": [
+            "gradation-noun-a",
+            "ssa-vs-lla"
+          ]
+        },
+        {
+          "id": "u07-l2-e04",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Maria on ___.",
+          "hint": "kauppa (in the shop)",
+          "answers": [
+            "kaupassa"
+          ],
+          "form": {
+            "base": "kauppa",
+            "case": "sisaolento"
+          },
+          "tags": [
+            "gradation-noun-a"
+          ]
+        },
+        {
+          "id": "u07-l2-e05",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Bussi on ___.",
+          "hint": "katu (on the street)",
+          "answers": [
+            "kadulla"
+          ],
+          "form": {
+            "base": "katu",
+            "case": "ulkoolento"
+          },
+          "tags": [
+            "gradation-noun-a",
+            "ssa-vs-lla"
+          ]
+        },
+        {
+          "id": "u07-l2-e06",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Pankki on ___.",
+          "hint": "kartta (on the map)",
+          "answers": [
+            "kartalla"
+          ],
+          "form": {
+            "base": "kartta",
+            "case": "ulkoolento"
+          },
+          "tags": [
+            "gradation-noun-a",
+            "ssa-vs-lla"
+          ]
+        },
+        {
+          "id": "u07-l2-e07",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Ratikka on ___.",
+          "hint": "silta (on the bridge)",
+          "answers": [
+            "sillalla"
+          ],
+          "form": {
+            "base": "silta",
+            "case": "ulkoolento"
+          },
+          "tags": [
+            "gradation-noun-a",
+            "ssa-vs-lla"
+          ]
+        },
+        {
+          "id": "u07-l2-e08",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Asun ___.",
+          "hint": "kaupunki (in the city)",
+          "answers": [
+            "kaupungissa"
+          ],
+          "form": {
+            "base": "kaupunki",
+            "case": "sisaolento"
+          },
+          "tags": [
+            "gradation-noun-a"
+          ]
+        },
+        {
+          "id": "u07-l2-e09",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Asun ___.",
+          "hint": "Helsinki (in Helsinki)",
+          "answers": [
+            "Helsingissä"
+          ],
+          "form": {
+            "base": "Helsinki",
+            "case": "sisaolento"
+          },
+          "tags": [
+            "gradation-noun-a"
+          ]
+        },
+        {
+          "id": "u07-l2-e10",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "at the address",
+          "options": [
+            "osoitteessa",
+            "osoiteessa",
+            "osoitteesta"
+          ],
+          "answer": 0,
+          "invalid": [
+            1
+          ],
+          "tags": [
+            "gradation-noun-b"
+          ]
+        },
+        {
+          "id": "u07-l2-e11",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "on the balcony",
+          "options": [
+            "parvekkeella",
+            "parvekella",
+            "parvekkeelta"
+          ],
+          "answer": 0,
+          "invalid": [
+            1
+          ],
+          "tags": [
+            "gradation-noun-b",
+            "ssa-vs-lla"
+          ]
+        },
+        {
+          "id": "u07-l2-e12",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Asun ___ Satamakatu viisi.",
+          "hint": "osoite (at the address)",
+          "answers": [
+            "osoitteessa"
+          ],
+          "form": {
+            "base": "osoite",
+            "case": "sisaolento"
+          },
+          "tags": [
+            "gradation-noun-b"
+          ]
+        },
+        {
+          "id": "u07-l2-e13",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "___ on iso ikkuna.",
+          "hint": "liike (in the store)",
+          "answers": [
+            "liikkeessä"
+          ],
+          "form": {
+            "base": "liike",
+            "case": "sisaolento"
+          },
+          "tags": [
+            "gradation-noun-b"
+          ]
+        },
+        {
+          "id": "u07-l2-e14",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Äiti on ___.",
+          "hint": "parveke (on the balcony)",
+          "answers": [
+            "parvekkeella"
+          ],
+          "form": {
+            "base": "parveke",
+            "case": "ulkoolento"
+          },
+          "tags": [
+            "gradation-noun-b",
+            "ssa-vs-lla"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u07-l3",
+      "title": "Where, from where, to where",
+      "exercises": [
+        {
+          "id": "u07-l3-e01",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I am at the station.",
+          "options": [
+            "Olen asemalla.",
+            "Olen asemalta.",
+            "Olen asemalle."
+          ],
+          "answer": 0,
+          "tags": [
+            "local-cases-six",
+            "ssa-vs-lla"
+          ]
+        },
+        {
+          "id": "u07-l3-e02",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I come from the bank.",
+          "options": [
+            "Tulen pankista.",
+            "Tulen pankissa.",
+            "Tulen pankkiin."
+          ],
+          "answer": 0,
+          "tags": [
+            "local-cases-six",
+            "gradation-noun-a"
+          ]
+        },
+        {
+          "id": "u07-l3-e03",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I go to the bridge.",
+          "options": [
+            "Menen sillalle.",
+            "Menen sillalta.",
+            "Menen sillalla."
+          ],
+          "answer": 0,
+          "tags": [
+            "local-cases-six",
+            "ssa-vs-lla"
+          ]
+        },
+        {
+          "id": "u07-l3-e04",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I live in Tampere.",
+          "options": [
+            "Asun Tampereella.",
+            "Asun Tampereessa.",
+            "Asun Tampereelta."
+          ],
+          "answer": 0,
+          "tags": [
+            "ssa-vs-lla"
+          ]
+        },
+        {
+          "id": "u07-l3-e05",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I go to the centre by bus.",
+          "options": [
+            "Menen keskustaan bussilla.",
+            "Menen keskustaan bussista.",
+            "Menen keskustaan bussiin."
+          ],
+          "answer": 0,
+          "tags": [
+            "ssa-vs-lla",
+            "local-cases-six"
+          ]
+        },
+        {
+          "id": "u07-l3-e06",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Olen ___.",
+          "hint": "asema (at the station)",
+          "answers": [
+            "asemalla"
+          ],
+          "form": {
+            "base": "asema",
+            "case": "ulkoolento"
+          },
+          "tags": [
+            "local-cases-six",
+            "ssa-vs-lla"
+          ]
+        },
+        {
+          "id": "u07-l3-e07",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Tulen ___.",
+          "hint": "asema (from the station)",
+          "answers": [
+            "asemalta"
+          ],
+          "form": {
+            "base": "asema",
+            "case": "ulkoeronto"
+          },
+          "tags": [
+            "local-cases-six",
+            "ssa-vs-lla"
+          ]
+        },
+        {
+          "id": "u07-l3-e08",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Menen ___.",
+          "hint": "asema (to the station)",
+          "answers": [
+            "asemalle"
+          ],
+          "form": {
+            "base": "asema",
+            "case": "ulkotulento"
+          },
+          "tags": [
+            "local-cases-six",
+            "ssa-vs-lla"
+          ]
+        },
+        {
+          "id": "u07-l3-e09",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Menen ___.",
+          "hint": "kauppa (to the shop)",
+          "answers": [
+            "kauppaan"
+          ],
+          "form": {
+            "base": "kauppa",
+            "case": "sisatulento"
+          },
+          "tags": [
+            "local-cases-six",
+            "gradation-noun-a"
+          ]
+        },
+        {
+          "id": "u07-l3-e10",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Tulen ___.",
+          "hint": "pankki (from the bank)",
+          "answers": [
+            "pankista"
+          ],
+          "form": {
+            "base": "pankki",
+            "case": "sisaeronto"
+          },
+          "tags": [
+            "local-cases-six",
+            "gradation-noun-a"
+          ]
+        },
+        {
+          "id": "u07-l3-e11",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Menemme ___.",
+          "hint": "kaupunki (to the city)",
+          "answers": [
+            "kaupunkiin"
+          ],
+          "form": {
+            "base": "kaupunki",
+            "case": "sisatulento"
+          },
+          "tags": [
+            "local-cases-six",
+            "gradation-noun-a"
+          ]
+        },
+        {
+          "id": "u07-l3-e12",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hän tulee ___.",
+          "hint": "katu (from the street)",
+          "answers": [
+            "kadulta"
+          ],
+          "form": {
+            "base": "katu",
+            "case": "ulkoeronto"
+          },
+          "tags": [
+            "local-cases-six",
+            "gradation-noun-a",
+            "ssa-vs-lla"
+          ]
+        },
+        {
+          "id": "u07-l3-e13",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I go to the station by train.",
+          "answers": [
+            "Menen asemalle junalla.",
+            "Minä menen asemalle junalla.",
+            "Menen junalla asemalle.",
+            "Minä menen junalla asemalle."
+          ],
+          "tiles": [
+            "asemalla",
+            "minä"
+          ],
+          "tags": [
+            "local-cases-six",
+            "ssa-vs-lla"
+          ]
+        },
+        {
+          "id": "u07-l3-e14",
+          "type": "translate",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I come from the bank and go to the station.",
+          "answers": [
+            "Tulen pankista ja menen asemalle.",
+            "Minä tulen pankista ja menen asemalle.",
+            "Minä tulen pankista ja minä menen asemalle."
+          ],
+          "tags": [
+            "local-cases-six",
+            "gradation-noun-a",
+            "ssa-vs-lla"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u07-l4",
+      "title": "Asking the way",
+      "exercises": [
+        {
+          "id": "u07-l4-e01",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I am waiting for the bus.",
+          "options": [
+            "Odotan bussia.",
+            "Odotan bussi.",
+            "Odotan bussin."
+          ],
+          "answer": 0,
+          "tags": [
+            "rektio-odottaa-part"
+          ]
+        },
+        {
+          "id": "u07-l4-e02",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I am looking for the address.",
+          "options": [
+            "Etsin osoitetta.",
+            "Etsin osoite.",
+            "Etsin osoitteessa."
+          ],
+          "answer": 0,
+          "tags": [
+            "rektio-etsia-part"
+          ]
+        },
+        {
+          "id": "u07-l4-e03",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "He is helping a tourist.",
+          "options": [
+            "Hän auttaa turistia.",
+            "Hän auttaa turisti.",
+            "Hän auttaa turistille."
+          ],
+          "answer": 0,
+          "tags": [
+            "rektio-auttaa-part"
+          ]
+        },
+        {
+          "id": "u07-l4-e04",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Katson ___.",
+          "hint": "kartta (the map)",
+          "answers": [
+            "karttaa"
+          ],
+          "form": {
+            "base": "kartta",
+            "case": "osanto"
+          },
+          "tags": [
+            "rektio-katsoa-part"
+          ]
+        },
+        {
+          "id": "u07-l4-e05",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Etsin ___.",
+          "hint": "osoite (the address)",
+          "answers": [
+            "osoitetta"
+          ],
+          "form": {
+            "base": "osoite",
+            "case": "osanto"
+          },
+          "tags": [
+            "rektio-etsia-part"
+          ]
+        },
+        {
+          "id": "u07-l4-e06",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Odotamme ___ pysäkillä.",
+          "hint": "ratikka (the tram)",
+          "answers": [
+            "ratikkaa"
+          ],
+          "form": {
+            "base": "ratikka",
+            "case": "osanto"
+          },
+          "tags": [
+            "rektio-odottaa-part",
+            "ssa-vs-lla"
+          ]
+        },
+        {
+          "id": "u07-l4-e07",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hän etsii ___.",
+          "hint": "pysäkki (the stop)",
+          "answers": [
+            "pysäkkiä"
+          ],
+          "form": {
+            "base": "pysäkki",
+            "case": "osanto"
+          },
+          "tags": [
+            "rektio-etsia-part"
+          ]
+        },
+        {
+          "id": "u07-l4-e08",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Äiti rakastaa ___.",
+          "hint": "kahvi (coffee)",
+          "answers": [
+            "kahvia"
+          ],
+          "form": {
+            "base": "kahvi",
+            "case": "osanto"
+          },
+          "tags": [
+            "rektio-rakastaa-part"
+          ]
+        },
+        {
+          "id": "u07-l4-e09",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Autan ___.",
+          "hint": "turisti (the tourist)",
+          "answers": [
+            "turistia"
+          ],
+          "form": {
+            "base": "turisti",
+            "case": "osanto"
+          },
+          "tags": [
+            "rektio-auttaa-part"
+          ]
+        },
+        {
+          "id": "u07-l4-e10",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Kuuntelen ___.",
+          "hint": "äiti (mother)",
+          "answers": [
+            "äitiä"
+          ],
+          "form": {
+            "base": "äiti",
+            "case": "osanto"
+          },
+          "tags": [
+            "rektio-kuunnella-part"
+          ]
+        },
+        {
+          "id": "u07-l4-e11",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Katson karttaa.",
+          "options": [
+            "Katson karttaa.",
+            "Katson kartalla.",
+            "Katson kartalta."
+          ],
+          "answer": 0,
+          "tags": [
+            "rektio-katsoa-part"
+          ]
+        },
+        {
+          "id": "u07-l4-e12",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Anna on turisti. Hän rakastaa Helsinkiä. Nyt hän etsii asemaa ja katsoo karttaa. Maria auttaa häntä.",
+          "prompt": "Anna etsii pankkia.",
+          "answer": false,
+          "tags": [
+            "rektio-etsia-part"
+          ]
+        },
+        {
+          "id": "u07-l4-e13",
+          "type": "truefalse",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "text": "Anna on turisti. Hän rakastaa Helsinkiä. Nyt hän etsii asemaa ja katsoo karttaa. Maria auttaa häntä.",
+          "prompt": "Anna katsoo karttaa.",
+          "answer": true,
+          "tags": [
+            "rektio-katsoa-part"
+          ]
+        },
+        {
+          "id": "u07-l4-e14",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I am waiting for you at the stop.",
+          "answers": [
+            "Odotan sinua pysäkillä.",
+            "Minä odotan sinua pysäkillä.",
+            "Odotan pysäkillä sinua.",
+            "Minä odotan pysäkillä sinua."
+          ],
+          "tiles": [
+            "sinä",
+            "minä"
+          ],
+          "tags": [
+            "rektio-odottaa-part",
+            "ssa-vs-lla",
+            "pronoun-partitive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u07-l5",
+      "title": "Mix",
+      "exercises": [
+        {
+          "id": "u07-l5-e01",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Me menemme ___.",
+          "hint": "kirjasto (to the library)",
+          "answers": [
+            "kirjastoon"
+          ],
+          "form": {
+            "base": "kirjasto",
+            "case": "sisatulento"
+          },
+          "tags": [
+            "illative-form",
+            "rektio-menna-hin"
+          ]
+        },
+        {
+          "id": "u07-l5-e02",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Odotan ___ asemalla.",
+          "hint": "sinä (you)",
+          "answers": [
+            "sinua"
+          ],
+          "form": {
+            "base": "sinä",
+            "case": "osanto"
+          },
+          "tags": [
+            "rektio-odottaa-part",
+            "pronoun-partitive"
+          ]
+        },
+        {
+          "id": "u07-l5-e03",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Rakastan ___.",
+          "hint": "Helsinki",
+          "answers": [
+            "Helsinkiä"
+          ],
+          "form": {
+            "base": "Helsinki",
+            "case": "osanto"
+          },
+          "tags": [
+            "rektio-rakastaa-part"
+          ]
+        },
+        {
+          "id": "u07-l5-e04",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Me ___ kello seitsemän.",
+          "hint": "herätä",
+          "answers": [
+            "heräämme"
+          ],
+          "form": {
+            "base": "herätä",
+            "person": "1",
+            "number": "plural"
+          },
+          "tags": [
+            "verbtype-4"
+          ]
+        },
+        {
+          "id": "u07-l5-e05",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I love you.",
+          "options": [
+            "Rakastan sinua.",
+            "Rakastan sinä.",
+            "Rakastan sinun."
+          ],
+          "answer": 0,
+          "tags": [
+            "rektio-rakastaa-part",
+            "pronoun-partitive"
+          ]
+        },
+        {
+          "id": "u07-l5-e06",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hän rakastaa ___.",
+          "hint": "Tampere",
+          "answers": [
+            "Tamperetta"
+          ],
+          "form": {
+            "base": "Tampere",
+            "case": "osanto"
+          },
+          "tags": [
+            "rektio-rakastaa-part"
+          ]
+        },
+        {
+          "id": "u07-l5-e07",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Kuuntelemme ___.",
+          "hint": "opettaja (the teacher)",
+          "answers": [
+            "opettajaa"
+          ],
+          "form": {
+            "base": "opettaja",
+            "case": "osanto"
+          },
+          "tags": [
+            "rektio-kuunnella-part"
+          ]
+        },
+        {
+          "id": "u07-l5-e08",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Hän katsoo ___.",
+          "hint": "televisio (television)",
+          "answers": [
+            "televisiota"
+          ],
+          "form": {
+            "base": "televisio",
+            "case": "osanto"
+          },
+          "tags": [
+            "rektio-katsoa-part"
+          ]
+        },
+        {
+          "id": "u07-l5-e09",
+          "type": "fill",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Maria auttaa ___.",
+          "hint": "me (us)",
+          "answers": [
+            "meitä"
+          ],
+          "form": {
+            "base": "me",
+            "case": "osanto"
+          },
+          "tags": [
+            "rektio-auttaa-part",
+            "pronoun-partitive"
+          ]
+        },
+        {
+          "id": "u07-l5-e10",
+          "type": "choice",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I live in Helsinki.",
+          "options": [
+            "Asun Helsingissä.",
+            "Asun Helsinkissä.",
+            "Asun Helsingistä."
+          ],
+          "answer": 0,
+          "invalid": [
+            1
+          ],
+          "tags": [
+            "gradation-noun-a",
+            "ssa-vs-lla"
+          ]
+        },
+        {
+          "id": "u07-l5-e11",
+          "type": "order",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "The tourist is looking for the address on the map.",
+          "answers": [
+            "Turisti etsii osoitetta kartalta.",
+            "Turisti etsii kartalta osoitetta.",
+            "Turisti etsii osoitetta kartalla.",
+            "Turisti etsii kartalla osoitetta."
+          ],
+          "tiles": [
+            "kartalla",
+            "asemaa"
+          ],
+          "tags": [
+            "rektio-etsia-part",
+            "ssa-vs-lla"
+          ]
+        },
+        {
+          "id": "u07-l5-e12",
+          "type": "translate",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I am waiting for the tram at the stop.",
+          "answers": [
+            "Odotan ratikkaa pysäkillä.",
+            "Minä odotan ratikkaa pysäkillä.",
+            "Odotan pysäkillä ratikkaa.",
+            "Minä odotan pysäkillä ratikkaa."
+          ],
+          "tags": [
+            "rektio-odottaa-part",
+            "ssa-vs-lla"
+          ]
+        },
+        {
+          "id": "u07-l5-e13",
+          "type": "translate",
+          "promptLang": "en",
+          "answerLang": "fi",
+          "prompt": "I listen to my mother and help a friend.",
+          "answers": [
+            "Kuuntelen äitiä ja autan ystävää.",
+            "Minä kuuntelen äitiä ja autan ystävää.",
+            "Minä kuuntelen äitiä ja minä autan ystävää.",
+            "Kuuntelen äitiäni ja autan ystävää.",
+            "Minä kuuntelen äitiäni ja autan ystävää."
+          ],
+          "tags": [
+            "rektio-kuunnella-part",
+            "rektio-auttaa-part"
+          ]
+        },
+        {
+          "id": "u07-l5-e14",
+          "type": "listen",
+          "promptLang": "fi",
+          "answerLang": "fi",
+          "prompt": "Kuuntelen sinua.",
+          "options": [
+            "Kuuntelen sinua.",
+            "Kuuntelen häntä.",
+            "Kuuntelemme sinua."
+          ],
+          "answer": 0,
+          "tags": [
+            "rektio-kuunnella-part",
+            "pronoun-partitive"
+          ]
+        }
+      ]
+    }
+  ]
+}
