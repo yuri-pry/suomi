@@ -1,3 +1,4 @@
+import { Icon } from '../design/Icon';
 import type { Progress } from '../lib/progress';
 import { t, type StringKey } from '../lib/strings';
 
@@ -59,7 +60,10 @@ export function Settings({ progress, onChange, onPlacement }: Props) {
         onPick={(v) => onChange({ theme: v })}
       />
       <label className="setting switch-row">
-        <span>{t('haptics', lang)}</span>
+        <span className="row-tile" aria-hidden="true">
+          <Icon name="vibrate" size={20} />
+        </span>
+        <span className="row-label">{t('haptics', lang)}</span>
         <input
           type="checkbox"
           role="switch"
@@ -69,8 +73,11 @@ export function Settings({ progress, onChange, onPlacement }: Props) {
         />
       </label>
       <div className="setting switch-row">
-        <span>{t('placement', lang)}</span>
-        <button type="button" className="btn btn-secondary" onClick={onPlacement}>
+        <span className="row-tile" aria-hidden="true">
+          <Icon name="target" size={20} />
+        </span>
+        <span className="row-label">{t('placement', lang)}</span>
+        <button type="button" className="btn btn-small btn-secondary" onClick={onPlacement}>
           {t('retake', lang)}
         </button>
       </div>

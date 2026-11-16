@@ -53,6 +53,7 @@ const S = {
   lessonsDone: { en: 'Lessons done', fi: 'Tehdyt oppitunnit' },
   accuracy: { en: 'Right first time', fi: 'Oikein ensimmäisellä kerralla' },
   avatar: { en: 'Avatar', fi: 'Profiilikuva' },
+  overview: { en: 'Overview', fi: 'Yleiskatsaus' },
   loading: { en: 'Loading…', fi: 'Ladataan…' },
   welcomeTitle: { en: 'How much Finnish do you know?', fi: 'Kuinka paljon osaat suomea?' },
   welcomeSub: { en: 'Pick the line that fits you best.', fi: 'Valitse sinulle sopivin vaihtoehto.' },

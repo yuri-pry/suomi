@@ -1021,6 +1021,67 @@ button:disabled {
   }
 }
 
-.page .avatar-grid {
-  margin-bottom: 1rem;
+/* Profile: the chosen avatar on its own colour block with the streak, then the overview and the picker */
+
+.profile-hero {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-2);
+  padding: var(--space-6) var(--space-5) var(--space-5);
+  text-align: center;
+  border-radius: var(--radius-xl);
 }
+
+/* the avatar disc shares the block's tone, so a surface ring sets it apart */
+.profile-avatar {
+  margin-bottom: var(--space-2);
+  box-shadow: 0 0 0 4px var(--surface);
+}
+
+.profile-streak {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+}
+
+.profile-streak-number {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-heavy);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-display);
+}
+
+.profile-best {
+  margin: 0;
+  font-size: var(--text-sm);
+  opacity: 0.85;
+}
+
+.eyebrow.profile-section {
+  margin: var(--space-6) 0 var(--space-3);
+}
+
+.profile-stats dt,
+.profile-stats dd {
+  margin: 0;
+}
+
+.profile-stat-label {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.avatar-grid.card {
+  padding: var(--space-3);
+}
+
+/* Settings: legends as eyebrows, choices as pill tracks, icon tiles on the switch rows */
+
+.switch-row .row-label {
+  flex: 1;
+}
+
