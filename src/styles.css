@@ -470,7 +470,8 @@ button:disabled {
 
 .lesson-top {
   display: grid;
-  grid-template-columns: var(--tap-min) 1fr var(--tap-min);
+  /* equal side columns keep the title centred; wide enough for "12 / 16" */
+  grid-template-columns: 3.75rem 1fr 3.75rem;
   gap: var(--space-2);
   align-items: center;
   padding: calc(var(--space-3) + env(safe-area-inset-top, 0px)) var(--space-4) var(--space-2);
@@ -493,6 +494,7 @@ button:disabled {
   font-variant-numeric: tabular-nums;
   color: var(--muted);
   text-align: right;
+  white-space: nowrap;
 }
 
 /* Step dots: each step owns its dot and the thread leading into it from the left. */
@@ -525,8 +527,10 @@ button:disabled {
   content: none;
 }
 
+/* above the next step's thread, which is painted later */
 .step::after {
   position: relative;
+  z-index: 1;
   width: 0.625rem;
   height: 0.625rem;
   content: '';

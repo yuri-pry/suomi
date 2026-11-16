@@ -215,4 +215,5 @@ or callout on controls, hover only for a fine pointer.
 - Nothing was tested on a phone. Screens were checked as headless Chrome screenshots at 390 × 844 in both
   themes, which shows layout and colour but not touch, safe areas, keyboard overlap or how motion feels.
 - The reduced-motion and reduced-transparency paths were read from code, not run.
-- Finnish interface strings were added for every new label but the Finnish layout was not screenshotted.
+- In Finnish only Home, Profile and Settings were screenshotted (light). "Automaattinen" just fits its
+  segment at 390 px; a narrower phone may clip it.

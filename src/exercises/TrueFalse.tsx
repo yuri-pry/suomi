@@ -34,7 +34,8 @@ export function TrueFalse({ exercise, selected, onSelect, locked, lang }: Props)
             onClick={() => onSelect(value)}
           >
             <span className="tf-icon" aria-hidden="true">
-              <Icon name={value ? 'check' : 'cross'} size={28} />
+              {/* once checked, the mark says right or wrong, as in Choice */}
+              <Icon name={(locked ? value === exercise.answer : value) ? 'check' : 'cross'} size={28} />
             </span>
             {t(value ? 'true' : 'false', lang)}
           </button>
