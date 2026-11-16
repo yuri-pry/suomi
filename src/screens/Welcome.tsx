@@ -21,8 +21,9 @@ export function Welcome({ lang, onBeginner, onTest }: Props) {
   return (
     <div className="welcome">
       <main className="page">
-        <h1 className="page-title">{t('welcomeTitle', lang)}</h1>
-        <p className="caption">{t('welcomeSub', lang)}</p>
+        <p className="eyebrow">{t('appName', lang)}</p>
+        <h1 className="page-title welcome-title">{t('welcomeTitle', lang)}</h1>
+        <p className="welcome-sub">{t('welcomeSub', lang)}</p>
         <div className="level-list" role="radiogroup" aria-label={t('welcomeTitle', lang)}>
           {levels.map((level, i) => (
             <div key={level.label} className="level-card" data-selected={picked === i || undefined}>
@@ -39,16 +40,19 @@ export function Welcome({ lang, onBeginner, onTest }: Props) {
                   <span className="level-card-title" lang="fi">{level.fi}</span>
                   <span className="level-card-sub">{t(level.gloss, lang)}</span>
                 </span>
+                <span className="level-check" aria-hidden="true">
+                  {picked === i && <Icon name="check" size={18} />}
+                </span>
               </button>
               {speaker && (
-                <button type="button" className="icon-btn" aria-label={`${t('hear', lang)}: ${level.fi}`} onClick={() => speaker.speak(level.fi)}>
+                <button type="button" className="icon-btn icon-btn-outline level-hear" aria-label={`${t('hear', lang)}: ${level.fi}`} onClick={() => speaker.speak(level.fi)}>
                   <Icon name="speaker" />
                 </button>
               )}
             </div>
           ))}
         </div>
-        {picked !== null && picked > 0 && <p className="caption">{t('testNote', lang)}</p>}
+        {picked !== null && picked > 0 && <p className="welcome-note">{t('testNote', lang)}</p>}
       </main>
       <footer className="action">
         <button type="button" className="btn btn-primary btn-block" disabled={picked === null} onClick={picked === 0 ? onBeginner : onTest}>

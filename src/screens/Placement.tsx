@@ -7,6 +7,7 @@ import { Icon } from '../design/Icon';
 import { Choice } from '../exercises/Choice';
 import { Fill } from '../exercises/Fill';
 import { Speakable } from '../exercises/Speakable';
+import { Steps } from './Lesson';
 
 type Props = {
   items: PlacementItem[];
@@ -32,12 +33,15 @@ export function Placement({ items, units, lang, onDone, onQuit }: Props) {
     return (
       <div className="result">
         <main>
-          <p className="celebrate celebrate-mark" aria-hidden="true">
+          <p className="celebrate celebrate-mark block" data-tone="3" aria-hidden="true">
             <Icon name="target" size={64} />
           </p>
           <h1>{t('placementDone', lang)}</h1>
-          <p className="placement-unit">
-            {t('unit', lang)} {units.indexOf(unit) + 1}: {unit.title}
+          <p className="placement-unit block" data-tone={(units.indexOf(unit) % 7) + 1}>
+            <span className="eyebrow">
+              {t('unit', lang)} {units.indexOf(unit) + 1}
+            </span>
+            <span className="placement-unit-title">{unit.title}</span>
           </p>
           <p className="caption">{t('placementNote', lang)}</p>
         </main>
@@ -79,13 +83,12 @@ export function Placement({ items, units, lang, onDone, onQuit }: Props) {
   return (
     <form className="lesson" onSubmit={submit}>
       <header className="lesson-top">
-        <button type="button" className="icon-btn" aria-label={t('quitTest', lang)} onClick={onQuit}>
+        <button type="button" className="icon-btn icon-btn-outline" aria-label={t('quitTest', lang)} onClick={onQuit}>
           <Icon name="close" />
         </button>
-        <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={asked}>
-          <div className="progress-fill" style={{ transform: `scaleX(${asked / total})` }} />
-        </div>
+        <p className="lesson-title">{t('placement', lang)}</p>
       </header>
+      <Steps done={asked} total={total} label={t('placement', lang)} />
 
       <main className="exercise" key={item.id}>
         <p className="instruction">{t(item.type === 'fill' ? 'typeAnswer' : 'chooseAnswer', lang)}</p>
