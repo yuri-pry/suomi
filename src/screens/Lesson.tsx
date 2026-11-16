@@ -1,7 +1,7 @@
 import { Icon } from '../design/Icon';
 import { useState, type FormEvent } from 'react';
 import type { Exercise, Lang, Lesson as LessonData } from '../lib/types';
-import { answer, fractionDone, isDone, playable, startLesson } from '../lib/lesson';
+import { answer, isDone, playable, startLesson } from '../lib/lesson';
 import type { Verdict } from '../lib/check';
 import { correctText, emptyResponse, grade, type Response } from '../lib/exercise';
 import type { Speaker } from '../lib/speech';
@@ -82,6 +82,34 @@ function Body({ exercise, response, onResponse, locked, speaker, lang }: BodyPro
   }
 }
 
+/**
+ * One dot per exercise while that fits a phone, a bar beyond that. A wrong answer goes back
+ * into the queue, so the current dot stays put until it is answered right.
+ */
+export function Steps({ done, total, label }: { done: number; total: number; label?: string }) {
+  return (
+    <div
+      className="steps"
+      role="progressbar"
+      aria-label={label}
+      aria-valuemin={0}
+      aria-valuemax={total}
+      aria-valuenow={done}
+      data-dots={total <= 20 || undefined}
+    >
+      {total <= 20 ? (
+        Array.from({ length: total }, (_, i) => (
+          <span key={i} className="step" data-state={i < done ? 'done' : i === done ? 'current' : 'todo'} />
+        ))
+      ) : (
+        <span className="progress">
+          <span className="progress-fill" style={{ transform: `scaleX(${done / total})` }} />
+        </span>
+      )}
+    </div>
+  );
+}
+
 export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
   const [state, setState] = useState(() => startLesson(playable(lesson.exercises, speaker !== null)));
   const [attempt, setAttempt] = useState(0);
@@ -92,6 +120,7 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
   if (!exercise) return null;
 
   const checked = grade(exercise, response);
+  const done = state.total - state.queue.length;
   // true/false has no answer text of its own, so it is shown in the interface language
   const [correct, correctLang] =
     exercise.type === 'truefalse'
@@ -121,19 +150,15 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
   return (
     <form className="lesson" onSubmit={submit}>
       <header className="lesson-top">
-        <button type="button" className="icon-btn" aria-label={t('quit', lang)} onClick={onQuit}>
+        <button type="button" className="icon-btn icon-btn-outline" aria-label={t('quit', lang)} onClick={onQuit}>
           <Icon name="close" />
         </button>
-        <div
-          className="progress"
-          role="progressbar"
-          aria-valuemin={0}
-          aria-valuemax={100}
-          aria-valuenow={Math.round(fractionDone(state) * 100)}
-        >
-          <div className="progress-fill" style={{ transform: `scaleX(${fractionDone(state)})` }} />
-        </div>
+        <p className="lesson-title">{lesson.title}</p>
+        <span className="lesson-count" aria-hidden="true">
+          {Math.min(done + 1, state.total)} / {state.total}
+        </span>
       </header>
+      <Steps done={done} total={state.total} />
 
       <main className="exercise" key={`${exercise.id}-${attempt}`}>
         <p className="instruction">{t(instructionKey(exercise), lang)}</p>
@@ -147,17 +172,20 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
         />
       </main>
 
-      <footer className={`action ${verdict === null ? '' : verdict === 'wrong' ? 'is-wrong' : 'is-right'}`}>
+      <footer className="action" data-verdict={verdict ?? undefined}>
         <div className="feedback" aria-live="polite">
           {verdict !== null && (
             <>
               <p className="feedback-title">
-                <Icon name={verdict === 'wrong' ? 'cross' : 'check'} size={20} />{' '}
+                <span className="feedback-icon" aria-hidden="true">
+                  <Icon name={verdict === 'wrong' ? 'cross' : 'check'} size={22} />
+                </span>
                 {t(verdict === 'right' ? 'correct' : verdict === 'typo' ? 'typo' : 'wrong', lang)}
               </p>
               {verdict !== 'right' && (
                 <p className="feedback-answer">
-                  {t('answerIs', lang)} <strong lang={correctLang}>
+                  <span className="feedback-label">{t('answerIs', lang)}</span>{' '}
+                  <strong lang={correctLang}>
                     <Speakable text={correct} lang={correctLang ?? 'en'} />
                   </strong>
                 </p>

@@ -289,6 +289,23 @@
 }
 
 /*
+ * 8b. Lesson. The feedback sheet rises once per answer. Answer rows and the step
+ * dots change colour, a short transition so a quick change of mind never stutters.
+ */
+
+.action[data-verdict] {
+  animation: ds-rise var(--dur-sheet) var(--ease-out) backwards;
+}
+
+.option,
+.step::after,
+.step::before {
+  transition:
+    border-color var(--dur-fast) ease,
+    background-color var(--dur-fast) ease;
+}
+
+/*
  * 9. Reduced motion: movement goes, short opacity fades stay. Pressed and open
  * states are still shown by colour and position (components.css), just without travel.
  */
@@ -347,6 +364,7 @@
 
   /* :nth-child(n) matches every child and outranks the per-child delays above */
   .screen-push,
+  .action[data-verdict],
   .stagger > :nth-child(n),
   .celebrate-mark {
     animation: ds-fade var(--dur-fast) ease backwards;
