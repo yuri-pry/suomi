@@ -1,4 +1,4 @@
-import type { Exercise } from './types';
+import type { Exercise, Unit } from './types';
 
 export type LessonState = {
   queue: Exercise[];
@@ -41,3 +41,9 @@ export function shuffle<T>(items: T[], random = Math.random): T[] {
   }
   return out;
 }
+
+export const CHECKPOINT_SIZE = 15;
+
+/** A checkpoint is 15 exercises drawn at random from the unit's lessons; a unit with fewer playable ones uses them all. */
+export const drawCheckpoint = (unit: Unit, canSpeak: boolean, random = Math.random) =>
+  shuffle(playable(unit.lessons.flatMap((l) => l.exercises), canSpeak), random).slice(0, CHECKPOINT_SIZE);

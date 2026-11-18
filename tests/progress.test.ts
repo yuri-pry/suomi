@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { completeLesson, currentStreak, emptyProgress, isUnlocked, load, localDay, save } from '../src/lib/progress';
+import { checkpointUnlocked, completeCheckpoint, completeLesson, currentStreak, emptyProgress, isUnlocked, load, localDay, save, unitPassed } from '../src/lib/progress';
 
 test('localDay uses the local calendar date', () => {
   expect(localDay(new Date(2026, 0, 5, 23, 59))).toBe('2026-01-05');
@@ -36,12 +36,12 @@ test('streak continues across a month boundary', () => {
 });
 
 test('lessons unlock in order', () => {
-  const ids = ['l1', 'l2', 'l3'];
+  const units = [{ id: 'u', lessons: ['l1', 'l2', 'l3'].map((id) => ({ id })) }];
   const p = completeLesson(emptyProgress(), 'l1', 1, [], '2026-11-13').progress;
-  expect(isUnlocked(emptyProgress(), ids, 'l1')).toBe(true);
-  expect(isUnlocked(emptyProgress(), ids, 'l2')).toBe(false);
-  expect(isUnlocked(p, ids, 'l2')).toBe(true);
-  expect(isUnlocked(p, ids, 'l3')).toBe(false);
+  expect(isUnlocked(emptyProgress(), units, 'l1')).toBe(true);
+  expect(isUnlocked(emptyProgress(), units, 'l2')).toBe(false);
+  expect(isUnlocked(p, units, 'l2')).toBe(true);
+  expect(isUnlocked(p, units, 'l3')).toBe(false);
 });
 
 test('progress survives save and load, and bad storage gives a fresh start', () => {
@@ -68,8 +68,51 @@ test('progress saved before settings and stats existed loads with defaults', () 
 });
 
 
+const units = ['u01', 'u02', 'u03', 'u04'].map((id) => ({ id, lessons: [1, 2].map((n) => ({ id: `${id}-l${n}` })) }));
+const open = (p: ReturnType<typeof emptyProgress>) => units.flatMap((u) => u.lessons).map((l) => isUnlocked(p, units, l.id));
+const doneIds = (...ids: string[]) => ({ ...emptyProgress(), done: Object.fromEntries(ids.map((id) => [id, { best: 1, at: 'x' }])) });
+
 test('a placement result opens the tested-out units and the first lesson of the start unit', () => {
-  const ids = ['u01-l1', 'u01-l2', 'u02-l1', 'u02-l2', 'u03-l1', 'u03-l2', 'u04-l1'];
   const p = { ...emptyProgress(), testedOutBefore: 'u03' };
-  expect(ids.map((id) => isUnlocked(p, ids, id))).toEqual([true, true, true, true, true, false, false]);
+  expect(open(p)).toEqual([true, true, true, true, true, false, false, false]);
+});
+
+test('the next unit stays locked after the last lesson, until the checkpoint is passed', () => {
+  const p = doneIds('u01-l1', 'u01-l2');
+  expect(open(p).slice(2)).toEqual([false, false, false, false, false, false]);
+  expect(checkpointUnlocked(emptyProgress(), units, 0)).toBe(false);
+  expect(checkpointUnlocked(p, units, 0)).toBe(true);
+  const passed = completeCheckpoint(p, 'u01', 15, ['a', 'b', 'c'], '2026-11-13').progress;
+  expect(open(passed).slice(2, 5)).toEqual([true, false, false]);
+});
+
+test('a failed checkpoint unlocks nothing, gives no XP and still counts for the streak', () => {
+  const r = completeCheckpoint(doneIds('u01-l1', 'u01-l2'), 'u01', 15, ['a', 'b', 'c', 'd'], '2026-11-13');
+  expect(r.passed).toBe(false);
+  expect(r.xpGained).toBe(0);
+  expect(r.progress.xp).toBe(0);
+  expect(r.progress.streak.count).toBe(1);
+  expect(r.progress.mistakes).toEqual({ a: 1, b: 1, c: 1, d: 1 });
+  expect('u01-cp' in r.progress.done).toBe(false);
+  expect(isUnlocked(r.progress, units, 'u02-l1')).toBe(false);
+});
+
+test('12 of 15 right passes for 20 XP and is stored as u01-cp', () => {
+  const r = completeCheckpoint(emptyProgress(), 'u01', 15, ['a', 'b', 'c'], '2026-11-13');
+  expect(r.passed).toBe(true);
+  expect(r.xpGained).toBe(20);
+  expect(r.progress.xp).toBe(20);
+  expect(r.progress.done['u01-cp'].best).toBe(12);
+  expect(completeCheckpoint(r.progress, 'u01', 15, [], '2026-11-13').progress.done['u01-cp'].best).toBe(15);
+});
+
+test('a unit is passed when tested out or when a later unit has a finished lesson', () => {
+  expect(unitPassed({ ...emptyProgress(), testedOutBefore: 'u02' }, units, 0)).toBe(true);
+  expect(unitPassed({ ...emptyProgress(), testedOutBefore: 'u02' }, units, 1)).toBe(false);
+  const legacy = doneIds('u01-l1', 'u01-l2', 'u02-l1', 'u02-l2', 'u03-l1');
+  expect(unitPassed(legacy, units, 0)).toBe(true);
+  expect(unitPassed(legacy, units, 1)).toBe(true);
+  expect(unitPassed(legacy, units, 2)).toBe(false);
+  expect(isUnlocked(legacy, units, 'u03-l2')).toBe(true);
+  expect(isUnlocked(legacy, units, 'u04-l1')).toBe(false);
 });

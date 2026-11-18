@@ -96,10 +96,56 @@ export function completeLesson(p: Progress, lessonId: string, total: number, wro
 /** Lesson ids start with their unit id: u03-l2 belongs to u03. */
 export const testedOut = (p: Progress, lessonId: string) => p.testedOutBefore !== null && lessonId.split('-')[0] < p.testedOutBefore;
 
-/** Lessons open in order: the first one always, the rest once the one before is done or tested out. */
-export function isUnlocked(p: Progress, lessonIds: string[], lessonId: string) {
-  const i = lessonIds.indexOf(lessonId);
-  return i === 0 || (i > 0 && (lessonIds[i - 1] in p.done || testedOut(p, lessonIds[i - 1])));
+/** The least of a unit that the unlock rules need. */
+type UnitIds = { id: string; lessons: { id: string }[] };
+
+export const XP_CHECKPOINT = 20;
+export const CHECKPOINT_PASS = 0.8;
+export const checkpointId = (unitId: string) => `${unitId}-cp`;
+
+/** Pass is 80 percent right first time: 12 of 15. */
+export const checkpointPassed = (score: number, total: number) => total > 0 && score >= total * CHECKPOINT_PASS;
+
+/** Like a lesson, but 20 XP only on a pass, and the unit's checkpoint is stored in `done` only when passed. */
+export function completeCheckpoint(p: Progress, unitId: string, total: number, wrongIds: string[], today: string) {
+  const score = total - wrongIds.length;
+  const passed = checkpointPassed(score, total);
+  const xpGained = passed ? XP_CHECKPOINT : 0;
+  const mistakes = { ...p.mistakes };
+  for (const id of wrongIds) mistakes[id] = (mistakes[id] ?? 0) + 1;
+  const cp = checkpointId(unitId);
+  const progress: Progress = {
+    ...earn(p, xpGained, today),
+    stats: { answered: p.stats.answered + total, firstTry: p.stats.firstTry + score },
+    done: passed ? { ...p.done, [cp]: { best: Math.max(p.done[cp]?.best ?? 0, score), at: today } } : p.done,
+    mistakes,
+  };
+  return { progress, xpGained, passed, score };
+}
+
+/** A unit counts as passed when its checkpoint is, when it is tested out, or when any lesson of a later unit is done (learners from before checkpoints existed). */
+export function unitPassed(p: Progress, units: UnitIds[], unitIndex: number) {
+  return (
+    checkpointId(units[unitIndex].id) in p.done ||
+    testedOut(p, units[unitIndex].id) ||
+    units.slice(unitIndex + 1).some((u) => u.lessons.some((l) => l.id in p.done))
+  );
+}
+
+/** The checkpoint opens when the unit's last lesson is done (or the unit is passed some other way). */
+export function checkpointUnlocked(p: Progress, units: UnitIds[], unitIndex: number) {
+  const last = units[unitIndex].lessons.at(-1);
+  return unitPassed(p, units, unitIndex) || (last !== undefined && last.id in p.done);
+}
+
+/** Lessons open in order inside a unit. A unit's first lesson opens once the unit before it is passed. */
+export function isUnlocked(p: Progress, units: UnitIds[], lessonId: string) {
+  const u = units.findIndex((x) => x.lessons.some((l) => l.id === lessonId));
+  if (u < 0) return false;
+  const ids = units[u].lessons.map((l) => l.id);
+  const i = ids.indexOf(lessonId);
+  if (i === 0) return u === 0 || unitPassed(p, units, u - 1);
+  return ids[i - 1] in p.done || testedOut(p, ids[i - 1]);
 }
 
 export function load(storage: Pick<Storage, 'getItem'> = localStorage): Progress {
