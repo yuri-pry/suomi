@@ -101,6 +101,10 @@ const S = {
   checkpointNeed: { en: 'You need 12 right first time to pass. Try again whenever you like.', fi: 'Läpäisyyn tarvitaan 12 oikeaa ensimmäisellä kerralla. Yritä uudelleen milloin haluat.' },
   checkpointOpened: { en: 'The next unit is open.', fi: 'Seuraava kappale on auki.' },
   score: { en: 'Right first time', fi: 'Oikein ensimmäisellä kerralla' },
+  quitAsk: { en: 'Quit this lesson?', fi: 'Lopetetaanko oppitunti?' },
+  quitLoss: { en: 'Your progress in it will be lost.', fi: 'Tämän kierroksen edistyminen menetetään.' },
+  keepGoing: { en: 'Keep going', fi: 'Jatka' },
+  quitYes: { en: 'Quit', fi: 'Lopeta' },
 } as const;
 
 export type StringKey = keyof typeof S;

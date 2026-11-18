@@ -1,5 +1,5 @@
 import { Icon } from '../design/Icon';
-import { useState, type FormEvent } from 'react';
+import { useRef, useState, type FormEvent, type RefObject } from 'react';
 import type { Exercise, Lang, Lesson as LessonData } from '../lib/types';
 import { answer, isDone, playable, startLesson } from '../lib/lesson';
 import type { Verdict } from '../lib/check';
@@ -110,6 +110,24 @@ export function Steps({ done, total, label }: { done: number; total: number; lab
   );
 }
 
+/** Native modal dialog: the browser traps focus and Esc closes it, which here means keep going. */
+function QuitConfirm({ dialog, lang, onQuit }: { dialog: RefObject<HTMLDialogElement | null>; lang: Lang; onQuit: () => void }) {
+  return (
+    <dialog ref={dialog} className="confirm" aria-labelledby="confirm-title" aria-describedby="confirm-text">
+      <h2 id="confirm-title" className="sheet-title">{t('quitAsk', lang)}</h2>
+      <p id="confirm-text" className="confirm-text">{t('quitLoss', lang)}</p>
+      <div className="confirm-actions">
+        <button type="button" className="btn btn-primary btn-block" autoFocus onClick={() => dialog.current?.close()}>
+          {t('keepGoing', lang)}
+        </button>
+        <button type="button" className="btn btn-danger btn-block" onClick={onQuit}>
+          {t('quitYes', lang)}
+        </button>
+      </div>
+    </dialog>
+  );
+}
+
 export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
   const [state, setState] = useState(() => startLesson(playable(lesson.exercises, speaker !== null)));
   const [attempt, setAttempt] = useState(0);
@@ -117,10 +135,13 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
   const [verdict, setVerdict] = useState<Verdict | null>(null);
 
   const exercise = state.queue[0];
+  const confirm = useRef<HTMLDialogElement>(null);
   if (!exercise) return null;
 
   const checked = grade(exercise, response);
   const done = state.total - state.queue.length;
+  // A wrong answer keeps `done` at 0, so it counts as an answer too.
+  const answered = done > 0 || state.wrong.length > 0;
   // true/false has no answer text of its own, so it is shown in the interface language
   const [correct, correctLang] =
     exercise.type === 'truefalse'
@@ -150,7 +171,7 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
   return (
     <form className="lesson" onSubmit={submit}>
       <header className="lesson-top">
-        <button type="button" className="icon-btn icon-btn-outline" aria-label={t('quit', lang)} onClick={onQuit}>
+        <button type="button" className="icon-btn icon-btn-outline" aria-label={t('quit', lang)} onClick={() => (answered ? confirm.current?.showModal() : onQuit())}>
           <Icon name="close" />
         </button>
         <p className="lesson-title">{lesson.title}</p>
@@ -158,6 +179,7 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
           {Math.min(done + 1, state.total)} / {state.total}
         </span>
       </header>
+      <QuitConfirm dialog={confirm} lang={lang} onQuit={onQuit} />
       <Steps done={done} total={state.total} />
 
       <main className="exercise" key={`${exercise.id}-${attempt}`}>

@@ -1144,3 +1144,33 @@ button:disabled {
   text-align: center;
   color: var(--muted);
 }
+
+/* Quit confirmation: a native modal dialog, sitting at the bottom like the sheet */
+
+.confirm {
+  inset: auto 0 0;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-5) calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
+  color: var(--text);
+  background: var(--surface);
+  border: 0;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  box-shadow: var(--shadow-3);
+}
+
+.confirm::backdrop {
+  background: var(--scrim);
+}
+
+.confirm-text {
+  margin: 0 0 var(--space-5);
+  color: var(--muted);
+}
+
+.confirm-actions {
+  display: grid;
+  gap: var(--space-3);
+}
