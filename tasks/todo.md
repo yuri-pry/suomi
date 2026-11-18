@@ -187,7 +187,7 @@ that Java and the Android SDK are installed; installing them needs the user's go
 **Size:** M
 
 ### Task 11: Home path, checkpoints and daily goal
-- [ ] Done
+- [x] Done
 
 **Description:** Build the home screen as a path of lesson nodes by unit, the header
 with XP, streak and goal ring, and the unit checkpoint (15 drawn items, pass at 80
