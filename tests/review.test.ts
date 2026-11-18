@@ -1,6 +1,5 @@
 import { describe, expect, test } from 'vitest';
 import { addDays, addMistakes, completeReview, dueExercises, dueItems, finishReview, INTERVALS, reviewed, reviewSession, REVIEW_CAP } from '../src/lib/review';
-import { scoreAnswers } from '../src/lib/mastery';
 import { emptyProgress, type Progress } from '../src/lib/progress';
 import type { Exercise, Rule, Unit } from '../src/lib/types';
 import u01 from '../content/u01.json';
