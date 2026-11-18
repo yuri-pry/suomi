@@ -26,18 +26,30 @@ export const scored = (r: RuleScore, correct: boolean): RuleScore => ({
 export const isMastered = (r: RuleScore) => r.s >= MASTERED_S && r.n >= MASTERED_N;
 
 /**
- * One answer per played exercise, judged on the first try: a wrong answer is retried until
- * right, so counting the retries would inflate the score.
+ * One answer per played exercise, judged on the first try: a wrong answer is retried once at
+ * the end, so counting the retry would inflate the score. With `perRule` a rule gets one answer
+ * for the whole session (right when none of its exercises was missed): a review replays the same
+ * few exercises of a rule, and counting each as fresh evidence would master it in one sitting.
  */
-export function scoreAnswers(p: Progress, rules: Rule[], played: Exercise[], wrongIds: string[], units: Unit[] = []): Progress {
+export function scoreAnswers(p: Progress, rules: Rule[], played: Exercise[], wrongIds: string[], units: Unit[] = [], perRule = false): Progress {
   const finished = finishedUnits(p, units);
   const byId = new Map(rules.map((r) => [r.id, r]));
   const next = { ...p.rules };
+  const missed = new Set<string>();
+  const seen = new Set<string>();
   for (const e of played)
     for (const tag of e.tags ?? []) {
       const rule = byId.get(tag);
-      if (rule) next[tag] = scored(next[tag] ?? ruleState(p, rule, finished), !wrongIds.includes(e.id));
+      if (!rule) continue;
+      const wrong = wrongIds.includes(e.id);
+      if (perRule) {
+        if (wrong) missed.add(tag);
+        seen.add(tag);
+        continue;
+      }
+      next[tag] = scored(next[tag] ?? ruleState(p, rule, finished), !wrong);
     }
+  for (const tag of seen) next[tag] = scored(next[tag] ?? ruleState(p, byId.get(tag)!, finished), !missed.has(tag));
   return { ...p, rules: next };
 }
 

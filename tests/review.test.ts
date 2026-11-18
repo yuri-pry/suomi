@@ -1,7 +1,11 @@
-import { expect, test } from 'vitest';
-import { addDays, addMistakes, completeReview, dueExercises, dueItems, INTERVALS, reviewed, REVIEW_CAP } from '../src/lib/review';
-import { emptyProgress } from '../src/lib/progress';
-import type { Unit } from '../src/lib/types';
+import { describe, expect, test } from 'vitest';
+import { addDays, addMistakes, completeReview, dueExercises, dueItems, finishReview, INTERVALS, reviewed, reviewSession, REVIEW_CAP } from '../src/lib/review';
+import { scoreAnswers } from '../src/lib/mastery';
+import { emptyProgress, type Progress } from '../src/lib/progress';
+import type { Exercise, Rule, Unit } from '../src/lib/types';
+import u01 from '../content/u01.json';
+import u02 from '../content/u02.json';
+import rulesJson from '../content/rules.json';
 
 test('addDays crosses a month boundary', () => {
   expect(addDays('2026-11-30', 1)).toBe('2026-12-01');
@@ -123,4 +127,40 @@ test('due exercises are found across units and a vanished id is skipped', () => 
   const units = [{ lessons: [{ exercises: [exercise('a')] }] }, { lessons: [{ exercises: [exercise('b')] }] }] as unknown as Unit[];
   const deck = addMistakes({}, ['b', 'gone', 'a'], '2026-11-15');
   expect(dueExercises(units, deck, '2026-11-15').map((e) => e.id)).toEqual(['a', 'b']);
+});
+
+describe('the review card after two sessions', () => {
+  const units = [u01, u02] as unknown as Unit[];
+  const rules = rulesJson as Rule[];
+  const today = '2026-11-18';
+  const play = (p: Progress) => {
+    const s = reviewSession(units, rules, p, today, true);
+    return { s, next: finishReview(p, s, [], units, rules, today) };
+  };
+
+  // Unit 1 finished, unit 2 up to lesson 3, two mistakes in each of lessons 2 and 3.
+  const start = () => {
+    const l2 = u02.lessons[1].exercises as unknown as Exercise[];
+    const l3 = u02.lessons[2].exercises as unknown as Exercise[];
+    const wrong = [l2[0].id, l2[1].id, l3[0].id, l3[1].id];
+    const done = Object.fromEntries([...u01.lessons, ...u02.lessons.slice(0, 3)].map((l) => [l.id, { best: 1, at: today }]));
+    let p: Progress = { ...emptyProgress(), testedOutBefore: 'u01', done };
+    // the user's scores: a few answers per rule, none mastered
+    p = { ...p, rules: { 'verbtype-1': { n: 3, s: 0.5 }, 'question-ko': { n: 2, s: 0.4 }, 'question-words': { n: 2, s: 0.4 } } };
+    return { ...p, review: addMistakes(p.review, wrong, '2026-11-17') };
+  };
+
+  test('practice is still offered after two sessions', () => {
+    const first = play(start());
+    expect(first.s.due.length).toBe(4);
+    expect(first.s.weak.length).toBeGreaterThan(0);
+    const second = play(first.next);
+    expect(second.s.weak.length).toBeGreaterThan(0);
+    expect(reviewSession(units, rules, second.next, today, true).weak.length).toBeGreaterThan(0);
+  });
+
+  test('a session counts once per rule, however many of its exercises were played', () => {
+    const p = start();
+    expect(play(p).next.rules['question-ko'].n).toBe(p.rules['question-ko'].n + 1);
+  });
 });

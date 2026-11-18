@@ -1,5 +1,7 @@
 import { XP_REVIEW, earn, localDay, type Progress } from './progress';
-import type { Exercise, Unit } from './types';
+import { scoreAnswers, weakExercises } from './mastery';
+import { playable } from './lesson';
+import type { Exercise, Rule, Unit } from './types';
 
 export type Deck = Progress['review'];
 
@@ -52,4 +54,19 @@ export function completeReview(p: Progress, playedIds: string[], wrongIds: strin
   let deck = p.review;
   for (const id of playedIds) deck = reviewed(deck, id, !wrongIds.includes(id), today);
   return { ...earn(p, XP_REVIEW, today), review: deck };
+}
+
+/** The review session: the due items first, then exercises for the weakest rules up to REVIEW_CAP. */
+export function reviewSession(units: Unit[], rules: Rule[], p: Progress, today: string, canSpeak: boolean) {
+  // Listening items wait in the deck on a device with no Finnish voice.
+  const due = playable(dueExercises(units, p.review, today), canSpeak);
+  const weak = playable(weakExercises(units, rules, p, new Set(due.map((e) => e.id))), canSpeak).slice(0, REVIEW_CAP - due.length);
+  return { due, weak, session: [...due, ...weak] };
+}
+
+/** Saves the outcome of a review session. A wrong answer on a weak-rule exercise joins the deck like any other mistake. */
+export function finishReview(p: Progress, s: ReturnType<typeof reviewSession>, wrongIds: string[], units: Unit[], rules: Rule[], today: string): Progress {
+  const reviewedDeck = completeReview(p, s.due.map((e) => e.id), wrongIds, today);
+  const weakWrong = wrongIds.filter((id) => s.weak.some((e) => e.id === id));
+  return scoreAnswers({ ...reviewedDeck, review: addMistakes(reviewedDeck.review, weakWrong, today) }, rules, s.session, wrongIds, units, true);
 }

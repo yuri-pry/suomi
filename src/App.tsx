@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import type { Exercise, Rule, Unit } from './lib/types';
 import { loadAllUnits, loadPlacement } from './lib/content';
 import { testableUnits, type PlacementItem } from './lib/placement';
-import { addMistakes, completeReview, dueExercises, REVIEW_CAP } from './lib/review';
-import { level, scoreAnswers, weakExercises } from './lib/mastery';
+import { addMistakes, finishReview, reviewSession } from './lib/review';
+import { level, scoreAnswers } from './lib/mastery';
 import rulesJson from '../content/rules.json';
 import { drawCheckpoint, playable } from './lib/lesson';
 import { completeCheckpoint, completeLesson, currentStreak, load, localDay, save, type Progress } from './lib/progress';
@@ -152,11 +152,7 @@ export function App() {
     );
   }
 
-  // Listening items wait in the deck on a device with no Finnish voice.
-  const due = playable(dueExercises(units, progress.review, today), speaker !== null);
-  // After the saved mistakes, the session fills up with exercises for the weakest rules.
-  const weak = playable(weakExercises(units, rules, progress, new Set(due.map((e) => e.id))), speaker !== null).slice(0, REVIEW_CAP - due.length);
-  const session = [...due, ...weak];
+  const { due, weak, session } = reviewSession(units, rules, progress, today, speaker !== null);
 
   if (screen.name === 'review' && session.length > 0)
     return (
@@ -168,11 +164,7 @@ export function App() {
           speaker={speaker}
           onQuit={() => setScreen({ name: 'home' })}
           onDone={(_total, wrongIds) => {
-            const day = localDay(new Date());
-            const reviewedDeck = completeReview(progress, due.map((e) => e.id), wrongIds, day);
-            // A wrong answer on a weak-rule exercise joins the deck like any other mistake.
-            const weakWrong = wrongIds.filter((id) => weak.some((e) => e.id === id));
-            const next = scoreAnswers({ ...reviewedDeck, review: addMistakes(reviewedDeck.review, weakWrong, day) }, rules, session, wrongIds, units);
+            const next = finishReview(progress, { due, weak, session }, wrongIds, units, rules, localDay(new Date()));
             setProgress(next);
             save(next);
             setScreen({ name: 'result', xpGained: next.xp - progress.xp, mistakes: wrongIds.length, review: true });
