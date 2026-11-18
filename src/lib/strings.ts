@@ -93,6 +93,14 @@ const S = {
   reviewDone: { en: 'Review complete', fi: 'Kertaus valmis' },
   yourPath: { en: 'Your path', fi: 'Polkusi' },
   lessons: { en: 'lessons', fi: 'oppituntia' },
+  checkpoint: { en: 'Checkpoint', fi: 'Kappaletesti' },
+  checkpointInfo: { en: '15 questions, 12 right to pass', fi: '15 kysymystä, läpäisyyn 12 oikein' },
+  passed: { en: 'Passed', fi: 'Läpäisty' },
+  checkpointPassed: { en: 'Checkpoint passed', fi: 'Kappaletesti läpäisty' },
+  checkpointFailed: { en: 'Not passed yet', fi: 'Ei vielä läpi' },
+  checkpointNeed: { en: 'You need 12 right first time to pass. Try again whenever you like.', fi: 'Läpäisyyn tarvitaan 12 oikeaa ensimmäisellä kerralla. Yritä uudelleen milloin haluat.' },
+  checkpointOpened: { en: 'The next unit is open.', fi: 'Seuraava kappale on auki.' },
+  score: { en: 'Right first time', fi: 'Oikein ensimmäisellä kerralla' },
 } as const;
 
 export type StringKey = keyof typeof S;

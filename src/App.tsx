@@ -1,13 +1,13 @@
 import { Icon } from './design/Icon';
 import { useEffect, useState } from 'react';
-import type { Rule, Unit } from './lib/types';
+import type { Exercise, Rule, Unit } from './lib/types';
 import { loadAllUnits, loadPlacement } from './lib/content';
 import { testableUnits, type PlacementItem } from './lib/placement';
 import { addMistakes, completeReview, dueExercises, REVIEW_CAP } from './lib/review';
 import { level, scoreAnswers, weakExercises } from './lib/mastery';
 import rulesJson from '../content/rules.json';
-import { playable } from './lib/lesson';
-import { completeLesson, currentStreak, load, localDay, save, type Progress } from './lib/progress';
+import { drawCheckpoint, playable } from './lib/lesson';
+import { completeCheckpoint, completeLesson, currentStreak, load, localDay, save, type Progress } from './lib/progress';
 import { loadSpeaker, type Speaker } from './lib/speech';
 import { setHaptics } from './lib/haptics';
 import { t } from './lib/strings';
@@ -29,8 +29,9 @@ type Screen =
   | { name: 'home' }
   | { name: 'placement' }
   | { name: 'lesson'; lessonId: string }
+  | { name: 'checkpoint'; unitId: string; exercises: Exercise[] }
   | { name: 'review' }
-  | { name: 'result'; xpGained: number; mistakes: number; review?: true };
+  | { name: 'result'; xpGained: number; mistakes: number; review?: true; checkpoint?: { score: number; total: number; passed: boolean } };
 
 export function App() {
   const [progress, setProgress] = useState(load);
@@ -128,6 +129,29 @@ export function App() {
     );
   }
 
+  if (screen.name === 'checkpoint') {
+    const { unitId, exercises } = screen;
+    return (
+      <SpeakerContext value={speaker}>
+        <Lesson
+          key={`${unitId}-cp`}
+          lesson={{ id: `${unitId}-cp`, title: t('checkpoint', progress.lang), exercises }}
+          lang={progress.lang}
+          speaker={speaker}
+          onQuit={() => setScreen({ name: 'home' })}
+          onDone={(total, wrongIds) => {
+            const day = localDay(new Date());
+            const result = completeCheckpoint(progress, unitId, total, wrongIds, day);
+            const next = scoreAnswers({ ...result.progress, review: addMistakes(result.progress.review, wrongIds, day) }, rules, exercises, wrongIds);
+            setProgress(next);
+            save(next);
+            setScreen({ name: 'result', xpGained: result.xpGained, mistakes: wrongIds.length, checkpoint: { score: result.score, total, passed: result.passed } });
+          }}
+        />
+      </SpeakerContext>
+    );
+  }
+
   // Listening items wait in the deck on a device with no Finnish voice.
   const due = playable(dueExercises(units, progress.review, today), speaker !== null);
   // After the saved mistakes, the session fills up with exercises for the weakest rules.
@@ -161,9 +185,10 @@ export function App() {
     return (
       <Result
         lang={progress.lang}
-        title={screen.review ? 'reviewDone' : 'lessonDone'}
+        title={screen.review ? 'reviewDone' : screen.checkpoint ? (screen.checkpoint.passed ? 'checkpointPassed' : 'checkpointFailed') : 'lessonDone'}
         xpGained={screen.xpGained}
         mistakes={screen.mistakes}
+        checkpoint={screen.checkpoint}
         streak={currentStreak(progress, today)}
         onHome={() => setScreen({ name: 'home' })}
       />
@@ -180,6 +205,7 @@ export function App() {
           practice={weak.length}
           level={level(progress, rules, units)}
           onStart={(lessonId) => setScreen({ name: 'lesson', lessonId })}
+          onCheckpoint={(unit) => setScreen({ name: 'checkpoint', unitId: unit.id, exercises: drawCheckpoint(unit, speaker !== null) })}
           onReview={() => setScreen({ name: 'review' })}
         />
       )}

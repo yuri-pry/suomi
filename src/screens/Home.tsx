@@ -1,7 +1,7 @@
 import { Icon } from '../design/Icon';
 import { useState, type ReactNode } from 'react';
 import type { Unit } from '../lib/types';
-import { currentStreak, isUnlocked, testedOut, xpToday, type Progress } from '../lib/progress';
+import { checkpointId, checkpointUnlocked, currentStreak, isUnlocked, testedOut, unitPassed, xpToday, type Progress } from '../lib/progress';
 import { t, type StringKey } from '../lib/strings';
 
 type Props = {
@@ -14,6 +14,7 @@ type Props = {
   practice: number;
   level: { level: number; section: number; mastered: number; total: number };
   onStart: (lessonId: string) => void;
+  onCheckpoint: (unit: Unit) => void;
   onReview: () => void;
 };
 
@@ -44,15 +45,18 @@ function Module({ eyebrow, title, count, tone, startOpen, children }: {
   );
 }
 
-export function Home({ units, progress, today, reviewDue, practice, level, onStart, onReview }: Props) {
+export function Home({ units, progress, today, reviewDue, practice, level, onStart, onCheckpoint, onReview }: Props) {
   const lang = progress.lang;
-  // Lessons unlock in one line across units until checkpoints exist (task 11).
-  const ids = units.flatMap((u) => u.lessons.map((l) => l.id));
   const isOpen = (id: string) => !(id in progress.done) && !testedOut(progress, id);
   // Only the unit being worked on starts open, so a long course does not mean a long scroll.
-  const current = units.find((u) => u.lessons.some((l) => isOpen(l.id))) ?? units[units.length - 1];
-  // The one lesson to do next is lifted out of the path.
-  const next = ids.find((id) => isOpen(id) && isUnlocked(progress, ids, id));
+  const current = units.find((u, i) => u.lessons.some((l) => isOpen(l.id)) || !unitPassed(progress, units, i)) ?? units[units.length - 1];
+  // The one step to do next, a lesson or a checkpoint, is lifted out of the path.
+  const next = units
+    .flatMap((u, i) => [
+      ...u.lessons.filter((l) => isOpen(l.id) && isUnlocked(progress, units, l.id)).map((l) => l.id),
+      ...(!unitPassed(progress, units, i) && checkpointUnlocked(progress, units, i) ? [checkpointId(u.id)] : []),
+    ])
+    .at(0);
   const earned = xpToday(progress, today);
   const goalPct = Math.min(100, Math.round((earned / progress.goal) * 100));
   const streak = currentStreak(progress, today);
@@ -157,7 +161,7 @@ export function Home({ units, progress, today, reviewDue, practice, level, onSta
               <ol className="path">
                 {unit.lessons.map((lesson, i) => {
                   const done = lesson.id in progress.done;
-                  const open = isUnlocked(progress, ids, lesson.id);
+                  const open = isUnlocked(progress, units, lesson.id);
                   const state = done ? 'done' : open ? 'open' : 'locked';
                   return (
                     <li key={lesson.id} className="path-step" data-state={state} data-next={lesson.id === next || undefined}>
@@ -171,6 +175,25 @@ export function Home({ units, progress, today, reviewDue, practice, level, onSta
                     </li>
                   );
                 })}
+                {(() => {
+                  const passed = unitPassed(progress, units, u);
+                  const open = checkpointUnlocked(progress, units, u);
+                  const state = passed ? 'done' : open ? 'open' : 'locked';
+                  return (
+                    <li className="path-step path-checkpoint" data-state={state} data-next={checkpointId(unit.id) === next || undefined}>
+                      <button type="button" className="path-node row-action pressable" disabled={!open} onClick={() => onCheckpoint(unit)}>
+                        <span className="state-badge" data-state={state} aria-hidden="true">
+                          <Icon name={open ? 'trophy' : 'lock'} size={20} />
+                        </span>
+                        <span className="path-label">
+                          {t('checkpoint', lang)}
+                          <span className="path-sub">{t('checkpointInfo', lang)}</span>
+                        </span>
+                        <span className="path-state">{passed ? <><Icon name="check" size={16} /> {t('passed', lang)}</> : t(open ? 'start' : 'locked', lang)}</span>
+                      </button>
+                    </li>
+                  );
+                })()}
               </ol>
             </div>
           </Module>

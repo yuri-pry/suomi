@@ -1122,3 +1122,25 @@ button:disabled {
   flex: 1;
 }
 
+
+/* Unit checkpoint row and its result note */
+
+.path-sub {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-regular);
+  color: var(--muted);
+}
+
+.path-checkpoint .path-state {
+  display: inline-flex;
+  gap: var(--space-1);
+  align-items: center;
+}
+
+.result-note {
+  max-width: 28rem;
+  margin: 0 0 var(--space-4);
+  text-align: center;
+  color: var(--muted);
+}
