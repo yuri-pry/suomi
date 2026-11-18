@@ -54,3 +54,19 @@ export function pick(s: MatchState, left: number, right: number): MatchState {
 }
 
 export const isMatched = (s: MatchState, e: Match) => s.done.length === e.pairs.length;
+
+/** Move tile `id` (placed or from the bank) so it sits at `index` among the other placed tiles. */
+export function moveTile(placed: number[], id: number, index: number): number[] {
+  const rest = placed.filter((p) => p !== id);
+  const at = Math.max(0, Math.min(index, rest.length));
+  return [...rest.slice(0, at), id, ...rest.slice(at)];
+}
+
+type Box = { left: number; right: number; top: number; bottom: number };
+
+/**
+ * Where a dragged tile lands among the other tiles of a wrapping row: after every chip on a
+ * line above the pointer and after every chip on the pointer's line that has its centre left of it.
+ */
+export const dropIndex = (chips: Box[], x: number, y: number) =>
+  chips.filter((c) => c.bottom < y || (c.top <= y && (c.left + c.right) / 2 < x)).length;

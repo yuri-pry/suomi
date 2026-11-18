@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { correctText, emptyResponse, grade, isMatched, pick, tilesFor } from '../src/lib/exercise';
+import { correctText, dropIndex, emptyResponse, grade, isMatched, moveTile, pick, tilesFor } from '../src/lib/exercise';
 import type { Exercise, Match, Order } from '../src/lib/types';
 
 const base = { id: 'x', promptLang: 'en', answerLang: 'fi', prompt: 'p' } as const;
@@ -58,4 +58,29 @@ test('empty responses and correct text', () => {
   expect(emptyResponse(match)).toBeNull();
   expect(correctText(match)).toBe('yksi = one; kaksi = two');
   expect(correctText(order)).toBe('Minä olen Anna.');
+});
+
+test('moveTile reorders within the row and inserts from the bank', () => {
+  expect(moveTile([0, 1, 2], 0, 2)).toEqual([1, 2, 0]);
+  expect(moveTile([0, 1, 2], 2, 0)).toEqual([2, 0, 1]);
+  expect(moveTile([0, 1, 2], 1, 1)).toEqual([0, 1, 2]);
+  // from the bank
+  expect(moveTile([0, 1], 5, 1)).toEqual([0, 5, 1]);
+  expect(moveTile([], 5, 3)).toEqual([5]);
+  expect(moveTile([0, 1], 5, -4)).toEqual([5, 0, 1]);
+});
+
+test('dropIndex finds the slot on a wrapping row', () => {
+  // two chips on the first line, one on the second
+  const chips = [
+    { left: 0, right: 100, top: 0, bottom: 50 },
+    { left: 110, right: 210, top: 0, bottom: 50 },
+    { left: 0, right: 100, top: 60, bottom: 110 },
+  ];
+  expect(dropIndex(chips, 10, 20)).toBe(0);
+  expect(dropIndex(chips, 160, 20)).toBe(1);
+  expect(dropIndex(chips, 300, 20)).toBe(2);
+  expect(dropIndex(chips, 10, 80)).toBe(2);
+  expect(dropIndex(chips, 90, 80)).toBe(3);
+  expect(dropIndex([], 5, 5)).toBe(0);
 });

@@ -1194,3 +1194,29 @@ button:disabled {
   height: 1em;
   vertical-align: text-bottom;
 }
+
+/* Order: chips can be dragged. touch-action keeps the page from scrolling under the finger. */
+.tile-drag-source {
+  touch-action: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* where the dragged chip would land */
+.tile-slot {
+  background: var(--accent-soft);
+  border: 2px dashed var(--accent);
+  border-radius: var(--radius-sm);
+}
+
+/* the chip under the finger: lifted, with a shadow, no transition so reduced motion needs nothing */
+.tile-float {
+  position: fixed;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  pointer-events: none;
+  box-shadow: var(--shadow-2);
+  transform: scale(1.06) rotate(-2deg);
+}
