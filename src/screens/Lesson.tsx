@@ -2,7 +2,7 @@ import { Icon } from '../design/Icon';
 import { useRef, useState, type FormEvent, type RefObject } from 'react';
 import type { Exercise, Lang, Lesson as LessonData } from '../lib/types';
 import { answer, isDone, playable, retryPosition, startLesson } from '../lib/lesson';
-import type { Verdict } from '../lib/check';
+import { almostOf, type Almost, type Verdict } from '../lib/check';
 import { correctText, emptyResponse, grade, type Response } from '../lib/exercise';
 import type { Speaker } from '../lib/speech';
 import { t, type StringKey } from '../lib/strings';
@@ -110,6 +110,17 @@ export function Steps({ done, total, label }: { done: number; total: number; lab
   );
 }
 
+/** The learner's word with the differing letter marked, or a gap where one is missing. */
+function Marked({ given, at, kind }: Almost & { given: string }) {
+  return (
+    <span className="almost-word" lang="fi">
+      {given.slice(0, at)}
+      {kind === 'missing' ? <mark className="almost-mark almost-gap" aria-hidden="true" /> : <mark className="almost-mark">{given[at]}</mark>}
+      {given.slice(kind === 'missing' ? at : at + 1)}
+    </span>
+  );
+}
+
 /** Native modal dialog: the browser traps focus and Esc closes it, which here means keep going. */
 function QuitConfirm({ dialog, lang, onQuit }: { dialog: RefObject<HTMLDialogElement | null>; lang: Lang; onQuit: () => void }) {
   return (
@@ -133,14 +144,17 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
   const [attempt, setAttempt] = useState(0);
   const [response, setResponse] = useState<Response>(() => emptyResponse(state.queue[0]));
   const [verdict, setVerdict] = useState<Verdict | null>(null);
+  // An almost-right answer may be fixed once; a second near miss is simply wrong.
+  const [fixed, setFixed] = useState(false);
 
   const exercise = state.queue[0];
   const confirm = useRef<HTMLDialogElement>(null);
   if (!exercise) return null;
 
-  const checked = grade(exercise, response);
+  const graded = grade(exercise, response);
+  const checked = fixed && graded === 'almost' ? 'wrong' : graded;
   const { done } = state;
-  const answered = done > 0 || verdict !== null;
+  const answered = done > 0 || verdict !== null || fixed;
   const retry = retryPosition(state);
   // true/false has no answer text of its own, so it is shown in the interface language
   const [correct, correctLang] =
@@ -148,11 +162,25 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
       ? [t(exercise.answer ? 'true' : 'false', lang), lang]
       : [correctText(exercise), exercise.type === 'match' ? undefined : exercise.answerLang];
 
+  const near = verdict === 'almost' && (exercise.type === 'fill' || exercise.type === 'translate') ? almostOf(response as string, exercise.answers) : null;
+
+  function fix() {
+    setVerdict(null);
+    setFixed(true);
+    const field = document.querySelector<HTMLInputElement>('.fill-input');
+    // after the field is editable again, so the keyboard comes up with the cursor at the end
+    setTimeout(() => {
+      field?.focus();
+      field?.setSelectionRange(field.value.length, field.value.length);
+    });
+  }
+
   function submit(e: FormEvent) {
     e.preventDefault();
+    if (verdict === 'almost') return fix();
     if (verdict === null) {
       if (checked !== null) {
-        haptic(checked === 'wrong' ? 'wrong' : 'right');
+        haptic(checked === 'wrong' || checked === 'almost' ? 'wrong' : 'right');
         setVerdict(checked);
       }
       return;
@@ -166,6 +194,7 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
     setAttempt(attempt + 1);
     setResponse(emptyResponse(next.queue[0]));
     setVerdict(null);
+    setFixed(false);
   }
 
   return (
@@ -202,9 +231,14 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
                 <span className="feedback-icon" aria-hidden="true">
                   <Icon name={verdict === 'wrong' ? 'cross' : 'check'} size={22} />
                 </span>
-                {t(verdict === 'right' ? 'correct' : verdict === 'typo' ? 'typo' : 'wrong', lang)}
+                {t(verdict === 'right' ? 'correct' : verdict === 'typo' ? 'typo' : verdict === 'almost' ? 'almost' : 'wrong', lang)}
               </p>
-              {verdict !== 'right' && (
+              {near && (
+                <p className="feedback-answer">
+                  <Marked {...near} />
+                </p>
+              )}
+              {verdict !== 'right' && verdict !== 'almost' && (
                 <p className="feedback-answer">
                   <span className="feedback-label">{t('answerIs', lang)}</span>{' '}
                   <strong lang={correctLang}>
@@ -216,8 +250,13 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
           )}
         </div>
         <button type="submit" className="btn btn-primary btn-block" disabled={verdict === null && checked === null}>
-          {t(verdict === null ? 'check' : 'continue', lang)}
+          {t(verdict === null ? 'check' : verdict === 'almost' ? 'fixIt' : 'continue', lang)}
         </button>
+        {verdict === 'almost' && (
+          <button type="button" className="btn btn-ghost btn-block" onClick={() => setVerdict('wrong')}>
+            {t('showAnswer', lang)}
+          </button>
+        )}
       </footer>
     </form>
   );

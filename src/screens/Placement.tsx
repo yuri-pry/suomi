@@ -76,8 +76,8 @@ export function Placement({ items, units, lang, onDone, onQuit }: Props) {
 
   function submit(e: FormEvent) {
     e.preventDefault();
-    // a typo still shows the learner knows the form
-    if (verdict !== null) record(verdict !== 'wrong');
+    // a typo still shows the learner knows the form; a Finnish near miss stays wrong here
+    if (verdict !== null) record(verdict === 'right' || verdict === 'typo');
   }
 
   return (

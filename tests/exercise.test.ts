@@ -30,7 +30,7 @@ test('order: any accepted sentence is right, wrong order is wrong, empty is unan
 test('translate: Finnish is exact, English allows a typo', () => {
   const tr = (answerLang: 'fi' | 'en', answers: string[]): Exercise => ({ ...base, type: 'translate', answerLang, answers });
   expect(grade(tr('fi', ['Kiitos.']), 'kiitos')).toBe('right');
-  expect(grade(tr('fi', ['Näkemiin']), 'Nakemiin')).toBe('wrong');
+  expect(grade(tr('fi', ['Näkemiin']), 'Nakemiin')).toBe('almost');
   expect(grade(tr('en', ['Good morning']), 'Good mornig')).toBe('typo');
   expect(grade(tr('en', ['Good morning']), '  ')).toBeNull();
 });

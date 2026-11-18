@@ -18,7 +18,9 @@ export function grade(e: Exercise, r: Response): Verdict | null {
     case 'translate':
       return typeof r === 'string' && r.trim() !== '' ? checkTyped(r, e.answers, e.answerLang) : null;
     case 'order':
-      return Array.isArray(r) && r.length > 0 ? checkTyped(r.join(' '), e.answers, e.answerLang) : null;
+      if (!Array.isArray(r) || r.length === 0) return null;
+      // tiles cannot be edited, so a near miss is just wrong
+      return ((v) => (v === 'almost' ? 'wrong' : v))(checkTyped(r.join(' '), e.answers, e.answerLang));
     case 'match':
       return typeof r === 'number' ? (r === 0 ? 'right' : 'wrong') : null;
   }

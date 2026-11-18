@@ -797,7 +797,7 @@ button:disabled {
   border-color: var(--right);
 }
 
-.lesson:has(.action[data-verdict='typo']) .fill-input {
+.lesson:is(:has(.action[data-verdict='typo']), :has(.action[data-verdict='almost'])) .fill-input {
   background: var(--typo-bg);
   border-color: var(--typo);
 }
@@ -944,7 +944,7 @@ button:disabled {
   background: var(--right-bg);
 }
 
-.action[data-verdict='typo'] {
+.action:is([data-verdict='typo'], [data-verdict='almost']) {
   background: var(--typo-bg);
 }
 
@@ -988,7 +988,7 @@ button:disabled {
   color: var(--right);
 }
 
-[data-verdict='typo'] .feedback-title {
+:is([data-verdict='typo'], [data-verdict='almost']) .feedback-title {
   color: var(--typo);
 }
 
@@ -1001,7 +1001,7 @@ button:disabled {
   background: var(--right);
 }
 
-[data-verdict='typo'] :is(.feedback-icon, .btn-primary) {
+:is([data-verdict='typo'], [data-verdict='almost']) :is(.feedback-icon, .btn-primary) {
   color: var(--typo-text);
   background: var(--typo);
 }
@@ -1173,4 +1173,24 @@ button:disabled {
 .confirm-actions {
   display: grid;
   gap: var(--space-3);
+}
+
+/* Almost right: the learner's word with the differing letter, or a gap, on the typo colour */
+.almost-word {
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.02em;
+}
+
+.almost-mark {
+  padding: 0 0.1em;
+  color: var(--typo-text);
+  background: var(--typo);
+  border-radius: 0.2em;
+}
+
+.almost-gap {
+  display: inline-block;
+  width: 0.5em;
+  height: 1em;
+  vertical-align: text-bottom;
 }
