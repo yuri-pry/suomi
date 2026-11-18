@@ -119,7 +119,7 @@ export function App() {
           const day = localDay(new Date());
           const result = completeLesson(progress, lesson.id, total, wrongIds, day);
           const played = playable(lesson.exercises, speaker !== null);
-          const next = scoreAnswers({ ...result.progress, review: addMistakes(result.progress.review, wrongIds, day) }, rules, played, wrongIds);
+          const next = scoreAnswers({ ...result.progress, review: addMistakes(result.progress.review, wrongIds, day) }, rules, played, wrongIds, units);
           setProgress(next);
           save(next);
           setScreen({ name: 'result', xpGained: result.xpGained, mistakes: wrongIds.length });
@@ -142,7 +142,7 @@ export function App() {
           onDone={(total, wrongIds) => {
             const day = localDay(new Date());
             const result = completeCheckpoint(progress, unitId, total, wrongIds, day);
-            const next = scoreAnswers({ ...result.progress, review: addMistakes(result.progress.review, wrongIds, day) }, rules, exercises, wrongIds);
+            const next = scoreAnswers({ ...result.progress, review: addMistakes(result.progress.review, wrongIds, day) }, rules, exercises, wrongIds, units);
             setProgress(next);
             save(next);
             setScreen({ name: 'result', xpGained: result.xpGained, mistakes: wrongIds.length, checkpoint: { score: result.score, total, passed: result.passed } });
@@ -172,7 +172,7 @@ export function App() {
             const reviewedDeck = completeReview(progress, due.map((e) => e.id), wrongIds, day);
             // A wrong answer on a weak-rule exercise joins the deck like any other mistake.
             const weakWrong = wrongIds.filter((id) => weak.some((e) => e.id === id));
-            const next = scoreAnswers({ ...reviewedDeck, review: addMistakes(reviewedDeck.review, weakWrong, day) }, rules, session, wrongIds);
+            const next = scoreAnswers({ ...reviewedDeck, review: addMistakes(reviewedDeck.review, weakWrong, day) }, rules, session, wrongIds, units);
             setProgress(next);
             save(next);
             setScreen({ name: 'result', xpGained: next.xp - progress.xp, mistakes: wrongIds.length, review: true });

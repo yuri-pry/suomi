@@ -12,7 +12,7 @@ type Props = {
   reviewDue: number;
   /** Weak-rule exercises the review session would add after the due ones. */
   practice: number;
-  level: { level: number; section: number; mastered: number; total: number };
+  level: { level: number; exact: number; section: number; mastered: number; total: number };
   onStart: (lessonId: string) => void;
   onCheckpoint: (unit: Unit) => void;
   onReview: () => void;
@@ -122,11 +122,11 @@ export function Home({ units, progress, today, reviewDue, practice, level, onSta
         <section className="level-card card">
           <h2 className="eyebrow">{t('level', lang)}</h2>
           <p className="level-value">
-            <span className="level-number">{level.level.toFixed(1)}</span>
+            <span className="level-number">{level.exact.toFixed(2)}</span>
             <span className="level-section">{t(`section${level.section}` as StringKey, lang)}</span>
           </p>
           <div className="progress progress-thin" aria-hidden="true">
-            <div className="progress-fill" style={{ transform: `scaleX(${level.level % 1})` }} />
+            <div className="progress-fill" style={{ transform: `scaleX(${level.exact % 1})` }} />
           </div>
           <p className="level-rules">
             {level.mastered} / {level.total} {t('rulesMastered', lang)}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { level, ruleState, scoreAnswers, scored, weakExercises } from '../src/lib/mastery';
+import { finishedUnits, level, ruleState, scoreAnswers, scored, weakExercises } from '../src/lib/mastery';
 import { emptyProgress } from '../src/lib/progress';
 import type { Exercise, Rule, Unit } from '../src/lib/types';
 
@@ -49,8 +49,23 @@ describe('level', () => {
     expect(level(p, rules, units)).toMatchObject({ level: 2.4, section: 3, mastered: 12, total: 25 });
   });
 
-  it('a section counts as complete at 80 percent, and a later section does not count past an incomplete one', () => {
-    const p = master(['u01-r1', 'u01-r2', 'u01-r3', 'u01-r4', ...rules.slice(10, 15).map((r) => r.id)]);
+  it('one lesson raises the level above 0 before any rule is mastered', () => {
+    const p = scoreAnswers(emptyProgress(), rules, [ex('e1', ['u01-r1']), ex('e2', ['u01-r1'])], []);
+    expect(level(p, rules, units).mastered).toBe(0);
+    expect(level(p, rules, units).exact).toBeGreaterThan(0);
+  });
+
+  it('a unit with all lessons done but no rule scores counts as mastered', () => {
+    const us = [unit('u01', 1, [{ id: 'u01-l1', title: '', exercises: [] }]), ...units.slice(1)];
+    const p = { ...emptyProgress(), done: { 'u01-l1': { best: 1, at: 'x' } } };
+    expect(finishedUnits(p, us)).toEqual(new Set(['u01']));
+    expect(level(p, rules, us)).toMatchObject({ level: 1, mastered: 5 });
+  });
+
+  it('a section counts as complete at a mean credit of 0.8, and a later section does not count past an incomplete one', () => {
+    const p = { ...master(['u01-r1', 'u01-r2', 'u01-r3', 'u01-r4', ...rules.slice(10, 15).map((r) => r.id)]) };
+    p.rules['u01-r5'] = { n: 8, s: 0.8 };
+    p.rules['u01-r1'] = { n: 8, s: 0.8 };
     expect(level(p, rules, units).level).toBeCloseTo(1, 5);
   });
 
@@ -74,6 +89,11 @@ describe('weak-rule review', () => {
 
   it('with no saved mistakes it serves the weakest seen rules, one exercise per rule in turn', () => {
     expect(weakExercises(units, rules, p, new Set()).map((e) => e.id)).toEqual(['b1', 'a1', 'a2']);
+  });
+
+  it('serves unmastered rules of finished lessons even when they have no answers yet', () => {
+    const q = { ...p, rules: {} };
+    expect(weakExercises(units, rules, q, new Set()).map((e) => e.id)).toEqual(['a1', 'b1', 'a2']);
   });
 
   it('never serves a locked lesson, a mastered rule or an exercise already due', () => {
