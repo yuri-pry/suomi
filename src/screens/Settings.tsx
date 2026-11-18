@@ -1,3 +1,4 @@
+import { haptic, setHaptics } from '../lib/haptics';
 import { Icon } from '../design/Icon';
 import type { Progress } from '../lib/progress';
 import { t, type StringKey } from '../lib/strings';
@@ -69,7 +70,14 @@ export function Settings({ progress, onChange, onPlacement }: Props) {
           role="switch"
           className="switch"
           checked={progress.haptics}
-          onChange={(e) => onChange({ haptics: e.target.checked })}
+          onChange={(e) => {
+            onChange({ haptics: e.target.checked });
+            // setHaptics runs on the next render, so switch it on here to feel it now.
+            if (e.target.checked) {
+              setHaptics(true);
+              haptic('tap');
+            }
+          }}
         />
       </label>
       <div className="setting switch-row">
