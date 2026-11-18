@@ -2,7 +2,7 @@ import { Icon } from '../design/Icon';
 import { useState, type ReactNode } from 'react';
 import type { Unit } from '../lib/types';
 import { currentStreak, isUnlocked, testedOut, xpToday, type Progress } from '../lib/progress';
-import { t } from '../lib/strings';
+import { t, type StringKey } from '../lib/strings';
 
 type Props = {
   units: Unit[];
@@ -10,6 +10,9 @@ type Props = {
   today: string;
   /** Exercises due for review that this device can play. */
   reviewDue: number;
+  /** Weak-rule exercises the review session would add after the due ones. */
+  practice: number;
+  level: { level: number; section: number; mastered: number; total: number };
   onStart: (lessonId: string) => void;
   onReview: () => void;
 };
@@ -41,7 +44,7 @@ function Module({ eyebrow, title, count, tone, startOpen, children }: {
   );
 }
 
-export function Home({ units, progress, today, reviewDue, onStart, onReview }: Props) {
+export function Home({ units, progress, today, reviewDue, practice, level, onStart, onReview }: Props) {
   const lang = progress.lang;
   // Lessons unlock in one line across units until checkpoints exist (task 11).
   const ids = units.flatMap((u) => u.lessons.map((l) => l.id));
@@ -88,10 +91,17 @@ export function Home({ units, progress, today, reviewDue, onStart, onReview }: P
             <p className="goal-label">{t('dailyGoal', lang)}</p>
           </section>
 
-          <section className="review-card block" data-tone="6" data-empty={reviewDue === 0 || undefined}>
+          <section className="review-card block" data-tone="6" data-empty={reviewDue + practice === 0 || undefined}>
             <h2 className="eyebrow">{t('review', lang)}</h2>
-            {reviewDue === 0 ? (
+            {reviewDue + practice === 0 ? (
               <p className="review-card-none">{t('reviewNone', lang)}</p>
+            ) : reviewDue === 0 ? (
+              <>
+                <p className="review-card-none">{t('reviewWeak', lang)}</p>
+                <button type="button" className="btn btn-small review-card-btn" onClick={onReview}>
+                  {t('practiseStart', lang)} <Icon name="chevron-right" size={18} />
+                </button>
+              </>
             ) : (
               <>
                 <p className="review-card-count">
@@ -104,6 +114,20 @@ export function Home({ units, progress, today, reviewDue, onStart, onReview }: P
             )}
           </section>
         </div>
+
+        <section className="level-card card">
+          <h2 className="eyebrow">{t('level', lang)}</h2>
+          <p className="level-value">
+            <span className="level-number">{level.level.toFixed(1)}</span>
+            <span className="level-section">{t(`section${level.section}` as StringKey, lang)}</span>
+          </p>
+          <div className="progress progress-thin" aria-hidden="true">
+            <div className="progress-fill" style={{ transform: `scaleX(${level.level % 1})` }} />
+          </div>
+          <p className="level-rules">
+            {level.mastered} / {level.total} {t('rulesMastered', lang)}
+          </p>
+        </section>
 
         <h2 className="eyebrow home-section">{t('yourPath', lang)}</h2>
         {units.map((unit, u) => (

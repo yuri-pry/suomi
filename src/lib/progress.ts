@@ -26,6 +26,8 @@ export type Progress = {
   testedOutBefore: string | null;
   /** Spaced-repetition deck: exercise id to its box and the local day it is next due. See review.ts. */
   review: Record<string, { box: number; due: string }>;
+  /** Rule id to answers given (n) and score from 0 to 1 (s). See mastery.ts. */
+  rules: Record<string, { n: number; s: number }>;
 };
 
 export const emptyProgress = (): Progress => ({
@@ -43,6 +45,7 @@ export const emptyProgress = (): Progress => ({
   mistakes: {},
   testedOutBefore: null,
   review: {},
+  rules: {},
 });
 
 /** Local calendar day as YYYY-MM-DD. Streaks follow the learner's own midnight, not UTC. */

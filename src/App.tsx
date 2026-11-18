@@ -1,9 +1,11 @@
 import { Icon } from './design/Icon';
 import { useEffect, useState } from 'react';
-import type { Unit } from './lib/types';
+import type { Rule, Unit } from './lib/types';
 import { loadAllUnits, loadPlacement } from './lib/content';
 import { testableUnits, type PlacementItem } from './lib/placement';
-import { addMistakes, completeReview, dueExercises } from './lib/review';
+import { addMistakes, completeReview, dueExercises, REVIEW_CAP } from './lib/review';
+import { level, scoreAnswers, weakExercises } from './lib/mastery';
+import rulesJson from '../content/rules.json';
 import { playable } from './lib/lesson';
 import { completeLesson, currentStreak, load, localDay, save, type Progress } from './lib/progress';
 import { loadSpeaker, type Speaker } from './lib/speech';
@@ -17,6 +19,8 @@ import { Lesson } from './screens/Lesson';
 import { Result } from './screens/Result';
 import { Welcome } from './screens/Welcome';
 import { Placement } from './screens/Placement';
+
+const rules = rulesJson as Rule[];
 
 const tabs = ['home', 'profile', 'settings'] as const;
 type Tab = (typeof tabs)[number];
@@ -113,7 +117,8 @@ export function App() {
         onDone={(total, wrongIds) => {
           const day = localDay(new Date());
           const result = completeLesson(progress, lesson.id, total, wrongIds, day);
-          const next = { ...result.progress, review: addMistakes(result.progress.review, wrongIds, day) };
+          const played = playable(lesson.exercises, speaker !== null);
+          const next = scoreAnswers({ ...result.progress, review: addMistakes(result.progress.review, wrongIds, day) }, rules, played, wrongIds);
           setProgress(next);
           save(next);
           setScreen({ name: 'result', xpGained: result.xpGained, mistakes: wrongIds.length });
@@ -125,18 +130,25 @@ export function App() {
 
   // Listening items wait in the deck on a device with no Finnish voice.
   const due = playable(dueExercises(units, progress.review, today), speaker !== null);
+  // After the saved mistakes, the session fills up with exercises for the weakest rules.
+  const weak = playable(weakExercises(units, rules, progress, new Set(due.map((e) => e.id))), speaker !== null).slice(0, REVIEW_CAP - due.length);
+  const session = [...due, ...weak];
 
-  if (screen.name === 'review' && due.length > 0)
+  if (screen.name === 'review' && session.length > 0)
     return (
       <SpeakerContext value={speaker}>
         <Lesson
           key="review"
-          lesson={{ id: 'review', title: t('review', progress.lang), exercises: due }}
+          lesson={{ id: 'review', title: t('review', progress.lang), exercises: session }}
           lang={progress.lang}
           speaker={speaker}
           onQuit={() => setScreen({ name: 'home' })}
           onDone={(_total, wrongIds) => {
-            const next = completeReview(progress, due.map((e) => e.id), wrongIds, localDay(new Date()));
+            const day = localDay(new Date());
+            const reviewedDeck = completeReview(progress, due.map((e) => e.id), wrongIds, day);
+            // A wrong answer on a weak-rule exercise joins the deck like any other mistake.
+            const weakWrong = wrongIds.filter((id) => weak.some((e) => e.id === id));
+            const next = scoreAnswers({ ...reviewedDeck, review: addMistakes(reviewedDeck.review, weakWrong, day) }, rules, session, wrongIds);
             setProgress(next);
             save(next);
             setScreen({ name: 'result', xpGained: next.xp - progress.xp, mistakes: wrongIds.length, review: true });
@@ -165,6 +177,8 @@ export function App() {
           progress={progress}
           today={today}
           reviewDue={due.length}
+          practice={weak.length}
+          level={level(progress, rules, units)}
           onStart={(lessonId) => setScreen({ name: 'lesson', lessonId })}
           onReview={() => setScreen({ name: 'review' })}
         />
