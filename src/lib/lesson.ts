@@ -2,7 +2,14 @@ import type { Exercise, Unit } from './types';
 
 export type LessonState = {
   queue: Exercise[];
+  /** Exercises in the lesson itself, not counting the retry round. */
   total: number;
+  /** Answers given so far, retries included. */
+  done: number;
+  /** Exercises missed in the first round, in order; asked once more after the last new one. */
+  missed: Exercise[];
+  /** Size of the retry round, 0 until it starts. */
+  retries: number;
   /** Ids answered wrong at least once, in order of first mistake. */
   wrong: string[];
 };
@@ -14,24 +21,32 @@ export const playable = (exercises: Exercise[], canSpeak: boolean) =>
 export const startLesson = (exercises: Exercise[]): LessonState => ({
   queue: [...exercises],
   total: exercises.length,
+  done: 0,
+  missed: [],
+  retries: 0,
   wrong: [],
 });
 
-/** A wrong answer sends the exercise to the end of the queue; the lesson ends when the queue is empty. */
+/**
+ * Every answer moves on. The exercises missed in the first round come back once, after the
+ * last new one; a second miss shows the answer and is not asked again.
+ */
 export function answer(s: LessonState, correct: boolean): LessonState {
   const [current, ...rest] = s.queue;
   if (!current) return s;
-  if (correct) return { ...s, queue: rest };
-  return {
-    ...s,
-    queue: [...rest, current],
-    wrong: s.wrong.includes(current.id) ? s.wrong : [...s.wrong, current.id],
-  };
+  const inRetry = s.retries > 0;
+  const wrong = !correct && !s.wrong.includes(current.id) ? [...s.wrong, current.id] : s.wrong;
+  const missed = !correct && !inRetry ? [...s.missed, current] : s.missed;
+  const next = { ...s, queue: rest, done: s.done + 1, wrong, missed };
+  return rest.length === 0 && !inRetry && missed.length > 0 ? { ...next, queue: missed, retries: missed.length } : next;
 }
 
 export const isDone = (s: LessonState) => s.queue.length === 0;
 
-export const fractionDone = (s: LessonState) => (s.total - s.queue.length) / s.total;
+/** Position in the retry round, 1-based; 0 while the lesson's own exercises are being asked. */
+export const retryPosition = (s: LessonState) => (s.retries ? s.retries - s.queue.length + 1 : 0);
+
+export const fractionDone = (s: LessonState) => s.done / (s.total + s.retries);
 
 export function shuffle<T>(items: T[], random = Math.random): T[] {
   const out = [...items];

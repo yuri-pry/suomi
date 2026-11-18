@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { answer, drawCheckpoint, fractionDone, isDone, shuffle, startLesson } from '../src/lib/lesson';
+import { answer, drawCheckpoint, fractionDone, isDone, retryPosition, shuffle, startLesson } from '../src/lib/lesson';
 import type { Exercise, Unit } from '../src/lib/types';
 
 const ex = (id: string): Exercise => ({
@@ -11,26 +11,41 @@ const ex = (id: string): Exercise => ({
   answers: ['on'],
 });
 
-test('a wrong answer returns at the end and the lesson ends only when all are right', () => {
-  let s = startLesson([ex('a'), ex('b'), ex('c')]);
-  s = answer(s, false); // a wrong
-  expect(s.queue.map((e) => e.id)).toEqual(['b', 'c', 'a']);
+test('missed exercises come back once after the last new one, in the order missed', () => {
+  let s = startLesson([ex('a'), ex('b'), ex('c'), ex('d')]);
+  s = answer(s, false); // a
   s = answer(s, true); // b
-  s = answer(s, true); // c
-  expect(isDone(s)).toBe(false);
-  s = answer(s, false); // a wrong again: counted once
-  expect(s.wrong).toEqual(['a']);
-  s = answer(s, true);
+  s = answer(s, false); // c
+  s = answer(s, true); // d: retry round starts
+  expect(s.queue.map((e) => e.id)).toEqual(['a', 'c']);
+  expect(s.retries).toBe(2);
+  expect(retryPosition(s)).toBe(1);
+  s = answer(s, true); // a right
+  expect(retryPosition(s)).toBe(2);
+  s = answer(s, false); // c wrong again: not asked a third time
   expect(isDone(s)).toBe(true);
-  expect(s.total).toBe(3);
+  expect(s.wrong).toEqual(['a', 'c']);
+  expect(s.total).toBe(4);
+  expect(s.done).toBe(6);
 });
 
-test('progress fraction follows finished exercises, not attempts', () => {
+test('a lesson with no mistakes has no retry round', () => {
+  let s = startLesson([ex('a'), ex('b')]);
+  s = answer(s, true);
+  s = answer(s, true);
+  expect(isDone(s)).toBe(true);
+  expect(s.retries).toBe(0);
+  expect(s.wrong).toEqual([]);
+});
+
+test('progress moves on a wrong answer and grows by the retry round', () => {
   let s = startLesson([ex('a'), ex('b')]);
   s = answer(s, false);
-  expect(fractionDone(s)).toBe(0);
-  s = answer(s, true);
   expect(fractionDone(s)).toBe(0.5);
+  s = answer(s, true); // retry round of 1 begins
+  expect(fractionDone(s)).toBe(2 / 3);
+  s = answer(s, true);
+  expect(fractionDone(s)).toBe(1);
 });
 
 test('shuffle keeps every item', () => {

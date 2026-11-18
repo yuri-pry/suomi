@@ -233,8 +233,9 @@ Unit 3 (Food) as the worked example:
 
 ## 5. Lessons and exercise types
 
-Each lesson is a fixed list of exercises. A wrong answer goes to the end of the lesson
-queue and must be answered correctly to finish.
+Each lesson is a fixed list of exercises. A wrong answer moves on like a right one; the
+exercises missed are asked once more after the last new one, and a second miss shows the
+answer and is not asked again.
 
 | Type | What the learner does | Used for |
 |---|---|---|

@@ -1,7 +1,7 @@
 import { Icon } from '../design/Icon';
 import { useRef, useState, type FormEvent, type RefObject } from 'react';
 import type { Exercise, Lang, Lesson as LessonData } from '../lib/types';
-import { answer, isDone, playable, startLesson } from '../lib/lesson';
+import { answer, isDone, playable, retryPosition, startLesson } from '../lib/lesson';
 import type { Verdict } from '../lib/check';
 import { correctText, emptyResponse, grade, type Response } from '../lib/exercise';
 import type { Speaker } from '../lib/speech';
@@ -83,8 +83,8 @@ function Body({ exercise, response, onResponse, locked, speaker, lang }: BodyPro
 }
 
 /**
- * One dot per exercise while that fits a phone, a bar beyond that. A wrong answer goes back
- * into the queue, so the current dot stays put until it is answered right.
+ * One dot per exercise while that fits a phone, a bar beyond that. Every answer moves it on;
+ * the retry round adds its own dots when it starts.
  */
 export function Steps({ done, total, label }: { done: number; total: number; label?: string }) {
   return (
@@ -139,9 +139,9 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
   if (!exercise) return null;
 
   const checked = grade(exercise, response);
-  const done = state.total - state.queue.length;
-  // A wrong answer keeps `done` at 0, so it counts as an answer too.
-  const answered = done > 0 || state.wrong.length > 0 || verdict !== null;
+  const { done } = state;
+  const answered = done > 0 || verdict !== null;
+  const retry = retryPosition(state);
   // true/false has no answer text of its own, so it is shown in the interface language
   const [correct, correctLang] =
     exercise.type === 'truefalse'
@@ -176,11 +176,11 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
         </button>
         <p className="lesson-title">{lesson.title}</p>
         <span className="lesson-count" aria-hidden="true">
-          {Math.min(done + 1, state.total)} / {state.total}
+          {retry ? `${t('retry', lang)} ${retry} / ${state.retries}` : `${done + 1} / ${state.total}`}
         </span>
       </header>
       <QuitConfirm dialog={confirm} lang={lang} onQuit={onQuit} />
-      <Steps done={done} total={state.total} />
+      <Steps done={done} total={state.total + state.retries} />
 
       <main className="exercise" key={`${exercise.id}-${attempt}`}>
         <p className="instruction">{t(instructionKey(exercise), lang)}</p>
