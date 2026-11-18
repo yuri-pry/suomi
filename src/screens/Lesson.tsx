@@ -200,7 +200,7 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
   return (
     <form className="lesson" onSubmit={submit}>
       <header className="lesson-top">
-        <button type="button" className="icon-btn icon-btn-outline" aria-label={t('quit', lang)} onClick={() => (answered ? confirm.current?.showModal() : onQuit())}>
+        <button type="button" className="icon-btn icon-btn-outline" data-quit aria-label={t('quit', lang)} onClick={() => (answered ? confirm.current?.showModal() : onQuit())}>
           <Icon name="close" />
         </button>
         <p className="lesson-title">{lesson.title}</p>

@@ -1,5 +1,7 @@
 import { Icon } from './design/Icon';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Capacitor } from '@capacitor/core';
+import { App as NativeApp } from '@capacitor/app';
 import type { Exercise, Rule, Unit } from './lib/types';
 import { loadAllUnits, loadPlacement } from './lib/content';
 import { testableUnits, type PlacementItem } from './lib/placement';
@@ -46,6 +48,25 @@ export function App() {
   useEffect(() => {
     loadAllUnits().then(setUnits, (e) => setError(String(e)));
     loadSpeaker().then(setSpeaker);
+  }, []);
+
+  // The phone's back button, wired here for every screen. The lesson's own quit sheet and its
+  // X button are driven through the DOM so the "quit now or ask first" rule stays in Lesson.
+  const back = useRef(() => {});
+  back.current = () => {
+    if (screen.name === 'lesson' || screen.name === 'checkpoint' || screen.name === 'review') {
+      const sheet = document.querySelector<HTMLDialogElement>('dialog.confirm[open]');
+      if (sheet) sheet.close();
+      else document.querySelector<HTMLElement>('[data-quit]')?.click();
+    } else if (screen.name !== 'home' || tab !== 'home') {
+      setScreen({ name: 'home' });
+      setTab('home');
+    } else void NativeApp.minimizeApp();
+  };
+  useEffect(() => {
+    if (!Capacitor.isNativePlatform()) return;
+    const listener = NativeApp.addListener('backButton', () => back.current());
+    return () => void listener.then((l) => l.remove());
   }, []);
 
   // Fetched only once the test is opened; an empty bank shows the loading line below.
