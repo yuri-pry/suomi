@@ -2,7 +2,7 @@ import { Icon } from '../design/Icon';
 import { useRef, useState, type FormEvent, type RefObject } from 'react';
 import type { Exercise, Lang, Lesson as LessonData } from '../lib/types';
 import { answer, isDone, playable, retryPosition, startLesson } from '../lib/lesson';
-import { almostOf, type Almost, type Verdict } from '../lib/check';
+import { almostOf, diffWords, type Almost, type Verdict } from '../lib/check';
 import { correctText, emptyResponse, grade, type Response } from '../lib/exercise';
 import type { Speaker } from '../lib/speech';
 import { t, type StringKey } from '../lib/strings';
@@ -117,6 +117,20 @@ function Marked({ given, at, kind }: Almost & { given: string }) {
       {given.slice(0, at)}
       {kind === 'missing' ? <mark className="almost-mark almost-gap" aria-hidden="true" /> : <mark className="almost-mark">{given[at]}</mark>}
       {given.slice(kind === 'missing' ? at : at + 1)}
+    </span>
+  );
+}
+
+/** The learner's typed answer with wrong words highlighted. */
+function WrongDiff({ input, answers, lang }: { input: string; answers: string[]; lang?: string }) {
+  const words = input.trim().split(/\s+/);
+  const wrong = diffWords(input, answers);
+  if (wrong.every((w) => w)) return null; // all wrong = no useful diff
+  return (
+    <span className="wrong-diff" lang={lang}>
+      {words.map((w, i) => (
+        <span key={i}>{i > 0 && ' '}{wrong[i] ? <mark className="wrong-mark">{w}</mark> : w}</span>
+      ))}
     </span>
   );
 }
@@ -239,12 +253,24 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
                 </p>
               )}
               {verdict !== 'right' && verdict !== 'almost' && (
-                <p className="feedback-answer">
-                  <span className="feedback-label">{t('answerIs', lang)}</span>{' '}
-                  <strong lang={correctLang}>
-                    <Speakable text={correct} lang={correctLang ?? 'en'} />
-                  </strong>
-                </p>
+                <>
+                  {verdict === 'wrong' && typeof response === 'string' && response.trim() !== '' && (exercise.type === 'fill' || exercise.type === 'translate') && (
+                    <p className="feedback-answer">
+                      <WrongDiff input={response} answers={exercise.answers} lang={exercise.answerLang} />
+                    </p>
+                  )}
+                  {verdict === 'wrong' && Array.isArray(response) && response.length > 0 && exercise.type === 'order' && (
+                    <p className="feedback-answer">
+                      <WrongDiff input={response.join(' ')} answers={exercise.answers} lang={exercise.answerLang} />
+                    </p>
+                  )}
+                  <p className="feedback-answer">
+                    <span className="feedback-label">{t('answerIs', lang)}</span>{' '}
+                    <strong lang={correctLang}>
+                      <Speakable text={correct} lang={correctLang ?? 'en'} />
+                    </strong>
+                  </p>
+                </>
               )}
             </>
           )}

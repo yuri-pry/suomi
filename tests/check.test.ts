@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { almostDiff, almostOf, checkTyped, normalize } from '../src/lib/check';
+import { almostDiff, almostOf, checkTyped, diffWords, normalize } from '../src/lib/check';
 
 test('normalize trims, lowercases, collapses spaces and drops final punctuation', () => {
   expect(normalize('  Hyvää   Päivää! ')).toBe('hyvää päivää');
@@ -62,4 +62,15 @@ test('almost: Finnish verdicts', () => {
 test('almost: English path unchanged', () => {
   expect(checkTyped('techer', ['teacher'], 'en')).toBe('typo');
   expect(checkTyped('tea', ['tee'], 'en')).toBe('wrong');
+});
+
+test('diffWords marks words that differ from the closest accepted answer', () => {
+  expect(diffWords('minä olen opettaja', ['minä olen opiskelija'])).toEqual([false, false, true]);
+  expect(diffWords('hän on hyvä', ['hän on hyvä'])).toEqual([false, false, false]);
+  // extra word: all beyond the answer length are wrong
+  expect(diffWords('minä olen iso opettaja', ['minä olen opettaja'])).toEqual([false, false, true, true]);
+  // fewer words
+  expect(diffWords('minä', ['minä olen'])).toEqual([false]);
+  // picks the answer with the most matches
+  expect(diffWords('minä olet', ['sinä olet', 'minä olen'])).toEqual([true, false]);
 });

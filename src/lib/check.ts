@@ -47,6 +47,21 @@ export function almostOf(input: string, answers: string[]): (Almost & { given: s
   return null;
 }
 
+/** Which words the learner got wrong: `true` = this word is wrong, indexed by word position in the given text. */
+export function diffWords(input: string, answers: string[]): boolean[] {
+  const givenWords = normalize(input).split(' ');
+  // Pick the accepted answer with the most words in common.
+  let bestWrong = givenWords.map(() => true);
+  let bestCount = -1;
+  for (const a of answers) {
+    const target = normalize(a).split(' ');
+    const wrong = givenWords.map((w, i) => w !== target[i]);
+    const right = wrong.filter((w) => !w).length;
+    if (right > bestCount) { bestCount = right; bestWrong = wrong; }
+  }
+  return bestWrong;
+}
+
 /**
  * Finnish must match exactly, but a/ä, o/ö, one missing or one extra letter is 'almost'
  * (answers of 3 letters or fewer never are). English accepts one wrong letter as a typo.

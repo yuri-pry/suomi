@@ -1195,6 +1195,21 @@ button:disabled {
   vertical-align: text-bottom;
 }
 
+/* Wrong answer diff: the learner's words with wrong parts highlighted */
+.wrong-diff {
+  font-weight: var(--weight-bold);
+  text-decoration: line-through;
+  text-decoration-color: var(--wrong);
+  color: var(--muted);
+}
+
+.wrong-mark {
+  color: var(--wrong);
+  background: var(--wrong-bg);
+  padding: 0 0.15em;
+  border-radius: 0.2em;
+}
+
 /* Order: chips can be dragged. touch-action keeps the page from scrolling under the finger. */
 .tile-drag-source {
   touch-action: none;
