@@ -10,12 +10,13 @@ type Props = {
   today: string;
   /** Exercises due for review that this device can play. */
   reviewDue: number;
-  /** Weak-rule exercises the review session would add after the due ones. */
+  /** Exercises in the practice session for the weakest rules; 0 hides the practice row. */
   practice: number;
   level: { level: number; exact: number; section: number; mastered: number; total: number };
   onStart: (lessonId: string) => void;
   onCheckpoint: (unit: Unit) => void;
   onReview: () => void;
+  onPractice: () => void;
 };
 
 /** A unit that folds away, painted in one of the seven block tones. The learner's choice sticks while the screen is open. */
@@ -45,7 +46,7 @@ function Module({ eyebrow, title, count, tone, startOpen, children }: {
   );
 }
 
-export function Home({ units, progress, today, reviewDue, practice, level, onStart, onCheckpoint, onReview }: Props) {
+export function Home({ units, progress, today, reviewDue, practice, level, onStart, onCheckpoint, onReview, onPractice }: Props) {
   const lang = progress.lang;
   const isOpen = (id: string) => !(id in progress.done) && !testedOut(progress, id);
   // Only the unit being worked on starts open, so a long course does not mean a long scroll.
@@ -95,17 +96,10 @@ export function Home({ units, progress, today, reviewDue, practice, level, onSta
             <p className="goal-label">{t('dailyGoal', lang)}</p>
           </section>
 
-          <section className="review-card block" data-tone="6" data-empty={reviewDue + practice === 0 || undefined}>
+          <section className="review-card block" data-tone="6" data-empty={reviewDue === 0 || undefined}>
             <h2 className="eyebrow">{t('review', lang)}</h2>
-            {reviewDue + practice === 0 ? (
+            {reviewDue === 0 ? (
               <p className="review-card-none">{t('reviewNone', lang)}</p>
-            ) : reviewDue === 0 ? (
-              <>
-                <p className="review-card-none">{t('reviewWeak', lang)}</p>
-                <button type="button" className="btn btn-small review-card-btn" onClick={onReview}>
-                  {t('practiseStart', lang)} <Icon name="chevron-right" size={18} />
-                </button>
-              </>
             ) : (
               <>
                 <p className="review-card-count">
@@ -118,6 +112,15 @@ export function Home({ units, progress, today, reviewDue, practice, level, onSta
             )}
           </section>
         </div>
+
+        {practice > 0 && (
+          <section className="practice-row card">
+            <h2 className="practice-row-title">{t('practiseWeak', lang)}</h2>
+            <button type="button" className="btn btn-small btn-primary" onClick={onPractice}>
+              {t('practiseStart', lang)} <Icon name="chevron-right" size={18} />
+            </button>
+          </section>
+        )}
 
         <section className="level-card card">
           <h2 className="eyebrow">{t('level', lang)}</h2>

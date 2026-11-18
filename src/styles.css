@@ -1220,3 +1220,21 @@ button:disabled {
   box-shadow: var(--shadow-2);
   transform: scale(1.06) rotate(-2deg);
 }
+
+/* Practice: one quiet row under the review card */
+.practice-row {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  justify-content: space-between;
+  margin: var(--space-3) 0 0;
+  padding: var(--space-3) var(--space-3) var(--space-3) var(--space-5);
+  border-radius: var(--radius-xl);
+}
+
+.practice-row-title {
+  margin: 0;
+  font-size: var(--text-md);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
+}

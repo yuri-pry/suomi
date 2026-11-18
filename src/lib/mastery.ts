@@ -25,31 +25,16 @@ export const scored = (r: RuleScore, correct: boolean): RuleScore => ({
 
 export const isMastered = (r: RuleScore) => r.s >= MASTERED_S && r.n >= MASTERED_N;
 
-/**
- * One answer per played exercise, judged on the first try: a wrong answer is retried once at
- * the end, so counting the retry would inflate the score. With `perRule` a rule gets one answer
- * for the whole session (right when none of its exercises was missed): a review replays the same
- * few exercises of a rule, and counting each as fresh evidence would master it in one sitting.
- */
-export function scoreAnswers(p: Progress, rules: Rule[], played: Exercise[], wrongIds: string[], units: Unit[] = [], perRule = false): Progress {
+/** One answer per played exercise, judged on the first try: the retry of a missed exercise is not counted. */
+export function scoreAnswers(p: Progress, rules: Rule[], played: Exercise[], wrongIds: string[], units: Unit[] = []): Progress {
   const finished = finishedUnits(p, units);
   const byId = new Map(rules.map((r) => [r.id, r]));
   const next = { ...p.rules };
-  const missed = new Set<string>();
-  const seen = new Set<string>();
   for (const e of played)
     for (const tag of e.tags ?? []) {
       const rule = byId.get(tag);
-      if (!rule) continue;
-      const wrong = wrongIds.includes(e.id);
-      if (perRule) {
-        if (wrong) missed.add(tag);
-        seen.add(tag);
-        continue;
-      }
-      next[tag] = scored(next[tag] ?? ruleState(p, rule, finished), !wrong);
+      if (rule) next[tag] = scored(next[tag] ?? ruleState(p, rule, finished), !wrongIds.includes(e.id));
     }
-  for (const tag of seen) next[tag] = scored(next[tag] ?? ruleState(p, byId.get(tag)!, finished), !missed.has(tag));
   return { ...p, rules: next };
 }
 
@@ -89,17 +74,17 @@ export function level(p: Progress, rules: Rule[], units: Unit[]) {
 }
 
 /**
- * Review after the saved mistakes: exercises for the not yet mastered rules, weakest
- * first, one per rule in turn so one rule does not fill the session. Only lessons the learner
+ * Practice: exercises for the not yet mastered rules, weakest first, one per rule in turn so one
+ * rule does not fill the session and at most `perRule` of each. Only lessons the learner
  * has finished or tested out are drawn from, and ids in `exclude` (already due) are skipped.
  */
-export function weakExercises(units: Unit[], rules: Rule[], p: Progress, exclude: Set<string>): Exercise[] {
+export function weakExercises(units: Unit[], rules: Rule[], p: Progress, exclude: Set<string>, perRule = Infinity): Exercise[] {
   const open = units.flatMap((u) => u.lessons.filter((l) => l.id in p.done || testedOut(p, l.id)).flatMap((l) => l.exercises));
   const weak = rules
     .map((r) => ({ id: r.id, ...ruleState(p, r, finishedUnits(p, units)) }))
     .filter((r) => !isMastered(r))
     .sort((a, b) => a.s - b.s || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
-  const lists = weak.map((r) => open.filter((e) => e.tags?.includes(r.id) && !exclude.has(e.id)));
+  const lists = weak.map((r) => open.filter((e) => e.tags?.includes(r.id) && !exclude.has(e.id)).slice(0, perRule));
   const out: Exercise[] = [];
   const seen = new Set<string>();
   for (let i = 0; lists.some((l) => i < l.length); i++)

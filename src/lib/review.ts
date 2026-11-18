@@ -56,17 +56,29 @@ export function completeReview(p: Progress, playedIds: string[], wrongIds: strin
   return { ...earn(p, XP_REVIEW, today), review: deck };
 }
 
-/** The review session: the due items first, then exercises for the weakest rules up to REVIEW_CAP. */
-export function reviewSession(units: Unit[], rules: Rule[], p: Progress, today: string, canSpeak: boolean) {
+/** The review session: only the spaced-repetition deck, the due items. */
+export function reviewSession(units: Unit[], p: Progress, today: string, canSpeak: boolean) {
   // Listening items wait in the deck on a device with no Finnish voice.
-  const due = playable(dueExercises(units, p.review, today), canSpeak);
-  const weak = playable(weakExercises(units, rules, p, new Set(due.map((e) => e.id))), canSpeak).slice(0, REVIEW_CAP - due.length);
-  return { due, weak, session: [...due, ...weak] };
+  return playable(dueExercises(units, p.review, today), canSpeak);
 }
 
-/** Saves the outcome of a review session. A wrong answer on a weak-rule exercise joins the deck like any other mistake. */
-export function finishReview(p: Progress, s: ReturnType<typeof reviewSession>, wrongIds: string[], units: Unit[], rules: Rule[], today: string): Progress {
-  const reviewedDeck = completeReview(p, s.due.map((e) => e.id), wrongIds, today);
-  const weakWrong = wrongIds.filter((id) => s.weak.some((e) => e.id === id));
-  return scoreAnswers({ ...reviewedDeck, review: addMistakes(reviewedDeck.review, weakWrong, today) }, rules, s.session, wrongIds, units, true);
+/** Saves a review session: the deck moves by first answers and the rules are scored per exercise, like a lesson. */
+export function finishReview(p: Progress, session: Exercise[], wrongIds: string[], units: Unit[], rules: Rule[], today: string): Progress {
+  const next = completeReview(p, session.map((e) => e.id), wrongIds, today);
+  return scoreAnswers(next, rules, session, wrongIds, units);
+}
+
+export const PRACTICE_SIZE = 10;
+export const PRACTICE_PER_RULE = 3;
+
+/** Practice: a few exercises for each of the weakest unmastered rules, apart from the deck's due items. */
+export function practiceSession(units: Unit[], rules: Rule[], p: Progress, today: string, canSpeak: boolean) {
+  const due = new Set(dueExercises(units, p.review, today).map((e) => e.id));
+  return playable(weakExercises(units, rules, p, due, PRACTICE_PER_RULE), canSpeak).slice(0, PRACTICE_SIZE);
+}
+
+/** Saves a practice session: it earns the review XP, scores per exercise, and a miss joins the deck. */
+export function finishPractice(p: Progress, session: Exercise[], wrongIds: string[], units: Unit[], rules: Rule[], today: string): Progress {
+  const next = { ...earn(p, XP_REVIEW, today), review: addMistakes(p.review, wrongIds, today) };
+  return scoreAnswers(next, rules, session, wrongIds, units);
 }

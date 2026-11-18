@@ -5,7 +5,7 @@ import { App as NativeApp } from '@capacitor/app';
 import type { Exercise, Rule, Unit } from './lib/types';
 import { loadAllUnits, loadPlacement } from './lib/content';
 import { testableUnits, type PlacementItem } from './lib/placement';
-import { addMistakes, finishReview, reviewSession } from './lib/review';
+import { addMistakes, finishPractice, finishReview, practiceSession, reviewSession } from './lib/review';
 import { level, scoreAnswers } from './lib/mastery';
 import rulesJson from '../content/rules.json';
 import { drawCheckpoint, playable } from './lib/lesson';
@@ -33,7 +33,8 @@ type Screen =
   | { name: 'lesson'; lessonId: string }
   | { name: 'checkpoint'; unitId: string; exercises: Exercise[] }
   | { name: 'review' }
-  | { name: 'result'; xpGained: number; mistakes: number; review?: true; checkpoint?: { score: number; total: number; passed: boolean } };
+  | { name: 'practice' }
+  | { name: 'result'; xpGained: number; mistakes: number; review?: true; practice?: true; checkpoint?: { score: number; total: number; passed: boolean } };
 
 export function App() {
   const [progress, setProgress] = useState(load);
@@ -54,7 +55,7 @@ export function App() {
   // X button are driven through the DOM so the "quit now or ask first" rule stays in Lesson.
   const back = useRef(() => {});
   back.current = () => {
-    if (screen.name === 'lesson' || screen.name === 'checkpoint' || screen.name === 'review') {
+    if (screen.name === 'lesson' || screen.name === 'checkpoint' || screen.name === 'review' || screen.name === 'practice') {
       const sheet = document.querySelector<HTMLDialogElement>('dialog.confirm[open]');
       if (sheet) sheet.close();
       else document.querySelector<HTMLElement>('[data-quit]')?.click();
@@ -173,22 +174,42 @@ export function App() {
     );
   }
 
-  const { due, weak, session } = reviewSession(units, rules, progress, today, speaker !== null);
+  const due = reviewSession(units, progress, today, speaker !== null);
+  const practice = practiceSession(units, rules, progress, today, speaker !== null);
 
-  if (screen.name === 'review' && session.length > 0)
+  if (screen.name === 'review' && due.length > 0)
     return (
       <SpeakerContext value={speaker}>
         <Lesson
           key="review"
-          lesson={{ id: 'review', title: t('review', progress.lang), exercises: session }}
+          lesson={{ id: 'review', title: t('review', progress.lang), exercises: due }}
           lang={progress.lang}
           speaker={speaker}
           onQuit={() => setScreen({ name: 'home' })}
           onDone={(_total, wrongIds) => {
-            const next = finishReview(progress, { due, weak, session }, wrongIds, units, rules, localDay(new Date()));
+            const next = finishReview(progress, due, wrongIds, units, rules, localDay(new Date()));
             setProgress(next);
             save(next);
             setScreen({ name: 'result', xpGained: next.xp - progress.xp, mistakes: wrongIds.length, review: true });
+          }}
+        />
+      </SpeakerContext>
+    );
+
+  if (screen.name === 'practice' && practice.length > 0)
+    return (
+      <SpeakerContext value={speaker}>
+        <Lesson
+          key="practice"
+          lesson={{ id: 'practice', title: t('practice', progress.lang), exercises: practice }}
+          lang={progress.lang}
+          speaker={speaker}
+          onQuit={() => setScreen({ name: 'home' })}
+          onDone={(_total, wrongIds) => {
+            const next = finishPractice(progress, practice, wrongIds, units, rules, localDay(new Date()));
+            setProgress(next);
+            save(next);
+            setScreen({ name: 'result', xpGained: next.xp - progress.xp, mistakes: wrongIds.length, practice: true });
           }}
         />
       </SpeakerContext>
@@ -198,7 +219,7 @@ export function App() {
     return (
       <Result
         lang={progress.lang}
-        title={screen.review ? 'reviewDone' : screen.checkpoint ? (screen.checkpoint.passed ? 'checkpointPassed' : 'checkpointFailed') : 'lessonDone'}
+        title={screen.practice ? 'practiceDone' : screen.review ? 'reviewDone' : screen.checkpoint ? (screen.checkpoint.passed ? 'checkpointPassed' : 'checkpointFailed') : 'lessonDone'}
         xpGained={screen.xpGained}
         mistakes={screen.mistakes}
         checkpoint={screen.checkpoint}
@@ -215,11 +236,12 @@ export function App() {
           progress={progress}
           today={today}
           reviewDue={due.length}
-          practice={weak.length}
+          practice={practice.length}
           level={level(progress, rules, units)}
           onStart={(lessonId) => setScreen({ name: 'lesson', lessonId })}
           onCheckpoint={(unit) => setScreen({ name: 'checkpoint', unitId: unit.id, exercises: drawCheckpoint(unit, speaker !== null) })}
           onReview={() => setScreen({ name: 'review' })}
+          onPractice={() => setScreen({ name: 'practice' })}
         />
       )}
       {tab === 'profile' && <Profile units={units} progress={progress} today={today} onChange={update} />}
