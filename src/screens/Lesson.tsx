@@ -141,7 +141,7 @@ export function Lesson({ lesson, lang, speaker, onDone, onQuit }: Props) {
   const checked = grade(exercise, response);
   const done = state.total - state.queue.length;
   // A wrong answer keeps `done` at 0, so it counts as an answer too.
-  const answered = done > 0 || state.wrong.length > 0;
+  const answered = done > 0 || state.wrong.length > 0 || verdict !== null;
   // true/false has no answer text of its own, so it is shown in the interface language
   const [correct, correctLang] =
     exercise.type === 'truefalse'
