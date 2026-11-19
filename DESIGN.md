@@ -16,7 +16,8 @@ related: [SPEC]
 | `src/design/components.css` | Shared components as class names: shell, tab bar, buttons, chips, cards, colour blocks, units, rows, switch, segmented control, avatar picker, sheet, celebration. |
 | `src/design/motion.css` | Every transition and animation, and the one reduced-motion block. |
 | `src/styles.css` | Base element rules, then each screen: Home, Welcome, Placement, Lesson and exercises, Result, Profile, Settings. |
-| `src/design/Icon.tsx` | `Icon` (29 glyphs), `Avatar` and the `avatars` list. |
+| `src/design/Icon.tsx` | `Icon` (29 glyphs) and `Avatar`. |
+| `src/design/avatar.ts` | Avatar art: 12 Finnish animals, 8 colours, 3 backgrounds, 5 expressions, 6 accessories; `parseLook` and `lookString`. |
 | `src/design/gallery.html`, `gallery.tsx` | Review page for the components. `npm run dev`, then open `/src/design/gallery.html`. Not in `dist`. |
 
 `src/main.tsx` imports `tokens.css`, `components.css`, `motion.css`, then `styles.css` last, so a screen rule
@@ -136,9 +137,11 @@ blocks: XP earned across the full width, mistakes and streak below.
 
 ### Profile and settings
 
-- Profile: the chosen avatar on a block in its tone with a surface ring, the streak in big numerals and the
-  best streak. Then "Overview" as a list with icon tiles (XP, today, lessons done, right first time), then
-  the avatar picker in a card; the chosen avatar has an ink ring with a gap.
+- Profile: the avatar on a block in the tone of its background colour with a surface ring, the streak in big
+  numerals and the best streak. Then "Overview" as a list with icon tiles (XP, today, lessons done, right first
+  time), then the avatar editor in a card: one picker each for animal, background colour, background, expression
+  and accessory. Every option previews the current look with that part changed; the chosen one has an ink ring
+  with a gap.
 - Settings: uppercase legends over pill-track segmented controls (the chosen segment is lifted), a
   vibration switch row and a placement row, each with an icon tile.
 
@@ -163,17 +166,20 @@ blocks: XP earned across the full width, mistakes and streak below.
 ## Icons
 
 ```tsx
-import { Icon, Avatar, avatars } from './design/Icon';
+import { Icon, Avatar } from './design/Icon';
+import { parseLook } from './design/avatar';
 
 <Icon name="flame" />                         // decorative: aria-hidden
 <Icon name="close" size={20} title="Close" /> // stands alone: role="img" with a title
-<Avatar id="kuusi" size={64} />
+<Avatar look={parseLook(progress.avatar)} size={64} />
 ```
 
 24 px grid, 2 px round stroke, `currentColor`, drawn for this app. Names: `home path book profile settings
 menu close back chevron-down chevron-right check cross lock play speaker volume vibrate flame star target
-trophy heart refresh sun moon globe download upload info`. Avatars: `kuusi aalto marja tunturi lumi lehti
-kala sieni`. Avatar ids are stored in progress: add new ones at the end, never rename.
+trophy heart refresh sun moon globe download upload info`. Avatars: `karhu kettu poro hirvi susi ilves
+norppa pollo orava janis siili lokki`. The look is stored in progress as
+`animal.colour.style.expression.accessory` (empty colour = the animal's own); never rename a key, and a part
+that no longer exists falls back to the default.
 
 ## Motion
 

@@ -1112,8 +1112,16 @@ button:disabled {
   align-items: center;
 }
 
-.avatar-grid.card {
-  padding: var(--space-3);
+.avatar-editor {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-3);
+}
+
+.avatar-picker-label {
+  margin: 0 0 var(--space-2) var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
 }
 
 /* Settings: legends as eyebrows, choices as pill tracks, icon tiles on the switch rows */

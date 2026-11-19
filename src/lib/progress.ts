@@ -10,7 +10,7 @@ export type Progress = {
   streak: { count: number; best: number; lastDay: string | null };
   goal: number;
   lang: Lang;
-  /** Id of an avatar in the design system; '' means the first one. */
+  /** Avatar look as animal.colour.style.expression.accessory, read by parseLook in design/avatar.ts; '' means the default. */
   avatar: string;
   theme: 'auto' | 'light' | 'dark';
   haptics: boolean;

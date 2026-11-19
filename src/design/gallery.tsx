@@ -1,7 +1,8 @@
 // Review page for the design system. Dev only: open /src/design/gallery.html under `npm run dev`.
 import { StrictMode, useEffect, useState, type CSSProperties, type ReactNode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Avatar, Icon, avatars, iconNames, type AvatarId, type IconName } from './Icon';
+import { Avatar, Icon, iconNames, type IconName } from './Icon';
+import { animals, defaultLook } from './avatar';
 import './tokens.css';
 import './motion.css';
 import './components.css';
@@ -16,7 +17,6 @@ const colours: [string, string[]][] = [
   ['States', ['locked-fg', 'locked-bg', 'open-fg', 'open-bg', 'done-fg', 'done-bg']],
   ['Marks', ['streak', 'xp', 'goal']],
   ['Mastery scale', ['mastery-0', 'mastery-1', 'mastery-2', 'mastery-3', 'mastery-4']],
-  ['Avatar tones', [1, 2, 3, 4].flatMap((n) => [`tone-${n}-bg`, `tone-${n}-fg`])],
 ];
 
 // [text token, background token]: the pairs the components actually use
@@ -87,7 +87,7 @@ function Gallery() {
   const [sound, setSound] = useState(true);
   const [haptics, setHaptics] = useState(false);
   const [goal, setGoal] = useState(20);
-  const [avatar, setAvatar] = useState<AvatarId>('kuusi');
+  const [animal, setAnimal] = useState<keyof typeof animals>('karhu');
   const [sheet, setSheet] = useState(false);
   const [xp, setXp] = useState(12);
   const [replay, setReplay] = useState(0);
@@ -213,20 +213,20 @@ function Gallery() {
         </div>
       </Section>
 
-      <Section title={`Avatars (${avatars.length})`}>
+      <Section title={`Avatars (${Object.keys(animals).length} animals)`}>
         <div className="g-grid">
-          {avatars.map((a) => (
-            <div className="g-icon" key={a.id}>
-              <Avatar id={a.id} size={64} className="avatar" />
-              {a.id} · {a.label}
+          {Object.entries(animals).map(([k, a]) => (
+            <div className="g-icon" key={k}>
+              <Avatar look={{ ...defaultLook, animal: k as keyof typeof animals }} size={64} className="avatar" />
+              {k} · {a.label.en}
             </div>
           ))}
         </div>
         <h3>Picker (.avatar-grid, .avatar-option)</h3>
         <div className="avatar-grid" role="radiogroup" aria-label="Avatar" style={{ maxWidth: '20rem' }}>
-          {avatars.map((a) => (
-            <button key={a.id} type="button" role="radio" className="avatar-option" aria-checked={avatar === a.id} aria-label={a.label} onClick={() => setAvatar(a.id)}>
-              <Avatar id={a.id} size={52} className="avatar" />
+          {Object.entries(animals).map(([k, a]) => (
+            <button key={k} type="button" role="radio" className="avatar-option" aria-checked={animal === k} aria-label={a.label.en} onClick={() => setAnimal(k as keyof typeof animals)}>
+              <Avatar look={{ ...defaultLook, animal: k as keyof typeof animals }} size={52} className="avatar" />
             </button>
           ))}
         </div>

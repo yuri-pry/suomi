@@ -1,3 +1,6 @@
+import { useId } from 'react';
+import { avatarMarkup, type Look } from './avatar';
+
 // Original icon set. 24 px grid, 2 px round stroke, 3 px clear margin, currentColor.
 // Every glyph is one path string, so adding an icon is adding one line.
 
@@ -73,43 +76,24 @@ export function Icon({ name, size = 24, title, className }: IconProps) {
   );
 }
 
-// Avatars: Finnish nature glyphs on a tinted disc. The id is what gets stored in progress,
-// so never rename one; add new ones at the end.
-export const avatars = [
-  { id: 'kuusi', label: 'Spruce', tone: 3, d: 'M12 4l4 5h-2.5l4 5h-11l4-5H8zM12 14v5' },
-  { id: 'aalto', label: 'Wave', tone: 1, d: 'M4 10c2.5-3 5.5-3 8 0s5.5 3 8 0M4 15c2.5-3 5.5-3 8 0s5.5 3 8 0' },
-  { id: 'marja', label: 'Berries', tone: 2, d: `${circle(9, 15, 3.5)}${circle(16, 13.5, 3)}M9 11.5c0-3 2-5.5 5-6.5M16 10.5c0-2-.6-4-2-5.5` },
-  { id: 'tunturi', label: 'Fell', tone: 4, d: `M3 19l6-10 4 6 2.5-3.5L21 19z${circle(17, 6.5, 2)}` },
-  { id: 'lumi', label: 'Snowflake', tone: 1, d: 'M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9M9.5 4.5L12 7l2.5-2.5M9.5 19.5L12 17l2.5 2.5' },
-  { id: 'lehti', label: 'Leaf', tone: 3, d: 'M5 19C5 11 10 5 19 5c0 9-6 14-14 14zM5 19l9-9' },
-  { id: 'kala', label: 'Fish', tone: 4, d: 'M3 12c3-4.5 9-5.5 13 0-4 5.5-10 4.5-13 0zM16 12l5-4v8zM7.5 11h.01' },
-  { id: 'sieni', label: 'Mushroom', tone: 2, d: 'M4 12a8 8 0 0 1 16 0zM10 12v6a2 2 0 0 0 4 0v-6M9 8h.01M14 7.5h.01' },
-] as const;
+// Avatar: an animal from avatar.ts drawn from the learner's saved look.
+type AvatarProps = { look: Look; size?: number; title?: string; className?: string };
 
-export type AvatarId = (typeof avatars)[number]['id'];
-
-type AvatarProps = { id: AvatarId; size?: number; title?: string; className?: string };
-
-export function Avatar({ id, size = 44, title, className }: AvatarProps) {
-  const avatar = avatars.find((a) => a.id === id) ?? avatars[0];
+export function Avatar({ look, size = 44, title, className }: AvatarProps) {
+  // useId gives colons and the like; url(#…) needs a plain id
+  const id = 'av' + useId().replace(/[^A-Za-z0-9_-]/g, '');
   return (
     <svg
       className={className}
       width={size}
       height={size}
-      viewBox="-6 -6 36 36"
-      fill="none"
-      stroke={`var(--tone-${avatar.tone}-fg)`}
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      viewBox="0 0 100 100"
       role={title ? 'img' : undefined}
+      aria-label={title}
       aria-hidden={title ? undefined : true}
       focusable="false"
-    >
-      {title && <title>{title}</title>}
-      <circle cx={12} cy={12} r={18} fill={`var(--tone-${avatar.tone}-bg)`} stroke="none" />
-      <path d={avatar.d} />
-    </svg>
+      // constant art from avatar.ts; the look is validated by parseLook, so no user text reaches it
+      dangerouslySetInnerHTML={{ __html: avatarMarkup(look, id) }}
+    />
   );
 }
