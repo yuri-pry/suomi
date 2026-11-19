@@ -220,32 +220,6 @@
           ]
         },
         {
-          "id": "u07-l1-e10",
-          "type": "choice",
-          "promptLang": "fi",
-          "answerLang": "en",
-          "prompt": "pysäkki",
-          "options": [
-            "stop",
-            "station",
-            "ticket"
-          ],
-          "answer": 0
-        },
-        {
-          "id": "u07-l1-e11",
-          "type": "listen",
-          "promptLang": "fi",
-          "answerLang": "en",
-          "prompt": "lähellä",
-          "options": [
-            "near",
-            "far",
-            "on the right"
-          ],
-          "answer": 0
-        },
-        {
           "id": "u07-l1-e12",
           "type": "listen",
           "promptLang": "fi",
@@ -300,25 +274,6 @@
             "kaupassa",
             "kauppassa",
             "kaupasta"
-          ],
-          "answer": 0,
-          "invalid": [
-            1
-          ],
-          "tags": [
-            "gradation-noun-a"
-          ]
-        },
-        {
-          "id": "u07-l2-e02",
-          "type": "choice",
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "in the bank",
-          "options": [
-            "pankissa",
-            "pankkissa",
-            "pankista"
           ],
           "answer": 0,
           "invalid": [
@@ -442,24 +397,6 @@
           ]
         },
         {
-          "id": "u07-l2-e09",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Asun ___.",
-          "hint": "Helsinki (in Helsinki)",
-          "answers": [
-            "Helsingissä"
-          ],
-          "form": {
-            "base": "Helsinki",
-            "case": "sisaolento"
-          },
-          "tags": [
-            "gradation-noun-a"
-          ]
-        },
-        {
           "id": "u07-l2-e10",
           "type": "choice",
           "promptLang": "en",
@@ -574,23 +511,6 @@
           "tags": [
             "local-cases-six",
             "ssa-vs-lla"
-          ]
-        },
-        {
-          "id": "u07-l3-e02",
-          "type": "choice",
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "I come from the bank.",
-          "options": [
-            "Tulen pankista.",
-            "Tulen pankissa.",
-            "Tulen pankkiin."
-          ],
-          "answer": 0,
-          "tags": [
-            "local-cases-six",
-            "gradation-noun-a"
           ]
         },
         {
@@ -732,25 +652,6 @@
           "form": {
             "base": "pankki",
             "case": "sisaeronto"
-          },
-          "tags": [
-            "local-cases-six",
-            "gradation-noun-a"
-          ]
-        },
-        {
-          "id": "u07-l3-e11",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Menemme ___.",
-          "hint": "kaupunki (to the city)",
-          "answers": [
-            "kaupunkiin"
-          ],
-          "form": {
-            "base": "kaupunki",
-            "case": "sisatulento"
           },
           "tags": [
             "local-cases-six",
@@ -906,43 +807,6 @@
           ]
         },
         {
-          "id": "u07-l4-e06",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Odotamme ___ pysäkillä.",
-          "hint": "ratikka (the tram)",
-          "answers": [
-            "ratikkaa"
-          ],
-          "form": {
-            "base": "ratikka",
-            "case": "osanto"
-          },
-          "tags": [
-            "rektio-odottaa-part",
-            "ssa-vs-lla"
-          ]
-        },
-        {
-          "id": "u07-l4-e07",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Hän etsii ___.",
-          "hint": "pysäkki (the stop)",
-          "answers": [
-            "pysäkkiä"
-          ],
-          "form": {
-            "base": "pysäkki",
-            "case": "osanto"
-          },
-          "tags": [
-            "rektio-etsia-part"
-          ]
-        },
-        {
           "id": "u07-l4-e08",
           "type": "fill",
           "promptLang": "fi",
@@ -1065,25 +929,6 @@
       "title": "Mix",
       "exercises": [
         {
-          "id": "u07-l5-e01",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Me menemme ___.",
-          "hint": "kirjasto (to the library)",
-          "answers": [
-            "kirjastoon"
-          ],
-          "form": {
-            "base": "kirjasto",
-            "case": "sisatulento"
-          },
-          "tags": [
-            "illative-form",
-            "rektio-menna-hin"
-          ]
-        },
-        {
           "id": "u07-l5-e02",
           "type": "fill",
           "promptLang": "fi",
@@ -1118,25 +963,6 @@
           },
           "tags": [
             "rektio-rakastaa-part"
-          ]
-        },
-        {
-          "id": "u07-l5-e04",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Me ___ kello seitsemän.",
-          "hint": "herätä",
-          "answers": [
-            "heräämme"
-          ],
-          "form": {
-            "base": "herätä",
-            "person": "1",
-            "number": "plural"
-          },
-          "tags": [
-            "verbtype-4"
           ]
         },
         {
@@ -1227,26 +1053,6 @@
           "tags": [
             "rektio-auttaa-part",
             "pronoun-partitive"
-          ]
-        },
-        {
-          "id": "u07-l5-e10",
-          "type": "choice",
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "I live in Helsinki.",
-          "options": [
-            "Asun Helsingissä.",
-            "Asun Helsinkissä.",
-            "Asun Helsingistä."
-          ],
-          "answer": 0,
-          "invalid": [
-            1
-          ],
-          "tags": [
-            "gradation-noun-a",
-            "ssa-vs-lla"
           ]
         },
         {

@@ -50,19 +50,6 @@
           "answer": 0
         },
         {
-          "id": "u03-l1-e04",
-          "type": "choice",
-          "promptLang": "fi",
-          "answerLang": "en",
-          "prompt": "kala",
-          "options": [
-            "fish",
-            "chicken",
-            "egg"
-          ],
-          "answer": 0
-        },
-        {
           "id": "u03-l1-e05",
           "type": "choice",
           "promptLang": "en",
@@ -160,19 +147,6 @@
           "answer": 0
         },
         {
-          "id": "u03-l1-e10",
-          "type": "choice",
-          "promptLang": "fi",
-          "answerLang": "en",
-          "prompt": "keitto",
-          "options": [
-            "soup",
-            "salad",
-            "ice cream"
-          ],
-          "answer": 0
-        },
-        {
           "id": "u03-l1-e11",
           "type": "match",
           "promptLang": "fi",
@@ -223,31 +197,6 @@
             {
               "fi": "keltainen",
               "en": "yellow"
-            },
-            {
-              "fi": "musta",
-              "en": "black"
-            }
-          ]
-        },
-        {
-          "id": "u03-l1-e13",
-          "type": "match",
-          "promptLang": "fi",
-          "answerLang": "en",
-          "prompt": "",
-          "pairs": [
-            {
-              "fi": "valkoinen",
-              "en": "white"
-            },
-            {
-              "fi": "ruskea",
-              "en": "brown"
-            },
-            {
-              "fi": "harmaa",
-              "en": "grey"
             },
             {
               "fi": "musta",
@@ -318,22 +267,6 @@
           ]
         },
         {
-          "id": "u03-l2-e03",
-          "type": "choice",
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "he/she brings",
-          "options": [
-            "hän tuo",
-            "minä tuon",
-            "sinä tuot"
-          ],
-          "answer": 0,
-          "tags": [
-            "verbtype-2"
-          ]
-        },
-        {
           "id": "u03-l2-e04",
           "type": "fill",
           "promptLang": "fi",
@@ -346,25 +279,6 @@
           "form": {
             "base": "juoda",
             "person": "1",
-            "number": "singular"
-          },
-          "tags": [
-            "verbtype-2"
-          ]
-        },
-        {
-          "id": "u03-l2-e05",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Sinä ___ vettä ja mehua.",
-          "hint": "juoda",
-          "answers": [
-            "juot"
-          ],
-          "form": {
-            "base": "juoda",
-            "person": "2",
             "number": "singular"
           },
           "tags": [
@@ -403,25 +317,6 @@
           "form": {
             "base": "syödä",
             "person": "1",
-            "number": "plural"
-          },
-          "tags": [
-            "verbtype-2"
-          ]
-        },
-        {
-          "id": "u03-l2-e08",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Te ___ teetä ja maitoa.",
-          "hint": "juoda",
-          "answers": [
-            "juotte"
-          ],
-          "form": {
-            "base": "juoda",
-            "person": "2",
             "number": "plural"
           },
           "tags": [
@@ -673,26 +568,6 @@
           ]
         },
         {
-          "id": "u03-l3-e07",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Me syömme ___ ja kalaa.",
-          "hint": "peruna",
-          "answers": [
-            "perunaa",
-            "perunoita"
-          ],
-          "form": {
-            "base": "peruna",
-            "case": "osanto"
-          },
-          "tags": [
-            "partitive-form",
-            "partitive-mass"
-          ]
-        },
-        {
           "id": "u03-l3-e08",
           "type": "choice",
           "promptLang": "en",
@@ -754,24 +629,6 @@
           ],
           "form": {
             "base": "banaani",
-            "case": "osanto"
-          },
-          "tags": [
-            "partitive-amount"
-          ]
-        },
-        {
-          "id": "u03-l3-e12",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Me syömme viisi ___.",
-          "hint": "muna",
-          "answers": [
-            "munaa"
-          ],
-          "form": {
-            "base": "muna",
             "case": "osanto"
           },
           "tags": [
@@ -861,22 +718,6 @@
           ]
         },
         {
-          "id": "u03-l4-e03",
-          "type": "choice",
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "Do you like fish?",
-          "options": [
-            "Pidätkö kalasta?",
-            "Pidätkö kalaa?",
-            "Pidätkö kala?"
-          ],
-          "answer": 0,
-          "tags": [
-            "rektio-pitaa-sta"
-          ]
-        },
-        {
           "id": "u03-l4-e04",
           "type": "fill",
           "promptLang": "fi",
@@ -906,24 +747,6 @@
           ],
           "form": {
             "base": "liha",
-            "case": "sisaeronto"
-          },
-          "tags": [
-            "rektio-pitaa-sta"
-          ]
-        },
-        {
-          "id": "u03-l4-e06",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Anna pitää ___.",
-          "hint": "juusto",
-          "answers": [
-            "juustosta"
-          ],
-          "form": {
-            "base": "juusto",
             "case": "sisaeronto"
           },
           "tags": [
@@ -965,24 +788,6 @@
           ]
         },
         {
-          "id": "u03-l4-e09",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Hän tykkää ___.",
-          "hint": "kakku",
-          "answers": [
-            "kakusta"
-          ],
-          "form": {
-            "base": "kakku",
-            "case": "sisaeronto"
-          },
-          "tags": [
-            "rektio-tykata-sta"
-          ]
-        },
-        {
           "id": "u03-l4-e10",
           "type": "fill",
           "promptLang": "fi",
@@ -1001,15 +806,6 @@
           ]
         },
         {
-          "id": "u03-l4-e11",
-          "type": "truefalse",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "text": "Anna on kahvilassa. Tarjoilija kysyy: Mitä sinä juot? Anna sanoo: Minä juon teetä. Tarjoilija tuo kaksi kuppia teetä.",
-          "prompt": "Tarjoilija tuo kahvia.",
-          "answer": false
-        },
-        {
           "id": "u03-l4-e12",
           "type": "truefalse",
           "promptLang": "fi",
@@ -1019,26 +815,6 @@
           "answer": true,
           "tags": [
             "rektio-pitaa-sta"
-          ]
-        },
-        {
-          "id": "u03-l4-e13",
-          "type": "translate",
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "Today I eat fish, but I do not drink milk.",
-          "answers": [
-            "Tänään syön kalaa, mutta en juo maitoa.",
-            "Tänään minä syön kalaa, mutta en juo maitoa.",
-            "Tänään syön kalaa mutta en juo maitoa.",
-            "Tänään minä syön kalaa mutta en juo maitoa.",
-            "Syön tänään kalaa, mutta en juo maitoa.",
-            "Minä syön tänään kalaa, mutta en juo maitoa.",
-            "Syön tänään kalaa mutta en juo maitoa.",
-            "Minä syön tänään kalaa mutta en juo maitoa."
-          ],
-          "tags": [
-            "negative-verb"
           ]
         },
         {
@@ -1095,22 +871,6 @@
             "person": "2",
             "number": "singular"
           },
-          "tags": [
-            "verbtype-2"
-          ]
-        },
-        {
-          "id": "u03-l5-e02",
-          "type": "choice",
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "we visit the café",
-          "options": [
-            "me käymme kahvilassa",
-            "me syömme kahvilassa",
-            "me juomme kahvilassa"
-          ],
-          "answer": 0,
           "tags": [
             "verbtype-2"
           ]
@@ -1195,38 +955,6 @@
           ]
         },
         {
-          "id": "u03-l5-e08",
-          "type": "choice",
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "yellow",
-          "options": [
-            "keltainen",
-            "sininen",
-            "harmaa"
-          ],
-          "answer": 0
-        },
-        {
-          "id": "u03-l5-e09",
-          "type": "fill",
-          "tags": [
-            "verbtype-1"
-          ],
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Minä asun Turussa ja ___ suomea.",
-          "hint": "puhua",
-          "answers": [
-            "puhun"
-          ],
-          "form": {
-            "base": "puhua",
-            "person": "1",
-            "number": "singular"
-          }
-        },
-        {
           "id": "u03-l5-e10",
           "type": "fill",
           "promptLang": "fi",
@@ -1240,34 +968,6 @@
             "question-ko",
             "rektio-pitaa-sta"
           ]
-        },
-        {
-          "id": "u03-l5-e11",
-          "type": "fill",
-          "tags": [
-            "olla-present"
-          ],
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Me ___ kahvilassa.",
-          "hint": "olla",
-          "answers": [
-            "olemme"
-          ],
-          "form": {
-            "base": "olla",
-            "person": "1",
-            "number": "plural"
-          }
-        },
-        {
-          "id": "u03-l5-e12",
-          "type": "truefalse",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "text": "Minä olen Mari. Minä asun Helsingissä. Tänään syön kalaa ja perunaa. Juon myös maitoa. En pidä kahvista.",
-          "prompt": "Mari pitää kahvista.",
-          "answer": false
         },
         {
           "id": "u03-l5-e13",

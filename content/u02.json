@@ -50,19 +50,6 @@
           "answer": 0
         },
         {
-          "id": "u02-l1-e04",
-          "type": "choice",
-          "promptLang": "fi",
-          "answerLang": "en",
-          "prompt": "Saksa",
-          "options": [
-            "Germany",
-            "Spain",
-            "Russia"
-          ],
-          "answer": 0
-        },
-        {
           "id": "u02-l1-e05",
           "type": "choice",
           "promptLang": "en",
@@ -89,19 +76,6 @@
           "answer": 0
         },
         {
-          "id": "u02-l1-e07",
-          "type": "choice",
-          "promptLang": "fi",
-          "answerLang": "en",
-          "prompt": "venäjä",
-          "options": [
-            "Russian (the language)",
-            "Spanish (the language)",
-            "German (the language)"
-          ],
-          "answer": 0
-        },
-        {
           "id": "u02-l1-e09",
           "type": "choice",
           "promptLang": "fi",
@@ -124,19 +98,6 @@
             "ruotsalainen",
             "suomalainen",
             "saksalainen"
-          ],
-          "answer": 0
-        },
-        {
-          "id": "u02-l1-e11",
-          "type": "choice",
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "Russian (a Russian)",
-          "options": [
-            "venäläinen",
-            "espanjalainen",
-            "virolainen"
           ],
           "answer": 0
         },
@@ -274,22 +235,6 @@
           "answer": 0
         },
         {
-          "id": "u02-l2-e04",
-          "type": "choice",
-          "tags": [
-            "verbtype-1"
-          ],
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "we ask",
-          "options": [
-            "me kysymme",
-            "te kysytte",
-            "he kysyvät"
-          ],
-          "answer": 0
-        },
-        {
           "id": "u02-l2-e06",
           "type": "choice",
           "tags": [
@@ -360,44 +305,6 @@
             "base": "asua",
             "person": "3",
             "number": "singular"
-          }
-        },
-        {
-          "id": "u02-l2-e10",
-          "type": "fill",
-          "tags": [
-            "verbtype-1"
-          ],
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Me ___ ruotsia ja saksaa.",
-          "hint": "puhua",
-          "answers": [
-            "puhumme"
-          ],
-          "form": {
-            "base": "puhua",
-            "person": "1",
-            "number": "plural"
-          }
-        },
-        {
-          "id": "u02-l2-e11",
-          "type": "fill",
-          "tags": [
-            "verbtype-1"
-          ],
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Te ___ Suomessa ja puhutte suomea.",
-          "hint": "asua",
-          "answers": [
-            "asutte"
-          ],
-          "form": {
-            "base": "asua",
-            "person": "2",
-            "number": "plural"
           }
         },
         {
@@ -526,22 +433,6 @@
           "answer": 0
         },
         {
-          "id": "u02-l3-e03",
-          "type": "choice",
-          "tags": [
-            "question-ko"
-          ],
-          "promptLang": "fi",
-          "answerLang": "en",
-          "prompt": "Puhuuko hän ruotsia?",
-          "options": [
-            "Does he/she speak Swedish?",
-            "Do they speak Swedish?",
-            "Do you speak Swedish?"
-          ],
-          "answer": 0
-        },
-        {
           "id": "u02-l3-e05",
           "type": "fill",
           "tags": [
@@ -553,20 +444,6 @@
           "hint": "puhua",
           "answers": [
             "puhutko"
-          ]
-        },
-        {
-          "id": "u02-l3-e06",
-          "type": "fill",
-          "tags": [
-            "question-ko"
-          ],
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "___ te Turussa?",
-          "hint": "asua",
-          "answers": [
-            "asutteko"
           ]
         },
         {
@@ -732,22 +609,6 @@
           "answer": 0
         },
         {
-          "id": "u02-l4-e02",
-          "type": "choice",
-          "tags": [
-            "question-words"
-          ],
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "Where do you live?",
-          "options": [
-            "Missä sinä asut?",
-            "Mistä sinä olet kotoisin?",
-            "Mitä kieltä sinä puhut?"
-          ],
-          "answer": 0
-        },
-        {
           "id": "u02-l4-e03",
           "type": "choice",
           "promptLang": "en",
@@ -825,25 +686,6 @@
           }
         },
         {
-          "id": "u02-l4-e09",
-          "type": "fill",
-          "tags": [
-            "verbtype-1"
-          ],
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Missä te asutte? – Me ___ Oulussa.",
-          "hint": "asua",
-          "answers": [
-            "asumme"
-          ],
-          "form": {
-            "base": "asua",
-            "person": "1",
-            "number": "plural"
-          }
-        },
-        {
           "id": "u02-l4-e10",
           "type": "fill",
           "tags": [
@@ -856,19 +698,6 @@
           "answers": [
             "oletko"
           ]
-        },
-        {
-          "id": "u02-l4-e11",
-          "type": "choice",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Puhutko sinä saksaa? – ___",
-          "options": [
-            "Kyllä, minä puhun saksaa.",
-            "Kyllä, minä asun saksaa.",
-            "Hyvää yötä."
-          ],
-          "answer": 0
         },
         {
           "id": "u02-l4-e12",
@@ -885,25 +714,6 @@
             "Asuuko hän Suomessa?"
           ],
           "answer": 0
-        },
-        {
-          "id": "u02-l4-e16",
-          "type": "translate",
-          "tags": [
-            "question-words"
-          ],
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "Where are you from and where do you live?",
-          "answers": [
-            "Mistä sinä olet kotoisin ja missä sinä asut?",
-            "Mistä olet kotoisin ja missä asut?",
-            "Mistä sinä olet kotoisin ja missä asut?",
-            "Mistä olet kotoisin ja missä sinä asut?",
-            "Mistä te olette kotoisin ja missä te asutte?",
-            "Mistä olette kotoisin ja missä asutte?",
-            "Mistä te olette kotoisin ja missä asutte?"
-          ]
         },
         {
           "id": "u02-l4-e15",
@@ -930,15 +740,6 @@
           "text": "Hei! Minä olen Maria. Minä olen kotoisin Espanjasta. Minä asun Helsingissä ja puhun espanjaa ja suomea.",
           "prompt": "Maria puhuu espanjaa.",
           "answer": true
-        },
-        {
-          "id": "u02-l4-e13",
-          "type": "truefalse",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "text": "Hei! Minä olen Maria. Minä olen kotoisin Espanjasta. Minä asun Helsingissä ja puhun espanjaa ja suomea.",
-          "prompt": "Maria asuu Espanjassa.",
-          "answer": false
         }
       ]
     },
@@ -985,25 +786,6 @@
           }
         },
         {
-          "id": "u02-l5-e03",
-          "type": "fill",
-          "tags": [
-            "verbtype-1"
-          ],
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Sinä ___ ruotsia ja minä puhun suomea.",
-          "hint": "puhua",
-          "answers": [
-            "puhut"
-          ],
-          "form": {
-            "base": "puhua",
-            "person": "2",
-            "number": "singular"
-          }
-        },
-        {
           "id": "u02-l5-e04",
           "type": "fill",
           "tags": [
@@ -1046,25 +828,6 @@
           ]
         },
         {
-          "id": "u02-l5-e09",
-          "type": "fill",
-          "tags": [
-            "olla-present"
-          ],
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Hän ___ opettaja.",
-          "hint": "olla",
-          "answers": [
-            "on"
-          ],
-          "form": {
-            "base": "olla",
-            "person": "3",
-            "number": "singular"
-          }
-        },
-        {
           "id": "u02-l5-e10",
           "type": "choice",
           "tags": [
@@ -1077,30 +840,6 @@
             "You (plural) are in Sweden.",
             "We are in Sweden.",
             "They are in Sweden."
-          ],
-          "answer": 0
-        },
-        {
-          "id": "u02-l5-e11",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "kolme, neljä, ___",
-          "hint": "5",
-          "answers": [
-            "viisi"
-          ]
-        },
-        {
-          "id": "u02-l5-e12",
-          "type": "choice",
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "Good evening",
-          "options": [
-            "Hyvää iltaa",
-            "Hyvää yötä",
-            "Hyvää huomenta"
           ],
           "answer": 0
         },

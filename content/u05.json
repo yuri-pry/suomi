@@ -192,19 +192,6 @@
           ]
         },
         {
-          "id": "u05-l1-e10",
-          "type": "choice",
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "dress",
-          "options": [
-            "mekko",
-            "paita",
-            "takki"
-          ],
-          "answer": 0
-        },
-        {
           "id": "u05-l1-e11",
           "type": "listen",
           "promptLang": "fi",
@@ -214,19 +201,6 @@
             "Äiti ja isä.",
             "Äiti ja isoisä.",
             "Veli ja isä."
-          ],
-          "answer": 0
-        },
-        {
-          "id": "u05-l1-e12",
-          "type": "listen",
-          "promptLang": "fi",
-          "answerLang": "en",
-          "prompt": "lapsi",
-          "options": [
-            "child",
-            "friend",
-            "boy"
           ],
           "answer": 0
         },
@@ -377,24 +351,6 @@
           ]
         },
         {
-          "id": "u05-l2-e07",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "___ huone on pieni.",
-          "hint": "lapsi (child’s)",
-          "answers": [
-            "lapsen"
-          ],
-          "form": {
-            "base": "lapsi",
-            "case": "omanto"
-          },
-          "tags": [
-            "genitive-form"
-          ]
-        },
-        {
           "id": "u05-l2-e08",
           "type": "choice",
           "promptLang": "en",
@@ -404,22 +360,6 @@
             "äitini",
             "äitisi",
             "äitinsä"
-          ],
-          "answer": 0,
-          "tags": [
-            "possessive-suffix"
-          ]
-        },
-        {
-          "id": "u05-l2-e09",
-          "type": "choice",
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "our father",
-          "options": [
-            "isämme",
-            "isäni",
-            "isänne"
           ],
           "answer": 0,
           "tags": [
@@ -474,24 +414,6 @@
           ],
           "form": {
             "base": "äiti",
-            "case": "nimento"
-          },
-          "tags": [
-            "possessive-suffix"
-          ]
-        },
-        {
-          "id": "u05-l2-e13",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Meidän ___ on pieni.",
-          "hint": "koira (dog)",
-          "answers": [
-            "koiramme"
-          ],
-          "form": {
-            "base": "koira",
             "case": "nimento"
           },
           "tags": [
@@ -591,20 +513,6 @@
           "hint": "this",
           "answers": [
             "tämä"
-          ],
-          "tags": [
-            "demonstratives"
-          ]
-        },
-        {
-          "id": "u05-l3-e04",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "___ koira on iso.",
-          "hint": "that (over there)",
-          "answers": [
-            "tuo"
           ],
           "tags": [
             "demonstratives"
@@ -872,35 +780,6 @@
           ]
         },
         {
-          "id": "u05-l4-e03",
-          "type": "match",
-          "promptLang": "fi",
-          "answerLang": "en",
-          "prompt": "",
-          "pairs": [
-            {
-              "fi": "tammikuu",
-              "en": "January"
-            },
-            {
-              "fi": "toukokuu",
-              "en": "May"
-            },
-            {
-              "fi": "heinäkuu",
-              "en": "July"
-            },
-            {
-              "fi": "syyskuu",
-              "en": "September"
-            },
-            {
-              "fi": "joulukuu",
-              "en": "December"
-            }
-          ]
-        },
-        {
           "id": "u05-l4-e04",
           "type": "truefalse",
           "promptLang": "fi",
@@ -908,18 +787,6 @@
           "text": "Tämä on minun perheeni. Äitini on opettaja ja isäni asuu Oulussa. Minulla on veli ja sisko. Veljeni on pitkä, mutta siskoni on lyhyt.",
           "prompt": "Isä asuu Oulussa.",
           "answer": true,
-          "tags": [
-            "possessive-suffix"
-          ]
-        },
-        {
-          "id": "u05-l4-e05",
-          "type": "truefalse",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "text": "Tämä on minun perheeni. Äitini on opettaja ja isäni asuu Oulussa. Minulla on veli ja sisko. Veljeni on pitkä, mutta siskoni on lyhyt.",
-          "prompt": "Siskoni on pitkä.",
-          "answer": false,
           "tags": [
             "possessive-suffix"
           ]
@@ -948,20 +815,6 @@
             "Veli on iso koira."
           ],
           "answer": 0,
-          "tags": [
-            "lla-vs-n"
-          ]
-        },
-        {
-          "id": "u05-l4-e08",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "___ on pieni asunto.",
-          "hint": "isä (father has)",
-          "answers": [
-            "isällä"
-          ],
           "tags": [
             "lla-vs-n"
           ]
@@ -1235,36 +1088,6 @@
           ]
         },
         {
-          "id": "u05-l5-e09",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Meillä ei ole ___.",
-          "hint": "auto (car)",
-          "answers": [
-            "autoa"
-          ],
-          "tags": [
-            "partitive-negative"
-          ]
-        },
-        {
-          "id": "u05-l5-e10",
-          "type": "choice",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Isä juo ___.",
-          "options": [
-            "kahvia",
-            "kahvi",
-            "kahvin"
-          ],
-          "answer": 0,
-          "tags": [
-            "partitive-mass"
-          ]
-        },
-        {
           "id": "u05-l5-e11",
           "type": "truefalse",
           "promptLang": "fi",
@@ -1295,23 +1118,6 @@
           ]
         },
         {
-          "id": "u05-l5-e13",
-          "type": "order",
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "Our new house is big.",
-          "answers": [
-            "Meidän uusi talomme on iso.",
-            "Uusi talomme on iso."
-          ],
-          "tiles": [
-            "meillä"
-          ],
-          "tags": [
-            "possessive-suffix"
-          ]
-        },
-        {
           "id": "u05-l5-e14",
           "type": "listen",
           "promptLang": "fi",
@@ -1325,25 +1131,6 @@
           "answer": 0,
           "tags": [
             "lla-vs-n"
-          ]
-        },
-        {
-          "id": "u05-l5-e15",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Minun veljeni ___ Oulussa ja puhuu ruotsia.",
-          "hint": "asua",
-          "answers": [
-            "asuu"
-          ],
-          "form": {
-            "base": "asua",
-            "person": "3",
-            "number": "singular"
-          },
-          "tags": [
-            "verbtype-1"
           ]
         }
       ]

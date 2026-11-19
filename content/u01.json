@@ -89,19 +89,6 @@
           "answer": 0
         },
         {
-          "id": "u01-l1-e07",
-          "type": "choice",
-          "promptLang": "fi",
-          "answerLang": "en",
-          "prompt": "Tervetuloa",
-          "options": [
-            "Welcome",
-            "Goodbye",
-            "Good day"
-          ],
-          "answer": 0
-        },
-        {
           "id": "u01-l1-e08",
           "type": "choice",
           "promptLang": "fi",
@@ -123,17 +110,6 @@
           "hint": "Good day!",
           "answers": [
             "päivää"
-          ]
-        },
-        {
-          "id": "u01-l1-e10",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "___ huomenta!",
-          "hint": "Good morning!",
-          "answers": [
-            "hyvää"
           ]
         },
         {
@@ -172,19 +148,6 @@
             "Good morning!",
             "Good evening!",
             "Good night!"
-          ],
-          "answer": 0
-        },
-        {
-          "id": "u01-l1-e14",
-          "type": "listen",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "Kiitos, hyvää.",
-          "options": [
-            "Kiitos, hyvää.",
-            "Hyvää iltaa.",
-            "Hei hei."
           ],
           "answer": 0
         },
@@ -236,38 +199,6 @@
             "minä olen",
             "sinä olet",
             "hän on"
-          ],
-          "answer": 0
-        },
-        {
-          "id": "u01-l2-e03",
-          "type": "choice",
-          "tags": [
-            "olla-present"
-          ],
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "he is / she is",
-          "options": [
-            "hän on",
-            "he ovat",
-            "me olemme"
-          ],
-          "answer": 0
-        },
-        {
-          "id": "u01-l2-e04",
-          "type": "choice",
-          "tags": [
-            "olla-present"
-          ],
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "we are",
-          "options": [
-            "me olemme",
-            "te olette",
-            "he ovat"
           ],
           "answer": 0
         },
@@ -458,18 +389,6 @@
           "text": "Minä olen Anna. Minä olen opettaja. Te olette opiskelijoita. Me olemme koulussa.",
           "prompt": "Anna on kotona.",
           "answer": false
-        },
-        {
-          "id": "u01-l2-e18",
-          "type": "truefalse",
-          "tags": [
-            "olla-present"
-          ],
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "text": "Sinä olet opiskelija. Hän on opettaja. Me olemme kotona ja te olette koulussa.",
-          "prompt": "Te olette kotona.",
-          "answer": false
         }
       ]
     },
@@ -491,19 +410,6 @@
           "answer": 0
         },
         {
-          "id": "u01-l3-e02",
-          "type": "choice",
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "four",
-          "options": [
-            "neljä",
-            "viisi",
-            "kuusi"
-          ],
-          "answer": 0
-        },
-        {
           "id": "u01-l3-e03",
           "type": "choice",
           "promptLang": "fi",
@@ -513,19 +419,6 @@
             "seven",
             "eight",
             "nine"
-          ],
-          "answer": 0
-        },
-        {
-          "id": "u01-l3-e04",
-          "type": "choice",
-          "promptLang": "fi",
-          "answerLang": "en",
-          "prompt": "kymmenen",
-          "options": [
-            "ten",
-            "nine",
-            "eight"
           ],
           "answer": 0
         },
@@ -638,24 +531,6 @@
           "options": [
             "talossa",
             "talossä"
-          ],
-          "answer": 0,
-          "invalid": [
-            1
-          ]
-        },
-        {
-          "id": "u01-l3-e12",
-          "type": "choice",
-          "tags": [
-            "vowel-harmony"
-          ],
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "Which form follows vowel harmony? (in the forest)",
-          "options": [
-            "metsässä",
-            "metsässa"
           ],
           "answer": 0,
           "invalid": [
@@ -798,32 +673,6 @@
           "answer": 0
         },
         {
-          "id": "u01-l4-e06",
-          "type": "choice",
-          "promptLang": "fi",
-          "answerLang": "en",
-          "prompt": "osoite",
-          "options": [
-            "address",
-            "name",
-            "number"
-          ],
-          "answer": 0
-        },
-        {
-          "id": "u01-l4-e08",
-          "type": "choice",
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "surname",
-          "options": [
-            "sukunimi",
-            "etunimi",
-            "puhelinnumero"
-          ],
-          "answer": 0
-        },
-        {
           "id": "u01-l4-e09",
           "type": "fill",
           "promptLang": "fi",
@@ -880,15 +729,6 @@
           "answer": true
         },
         {
-          "id": "u01-l4-e18",
-          "type": "truefalse",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "text": "Hei! Minun nimeni on Anna Virtanen. Olen opettaja. Olen kotoisin Suomesta.",
-          "prompt": "Anna on opiskelija.",
-          "answer": false
-        },
-        {
           "id": "u01-l4-e17",
           "type": "translate",
           "promptLang": "en",
@@ -903,22 +743,6 @@
             "Hei, minä olen Anna ja olen opettaja.",
             "Hei, minun nimeni on Anna, ja olen opettaja.",
             "Hei, nimeni on Anna, ja olen opettaja."
-          ]
-        },
-        {
-          "id": "u01-l4-e16",
-          "type": "order",
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "What is your phone number?",
-          "answers": [
-            "Mikä sinun puhelinnumerosi on?",
-            "Mikä on sinun puhelinnumerosi?",
-            "Mikä puhelinnumerosi on?",
-            "Mikä on puhelinnumerosi?"
-          ],
-          "tiles": [
-            "nimesi"
           ]
         }
       ]
@@ -943,25 +767,6 @@
           "form": {
             "base": "olla",
             "person": "1",
-            "number": "plural"
-          }
-        },
-        {
-          "id": "u01-l5-e02",
-          "type": "fill",
-          "tags": [
-            "olla-present"
-          ],
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "He ___ Suomessa.",
-          "hint": "olla",
-          "answers": [
-            "ovat"
-          ],
-          "form": {
-            "base": "olla",
-            "person": "3",
             "number": "plural"
           }
         },
@@ -1006,17 +811,6 @@
             "Good morning, thank you!"
           ],
           "answer": 0
-        },
-        {
-          "id": "u01-l5-e06",
-          "type": "fill",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "prompt": "kuusi, seitsemän, ___",
-          "hint": "8",
-          "answers": [
-            "kahdeksan"
-          ]
         },
         {
           "id": "u01-l5-e07",
@@ -1066,19 +860,6 @@
           ]
         },
         {
-          "id": "u01-l5-e12",
-          "type": "choice",
-          "promptLang": "en",
-          "answerLang": "fi",
-          "prompt": "What is your name?",
-          "options": [
-            "Mikä sinun nimesi on?",
-            "Mitä kuuluu?",
-            "Mikä sinun osoitteesi on?"
-          ],
-          "answer": 0
-        },
-        {
           "id": "u01-l5-e15",
           "type": "order",
           "promptLang": "en",
@@ -1113,15 +894,6 @@
           "text": "Hän on opettaja. He ovat opiskelijoita. Me olemme koulussa.",
           "prompt": "He ovat opiskelijoita.",
           "answer": true
-        },
-        {
-          "id": "u01-l5-e16",
-          "type": "truefalse",
-          "promptLang": "fi",
-          "answerLang": "fi",
-          "text": "Hei! Minä olen Anna. Minä olen kotoisin Suomesta. Hän on Eero. Hän on opiskelija.",
-          "prompt": "Eero on opettaja.",
-          "answer": false
         }
       ]
     }

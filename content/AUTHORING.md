@@ -15,7 +15,7 @@ file except the ones named here.
 
 ## What you produce
 
-1. `content/uNN.json`: the unit, with 5 lessons of 12 to 14 exercises each.
+1. `content/uNN.json`: the unit, with 5 lessons of 8 to 12 exercises (more for new words or a new grammar point, fewer for situation and mix lessons) each.
 2. New entries in `content/rules.json` for the unit's grammar rules.
 3. If needed, names added to `scripts/allowlist.txt`.
 
