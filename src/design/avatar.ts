@@ -65,8 +65,13 @@ type Animal = {
   /** Where hats and flowers sit: top of the head and its half width. */
   top: number;
   topW: number;
-  /** Where scarves and bow ties sit. */
+  /** Where bow ties sit. */
   neck: number;
+  /** Scarf: the band's top edge at its sides and its half width there. It is drawn where the shape has
+   *  __NECK__ (over the body, under the head) or, without one, over everything. */
+  scarf: [number, number];
+  /** Coloured eye rings (the owl's), drawn where the shape has __RING__ so the beak stays on top. */
+  ring?: string;
   back?: string;
   shape: string;
   detail?: string;
@@ -90,8 +95,8 @@ const norppaBody = 'M35 89 L65 89 L82 104 L18 104 Z';
 
 export const animals = {
   karhu: {
-    label: { en: 'Bear', fi: 'Karhu' }, bg: 'teal', eyes: [[40, 52], [60, 52]], mouth: [50, 73], top: 31, topW: 22, neck: 84,
-    shape: body('#6f4529', '#a5744f', 18, 36) + cast('<circle cx="31" cy="34" r="10" fill="#8a5a3b"/>') + cast('<circle cx="69" cy="34" r="10" fill="#8a5a3b"/>') + `
+    label: { en: 'Bear', fi: 'Karhu' }, bg: 'teal', eyes: [[40, 52], [60, 52]], mouth: [50, 73], top: 31, topW: 22, neck: 84, scarf: [78, 18],
+    shape: body('#6f4529', '#a5744f', 18, 36) + '__NECK__' + cast('<circle cx="31" cy="34" r="10" fill="#8a5a3b"/>') + cast('<circle cx="69" cy="34" r="10" fill="#8a5a3b"/>') + `
       ` + cast('<circle cx="31" cy="34" r="5" fill="#c99a72"/>') + cast('<circle cx="69" cy="34" r="5" fill="#c99a72"/>') +
       p('M28 44 L37 32 L63 32 L72 44 L79 60 L70 74 L50 82 L30 74 L21 60 Z', '#8a5a3b') +
       p('M39 62 L50 58 L61 62 L63 72 L50 79 L37 72 Z', '#dcb892') + p('M45 62 Q50 60 55 62 Q53 66 50 66 Q47 66 45 62 Z', D, 'stroke-width="2"'),
@@ -99,8 +104,8 @@ export const animals = {
       `<path d="M35 45 L41 44 M65 45 L59 44" stroke="#5e3b24" stroke-width="2" stroke-linecap="round"/>`,
   },
   kettu: {
-    label: { en: 'Fox', fi: 'Kettu' }, bg: 'blue', eyes: [[40, 52], [60, 52]], mouth: [50, 81], top: 33, topW: 21, neck: 86,
-    shape: body('#d9611c', '#f6efe6', 12, 26) + p('M25 13 L42 33 L23 42 Z', '#e8742a') + p('M75 13 L58 33 L77 42 Z', '#e8742a') +
+    label: { en: 'Fox', fi: 'Kettu' }, bg: 'blue', eyes: [[40, 52], [60, 52]], mouth: [50, 81], top: 33, topW: 21, neck: 86, scarf: [78, 12],
+    shape: body('#d9611c', '#f6efe6', 12, 26) + '__NECK__' + p('M25 13 L42 33 L23 42 Z', '#e8742a') + p('M75 13 L58 33 L77 42 Z', '#e8742a') +
       p('M28 23 L37 33 L27 38 Z', D) + p('M72 23 L63 33 L73 38 Z', D) +
       p('M27 46 L30 33 L50 32 L70 33 L73 46 L82 62 L64 70 L50 84 L36 70 L18 62 Z', '#e8742a') +
       light(p('M18 62 L28 54 L40 64 L50 84 L36 70 Z', '#f6efe6')) + p('M82 62 L72 54 L60 64 L50 84 L64 70 Z', '#f6efe6') +
@@ -108,19 +113,19 @@ export const animals = {
     detail: p('M30 27 L35 33 L29 36 Z', '#f6efe6') + p('M70 27 L65 33 L71 36 Z', '#f6efe6') + flat(p('M44 36 L50 40 L56 36 L50 47 Z', '#d9611c')),
   },
   poro: {
-    label: { en: 'Reindeer', fi: 'Poro' }, bg: 'yellow', eyes: [[42, 51], [58, 51]], mouth: [50, 77], top: 35, topW: 16, neck: 88,
+    label: { en: 'Reindeer', fi: 'Poro' }, bg: 'yellow', eyes: [[42, 51], [58, 51]], mouth: [50, 77], top: 35, topW: 16, neck: 88, scarf: [79, 13],
     back: cast(`<g stroke="#efe3cf" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
       <path d="M40 36 L30 20 L21 9 M30 20 L35 8 M30 20 L15 22"/><path d="M60 36 L70 20 L79 9 M70 20 L65 8 M70 20 L85 22"/></g>`),
-    shape: body('#7d6149', '#efe3cf') + p('M30 86 L40 81 L50 87 L60 81 L70 86 L62 95 L50 91 L38 95 Z', '#efe3cf') + p('M36 42 L18 38 L28 48 Z', '#9b7b5f') + p('M64 42 L82 38 L72 48 Z', '#9b7b5f') +
+    shape: body('#7d6149', '#efe3cf') + p('M30 86 L40 81 L50 87 L60 81 L70 86 L62 95 L50 91 L38 95 Z', '#efe3cf') + '__NECK__' + p('M36 42 L18 38 L28 48 Z', '#9b7b5f') + p('M64 42 L82 38 L72 48 Z', '#9b7b5f') +
       p('M34 38 L44 33 L56 33 L66 38 L66 56 L60 76 L56 87 L44 87 L40 76 L34 56 Z', '#9b7b5f') +
       p('M40 70 L50 67 L60 70 L58 82 L50 86 L42 82 Z', '#cdb79c') + `<ellipse cx="50" cy="72" rx="6" ry="3.6" fill="${D}"/>`,
     detail: flat(p('M45 35 L55 35 L53 52 L47 52 Z', '#7d6149')) +
       p('M33 43 L24 40 L29 46 Z', '#cdb79c') + p('M67 43 L76 40 L71 46 Z', '#cdb79c'),
   },
   hirvi: {
-    label: { en: 'Moose', fi: 'Hirvi' }, bg: 'green', eyes: [[41, 49], [59, 49]], mouth: [50, 84.5], top: 34, topW: 17, neck: 91,
+    label: { en: 'Moose', fi: 'Hirvi' }, bg: 'green', eyes: [[41, 49], [59, 49]], mouth: [50, 84.5], top: 34, topW: 17, neck: 91, scarf: [81, 17],
     back: p('M36 36 Q24 34 14 22 Q12 30 17 33 Q9 32 7 26 Q7 38 22 41 Z', '#dccaa6') + p('M64 36 Q76 34 86 22 Q88 30 83 33 Q91 32 93 26 Q93 38 78 41 Z', '#dccaa6'),
-    shape: body('#5a3d29', undefined, 17, 31) + p('M35 44 L18 42 L28 52 Z', '#6b4a33') + p('M65 44 L82 42 L72 52 Z', '#6b4a33') +
+    shape: body('#5a3d29', undefined, 17, 31) + '__NECK__' + p('M35 44 L18 42 L28 52 Z', '#6b4a33') + p('M65 44 L82 42 L72 52 Z', '#6b4a33') +
       p('M34 40 L44 34 L56 34 L66 40 L66 60 L68 78 L62 90 L38 90 L32 78 L34 60 Z', '#6b4a33') +
       p('M36 70 L50 66 L64 70 L66 82 L58 89 L42 89 L34 82 Z', '#8a6346') +
       `<ellipse cx="44.5" cy="78" rx="2.6" ry="3.4" fill="${D}"/><ellipse cx="55.5" cy="78" rx="2.6" ry="3.4" fill="${D}"/>`,
@@ -128,8 +133,8 @@ export const animals = {
       flat(p('M44 36 L56 36 L54 52 L46 52 Z', '#5a3d29')),
   },
   susi: {
-    label: { en: 'Wolf', fi: 'Susi' }, bg: 'navy', eyes: [[40, 50], [60, 50]], mouth: [50, 83], top: 31, topW: 22, neck: 90,
-    shape: body('#6f747b', '#dfe2e5', 15, 30) + p('M27 11 L41 32 L23 40 Z', '#8a8f96') + p('M73 11 L59 32 L77 40 Z', '#8a8f96') +
+    label: { en: 'Wolf', fi: 'Susi' }, bg: 'navy', eyes: [[40, 50], [60, 50]], mouth: [50, 83], top: 31, topW: 22, neck: 90, scarf: [79, 15],
+    shape: body('#6f747b', '#dfe2e5', 15, 30) + '__NECK__' + p('M27 11 L41 32 L23 40 Z', '#8a8f96') + p('M73 11 L59 32 L77 40 Z', '#8a8f96') +
       p('M29 21 L36 32 L28 36 Z', '#5c6168') + p('M71 21 L64 32 L72 36 Z', '#5c6168') +
       p('M26 44 L31.5 32.5 L50 30 L68.5 32.5 L74 44 L81 62 L66 70 L58 86 L42 86 L34 70 L19 62 Z', '#8a8f96') +
       light(p('M19 62 L28 54 L36 64 L34 70 Z', '#dfe2e5')) + p('M81 62 L72 54 L64 64 L66 70 Z', '#dfe2e5') +
@@ -138,8 +143,8 @@ export const animals = {
     detail: p('M31 26 L34 31 L30 33 Z', '#c9ccd0') + p('M69 26 L66 31 L70 33 Z', '#c9ccd0') + flat(p('M38 33 L62 33 L58 43 L50 47 L42 43 Z', '#6f747b')),
   },
   ilves: {
-    label: { en: 'Lynx', fi: 'Ilves' }, bg: 'lilac', eyes: [[40, 50], [60, 50]], mouth: [50, 69], top: 31, topW: 22, neck: 84,
-    shape: body('#a8743f', '#f6ecd9', 15, 33) + `<path d="M26 16 L24.8 6.5 M74 16 L75.2 6.5" stroke="${D}" stroke-width="3" stroke-linecap="round"/>` +
+    label: { en: 'Lynx', fi: 'Ilves' }, bg: 'lilac', eyes: [[40, 50], [60, 50]], mouth: [50, 69], top: 31, topW: 22, neck: 84, scarf: [78, 15],
+    shape: body('#a8743f', '#f6ecd9', 15, 33) + '__NECK__' + `<path d="M26 16 L24.8 6.5 M74 16 L75.2 6.5" stroke="${D}" stroke-width="3" stroke-linecap="round"/>` +
       p('M26 16 L42 32 L25.5 40 Z', '#d39a55') + p('M74 16 L58 32 L74.5 40 Z', '#d39a55') +
       // dark tips: the ear outline itself, clipped above a rounded V so they keep clear of the inner dark shape
       `<clipPath id="__ID__t"><path d="M-0 4.9 L37.1 -10 L43.5 22.1 L29.5 18.3 Q26.5 17.3 25 20 L17.6 32.5 Z M100 4.9 L62.9 -10 L56.5 22.1 L70.5 18.3 Q73.5 17.3 75 20 L82.4 32.5 Z"/></clipPath>` +
@@ -157,44 +162,55 @@ export const animals = {
       p('M47 59 L53 59 L50 62 Z', '#c4746a'),
   },
   norppa: {
-    label: { en: 'Saimaa seal', fi: 'Norppa' }, bg: 'pink', eyes: [[39, 53], [61, 53]], eyeScale: 1.5, mouth: [50, 72.5], top: 33, topW: 23, neck: 90,
+    label: { en: 'Saimaa seal', fi: 'Norppa' }, bg: 'pink', eyes: [[39, 53], [61, 53]], eyeScale: 1.5, mouth: [50, 72.5], top: 33, topW: 23, neck: 90, scarf: [78, 17],
     // spots are masked to the outline: they may touch it but never spill out. __ID__ is made unique per copy.
-    shape: pss(norppaBody, '#6f7a84') + psss(norppaHead, '#8d97a0') +
-      `<mask id="__ID__s">` + path(norppaHead, '#fff', 24) + path(norppaBody, '#fff', 15) + `</mask>
+    shape: pss(norppaBody, '#6f7a84') + `<mask id="__ID__b">` + path(norppaBody, '#fff', 15) + `</mask>
+      <g mask="url(#__ID__b)" fill="#5a646d"><circle cx="21" cy="92" r="5"/><circle cx="63" cy="92" r="2.6"/><circle cx="72" cy="88" r="1.8"/><circle cx="41" cy="96" r="1.8"/><circle cx="83" cy="97" r="3.5"/></g>` +
+      '__NECK__' + psss(norppaHead, '#8d97a0') + `<mask id="__ID__s">` + path(norppaHead, '#fff', 24) + `</mask>
       <g mask="url(#__ID__s)"><g fill="#6c7680"><circle cx="26" cy="57" r="4.5"/><circle cx="38" cy="40" r="3.4"/><circle cx="44" cy="35.5" r="1.6"/><circle cx="62" cy="38" r="2.4"/>
-        <circle cx="75" cy="52" r="3.8"/><circle cx="69" cy="74" r="3"/><circle cx="30" cy="72" r="1.8"/><circle cx="56" cy="34" r="2.6"/><circle cx="66" cy="45" r="1.4"/></g>
-      <g fill="#5a646d"><circle cx="21" cy="92" r="5"/><circle cx="63" cy="92" r="2.6"/><circle cx="72" cy="88" r="1.8"/><circle cx="41" cy="96" r="1.8"/><circle cx="83" cy="97" r="3.5"/></g></g>
+        <circle cx="75" cy="52" r="3.8"/><circle cx="69" cy="74" r="3"/><circle cx="30" cy="72" r="1.8"/><circle cx="56" cy="34" r="2.6"/><circle cx="66" cy="45" r="1.4"/></g></g>
       <ellipse cx="44.5" cy="68" rx="6.5" ry="5.5" fill="#d3d9de"/><ellipse cx="55.5" cy="68" rx="6.5" ry="5.5" fill="#d3d9de"/>` +
       p('M47.5 64 L52.5 64 L50 67 Z', D, 'stroke-width="2"') +
       `<g stroke="#d3d9de" stroke-width="1" stroke-linecap="round"><path d="M38 67 L27 64 M38 70 L27 72 M62 67 L73 64 M62 70 L73 72"/></g>`,
   },
   pollo: {
     // eagle owl: a big tapering body, a smaller head sunk into it, tufts at the top corners, orange eyes
-    label: { en: 'Eagle owl', fi: 'Pöllö' }, bg: 'teal', eyes: [[41.5, 53], [58.5, 53]], eyeScale: 1.1, mouth: null, top: 38, topW: 18, neck: 74,
+    label: { en: 'Eagle owl', fi: 'Pöllö' }, bg: 'teal', eyes: [[41.5, 53], [58.5, 53]], eyeScale: 1.1, ring: '#f0a030', mouth: null, top: 38, topW: 18, neck: 74, scarf: [67, 22],
     shape: pss('M35 66 L65 66 L77 104 L23 104 Z', '#7a5a3c') +
       ps('M22 104 L27 76 L34 85 L33 104 Z', '#5e4430') + ps('M78 104 L73 76 L66 85 L67 104 Z', '#5e4430') +
       ps('M42 76 L58 76 L61.5 104 L38.5 104 Z', '#d8bf98') +
       `<g stroke="#8a6a48" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="${[[80, [42, 48, 54]], [86, [39, 45, 51, 57]], [92, [42, 48, 54]], [98, [39, 45, 51, 57]]]
-        .flatMap(([y, xs]) => (xs as number[]).map((x) => `M${x} ${y} l2 2 l2 -2`)).join(' ')}"/></g>` +
+        .flatMap(([y, xs]) => (xs as number[]).map((x) => `M${x} ${y} l2 2 l2 -2`)).join(' ')}"/></g>` + '__NECK__' +
       p('M35.2 40.6 L31.9 30.2 L40.8 37.9 Z', '#5e4430') + p('M64.8 40.6 L68.1 30.2 L59.2 37.9 Z', '#5e4430') +
       ps('M33 45 L40 38.5 L50 37 L60 38.5 L67 45 L68 58 L62 67 L50 70 L38 67 L32 58 Z', '#8d6a48') +
       notched('M37 49 L43 45.5 L50 48.5 L57 45.5 L63 49 L62 58 L50 63.5 L38 58 Z', 'M37 49 L43 45.5 L57 45.5 L63 49 L62 58 L50 63.5 L38 58 Z', '#dcc39a', 10) +
-      `<circle cx="41.5" cy="53" r="5.2" fill="#f0a030"/><circle cx="58.5" cy="53" r="5.2" fill="#f0a030"/>` +
+      '__RING__' +
       cast(`<path d="${fillet([[45, 57.8], [55, 57.8], [50, 68.5]], [2.3, 2.3, 0.8])}" fill="#4a3a30"/>`) + `<g fill="#8a776a"><ellipse cx="48.2" cy="59.2" rx=".75" ry=".55"/><ellipse cx="51.8" cy="59.2" rx=".75" ry=".55"/></g>`,
   },
   orava: {
-    label: { en: 'Squirrel', fi: 'Orava' }, bg: 'green', eyes: [[41, 52], [59, 52]], mouth: [50, 69], top: 38, topW: 20, neck: 82,
-    back: cast('<path d="M64 100 Q96 92 92 64 Q90 40 74 42 Q86 52 80 66 Q74 82 60 88 Z" fill="#b5521f"/>'),
-    shape: body('#b5561f', '#f3dcc0', 11, 24) + `<path d="M33 22 L32 13 M67 22 L68 13" stroke="#8f3f16" stroke-width="3" stroke-linecap="round"/>` +
-      p('M32 42 L32 21 L44 37 Z', '#c8642c') + p('M68 42 L68 21 L56 37 Z', '#c8642c') +
-      p('M30 47 L40 37 L60 37 L70 47 L76 60 L63 73 L50 80 L37 73 L24 60 Z', '#c8642c') +
-      light(p('M24 60 L33 58 L41 68 L37 73 Z', '#f3dcc0')) + p('M76 60 L67 58 L59 68 L63 73 Z', '#f3dcc0') +
-      p('M40 61 L50 57 L60 61 L58 72 L50 79 L42 72 Z', '#f3dcc0') + p('M47.5 62 L52.5 62 L50 65 Z', D),
-    detail: flat(p('M44 38 L56 38 L50 46 Z', '#b5561f')) + p('M34 37 L34 27 L40 35 Z', '#e89a6a') + p('M66 37 L66 27 L60 35 Z', '#e89a6a'),
+    // red squirrel: skull plus wider cheeks, a cream muzzle reaching the cheek edges, tall ears with dark tufts
+    // behind them, a slate nose and two front teeth
+    label: { en: 'Squirrel', fi: 'Orava' }, bg: 'green', eyes: [[42.1, 54.5], [57.9, 54.5]], eyeScale: 1.25, mouth: [50, 71], top: 38, topW: 16.5, neck: 82, scarf: [78, 14],
+    // rounded tail with a faceted lighter band down its middle, tapering to both ends
+    back: ps('M61 98 Q95 94 91 62 Q89 32 72 32 Q84 41 81 57 Q78 78 58 87 Z', '#b5432a') +
+      light(p('M77 35.5 L85 41.5 L88 52 L88.5 63.5 L84.5 75.5 L72 86.5 L83 73.5 L86 63 L85 52.5 L82 45 Z', '#d2672f')),
+    shape: body('#b5432a', '#f9e2bd', 12, 25) + '__NECK__' +
+      `<path d="M34 27 Q32.7 18 35.4 11 Q38.4 17 39.7 25 ZM66 27 Q67.3 18 64.6 11 Q61.6 17 60.3 25 Z" fill="#3a2a22"/>` +
+      // ears' outer edges carry on the skull's sides
+      p('M34.2 47 L35.9 24 L44.6 39 Z', '#d2672f') + p('M65.8 47 L64.1 24 L55.4 39 Z', '#d2672f') +
+      // head as two overlapping shapes: the skull, and wider cheeks over its lower half
+      cast(path('M34.2 47 L40.4 39 L59.6 39 L65.8 47 L66.6 58 L50 62 L33.4 58 Z', '#d2672f', 6) + path('M29.9 62 L37.7 54 L62.3 54 L70.1 62 L67.5 75 L58.7 80 L41.3 80 L32.5 75 Z', '#d2672f', 10)) +
+      ps('M43 66 L50 65 L57 66 L67.5 72 L67.5 75 L58.7 80 L41.3 80 L32.5 75 L32.5 72 Z', '#f9e2bd') +
+      // front teeth under the mouth line: every expression's mouth is drawn over them
+      `<path d="M48 71.5 h4 v3.4 q0 1 -1 1 h-2 q-1 0 -1 -1 Z" fill="#fff"/><path d="M50 71.9 v3.8" stroke="#e2d8cc" stroke-width=".6"/>` +
+      cast(path('M47.5 66 L52.5 66 L50 69 Z', '#3d4654', 4)),
+    detail: p('M37.6 40 L37.6 30.5 L42.2 37 Z', '#8f2f1f') + p('M62.4 40 L62.4 30.5 L57.8 37 Z', '#8f2f1f'),
   },
+
+
   janis: {
-    label: { en: 'Mountain hare', fi: 'Jänis' }, bg: 'blue', eyes: [[41, 54], [59, 54]], mouth: [50, 68], top: 40, topW: 20, neck: 84,
-    shape: body('#b07f4f', '#f3ece2', 11, 24) + cast('<ellipse cx="40" cy="22" rx="6.5" ry="19" transform="rotate(-8 40 22)" fill="#d6a06a"/>') +
+    label: { en: 'Mountain hare', fi: 'Jänis' }, bg: 'blue', eyes: [[41, 54], [59, 54]], mouth: [50, 68], top: 40, topW: 20, neck: 84, scarf: [78, 14],
+    shape: body('#b07f4f', '#f3ece2', 11, 24) + '__NECK__' + cast('<ellipse cx="40" cy="22" rx="6.5" ry="19" transform="rotate(-8 40 22)" fill="#d6a06a"/>') +
       cast('<ellipse cx="60" cy="22" rx="6.5" ry="19" transform="rotate(8 60 22)" fill="#d6a06a"/>') + `
       ` + cast('<ellipse cx="40" cy="24" rx="3" ry="13" transform="rotate(-8 40 24)" fill="#e9a99b"/>', 1.4) + cast('<ellipse cx="60" cy="24" rx="3" ry="13" transform="rotate(8 60 24)" fill="#e9a99b"/>', 1.4) + `
       <clipPath id="__ID__h"><path d="M30 0 L70 0 L70 13.9 L66.5 13.9 L61.8 9 Q60 7.1 58.2 9 L53.5 13.9 L46.5 13.9 L41.8 9 Q40 7.1 38.2 9 L33.5 13.9 L30 13.9 Z"/></clipPath>
@@ -205,15 +221,15 @@ export const animals = {
     detail: light(ps('M28.8 65 L31.5 63.2 L32.4 67.4 Z', '#c48d58')) + ps('M71.2 65 L68.5 63.2 L67.6 67.4 Z', '#c48d58'),
   },
   siili: {
-    label: { en: 'Hedgehog', fi: 'Siili' }, bg: 'orange', eyes: [[42, 62], [58, 62]], mouth: [50, 80], top: 34, topW: 22, neck: 90,
+    label: { en: 'Hedgehog', fi: 'Siili' }, bg: 'orange', eyes: [[42, 62], [58, 62]], mouth: [50, 80], top: 34, topW: 22, neck: 90, scarf: [79, 22],
     back: siiliSpines,
-    shape: body('#4e3828', '#e9cfa6', 16, 35) + `<circle cx="33" cy="52" r="5.5" fill="#d9b88f"/><circle cx="67" cy="52" r="5.5" fill="#d9b88f"/>` +
+    shape: body('#4e3828', '#e9cfa6', 16, 35) + '__NECK__' + `<circle cx="33" cy="52" r="5.5" fill="#d9b88f"/><circle cx="67" cy="52" r="5.5" fill="#d9b88f"/>` +
       cast('<circle cx="33" cy="52" r="2.6" fill="#b88d63"/>', 1.4) + cast('<circle cx="67" cy="52" r="2.6" fill="#b88d63"/>', 1.4) +
       notched('M30 60 L40 52 L50 57 L60 52 L70 60 L65 71 L55 81 L45 81 L35 71 Z', 'M30 60 L40 52 L60 52 L70 60 L65 71 L55 81 L45 81 L35 71 Z', '#e9cfa6', 6) +
       `<ellipse cx="50" cy="75" rx="4.4" ry="3.6" fill="${D}"/><circle cx="51.4" cy="74" r="1.1" fill="#fff"/>`,
   },
   lokki: {
-    label: { en: 'Gull', fi: 'Lokki' }, bg: 'navy', eyes: [[43, 47], [57, 47]], mouth: null, top: 33, topW: 15, neck: 76,
+    label: { en: 'Gull', fi: 'Lokki' }, bg: 'navy', eyes: [[43, 47], [57, 47]], mouth: null, top: 33, topW: 15, neck: 76, scarf: [70, 16.5],
     shape: pss('M37 82 L63 82 L86 104 L14 104 Z', '#9aa4ad') + p('M36 74 L64 74 L60 100 L40 100 Z', '#f6f6f2') +
       p('M41 62 L59 62 L64 78 L36 78 Z', '#f6f6f2') +
       cast(path('M38 42 L45 35 L55 35 L62 42 L64 55 L58 65 L42 65 L36 55 Z', '#f6f6f2', 10) + path('M44 35 L56 35 L54 40 L46 40 Z', '#e3e6e8', 6)) +
@@ -225,7 +241,8 @@ export const animals = {
 
 const eye = {
   dot: (x: number, y: number, s: number) => `<circle cx="${x}" cy="${y}" r="${3.4 * s}" fill="${D}"/><circle cx="${x + 1.1 * s}" cy="${y - 1.2 * s}" r="${1.1 * s}" fill="#fff"/>`,
-  big: (x: number, y: number, s: number) => `<circle cx="${x}" cy="${y}" r="${4.6 * s}" fill="#fff"/><circle cx="${x}" cy="${y}" r="${3 * s}" fill="${D}"/><circle cx="${x + 1 * s}" cy="${y - 1 * s}" r="${0.9 * s}" fill="#fff"/>`,
+  // ringed eyes (the owl's) skip the white: their ring grows instead
+  big: (x: number, y: number, s: number, ring?: string) => (ring ? '' : `<circle cx="${x}" cy="${y}" r="${4.6 * s}" fill="#fff"/>`) + `<circle cx="${x}" cy="${y}" r="${3 * s}" fill="${D}"/><circle cx="${x + 1 * s}" cy="${y - 1 * s}" r="${0.9 * s}" fill="#fff"/>`,
   happy: (x: number, y: number, s: number) => `<path d="M${x - 3.6 * s} ${y + 1.2} Q${x} ${y - 4 * s} ${x + 3.6 * s} ${y + 1.2}" stroke="${D}" stroke-width="2.4" fill="none" stroke-linecap="round"/>`,
   sleepy: (x: number, y: number, s: number) => `<path d="M${x - 3.6 * s} ${y} Q${x} ${y + 3 * s} ${x + 3.6 * s} ${y}" stroke="${D}" stroke-width="2.4" fill="none" stroke-linecap="round"/>`,
 };
@@ -248,6 +265,22 @@ export const expressions = {
   },
 } satisfies Record<string, { label: Label; eyes: [keyof typeof eye, keyof typeof eye]; mouth: keyof typeof mouth; extra?: string }>;
 
+// a thick band round the neck, its sides slanting out like the shoulders, knotted on the right with two
+// short striped ends over the chest; the knot hangs from the band's lower edge so the chin never hides it,
+// and the frame may cut the ends
+const scarf = (a: Animal) => {
+  const [y, w] = a.scarf, k = 50 + w * 0.55, t = y + 12, L = 14;
+  const C = '#2f7fd0', S = '#2566a8';
+  const band = `M${50 - w} ${y} Q50 ${y + 7} ${50 + w} ${y} L${50 + w + 3} ${y + 8} Q50 ${y + 16} ${50 - w - 3} ${y + 8} Z`;
+  const end1 = `M${k - 4} ${t} L${k + 3} ${t} L${k + 5} ${t + L} L${k - 3} ${t + L} Z`;
+  const end2 = `M${k + 1} ${t - 1} L${k + 7} ${t - 2} L${k + 12} ${t - 3 + L * 0.8} L${k + 5} ${t - 1 + L * 0.8} Z`;
+  const stripe = (v: number) => `M${k - 4} ${v} L${k + 4.5} ${v}`;
+  return path(end2, S, 3) + path(band, C, 4) +
+    `<path d="M${50 - w - 1.5} ${y + 8.5} Q50 ${y + 16.5} ${50 + w + 1.5} ${y + 8.5}" stroke="${S}" stroke-width="2.4" fill="none" stroke-linecap="round"/>` +
+    path(end1, C, 3) + `<path d="${stripe(t - 1 + L * 0.45)} ${stripe(t - 1 + L * 0.7)}" stroke="#f4f1ea" stroke-width="2"/>` +
+    path(`M${k - 3} ${y + 7.5} L${k + 3} ${y + 7} L${k + 2.5} ${y + 12.5} L${k - 2.5} ${y + 13} Z`, S, 5);
+};
+
 export const accessories = {
   none: { label: { en: 'None', fi: 'Ei mitään' }, draw: () => '' },
   pipo: {
@@ -260,11 +293,38 @@ export const accessories = {
   },
   huivi: {
     label: { en: 'Scarf', fi: 'Kaulahuivi' },
+    // drawn into the shape at __NECK__ by avatarMarkup when the animal has one, so the head covers its middle
+    draw: (a: Animal) => scarf(a),
+  },
+  aurinkolasit: {
+    label: { en: 'Sunglasses', fi: 'Aurinkolasit' },
     draw: (a: Animal) => {
-      const n = a.neck;
-      return `<path d="M28 ${n - 4} Q50 ${n + 6} 72 ${n - 4} L74 ${n + 4} Q50 ${n + 14} 26 ${n + 4} Z" fill="#2f7fd0"/>
-      <path d="M58 ${n + 4} L66 ${n + 4} L68 ${n + 18} L59 ${n + 18} Z" fill="#2f7fd0"/>
-      <path d="M30 ${n} L33 ${n + 7} M40 ${n + 3} L42 ${n + 10} M52 ${n + 4} L53 ${n + 11}" stroke="#fff" stroke-width="2.4"/>`;
+      const [[x1, y1], [x2, y2]] = a.eyes, r = Math.min(8 * (a.eyeScale ?? 1) ** 0.5, (x2 - x1) / 2 - 1.5);
+      const lens = (x: number, y: number) => `M${x - r} ${y - r * 0.6} L${x + r} ${y - r * 0.6} L${x + r * 0.85} ${y + r * 0.35} Q${x} ${y + r * 1.05} ${x - r * 0.85} ${y + r * 0.35} Z`;
+      const glint = (x: number, y: number) => `M${x - r * 0.45} ${y + r * 0.15} L${x - r * 0.05} ${y - r * 0.35}`;
+      return path(lens(x1, y1) + lens(x2, y2), '#1e2328', 2.6) +
+        `<path d="M${x1 + r * 0.8} ${y1 - r * 0.55} Q50 ${y1 - r * 0.9} ${x2 - r * 0.8} ${y2 - r * 0.55}" stroke="#1e2328" stroke-width="2.4" fill="none"/>` +
+        `<path d="${glint(x1, y1)} ${glint(x2, y2)}" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".55"/>`;
+    },
+  },
+  kruunu: {
+    label: { en: 'Crown', fi: 'Kruunu' },
+    draw: (a: Animal) => {
+      const t = a.top, w = a.topW * 0.72;
+      const d = `M${50 - w} ${t + 3} L${50 - w} ${t - 11} L${50 - w / 2} ${t - 4} L50 ${t - 14} L${50 + w / 2} ${t - 4} L${50 + w} ${t - 11} L${50 + w} ${t + 3} Z`;
+      return path(d, '#f2b632', 3) + path(`M${50 + w / 2} ${t - 4} L${50 + w} ${t - 11} L${50 + w} ${t + 3} L${50 + w / 2} ${t + 3} Z`, '#d99a14', 3) +
+        [[50 - w, t - 12], [50, t - 15], [50 + w, t - 12]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="2.4" fill="#f2b632"/>`).join('') +
+        `<circle cx="50" cy="${t - 1}" r="2.6" fill="#d8343f"/>`;
+    },
+  },
+  lippis: {
+    label: { en: 'Cap', fi: 'Lippis' },
+    draw: (a: Animal) => {
+      const t = a.top, w = a.topW;
+      return `<path d="M${50 - w} ${t + 5} Q${50 - w} ${t - 13} 50 ${t - 14} Q${50 + w} ${t - 13} ${50 + w} ${t + 5} Z" fill="#2f9e6e"/>` +
+        `<path d="M50 ${t - 14} Q${50 + w} ${t - 13} ${50 + w} ${t + 5} L${50 + w * 0.45} ${t + 5} Q${50 + w * 0.5} ${t - 8} 50 ${t - 14} Z" fill="#237a54"/>` +
+        `<path d="M${50 - w - 2} ${t + 5} Q50 ${t - 1} ${50 + w + 2} ${t + 5} Q50 ${t + 11} ${50 - w - 2} ${t + 5} Z" fill="#1c6646"/>` +
+        `<circle cx="50" cy="${t - 14}" r="2.2" fill="#237a54"/>`;
     },
   },
   lasit: {
@@ -333,15 +393,17 @@ export function avatarMarkup(look: Look, id: string) {
   const a: Animal = animals[look.animal];
   const e = expressions[look.expression];
   const s = a.eyeScale ?? 1;
-  const eyes = (e.eyes as readonly (keyof typeof eye)[]).map((k, i) => eye[k](a.eyes[i][0], a.eyes[i][1], s)).join('');
+  const eyes = (e.eyes as readonly (keyof typeof eye)[]).map((k, i) => eye[k](a.eyes[i][0], a.eyes[i][1], s, a.ring)).join('');
+  const rings = a.ring ? a.eyes.map(([x, y], i) => `<circle cx="${x}" cy="${y}" r="${e.eyes[i] === 'big' ? 6.6 : 5.2}" fill="${a.ring}"/>`).join('') : '';
   const face = eyes + (a.mouth ? mouth[e.mouth](...a.mouth) : '') + ('extra' in e ? e.extra : '');
-  const raw = (a.back ?? '') + a.shape + (a.detail ?? '');
+  const tucked = look.accessory === 'huivi' && a.shape.includes('__NECK__');
+  const raw = (a.back ?? '') + a.shape.replace('__NECK__', tucked ? scarf(a) : '') + (a.detail ?? '');
   return `<defs><clipPath id="${id}c"><circle cx="50" cy="50" r="50"/></clipPath>
       <filter id="${id}W" filterUnits="userSpaceOnUse" x="-20" y="-20" width="140" height="140"><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/></filter>
       <filter id="${id}K" filterUnits="userSpaceOnUse" x="-20" y="-20" width="140" height="140"><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"/></filter></defs>
     <g clip-path="url(#${id}c)">
       ${bgStyles[look.style].draw(lookColour(look).hex)}
-      ${raw.replaceAll('__ID__', id)}
-      ${face}${accessories[look.accessory].draw(a)}
+      ${raw.replaceAll('__ID__', id).replace('__RING__', rings)}
+      ${face}${tucked ? '' : accessories[look.accessory].draw(a)}
     </g>`;
 }

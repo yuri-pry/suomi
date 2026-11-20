@@ -18,3 +18,10 @@ test('every animal draws with every expression and accessory', () => {
         expect(svg).not.toMatch(/undefined|NaN|__ID__/);
       }
 });
+
+test('the owl keeps orange rings, which grow instead of turning white when surprised', () => {
+  const owl = (expression: string) => avatarMarkup({ ...defaultLook, animal: 'pollo', expression } as typeof defaultLook, 'x');
+  expect(owl('iloinen')).toContain('r="5.2" fill="#f0a030"');
+  expect(owl('yllattynyt')).toContain('r="6.6" fill="#f0a030"');
+  expect(owl('yllattynyt')).not.toMatch(/r="5\.06\d*" fill="#fff"/);
+});
