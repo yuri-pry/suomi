@@ -16,6 +16,7 @@ import { t } from './lib/strings';
 import { SpeakerContext } from './exercises/Speakable';
 import { Home } from './screens/Home';
 import { Profile } from './screens/Profile';
+import { AvatarEditor } from './screens/AvatarEditor';
 import { Settings } from './screens/Settings';
 import { Lesson } from './screens/Lesson';
 import { Result } from './screens/Result';
@@ -34,6 +35,7 @@ type Screen =
   | { name: 'checkpoint'; unitId: string; exercises: Exercise[] }
   | { name: 'review' }
   | { name: 'practice' }
+  | { name: 'avatar' }
   | { name: 'result'; xpGained: number; mistakes: number; review?: true; practice?: true; checkpoint?: { score: number; total: number; passed: boolean } };
 
 export function App() {
@@ -59,6 +61,8 @@ export function App() {
       const sheet = document.querySelector<HTMLDialogElement>('dialog.confirm[open]');
       if (sheet) sheet.close();
       else document.querySelector<HTMLElement>('[data-quit]')?.click();
+    } else if (screen.name === 'avatar') {
+      setScreen({ name: 'home' }); // back to the profile tab, draft dropped
     } else if (screen.name !== 'home' || tab !== 'home') {
       setScreen({ name: 'home' });
       setTab('home');
@@ -215,6 +219,19 @@ export function App() {
       </SpeakerContext>
     );
 
+  if (screen.name === 'avatar')
+    return (
+      <AvatarEditor
+        saved={progress.avatar}
+        lang={progress.lang}
+        onClose={() => setScreen({ name: 'home' })}
+        onSave={(avatar) => {
+          update({ avatar });
+          setScreen({ name: 'home' });
+        }}
+      />
+    );
+
   if (screen.name === 'result')
     return (
       <Result
@@ -244,7 +261,7 @@ export function App() {
           onPractice={() => setScreen({ name: 'practice' })}
         />
       )}
-      {tab === 'profile' && <Profile units={units} progress={progress} today={today} onChange={update} />}
+      {tab === 'profile' && <Profile units={units} progress={progress} today={today} onEditAvatar={() => setScreen({ name: 'avatar' })} />}
       {tab === 'settings' && <Settings progress={progress} onChange={update} onPlacement={() => setScreen({ name: 'placement' })} />}
       <nav className="tabbar" aria-label={t('mainNav', progress.lang)}>
         {tabs.map((name) => (

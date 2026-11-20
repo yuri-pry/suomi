@@ -1058,7 +1058,7 @@ button:disabled {
   }
 }
 
-/* Profile: the chosen avatar on its own colour block with the streak, then the overview and the picker */
+/* Profile: the chosen avatar on its own colour block with the streak, then the overview */
 
 .profile-hero {
   display: grid;
@@ -1112,9 +1112,48 @@ button:disabled {
   align-items: center;
 }
 
-.avatar-editor {
+/* Avatar editor: preview on its colour block, an icon tab per picker, the chosen picker's grid, Save at the bottom */
+
+.avatar-stage {
   display: grid;
-  gap: var(--space-4);
+  place-items: center;
+  margin: 0 var(--space-4);
+  padding: var(--space-5);
+  border-radius: var(--radius-xl);
+}
+
+.avatar-tabs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: var(--space-4) var(--space-4) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.avatar-tab {
+  display: grid;
+  place-items: center;
+  min-height: var(--tap-min);
+  padding: var(--space-2) 0;
+  margin: 0 0 -1px;
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+}
+
+.avatar-tab[aria-selected='true'] {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.avatar-tab:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
+}
+
+.avatar-panel {
+  flex: 1;
   padding: var(--space-4) var(--space-3);
 }
 

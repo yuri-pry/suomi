@@ -1,13 +1,12 @@
 import { Avatar, Icon, type IconName } from '../design/Icon';
-import { accessories, animals, bgStyles, colours, expressions, lookColour, lookString, parseLook, type Look } from '../design/avatar';
-import { haptic } from '../lib/haptics';
-import type { Lang, Unit } from '../lib/types';
+import { lookColour, parseLook } from '../design/avatar';
+import type { Unit } from '../lib/types';
 import { currentStreak, xpToday, type Progress } from '../lib/progress';
-import { t, type StringKey } from '../lib/strings';
+import { t } from '../lib/strings';
 
-type Props = { units: Unit[]; progress: Progress; today: string; onChange: (patch: Partial<Progress>) => void };
+type Props = { units: Unit[]; progress: Progress; today: string; onEditAvatar: () => void };
 
-export function Profile({ units, progress, today, onChange }: Props) {
+export function Profile({ units, progress, today, onEditAvatar }: Props) {
   const lang = progress.lang;
   const lessons = units.flatMap((u) => u.lessons);
   const done = lessons.filter((l) => l.id in progress.done).length;
@@ -33,6 +32,9 @@ export function Profile({ units, progress, today, onChange }: Props) {
         <p className="profile-best">
           {t('bestStreak', lang)}: {progress.streak.best}
         </p>
+        <button type="button" className="btn btn-small btn-secondary" onClick={onEditAvatar}>
+          {t('editAvatar', lang)}
+        </button>
       </section>
 
       <h2 className="eyebrow profile-section">{t('overview', lang)}</h2>
@@ -49,46 +51,6 @@ export function Profile({ units, progress, today, onChange }: Props) {
           </div>
         ))}
       </dl>
-
-      <h2 className="eyebrow profile-section">{t('avatar', lang)}</h2>
-      <div className="avatar-editor card">
-        {pickers.map(([field, label, table]) => (
-          <div key={field} className="avatar-picker">
-            <h3 className="avatar-picker-label">{t(label, lang)}</h3>
-            <div className="avatar-grid" role="radiogroup" aria-label={t(label, lang)}>
-              {Object.entries(table).map(([key, option]) => {
-                // each choice previews the current look with only that part changed
-                const next = { ...look, [field]: key };
-                return (
-                  <button
-                    key={key}
-                    type="button"
-                    role="radio"
-                    className="avatar-option"
-                    // colour '' is the animal's own, so that swatch shows as chosen
-                    aria-checked={(field === 'colour' ? look.colour || animals[look.animal].bg : look[field]) === key}
-                    aria-label={option.label[lang]}
-                    onClick={() => {
-                      haptic('tap');
-                      onChange({ avatar: lookString(next) });
-                    }}
-                  >
-                    <Avatar look={next} size={52} className="avatar" />
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        ))}
-      </div>
     </main>
   );
 }
-
-const pickers = [
-  ['animal', 'avatarAnimal', animals],
-  ['colour', 'avatarColour', colours],
-  ['style', 'avatarStyle', bgStyles],
-  ['expression', 'avatarExpression', expressions],
-  ['accessory', 'avatarAccessory', accessories],
-] as const satisfies readonly (readonly [keyof Look, StringKey, Record<string, { label: Record<Lang, string> }>])[];
